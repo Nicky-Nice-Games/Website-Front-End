@@ -39,6 +39,11 @@ function NavBar() {
         onClick={() => navigate('/about')}>
         About
       </button>
+
+      <button
+        onClick={() => navigate('/content')}>
+        Content
+      </button>
     </div>
   );
 }

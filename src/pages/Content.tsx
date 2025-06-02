@@ -4,6 +4,7 @@ const ContentPage = () => {
         <>
             <h2 className="text-black"> Content Page</h2>
 
+
         </>
     );
 }
