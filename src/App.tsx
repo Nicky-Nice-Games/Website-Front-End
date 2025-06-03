@@ -24,20 +24,39 @@ function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ margin: '1rem 0' }}>
+    <div className='flex flex-row w-full bg-[#F76902] justify-between'>
       <button
-        style={{ marginRight: '0.5rem' }}
-        onClick={() => navigate('/')}>
-        Login
+        onClick={() => navigate('/home')}
+      >
+        <img src="images/landscape-placeholder.svg" className='max-w-10'/>
       </button>
-
+      <div>
+        <button
+          className='p-2'
+          onClick={() => navigate('/about')}>
+          About
+        </button>
+        <button
+          className='p-2'
+          onClick={() => navigate('/content')}>
+          Content
+        </button>
+        <button
+          className='p-2'
+          onClick={() => navigate('/newsAndUpdates')}>
+          News & Updates
+        </button>
+        <button
+          className='p-2'
+          onClick={() => navigate('/forum')}>
+          Community
+        </button>
+      </div>
       <button
-        onClick={() => navigate('/login')}>
-        Login
-      </button>
-      <button
-        onClick={() => navigate('/about')}>
-        About
+      className='justify-end'
+      onClick={() => navigate('/playerStats')}
+      >
+        Username
       </button>
     </div>
   );
