@@ -36,8 +36,8 @@ function NavBar() {
         Login
       </button>
       <button
-        onClick={() => navigate('/about')}>
-        About
+        onClick={() => navigate('/playerStats')}>
+        Player Stats
       </button>
     </div>
   );

@@ -4,8 +4,11 @@ const PLayerStatsPage = () => {
     return(
 
         <>
-            <h2 className="text-black"> Player Stats Page</h2>
-
+                <div className="grid grid-cols-3 gap-4 items-center">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                </div>
         </>
     );
 }
