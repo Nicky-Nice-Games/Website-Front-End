@@ -1,9 +1,14 @@
 [
     {
         "id": "2388asdje",
-        "placing": "1st",
-        "name": "username",
-        "raceTimeMilliseconds": 439000,
+        "profile": {
+            "index": 1,
+            "pictureLink": "images/pfp-placeholder.png"
+        },
+        "player": {
+            "username": "username",
+            "raceTimeMilliseconds": 439000
+        },
         "score": 23000
     }
 ]

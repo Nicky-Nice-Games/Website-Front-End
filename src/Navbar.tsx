@@ -60,7 +60,7 @@ const Navbar = () => {
         <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className="bg-inherit">
                     Username                
-                    <img src="images/landscape-placeholder.svg" className='max-w-7' />
+                    <img src="images/pfp-placeholder.png" className='max-w-7' />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>

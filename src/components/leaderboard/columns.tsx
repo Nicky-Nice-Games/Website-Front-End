@@ -14,9 +14,25 @@ const formatTime = (milliseconds: number): string => {
     return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
 }
 
+const formatPlacing = (index: number): string => {
+    let suffix;
+    switch (index % 10){
+        case 1: suffix = "st"; break;
+        case 2: suffix = "nd"; break;
+        case 3: suffix = "rd"; break;
+        default: suffix = "th"; break;
+    }
+    return index + suffix;
+}
+
 interface Profile {
-    placing: number;
+    index: number;
     pictureLink: string;
+}
+
+interface Player {
+    username: string;
+    raceTimeMilliseconds: number;
 }
 
 // This type is used to define the shape of our data.
@@ -24,27 +40,36 @@ interface Profile {
 export type Racer = {
   id: string
   profile: Profile
-  name: string
-  raceTimeMilliseconds: number
+  player: Player
   score: number
 }
 
 export const columns: ColumnDef<Racer>[] = [
   {
-    accessorKey: "placing",
-    header: "",
+    accessorKey: "profile",
+    header: () => <h1 className="max-w-1"></h1>,
+    cell: ({ row }) => {
+        const data: Profile = row.getValue("profile");
+        return <div className="flex flex-row items-center justify-center">
+            <h1 className="font-bold text-xl mr-3">{formatPlacing(data.index)}</h1>
+            <img src={data.pictureLink} className="max-w-9"/>
+        </div>
+    }
   },
   {
-    accessorKey: "name",
-    header: "Player",
-  },
-  {
-    accessorKey: "raceTimeMilliseconds",
-    header: "",
-    cell: ({ row }) => formatTime(row.getValue("raceTimeMilliseconds"))
+    accessorKey: "player",
+    header: () => <h1 className="text-center">Player</h1>,
+    cell: ({ row }) => {
+        const data: Player = row.getValue("player");
+        return <div className="min-w-30">
+            <h2 className="text-base text-left">{data.username}</h2>
+            <h2 className="text-lg text-right">{formatTime(data.raceTimeMilliseconds)}</h2>
+        </div>
+    }
   },
   {
     accessorKey: "score",
-    header: "Score",
+    header: () => <h1 className="text-center">Score</h1>,
+    cell: ({ row }) => <h2 className="text-right">{row.getValue("score")}</h2>
   }
 ]
