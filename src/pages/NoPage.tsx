@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -6,22 +5,29 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+} from "@/components/ui/card"; // Import card components for layout
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import { motion } from 'framer-motion'; // Import motion for simple animations
 
 const NoPage: React.FC = () => {
   return (
+
+        // Full-screen container with a gradient background
     <div className="relative min-h-screen bg-gradient-to-br from-black via-[#F76902] to-[#1a1a1a] flex flex-col overflow-hidden particles-container">
 
+              {/* Centering wrapper for the card */}
       <div className="flex-grow flex items-center justify-center px-4">
+        {/* Fade-in animation for the whole card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+
+          {/* Semi-transparent black card */}
           <Card className="max-w-lg w-full border border-gray-700 p-8 backdrop-blur-sm bg-[#000000]/50 ">
             <CardHeader className="text-center space-y-3">
+              {/* Small animation around the 404 text */}
               <motion.div
                 animate={{ 
                   scale: [1, 1.05, 1],
@@ -32,10 +38,14 @@ const NoPage: React.FC = () => {
                   repeat: Infinity,
                 }}
               >
+
+                 {/* 404 text */}
                 <CardTitle className="text-6xl font-extrabold text-white tracking-tighter">
                   404
                 </CardTitle>
               </motion.div>
+
+              {/* Page not found text */}
               <CardDescription className="text-white text-xl font-medium">
                 Page Not Found
               </CardDescription>
@@ -59,13 +69,15 @@ const NoPage: React.FC = () => {
               </motion.p>
             </CardContent>
             
-            <CardFooter className="mt-8 flex justify-center">
+              {/* Footer with a return link */}
+             <CardFooter className="mt-8 flex justify-center">
+              {/* Hover and tap animation for the button */}              
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to="/home"
+                  to="/home" // Link back to home
                   className="inline-flex items-center px-6 py-3 border-2 border-cyan-800 text-white rounded-lg font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300 group"
                 >
                   <motion.span
@@ -88,6 +100,7 @@ const NoPage: React.FC = () => {
         </motion.div>
       </div>
       
+     {/* CSS keyframes needed for floating animations */}
       <style>
         {`
           @keyframes float {
