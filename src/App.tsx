@@ -17,7 +17,7 @@ import PlayerStatsPage from './pages/PlayerStats';
 import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
 
-function NavBar() {
+/* function NavBar() {
   const navigate = useNavigate();
 
   return (
@@ -57,7 +57,7 @@ function NavBar() {
       </button>
     </div>
   );
-}
+} */
 
 function App() {
   return (
