@@ -44,7 +44,7 @@ const Navbar = () => {
             <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-inherit">Community</NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
-                    <NavigationMenuLink className="">
+                    <NavigationMenuLink>
                     <button onClick={() => navigate('/forum')}>
                         Forum
                     </button>
