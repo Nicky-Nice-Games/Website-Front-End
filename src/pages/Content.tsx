@@ -12,7 +12,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+} from "../components/ui/navigation-menu"
 
 const ContentPage = () => {
     return (
