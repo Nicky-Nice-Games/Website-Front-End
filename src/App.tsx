@@ -14,11 +14,8 @@ import HomePage from './pages/Home';
 import LeaderboardPage from './pages/Leaderboard';
 import NewsAndUpdatesPage from './pages/NewsAndUpdates';
 import PlayerStatsPage from './pages/PlayerStats';
-
-
-
 import NoPage from './pages/NoPage';
-
+import Navbar from './Navbar';
 
 function NavBar() {
   const navigate = useNavigate();
@@ -65,7 +62,7 @@ function NavBar() {
 function App() {
   return (
     <Router>
-      <NavBar />
+      <Navbar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
