@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { columns } from "../components/leaderboard/columns"
 import { DataTable } from "../components/leaderboard/data-table"
 import '../index.css';
+
 const LeaderboardPage = () => {
     const [leaderboardData, setLeaderboardData] = useState([]);
 
@@ -18,15 +19,15 @@ const LeaderboardPage = () => {
     
     if (leaderboardData.length == 0) return(
         <div className="text-center">
-                <h1 className="bebas text-black m-10 text-5xl">Leaderboard</h1>
+                <h1 className="bebas text-black italic m-10 text-5xl">Leaderboard</h1>
             <p>No data found!</p>
         </div>
     );
 
     return (
         <div className="text-center">
-            <h1 className="bebas text-black m-10 text-5xl"> Leaderboard</h1>
-            <DataTable columns={columns} data={leaderboardData} />
+            <h1 className="bebas text-black italic m-10 text-5xl"> Leaderboard</h1>
+                <DataTable columns={columns} data={leaderboardData} />
         </div>
     )
 }

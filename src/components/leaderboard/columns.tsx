@@ -50,7 +50,7 @@ export const columns: ColumnDef<Racer>[] = [
     header: () => <h1 className="max-w-1"></h1>,
     cell: ({ row }) => {
         const data: Profile = row.getValue("profile");
-        return <div className="flex flex-row items-center justify-center">
+        return <div className="flex flex-row items-center justify-center w-full">
             <h1 className="font-bold text-xl mr-3">{formatPlacing(data.index)}</h1>
             <img src={data.pictureLink} className="max-w-9"/>
         </div>
