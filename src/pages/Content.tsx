@@ -1,8 +1,37 @@
+import { Link } from "react-router-dom";
+
+//import ItemsPage from './Items';
+// import CharactersPage from './Characters';
+// import TracksPage from './Tracks';
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuIndicator,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+
 const ContentPage = () => {
-    return(
+    return (
 
         <>
-            <h2 className="text-black"> Content Page</h2>
+            <NavigationMenu>
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink href="/characters">Characters</NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink href="/items">Items</NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink href="/tracks">Tracks</NavigationMenuLink>
+                    </NavigationMenuItem>
+                </NavigationMenuList>
+            </NavigationMenu>
+
 
 
         </>

@@ -14,8 +14,9 @@ import HomePage from './pages/Home';
 import LeaderboardPage from './pages/Leaderboard';
 import NewsAndUpdatesPage from './pages/NewsAndUpdates';
 import PlayerStatsPage from './pages/PlayerStats';
-
-
+import CharactersPage from './pages/Characters';
+import ItemsPage from './pages/Items';
+import TracksPage from './pages/Tracks';
 
 import NoPage from './pages/NoPage';
 
@@ -55,12 +56,15 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/content" element={<ContentPage />} />
+        <Route path="/content/*" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/newsAndUpdates" element={<NewsAndUpdatesPage />} />
         <Route path="/playerStats" element={<PlayerStatsPage />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/tracks" element={<TracksPage />} />
+        <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
     </Router>
