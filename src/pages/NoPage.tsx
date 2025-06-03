@@ -20,7 +20,7 @@ const NoPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Card className="max-w-lg w-full bg-[#11111] border border-gray-700 p-8 backdrop-blur-sm bg-opacity-70">
+          <Card className="max-w-lg w-full border border-gray-700 p-8 backdrop-blur-sm bg-[#000000]/50 ">
             <CardHeader className="text-center space-y-3">
               <motion.div
                 animate={{ 
@@ -36,7 +36,7 @@ const NoPage: React.FC = () => {
                   404
                 </CardTitle>
               </motion.div>
-              <CardDescription className="text-cyan-800 text-xl font-medium">
+              <CardDescription className="text-white text-xl font-medium">
                 Page Not Found
               </CardDescription>
             </CardHeader>
@@ -65,8 +65,8 @@ const NoPage: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to="/"
-                  className="inline-flex items-center px-6 py-3 border-2 border-cyan-800 text-cyan-800 rounded-lg font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300 group"
+                  to="/home"
+                  className="inline-flex items-center px-6 py-3 border-2 border-cyan-800 text-white rounded-lg font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300 group"
                 >
                   <motion.span
                     animate={{
