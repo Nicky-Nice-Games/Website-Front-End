@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
     const navigate = useNavigate();
 
-    return <NavigationMenu className="flex flex-row w-full justify-between bg-[#F76902]">
+    return <NavigationMenu viewport={false} className="flex flex-row w-full justify-between bg-[#F76902] font-semibold">
         <NavigationMenuLink>
             <button onClick={() => navigate('/home')}>
                 <img src="images/landscape-placeholder.svg" className='max-w-10' />
@@ -26,10 +26,11 @@ const Navbar = () => {
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
-                <NavigationMenuTrigger>Content</NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuTrigger className="bg-inherit">Content</NavigationMenuTrigger>
+                <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
-                    <button onClick={() => navigate('/content')}>
+                    <button 
+                    onClick={() => navigate('/content')}>
                         Overview
                     </button>
                     </NavigationMenuLink>
@@ -41,8 +42,8 @@ const Navbar = () => {
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
-                <NavigationMenuTrigger>Community</NavigationMenuTrigger>
-                <NavigationMenuContent className="align-center side-bottom">
+                <NavigationMenuTrigger className="bg-inherit">Community</NavigationMenuTrigger>
+                <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                     <button onClick={() => navigate('/forum')}>
                         Forum
@@ -57,11 +58,11 @@ const Navbar = () => {
             </NavigationMenuItem>
         </NavigationMenuList>
         <NavigationMenuItem className="list-none">
-                <NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-inherit">
                     Username                
                     <img src="images/landscape-placeholder.svg" className='max-w-7' />
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="min-w-30">
+                <NavigationMenuContent className="min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                         <button onClick={() => navigate('/playerStats')}>
                         My Stats
