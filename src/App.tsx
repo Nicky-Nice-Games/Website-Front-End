@@ -16,6 +16,7 @@ import NewsAndUpdatesPage from './pages/NewsAndUpdates';
 import PlayerStatsPage from './pages/PlayerStats';
 import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
+import Footer from './components/footer';
 
 /* function NavBar() {
   const navigate = useNavigate();
@@ -75,6 +76,10 @@ function App() {
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
     </Router>
+
   );
 }
+
+    <Footer></Footer>
+
 export default App;
