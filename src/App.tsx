@@ -89,11 +89,12 @@ function App() {
         <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
+      <Footer></Footer>
     </Router>
-
+  
   );
 }
 
-    <Footer></Footer>
+  
 
 export default App;
