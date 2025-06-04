@@ -17,28 +17,47 @@ import PlayerStatsPage from './pages/PlayerStats';
 import CharactersPage from './pages/Characters';
 import ItemsPage from './pages/Items';
 import TracksPage from './pages/Tracks';
-
 import NoPage from './pages/NoPage';
+import Navbar from './Navbar';
+import Footer from './components/footer';
 
-
-function NavBar() {
+/* function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ margin: '1rem 0' }}>
+    <div className='flex flex-row w-full bg-[#F76902] justify-between'>
       <button
-        style={{ marginRight: '0.5rem' }}
-        onClick={() => navigate('/')}>
-        Login
+        onClick={() => navigate('/home')}
+      >
+        <img src="images/landscape-placeholder.svg" className='max-w-10'/>
       </button>
-
+      <div>
+        <button
+          className='p-2'
+          onClick={() => navigate('/about')}>
+          About
+        </button>
+        <button
+          className='p-2'
+          onClick={() => navigate('/content')}>
+          Content
+        </button>
+        <button
+          className='p-2'
+          onClick={() => navigate('/newsAndUpdates')}>
+          News & Updates
+        </button>
+        <button
+          className='p-2'
+          onClick={() => navigate('/forum')}>
+          Community
+        </button>
+      </div>
       <button
-        onClick={() => navigate('/login')}>
-        Login
-      </button>
-      <button
-        onClick={() => navigate('/about')}>
-        About
+      className='justify-end'
+      onClick={() => navigate('/playerStats')}
+      >
+        Username
       </button>
 
       <button
@@ -47,12 +66,12 @@ function NavBar() {
       </button>
     </div>
   );
-}
+} */
 
 function App() {
   return (
     <Router>
-      <NavBar />
+      <Navbar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -68,6 +87,10 @@ function App() {
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
     </Router>
+
   );
 }
+
+    <Footer></Footer>
+
 export default App;
