@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import  RITLogo from "@/assets/RITLogo.png"
 
 export function LoginForm({
   className,
@@ -30,7 +29,7 @@ export function LoginForm({
               <div className="flex flex-col gap-4">
 
                  <Button variant="outline" className="w-full flex items-center justify-center gap-2 bg-[#F76902] text-white hover:bg-[#1a1a1a] hover:text-white">
-                  <img src={RITLogo} alt="RIT Logo" className="w-6 h-6 brightness-0 contrast-800" />
+                  <img src='images/RITLogo.png' alt="RIT Logo" className="w-6 h-6 brightness-0 contrast-800" />
                   Login with RIT
                 </Button>
 
