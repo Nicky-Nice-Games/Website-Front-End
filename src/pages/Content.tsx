@@ -17,6 +17,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
+import PlaceholderImg from "../../public/images/pfp-placeholder.png"
 const ContentPage = () => {
     return (<>
         <ContentNavigator />
@@ -53,6 +54,106 @@ const ContentNavigator = () => {
     );
 }
 
+const ItemsPage = () => {
+    return (
+        <>
+            <ContentNavigator />
+           <div className="px-8">
+  <h2 className="text-black text-3xl ml-8">Items Page</h2>
+
+  <div className="grid grid-cols-6 gap-4 p-8 mx-auto max-w-6xl">
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+  </div>
+</div>
+
+        </>
+    );
+}
+
 const CharactersPage = () => {
     return (
         <>
@@ -62,21 +163,12 @@ const CharactersPage = () => {
     );
 }
 
-const ItemsPage = () => {
-    return (
-        <>
-            <ContentNavigator />
-            <h2 className="font-black">Items Page</h2>
-        </>
-    );
-}
-
 const TracksPage = () => {
     return (
         <>
             <ContentNavigator />
             <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">Tracks</h2>
-            <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-200 m-auto">
+            <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-180 m-auto">
                 <CarouselContent>
                     <CarouselItem><img src="images/placeholder.PNG" className="rounded-xl h-80 m-auto w-full h-full"/></CarouselItem>
                     <CarouselItem><img src="images/placeholder.PNG" className="rounded-xl h-80 m-auto w-full h-full"/></CarouselItem>
