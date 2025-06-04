@@ -14,6 +14,7 @@ import {
     NavigationMenuViewport,
 } from "../components/ui/navigation-menu"
 
+import PlaceholderImg from "../../public/images/pfp-placeholder.png"
 const ContentPage = () => {
     return (<>
         <ContentNavigator />
@@ -46,7 +47,98 @@ const ItemsPage = () => {
     return (
         <>
             <ContentNavigator />
-            <h2 className="text-black">Items Page</h2>
+           <div className="px-8">
+  <h2 className="text-black text-3xl ml-8">Items Page</h2>
+
+  <div className="grid grid-cols-6 gap-4 p-8 mx-auto max-w-6xl">
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+    <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
+      <img
+        src={PlaceholderImg}
+        alt="Item placeholder image"
+        className="h-16 w-16"
+      />
+    </div>
+  </div>
+</div>
+
         </>
     );
 }
