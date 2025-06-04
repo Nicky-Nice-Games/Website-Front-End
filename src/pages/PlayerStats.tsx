@@ -1,4 +1,3 @@
-
 const PlayerStatsPage = () => {
     return(
 
