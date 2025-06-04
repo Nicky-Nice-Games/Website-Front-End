@@ -3,6 +3,7 @@ import photo from '../../public/images/placeholder.png';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import '../assets/Styles/About.css';
 import { List } from 'lucide-react';
+import Footer from '../components/footer';
 
 const AboutPage = () => {
     //String arrays to hold each team's data
@@ -101,9 +102,7 @@ const AboutPage = () => {
     );
     }
 
-    
-
-    return(
+    return(<>
         <main>
             <h1 className="text-black"> About the Project</h1>
 
@@ -249,7 +248,9 @@ const AboutPage = () => {
             </div>
         </main>
         
-        
+            <Footer></Footer>
+
+        </>
     );
 }
 export default AboutPage

@@ -1,4 +1,16 @@
 import type { ColumnDef } from "@tanstack/react-table"
+import { ArrowUpDown } from "lucide-react"
+import { MoreHorizontal } from "lucide-react"
+ 
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { millisecondsToSeconds } from "framer-motion"
 
 const formatTime = (milliseconds: number): string => {
@@ -8,13 +20,15 @@ const formatTime = (milliseconds: number): string => {
     seconds %= 60
 
     const formattedMilliseconds = String(milliseconds).padStart(3, '0');
-    const formattedSeconds = String(seconds).padStart(2, '0');
+    const formattedSeconds = String(Math.floor(seconds)).padStart(2, '0');
     const formattedMinutes = String(minutes).padStart(2, '0');
 
     return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
 }
 
 const formatPlacing = (index: number): string => {
+    if (index > 10 && index < 14) return index + "th";
+    
     let suffix;
     switch (index % 10){
         case 1: suffix = "st"; break;
@@ -58,7 +72,14 @@ export const columns: ColumnDef<Racer>[] = [
   },
   {
     accessorKey: "player",
-    header: () => <h1 className="text-center">Player</h1>,
+    header: ({ column }) => { return (
+    <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Player
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>)},
     cell: ({ row }) => {
         const data: Player = row.getValue("player");
         return <div className="min-w-30">
@@ -66,10 +87,45 @@ export const columns: ColumnDef<Racer>[] = [
             <h2 className="text-lg text-right">{formatTime(data.raceTimeMilliseconds)}</h2>
         </div>
     }
-  },
+   },
+//    {
+//     id: "actions",
+//     cell: ({ row }) => {
+//       const payment = row.original
+ 
+//       return (
+//         <DropdownMenu>
+//           <DropdownMenuTrigger asChild>
+//             <Button variant="ghost" className="h-8 w-8 p-0">
+//               <span className="sr-only">Open menu</span>
+//               <MoreHorizontal className="h-4 w-4" />
+//             </Button>
+//           </DropdownMenuTrigger>
+//           <DropdownMenuContent align="end">
+//             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+//             <DropdownMenuItem
+//               onClick={() => navigator.clipboard.writeText(payment.id)}
+//             >
+//               Copy payment ID
+//             </DropdownMenuItem>
+//             <DropdownMenuSeparator />
+//             <DropdownMenuItem>View customer</DropdownMenuItem>
+//             <DropdownMenuItem>View payment details</DropdownMenuItem>
+//           </DropdownMenuContent>
+//         </DropdownMenu>
+//       )
+//     },
+//   },
   {
     accessorKey: "score",
-    header: () => <h1 className="text-center">Score</h1>,
-    cell: ({ row }) => <h2 className="text-right">{row.getValue("score")}</h2>
+    header: ({ column }) => { return (
+    <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Score
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>)},
+    cell: ({ row }) => <h2 className="text-right text-lg">{row.getValue("score")}</h2>
   }
 ]
