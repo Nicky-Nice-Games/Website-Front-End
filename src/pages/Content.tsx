@@ -49,7 +49,7 @@ const ItemsPage = () => {
             <ContentNavigator />
            <div className="px-8">
   <h2 className="text-black text-3xl ml-8">Items Page</h2>
-
+   
   <div className="grid grid-cols-6 gap-4 p-8 mx-auto max-w-6xl">
     <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center">
       <img
@@ -138,7 +138,7 @@ const ItemsPage = () => {
     </div>
   </div>
 </div>
-
+ 
         </>
     );
 }
