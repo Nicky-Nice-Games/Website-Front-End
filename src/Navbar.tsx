@@ -26,12 +26,27 @@ const Navbar = () => {
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-inherit">Content</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-inherit"><button 
+                    onClick={() => navigate('/content')}>
+                        Content
+                    </button></NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                     <button 
-                    onClick={() => navigate('/content')}>
-                        Overview
+                    onClick={() => navigate('/characters')}>
+                        Characters
+                    </button>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                    <button 
+                    onClick={() => navigate('/items')}>
+                        Characters
+                    </button>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                    <button 
+                    onClick={() => navigate('/tracks')}>
+                        Characters
                     </button>
                     </NavigationMenuLink>
                 </NavigationMenuContent>

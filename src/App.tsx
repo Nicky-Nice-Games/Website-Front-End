@@ -8,15 +8,18 @@ import {
 
 import LoginPage from './pages/Login';
 import AboutPage from './pages/About';
-import ContentPage from './pages/Content';
+import {
+  ContentPage,
+  CharactersPage,
+  ItemsPage,
+  TracksPage,
+}
+  from './pages/Content';
 import ForumPage from './pages/Forum';
 import HomePage from './pages/Home';
 import LeaderboardPage from './pages/Leaderboard';
 import NewsAndUpdatesPage from './pages/NewsAndUpdates';
 import PlayerStatsPage from './pages/PlayerStats';
-import CharactersPage from './pages/Characters';
-import ItemsPage from './pages/Items';
-import TracksPage from './pages/Tracks';
 import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
 import Footer from './components/footer';

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //import ItemsPage from './Items';
 // import CharactersPage from './Characters';
@@ -15,26 +15,63 @@ import {
 } from "../components/ui/navigation-menu"
 
 const ContentPage = () => {
-    return (
+    return (<>
+        <ContentNavigator />
+    </>)
+}
 
+const ContentNavigator = () => {
+    const navigate = useNavigate();
+
+    return (
         <>
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuLink href="/characters">Characters</NavigationMenuLink>
+                        <button className="p-1 m-1 hover:bg-[#F76902] rounded-sm" onClick={() => navigate("/characters")}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationMenuLink href="/items">Items</NavigationMenuLink>
+                        <button className="p-1 m-1 hover:bg-[#F76902] rounded-sm" onClick={() => navigate("/items")}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationMenuLink href="/tracks">Tracks</NavigationMenuLink>
+                        <button className="p-1 m-1 hover:bg-[#F76902] rounded-sm" onClick={() => navigate("/tracks")}>Tracks</button>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-
-
-
         </>
     );
 }
-export default ContentPage
+
+const ItemsPage = () => {
+    return (
+        <>
+            <ContentNavigator />
+            <h2 className="text-black">Items Page</h2>
+        </>
+    );
+}
+
+const TracksPage = () => {
+    return (
+        <>
+            <ContentNavigator />
+            <h2 className="text-black">Tracks Page</h2>
+        </>
+    );
+}
+
+const CharactersPage = () => {
+    return (
+        <>
+            <ContentNavigator />
+            <h2 className="text-black">Character Page</h2>
+        </>
+    );
+}
+
+export {
+    ContentPage,
+    CharactersPage,
+    ItemsPage,
+    TracksPage
+}
