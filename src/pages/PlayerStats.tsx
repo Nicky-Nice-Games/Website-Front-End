@@ -1,5 +1,4 @@
 
-import PlaceholderImg from "../assets/Media/Images/placeholder.PNG"
 const PlayerStatsPage = () => {
     return(
 
@@ -15,7 +14,7 @@ const PlayerStatsPage = () => {
                         </div>
                         <div>
                             <img 
-                                src={PlaceholderImg}
+                                src='images/landscape-placeholder.svg'
                                 alt="Player portrait"
                                 className="-full h-64 mt-[50%]"
                                 >

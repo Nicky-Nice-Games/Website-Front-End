@@ -25,7 +25,7 @@ const LeaderboardPage = () => {
     );
 
     return (
-        <div className="text-center">
+        <div className="text-center max-w-8/10 m-auto">
             <h1 className="bebas text-black italic m-10 text-5xl"> Leaderboard</h1>
                 <DataTable columns={columns} data={leaderboardData} />
         </div>
