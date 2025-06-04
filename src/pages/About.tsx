@@ -1,4 +1,5 @@
 
+import Footer from '../components/footer';
 
 const LoginPage = () => {
     return(
@@ -23,6 +24,8 @@ const LoginPage = () => {
                 
             </body>
             </html>
+
+            <Footer></Footer>
 
         </>
     );
