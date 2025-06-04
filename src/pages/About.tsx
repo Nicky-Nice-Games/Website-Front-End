@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import photo from '../assets/Media/Images/placeholder.png';
+import photo from '../../public/images/placeholder.png';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import '../assets/Styles/About.css';
 import { List } from 'lucide-react';
@@ -112,7 +112,9 @@ const AboutPage = () => {
                 Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu. Dui elementum neque lacus cursus lacus sem convallis enim. Ullamcorper dolor ultricies in mauris orci malesuada. Cursus commodo urna interdum eget pharetra. Nulla enim sit varius tempus tincidunt in in morbi malesuada. Nunc nunc volutpat sit quis ullamcorper eget turpis porta. Maecenas eget suspendisse sagittis volutpat non sed lorem. Vulputate at faucibus leo rhoncus. Ac ut adipiscing commodo elementum quis adipiscing scelerisque sed nulla. Malesuada nunc nec malesuada pretium vulputate faucibus leo pellentesque. Curabitur commodo nibh egestas pretium adipiscing rhoncus.
                 Fermentum adipiscing fusce id scelerisque pellentesque ipsum. Mattis sodales iaculis faucibus nam est quam. Vitae morbi tempus lectus elit odio. Justo varius nisi.
                 </p>
-                <img src={photo} alt="Photo of the team" style={{margin:'2rem', marginTop:'0rem',alignSelf:'flex-end'}}/>
+                <img src={photo} alt="Photo of the team" 
+                style={{margin:'2rem', marginTop:'0rem',alignSelf:'flex-end', 
+                width:'400px', height:'300px'}}/>
             </div>
             <h1 style={{textAlign:'center'}}>Meet the team!</h1>
             <div id="teamSection">
