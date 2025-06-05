@@ -176,16 +176,16 @@ const tracks: Array<Track> = [
     {
         imgUrl: "images/placeholder.PNG",
         name: "Sample Track",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
+    },
+    {
+        imgUrl: "images/placeholder.PNG",
+        name: "Sample Track 2",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
         imgUrl: "images/placeholder.PNG",
-        name: "Sample Track",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
-    },
-    {
-        imgUrl: "images/placeholder.PNG",
-        name: "Sample Track",
+        name: "Sample Track 3",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     }
 ]
@@ -309,7 +309,7 @@ const TracksPage = () => {
                                         layoutId={`track-${track.name}-${id}`}
                                         key={track.name}
                                         onClick={() => setActive(track)}
-                                        className="p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                                        className="p-4 flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
                                     >
                                         <div className="flex gap-4 flex-col w-full h-full">
                                             <motion.div layoutId={`image-${track.name}-${id}`}>
@@ -318,7 +318,7 @@ const TracksPage = () => {
                                                     height={200}
                                                     src={track.imgUrl}
                                                     alt={track.name}
-                                                    className="h-full w-full  rounded-lg object-cover object-top"
+                                                    className="h-full w-full rounded-lg object-cover object-top"
                                                 />
                                             </motion.div>
                                         </div>
