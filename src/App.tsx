@@ -16,6 +16,7 @@ import NewsAndUpdatesPage from './pages/NewsAndUpdates';
 import PlayerStatsPage from './pages/PlayerStats';
 import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
+import ForumPost from './pages/ForumPost';
 
 /* function NavBar() {
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ function App() {
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/newsAndUpdates" element={<NewsAndUpdatesPage />} />
         <Route path="/playerStats" element={<PlayerStatsPage />} />
+        <Route path="/forumPost" element={<ForumPost />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
     </Router>

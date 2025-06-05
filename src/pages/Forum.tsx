@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 const posts = [
   {
     title: "POST TITLE",
@@ -46,6 +47,7 @@ const posts = [
   },
 ];
 const ForumPage = () => {
+  const navigate = useNavigate();
     return(
 
         <div className="min-h-screen bg-black p-6">
@@ -64,6 +66,7 @@ const ForumPage = () => {
         <div
           key={index}
           className={`flex justify-between items-start border-b py-4 px-2 bg-white hover:bg-gray-200`}
+          onClick={() => navigate('/forumPost')}
         >
           {/* Left side: Title + Author */}
           <div>
