@@ -21,6 +21,7 @@ import NewsAndUpdatesPage from './pages/NewsAndUpdates';
 import PlayerStatsPage from './pages/PlayerStats';
 import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
+import ForumPost from './pages/ForumPost';
 import Footer from './components/footer';
 
 /* function NavBar() {
@@ -83,6 +84,7 @@ function App() {
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/newsAndUpdates" element={<NewsAndUpdatesPage />} />
         <Route path="/playerStats" element={<PlayerStatsPage />} />
+        <Route path="/forumPost" element={<ForumPost />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/tracks" element={<TracksPage />} />
         <Route path="/items" element={<ItemsPage />} />

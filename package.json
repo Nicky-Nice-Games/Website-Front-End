@@ -25,6 +25,7 @@
     "gensync": "^1.0.0-beta.2",
     "i": "^0.3.7",
     "lucide-react": "^0.511.0",
+    "motion": "^12.16.0",
     "papaparse": "^5.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
