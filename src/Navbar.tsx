@@ -56,7 +56,12 @@ const Navbar = () => {
                 News & Updates
             </button>
             </NavigationMenuLink>
-            <NavigationMenuItem>
+            <NavigationMenuLink>
+            <button onClick={() => navigate('/leaderboard')}>
+                Leaderboard
+            </button>
+            </NavigationMenuLink>
+            {/* <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-inherit">Community</NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
@@ -70,7 +75,7 @@ const Navbar = () => {
                     </button>
                     </NavigationMenuLink>
                 </NavigationMenuContent>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
         </NavigationMenuList>
         <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className="bg-inherit">
