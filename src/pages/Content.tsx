@@ -20,16 +20,10 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-
 import PlaceholderImg from "../../public/images/pfp-placeholder.png"
 const ContentPage = () => {
     return (<>
-        <ContentNavigator />
+        <ContentNavigator currentPage="content"/>
         <div className="grid grid-cols-2">
             <div>
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
@@ -41,21 +35,38 @@ const ContentPage = () => {
     </>)
 }
 
-const ContentNavigator = () => {
-    const navigate = useNavigate();
+interface ContentNavigatorProps {
+    currentPage: string
+}
+
+const ContentNavigator = (props: ContentNavigatorProps) => {
+    const navigate = useNavigate();    
+    
+    const characterButtonColor = props.currentPage === "characters" ? "bg-[#F76902] hover:bg-white" : "hover:bg-[#F76902]"
+    const itemButtonColor = props.currentPage === "items" ? "bg-[#F76902] hover:bg-white" : "hover:bg-[#F76902]"
+    const trackButtonColor = props.currentPage === "tracks" ? "bg-[#F76902] hover:bg-white" : "hover:bg-[#F76902]"
 
     return (
         <>
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <button className="p-1 m-1 font-bold hover:bg-[#F76902] rounded-sm text-lg" onClick={() => navigate("/characters")}>Characters</button>
+                        <button className={`p-1 m-1 font-bold ${characterButtonColor} rounded-sm text-lg`} onClick={() => {
+                            const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/characters";
+                            navigate(navigateRoute);
+                            }}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <button className="p-1 m-1 font-bold hover:bg-[#F76902] rounded-sm text-lg" onClick={() => navigate("/items")}>Items</button>
+                        <button className={`p-1 m-1 font-bold ${itemButtonColor} rounded-sm text-lg`} onClick={() => {
+                            const navigateRoute: string = props.currentPage === "items" ? "/content" : "/items";
+                            navigate(navigateRoute);
+                            }}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <button className="p-1 m-1 font-bold hover:bg-[#F76902] rounded-sm text-lg" onClick={() => navigate("/tracks")}>Tracks</button>
+                        <button className={`p-1 m-1 font-bold ${trackButtonColor} rounded-sm text-lg`} onClick={() => {
+                            const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/tracks";
+                            navigate(navigateRoute);
+                            }}>Tracks</button>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
@@ -111,7 +122,7 @@ const ItemsPage = () => {
 
   return (
     <>
-      <ContentNavigator />
+      <ContentNavigator currentPage={"items"} />
       <div className="px-8">
         <h2 className="text-black text-3xl ml-8">Items Page</h2>
 
@@ -264,7 +275,7 @@ const CharactersPage = () => {
 
     return (
         <>
-            <ContentNavigator />
+            <ContentNavigator currentPage={"characters"} />
             <div className="px-8">
                 <h2 className="text-black text-3xl ml-8 mb-8">Characters Page</h2>
 
@@ -406,7 +417,7 @@ const TracksPage = () => {
 
     return (
         <>
-            <ContentNavigator />
+            <ContentNavigator currentPage="tracks"/>
             <AnimatePresence>
                 {active && typeof active === "object" && (
                     <motion.div
