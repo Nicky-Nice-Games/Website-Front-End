@@ -1,24 +1,24 @@
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
+    NavigationMenuTrigger
 } from "./components/ui/navigation-menu"
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate();
 
-    return <NavigationMenu viewport={false} className="flex flex-row w-full justify-between bg-[#F76902] font-semibold">
-        <NavigationMenuLink>
+    return <NavigationMenu viewport={false} className="flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-xl z-30">
+        <div className="min-w-40">
+            <NavigationMenuLink className="max-w-14">
             <button onClick={() => navigate('/home')}>
                 <img src="images/landscape-placeholder.svg" className='max-w-10' />
             </button>
-        </NavigationMenuLink>
+            </NavigationMenuLink>
+        </div>
         <NavigationMenuList>
             <NavigationMenuLink>
             <button onClick={() => navigate('/about')}>
@@ -26,12 +26,27 @@ const Navbar = () => {
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-inherit">Content</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-inherit"><button 
+                    onClick={() => navigate('/content')}>
+                        Content
+                    </button></NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                     <button 
-                    onClick={() => navigate('/content')}>
-                        Overview
+                    onClick={() => navigate('/characters')}>
+                        Characters
+                    </button>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                    <button 
+                    onClick={() => navigate('/items')}>
+                        Items
+                    </button>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                    <button 
+                    onClick={() => navigate('/tracks')}>
+                        Tracks
                     </button>
                     </NavigationMenuLink>
                 </NavigationMenuContent>
@@ -60,7 +75,7 @@ const Navbar = () => {
         <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className="bg-inherit">
                     Username                
-                    <img src="images/pfp-placeholder.png" className='max-w-7' />
+                    <img src="images/pfp-placeholder.png" className='max-w-7 m-1' />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>

@@ -3,12 +3,17 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
 } from 'react-router-dom';
 
 import LoginPage from './pages/Login';
 import AboutPage from './pages/About';
-import ContentPage from './pages/Content';
+import {
+  ContentPage,
+  CharactersPage,
+  ItemsPage,
+  TracksPage,
+}
+  from './pages/Content';
 import ForumPage from './pages/Forum';
 import HomePage from './pages/Home';
 import LeaderboardPage from './pages/Leaderboard';
@@ -17,6 +22,7 @@ import PlayerStatsPage from './pages/PlayerStats';
 import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
 import ForumPost from './pages/ForumPost';
+import Footer from './components/footer';
 
 /* function NavBar() {
   const navigate = useNavigate();
@@ -56,6 +62,11 @@ import ForumPost from './pages/ForumPost';
       >
         Username
       </button>
+
+      <button
+        onClick={() => navigate('/content')}>
+        Content
+      </button>
     </div>
   );
 } */
@@ -67,16 +78,24 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/content" element={<ContentPage />} />
+        <Route path="/content/*" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/newsAndUpdates" element={<NewsAndUpdatesPage />} />
         <Route path="/playerStats" element={<PlayerStatsPage />} />
         <Route path="/forumPost" element={<ForumPost />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/tracks" element={<TracksPage />} />
+        <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
+      <Footer></Footer>
     </Router>
+  
   );
 }
+
+  
+
 export default App;
