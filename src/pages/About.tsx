@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import photo from '../../public/images/placeholder.png';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import '../assets/Styles/About.css';
 import { List } from 'lucide-react';
 import Footer from '../components/footer';
 
@@ -93,8 +92,8 @@ const AboutPage = () => {
 
    function Person({ name, position, email }:PersonProps) {
     return (
-        <div className="person" style={{margin:'1rem', width:'200px'}}>
-        <img src={photo} alt={`Photo of ${name}`} style={{height:'200px'}}/>
+        <div className="m-4 w-[200px]">
+        <img src={photo} alt={`Photo of ${name}`} className="h-[200px]"/>
         <p className="person-name">{name}</p>
         <p className="person-position">{position}</p>
         <p className="person-email">{email}</p>
@@ -103,24 +102,23 @@ const AboutPage = () => {
     }
 
     return(<>
-        <main>
-            <h1 className="text-black"> About the Project</h1>
+        <main className='m-8'>
+            <h1 className="font-black text-4xl m-4 mx-0"> About the Project</h1>
 
-            <div style={{display:'flex', alignItems:'stretch'}}>
+            <div className='flex items-stretch'>
                 <p>
                 Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu. Dui elementum neque lacus cursus lacus sem convallis enim. Ullamcorper dolor ultricies in mauris orci malesuada. Cursus commodo urna interdum eget pharetra. Nulla enim sit varius tempus tincidunt in in morbi malesuada. Nunc nunc volutpat sit quis ullamcorper eget turpis porta. Maecenas eget suspendisse sagittis volutpat non sed lorem. Vulputate at faucibus leo rhoncus. Ac ut adipiscing commodo elementum quis adipiscing scelerisque sed nulla. Malesuada nunc nec malesuada pretium vulputate faucibus leo pellentesque. Curabitur commodo nibh egestas pretium adipiscing rhoncus.
                 Fermentum adipiscing fusce id scelerisque pellentesque ipsum. Mattis sodales iaculis faucibus nam est quam. Vitae morbi tempus lectus elit odio. Justo varius nisi.
                 </p>
                 <img src={photo} alt="Photo of the team" 
-                style={{margin:'2rem', marginTop:'0rem',alignSelf:'flex-end', 
-                width:'400px', height:'300px'}}/>
+                className='m-8 mt-0 self-end w-[400px] h-[300px]'
+                />
             </div>
-            <h1 style={{textAlign:'center'}}>Meet the team!</h1>
-            <div id="teamSection">
-                <Tabs defaultValue="GSP" className="w-[400px]" 
-                style={{width:'80%', backgroundColor:'blanchedalmond'}}>
+            <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1>
+            <div className='flex flex-column items-center w-full text-center'>
+                <Tabs defaultValue="GSP" className="w-[400px] w-4/5 bg-orange-100 m-auto">
 
-                <TabsList style={{width:'100%'}}>
+                <TabsList className='w-full'>
                     <TabsTrigger value="GSP">GSP</TabsTrigger>
                     <TabsTrigger value="Production">Production</TabsTrigger>
                     <TabsTrigger value="Level Design">Level Design</TabsTrigger>
@@ -133,9 +131,9 @@ const AboutPage = () => {
                 </TabsList>
     
                 <TabsContent value="GSP">
-                    <h2> {gspData.length > 0 ? gspData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {gspData.length > 0 ? gspData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {gspData.map((personData, index) => (
                         <Person
                             key={index}
@@ -147,9 +145,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="Production">
-                    <h2> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {productionData.map((personData, index) => (
                         <Person
                             key={index}
@@ -161,9 +159,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="Level Design">
-                    <h2> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {levelData.map((personData, index) => (
                         <Person
                             key={index}
@@ -175,9 +173,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="Content">
-                    <h2> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {contentData.map((personData, index) => (
                         <Person
                             key={index}
@@ -189,9 +187,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="QA">
-                    <h2> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {qaData.map((personData, index) => (
                         <Person
                             key={index}
@@ -203,9 +201,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="Support">
-                    <h2> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {supportData.map((personData, index) => (
                         <Person
                             key={index}
@@ -217,9 +215,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="Web">
-                    <h2> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {webData.map((personData, index) => (
                         <Person
                             key={index}
@@ -231,9 +229,9 @@ const AboutPage = () => {
                     </div>
                 </TabsContent>
                 <TabsContent value="RND">
-                    <h2> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                    <h2 className='text-2xl m-1 mx-0'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
 
-                    <div className="peopleGrid">
+                    <div className="flex flex-row flex-wrap w-full justify-center">
                         {rndData.map((personData, index) => (
                         <Person
                             key={index}
@@ -247,9 +245,6 @@ const AboutPage = () => {
                 </Tabs>
             </div>
         </main>
-        
-            <Footer></Footer>
-
         </>
     );
 }

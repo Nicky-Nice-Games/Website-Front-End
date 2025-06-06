@@ -29,33 +29,47 @@ const updates = [
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
   },
+  {
+    id: 5,
+    title: "Update 5",
+    date: "6/10/2025",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    image: '/assets/OIP.jpg',
+  },
 ];
 
-const NewsAndUpdatesPage = () => {
-  return (
-    <>
-      <div className="min-h-screen bg-black p-6">
+// Converts MM/DD/YYYY to YYYY-MM-DD for parsing
+const toISO = (dateStr: string) => {
+  const [month, day, year] = dateStr.split('/');
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+};
 
-        {/* Grid container: 
+const NewsAndUpdatesPage = () => {
+  const sortedUpdates = [...updates].sort((a, b) => {
+    const dateA = Date.parse(toISO(a.date));
+    const dateB = Date.parse(toISO(b.date));
+    return dateB - dateA;
+  });
+
+  return (
+    <div className="min-h-screen bg-black p-6">
+
+      {/* Grid container: 
             - 1 column on small screens,
             - 2 columns on small+ (sm),
             - 3 columns on large+ (lg),
             - with spacing (gap-6) between items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-          {/* Map over the updates array to render each update card */}
-          {updates.map((update, index) => {
-            // Every fourth item (0-based index) will be full-width
-            const isFullWidth = index % 4 === 0;
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Map over the updates array to render each update card */}
+        {sortedUpdates.map((update, index) => {
+          // Every fourth item will be full-width
+          const isFullWidth = index % 4 === 0;
 
-            return (
+          return (
               <div
                 key={update.id} // Unique key for each item
                 
-                // Conditionally apply full-width spans based on screen size:
-                // - col-span-1: default
-                // - sm: span 2 columns
-                // - lg: span all 3 columns (full width)
+                // Applies full-width spans based on screen size:
                 className={`${
                   isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
                 } bg-white text-black rounded-xl shadow overflow-hidden`}
@@ -81,13 +95,12 @@ const NewsAndUpdatesPage = () => {
                   <h2 className="text-lg font-bold">{update.title}</h2>
                   {/* Subtitle */}
                   <p className="text-sm mt-1">{update.subtitle}</p>
-                </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 };
 
