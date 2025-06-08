@@ -12,7 +12,7 @@ import photo from '../../public/images/placeholder.png';
 import arcadeMachine from '../../public/images/arcade machine.png';
 import Footer from '../components/footer';
 import InfiniteMovingCards from '../components/ui/carousel-banner';
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"></link>
 
 const HomePage = () => {
     const plugin = React.useRef(
@@ -79,8 +79,8 @@ const HomePage = () => {
 
     return(
         <body>
-            <div className="h-[90vh] w-full flex bg-white">
-                <div id="header-text" className=" absolute md:relative ml-auto w-1/2 flex flex-col justify-center p-4 z-2">
+            <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
+                <div id="header-text" className=" h-[90vh] bg-black absolute md:relative w-[50%] flex flex-col justify-center p-4 z-3">
                     <h1 className="text-4xl font-bold">Brick City ????</h1>
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
@@ -89,7 +89,7 @@ const HomePage = () => {
                 </div>
                 <Carousel
                     plugins={[plugin.current]}
-                    className="w-full md:w-1/2 ml-auto overflow-hidden"
+                    className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
                     // onMouseEnter={() => plugin.current?.stop()}
                     // onMouseLeave={() => plugin.current?.reset()}
                     >
@@ -115,11 +115,10 @@ const HomePage = () => {
                 <div className="mb-[8rem]">
                     <div className="overflow-hidden rotate-6 w-[200%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
-
                     </div>
                 </div>
                 
-                <div id="introdcution">
+                <div id="introdcution" className="ml-[2rem] mr-[2rem]">
                     <h2>Game Overview</h2>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -141,7 +140,7 @@ const HomePage = () => {
 
                     </div>
                 </div>
-                <div id="lore">
+                <div id="lore" className="ml-[2rem] mr-[2rem]">
                     <h2>The Lore</h2>
                     <p>
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
