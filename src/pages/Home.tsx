@@ -84,9 +84,12 @@ const HomePage = () => {
                     <h1 className="text-4xl font-bold">Brick City ????</h1>
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <div className="absolute z-2 bottom-[4rem] right-[4rem] bg-black/75 p-[1rem] text-white">
+                <a href="/NewsAndUpdates">
+                    <div className="absolute z-2 bottom-[4rem] right-[4rem] bg-black/75 p-[1rem] text-white">
                     <h3>See all news and updates!</h3>
-                </div>
+                    </div>
+                </a>
+                
                 <Carousel
                     plugins={[plugin.current]}
                     className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
@@ -194,7 +197,10 @@ const HomePage = () => {
                         </Score>
                     </div>
                     <div id="link-container">
-                        <p>See all scores!</p>
+                        <a href="/Leaderboard">
+                            <p>See all scores!</p>
+                        </a>
+                        
                     </div>
                 </div>
 
