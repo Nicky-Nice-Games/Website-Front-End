@@ -1,3 +1,4 @@
+
 import PlaceholderImg from "../assets/Media/Images/placeholder.PNG"
 
 const PlayerStatsPage = () => {
