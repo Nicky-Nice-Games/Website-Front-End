@@ -41,37 +41,37 @@ const HomePage = () => {
 
     const bannerImages1 = [
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     ];
 
