@@ -5,12 +5,11 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import photo from '../../public/images/placeholder.png';
 import arcadeMachine from '../../public/images/arcade machine.png';
 import InfiniteMovingCards from '../components/ui/carousel-banner';
+import { useNavigate } from "react-router-dom";
 //<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"></link>
 
 const HomePage = () => {
@@ -76,18 +75,20 @@ const HomePage = () => {
     },
     ];
 
+    const navigate = useNavigate();
+
     return(
-        <body>
+        <>
             <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
                 <div id="header-text" className=" h-[90vh] bg-black absolute md:relative w-[50%] flex flex-col justify-center p-4 z-3">
                     <h1 className="text-4xl font-bold">Brick City ????</h1>
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <a href="/NewsAndUpdates">
+                <button className="cursor-pointer" onClick={() => navigate("/news")}>
                     <div className="absolute z-2 bottom-[4rem] right-[4rem] bg-black/75 p-[1rem] text-white">
                     <h3>See all news and updates!</h3>
                     </div>
-                </a>
+                </button>
                 
                 <Carousel
                     plugins={[plugin.current]}
@@ -196,15 +197,15 @@ const HomePage = () => {
                         </Score>
                     </div>
                     <div id="link-container">
-                        <a href="/Leaderboard">
+                        <button className="cursor-pointer" onClick={() => navigate('/leaderboard')}>
                             <p>See all scores!</p>
-                        </a>
+                        </button>
                         
                     </div>
                 </div>
 
             </main>
-        </body>  
+        </>  
     );
 }
 export default HomePage

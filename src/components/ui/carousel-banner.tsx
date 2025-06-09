@@ -2,13 +2,11 @@
  
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
-//import '../../assets/Styles/About.css';
 
 export const InfiniteMovingCards = ({
   items,
   direction = "left",
   speed = "fast",
-  pauseOnHover = true,
   className,
 }: {
   items: {

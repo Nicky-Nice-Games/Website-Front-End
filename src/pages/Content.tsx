@@ -52,19 +52,19 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${characterButtonColor} rounded-sm text-lg cursor-pointer`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/characters";
+                            const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/content/characters";
                             navigate(navigateRoute);
                             }}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${itemButtonColor} rounded-sm text-lg cursor-pointer`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "items" ? "/content" : "/items";
+                            const navigateRoute: string = props.currentPage === "items" ? "/content" : "/content/items";
                             navigate(navigateRoute);
                             }}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${trackButtonColor} rounded-sm text-lg cursor-pointer`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/tracks";
+                            const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/content/tracks";
                             navigate(navigateRoute);
                             }}>Tracks</button>
                     </NavigationMenuItem>
@@ -373,17 +373,17 @@ interface Track {
 
 const tracks: Array<Track> = [
     {
-        imgUrl: "images/placeholder.PNG",
+        imgUrl: "../images/placeholder.PNG",
         name: "Sample Track",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "images/placeholder.PNG",
+        imgUrl: "../images/placeholder.PNG",
         name: "Sample Track 2",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "images/placeholder.PNG",
+        imgUrl: "../images/placeholder.PNG",
         name: "Sample Track 3",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     }
