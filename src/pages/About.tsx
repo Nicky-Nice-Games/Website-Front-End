@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import photo from '../../public/images/placeholder.png';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { List } from 'lucide-react';
-import Footer from '../components/footer';
+import styles from "../assets/Styles/MainStyles.module.css";
 
 const AboutPage = () => {
     //String arrays to hold each team's data
@@ -94,31 +93,31 @@ const AboutPage = () => {
     return (
         <div className="m-4 w-[200px]">
         <img src={photo} alt={`Photo of ${name}`} className="h-[200px]"/>
-        <p className="person-name">{name}</p>
-        <p className="person-position">{position}</p>
-        <p className="person-email">{email}</p>
+        <label className="person-name">{name}</label>
+        <label className="person-position">{position}</label>
+        <label className="person-email">{email}</label>
         </div>
     );
     }
 
     return(<>
         <main className='m-8'>
-            <h1 className="font-black text-4xl m-4 mx-0"> About the Project</h1>
+            <h1 className="font-black text-4xl m-4 mx-0 w-full md:text-left"> About the Project</h1>
 
-            <div className='flex items-stretch'>
+            <div className='flex flex-col md:flex-row'>
                 <p>
                 Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu. Dui elementum neque lacus cursus lacus sem convallis enim. Ullamcorper dolor ultricies in mauris orci malesuada. Cursus commodo urna interdum eget pharetra. Nulla enim sit varius tempus tincidunt in in morbi malesuada. Nunc nunc volutpat sit quis ullamcorper eget turpis porta. Maecenas eget suspendisse sagittis volutpat non sed lorem. Vulputate at faucibus leo rhoncus. Ac ut adipiscing commodo elementum quis adipiscing scelerisque sed nulla. Malesuada nunc nec malesuada pretium vulputate faucibus leo pellentesque. Curabitur commodo nibh egestas pretium adipiscing rhoncus.
                 Fermentum adipiscing fusce id scelerisque pellentesque ipsum. Mattis sodales iaculis faucibus nam est quam. Vitae morbi tempus lectus elit odio. Justo varius nisi.
                 </p>
                 <img src={photo} alt="Photo of the team" 
-                className='m-8 mt-0 self-end w-[400px] h-[300px]'
+                className='mt-0 md:w-[400px] text-center md:h-[300px] w-[100%] h-[40%]'
                 />
             </div>
             <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1>
-            <div className='flex flex-column items-center w-full text-center'>
+            <div className='flex flex-column items-center w-[100%] text-center'>
                 <Tabs defaultValue="GSP" className="w-[400px] w-4/5 bg-orange-100 m-auto">
 
-                <TabsList className='w-full'>
+                <TabsList className='w-[100%] h-fit flex flex-wrap'>
                     <TabsTrigger value="GSP">GSP</TabsTrigger>
                     <TabsTrigger value="Production">Production</TabsTrigger>
                     <TabsTrigger value="Level Design">Level Design</TabsTrigger>
