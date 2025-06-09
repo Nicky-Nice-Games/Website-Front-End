@@ -2,7 +2,8 @@
  
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
- 
+import '../../assets/Styles/About.css';
+
 export const InfiniteMovingCards = ({
   items,
   direction = "left",
@@ -83,8 +84,9 @@ export const InfiniteMovingCards = ({
         )}
       >
         {items.map((item, idx) => (
-          <img src={item.imgSrc} className="h-[100%]"></img>
+          <img key={item.imgSrc || idx} src={item.imgSrc} className="h-[100%]" />
         ))}
+
       </ul>
     </div>
   );
