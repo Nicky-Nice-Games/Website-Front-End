@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/carousel"
 import photo from '../../public/images/placeholder.png';
 import arcadeMachine from '../../public/images/arcade machine.png';
-import Footer from '../components/footer';
 import InfiniteMovingCards from '../components/ui/carousel-banner';
 //<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"></link>
 
