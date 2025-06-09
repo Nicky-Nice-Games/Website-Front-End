@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useId, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
@@ -14,6 +14,7 @@ import {
 
 import {
     Carousel,
+    type CarouselApi,
     CarouselContent,
     CarouselItem,
     CarouselNext,
@@ -395,6 +396,10 @@ const TracksPage = () => {
     );
     const id = useId();
     const ref = useRef<HTMLDivElement>(null);
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = React.useState(0);
+    const [count, setCount] = React.useState(0);
+
 
     useEffect(() => {
         function onKeyDown(event: KeyboardEvent) {
@@ -412,6 +417,16 @@ const TracksPage = () => {
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [active]);
+
+    useEffect(() => {
+        if (!api) return;
+
+        setCount(api.scrollSnapList().length);
+        setCurrent(api.selectedScrollSnap() + 1);
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1);
+        })
+    }, [api])
 
     useOutsideClick(ref, () => setActive(null));
 
@@ -489,7 +504,7 @@ const TracksPage = () => {
             </AnimatePresence>
             <div className="mb-10">
                 <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">Tracks</h2>
-                <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-180 m-auto">
+                <Carousel setApi={setApi} className="text-center border-solid border-slate-400 border-8 rounded-3xl w-180 m-auto">
                     <CarouselContent>
                         {tracks.map(track => {
                             return <CarouselItem>
@@ -517,6 +532,9 @@ const TracksPage = () => {
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
+                <div className="text-center mt-2 text-xl">
+                    {`Track ${current} of ${count}`}
+                </div>
             </div>
 
         </>
