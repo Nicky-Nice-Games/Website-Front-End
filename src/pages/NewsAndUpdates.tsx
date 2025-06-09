@@ -60,6 +60,20 @@ const NewsAndUpdatesPage = () => {
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+
+  const totalPages = Math.ceil(sortedUpdates.length / itemsPerPage);
+  const paginatedUpdates = sortedUpdates.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Handlers
+  const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+
   useEffect(() => {
     // close modal on Escape key
     function onKeyDown(event: KeyboardEvent) {
@@ -158,13 +172,14 @@ const NewsAndUpdatesPage = () => {
             - with spacing (gap-6) between items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Map over the updates array to render each update card */}
-        {sortedUpdates.map((update, index) => {
+        {paginatedUpdates.map((update, index) => {
+          const globalIndex = (currentPage - 1) * itemsPerPage + index;
           // Every fourth item will be full-width
-          const isFullWidth = index % 4 === 0;
+          const isFullWidth = globalIndex % 4 === 0;
 
           return (
             <div
-              key={update.id} // Unique key for each item
+              key={update.id}// Unique key for each item
               onClick={() =>
                 setActive({
                   name: update.title,
@@ -172,22 +187,17 @@ const NewsAndUpdatesPage = () => {
                   imgUrl: update.image,
                 })
               }
-              
-              // Applies full-width spans based on screen size:
+              // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
                 } bg-white text-black rounded-xl shadow overflow-hidden 
-                cursor-pointer hover:scale-105 transition-transform`}
+        cursor-pointer hover:scale-105 transition-transform`}
             >
-
-              {/* Update image */}
+              {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                // Full width for all images, but height depends on if it's full-width or not
-                className={`w-full ${isFullWidth ? "h-96" : "h-72"
-                  } object-cover`}
+                className={`w-full ${isFullWidth ? "h-96" : "h-72"} object-cover`}
               />
-
               {/* Text content of the update */}
               <div className="p-4">
                 {/* Date */}
@@ -202,6 +212,23 @@ const NewsAndUpdatesPage = () => {
             </div>
           );
         })}
+      </div>
+      <div className="flex justify-center gap-4 mt-6">
+        <button
+          onClick={prevPage}
+          disabled={currentPage === 1}
+          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
+        <button
+          onClick={nextPage}
+          disabled={currentPage === totalPages}
+          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
