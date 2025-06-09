@@ -310,7 +310,7 @@ const CharactersPage = () => {
                             <motion.div
                                 layoutId={`character-${active.name}-${id}`}
                                 ref={ref} // ref used for outside click detection
-                                className="flex bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-4xl"
+                                className="flex bg-white rounded-lg shadow-xl overflow-hidden w-4/5"
                             >
                                 {/* left side: character image */}
                                 <motion.div layoutId={`image-${active.name}-${id}`} className="flex-shrink-0 w-1/3">
