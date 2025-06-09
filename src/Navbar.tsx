@@ -11,40 +11,44 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
     const navigate = useNavigate();
 
-    return <NavigationMenu viewport={false} className="flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-xl z-30">
+    return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-lg z-30">
         <div className="min-w-40">
             <NavigationMenuLink className="max-w-14">
-            <button onClick={() => navigate('/home')}>
+            <button className="cursor-pointer" onClick={() => navigate('/home')}>
                 <img src="images/landscape-placeholder.svg" className='max-w-10' />
             </button>
             </NavigationMenuLink>
         </div>
         <NavigationMenuList>
-            <NavigationMenuLink>
-            <button onClick={() => navigate('/about')}>
+            <NavigationMenuLink >
+            <button className="cursor-pointer" onClick={() => navigate('/about')}>
                 About
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-inherit"><button 
+                    className="cursor-pointer"
                     onClick={() => navigate('/content')}>
                         Content
                     </button></NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                     <button 
+                    className="cursor-pointer"
                     onClick={() => navigate('/characters')}>
                         Characters
                     </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
                     <button 
+                    className="cursor-pointer"
                     onClick={() => navigate('/items')}>
                         Items
                     </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
                     <button 
+                    className="cursor-pointer"
                     onClick={() => navigate('/tracks')}>
                         Tracks
                     </button>
@@ -52,30 +56,15 @@ const Navbar = () => {
                 </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuLink>
-            <button onClick={() => navigate('/newsAndUpdates')}>
+            <button className="cursor-pointer" onClick={() => navigate('/newsAndUpdates')}>
                 News & Updates
             </button>
             </NavigationMenuLink>
             <NavigationMenuLink>
-            <button onClick={() => navigate('/leaderboard')}>
+            <button className="cursor-pointer" onClick={() => navigate('/leaderboard')}>
                 Leaderboard
             </button>
             </NavigationMenuLink>
-            {/* <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-inherit">Community</NavigationMenuTrigger>
-                <NavigationMenuContent className="*:hover:bg-[#F76902]">
-                    <NavigationMenuLink>
-                    <button onClick={() => navigate('/forum')}>
-                        Forum
-                    </button>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink>
-                    <button onClick={() => navigate('/leaderboard')}>
-                        Leaderboards
-                    </button>
-                    </NavigationMenuLink>
-                </NavigationMenuContent>
-            </NavigationMenuItem> */}
         </NavigationMenuList>
         <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className="bg-inherit">
@@ -84,12 +73,12 @@ const Navbar = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/playerStats')}>
+                        <button className="cursor-pointer" onClick={() => navigate('/playerStats')}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/login')}>
+                        <button className="cursor-pointer" onClick={() => navigate('/login')}>
                         Log Out
                         </button>
                     </NavigationMenuLink>

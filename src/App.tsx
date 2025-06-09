@@ -75,7 +75,8 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
+      <div className='min-h-185'>
+        <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/content/*" element={<ContentPage />} />
@@ -90,6 +91,7 @@ function App() {
         <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
+      </div>
       <Footer></Footer>
     </Router>
   
