@@ -1,4 +1,6 @@
-
+import { useEffect, useId, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useOutsideClick } from "@/hooks/use-outside-click";
 // Array of updates
 const updates = [
   {
@@ -51,8 +53,117 @@ const NewsAndUpdatesPage = () => {
     return dateB - dateA;
   });
 
+  // state for tracking which item is active (expanded) or not
+  const [active, setActive] = useState<
+    { name: string; description: string; imgUrl: string } | boolean | null
+  >(null);
+  const id = useId(); // unique ID for layout animations
+  const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+
+  const totalPages = Math.ceil(sortedUpdates.length / itemsPerPage);
+  const paginatedUpdates = sortedUpdates.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Handlers
+  const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+
+  useEffect(() => {
+    // close modal on Escape key
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActive(false);
+      }
+    }
+
+    // lock body scroll when modal is open
+    if (active && typeof active === "object") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
+  // close pop up when clicking outside
+  useOutsideClick(ref, () => setActive(null));
+
+
+
   return (
     <div className="min-h-screen bg-black p-6">
+      {/* overlay behind pop up when active */}
+      <AnimatePresence>
+        {active && typeof active === "object" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/20 h-full w-full z-41"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* expanded item pop up */}
+      <AnimatePresence>
+        {active && typeof active === "object" ? (
+          <div className="fixed inset-0 grid place-items-center z-[100]">
+            <motion.button
+              key={`button-${active.name}-${id}`}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.05 } }}
+              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              onClick={() => setActive(null)}
+            >
+              <CloseIcon /> {/* close icon pop up*/}
+            </motion.button>
+            <motion.div
+              layoutId={`item-${active.name}-${id}`}
+              ref={ref}
+              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+            >
+              <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+                <img
+                  width={200}
+                  height={200}
+                  src={active.imgUrl}
+                  alt={active.name}
+                  className="w-48 h-48 object-contain"
+                />
+              </motion.div>
+
+              <div className="p-6">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <motion.h3
+                      layoutId={`title-${active.name}-${id}`}
+                      className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                    >
+                      {active.name}
+                    </motion.h3>
+                    <motion.p
+                      layoutId={`description-${active.description}-${id}`}
+                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                    >
+                      {active.description}
+                    </motion.p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        ) : null}
+      </AnimatePresence>
 
       {/* Grid container: 
             - 1 column on small screens,
@@ -61,46 +172,98 @@ const NewsAndUpdatesPage = () => {
             - with spacing (gap-6) between items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Map over the updates array to render each update card */}
-        {sortedUpdates.map((update, index) => {
+        {paginatedUpdates.map((update, index) => {
+          const globalIndex = (currentPage - 1) * itemsPerPage + index;
           // Every fourth item will be full-width
-          const isFullWidth = index % 4 === 0;
+          const isFullWidth = globalIndex % 4 === 0;
 
           return (
-              <div
-                key={update.id} // Unique key for each item
-                
-                // Applies full-width spans based on screen size:
-                className={`${
-                  isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
-                } bg-white text-black rounded-xl shadow overflow-hidden`}
-              >
-                
-                {/* Update image */}
-                <img
-                  src={update.image}
-                  alt={update.title}
-                  // Full width for all images, but height depends on if it's full-width or not
-                  className={`w-full ${
-                    isFullWidth ? "h-96" : "h-72"
-                  } object-cover`}
-                />
-
-                {/* Text content of the update */}
-                <div className="p-4">
-                  {/* Date */}
-                  <p className="text-xs text-[#F76902] font-semibold mb-1">
-                    {update.date}
-                  </p>
-                  {/* Title */}
-                  <h2 className="text-lg font-bold">{update.title}</h2>
-                  {/* Subtitle */}
-                  <p className="text-sm mt-1">{update.subtitle}</p>
+            <div
+              key={update.id}// Unique key for each item
+              onClick={() =>
+                setActive({
+                  name: update.title,
+                  description: update.subtitle,
+                  imgUrl: update.image,
+                })
+              }
+              // Full width for all images, but height depends on if it's full-width or not
+              className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
+                } bg-white text-black rounded-xl shadow overflow-hidden 
+        cursor-pointer hover:scale-105 transition-transform`}
+            >
+              {/* Image */}
+              <img
+                src={update.image}
+                alt={update.title}
+                className={`w-full ${isFullWidth ? "h-96" : "h-72"} object-cover`}
+              />
+              {/* Text content of the update */}
+              <div className="p-4">
+                {/* Date */}
+                <p className="text-xs text-[#F76902] font-semibold mb-1">
+                  {update.date}
+                </p>
+                {/* Title */}
+                <h2 className="text-lg font-bold">{update.title}</h2>
+                {/* Subtitle */}
+                <p className="text-sm mt-1">{update.subtitle}</p>
               </div>
             </div>
           );
         })}
       </div>
+      <div className="flex justify-center gap-4 mt-6">
+        <button
+          onClick={prevPage}
+          disabled={currentPage === 1}
+          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
+        <button
+          onClick={nextPage}
+          disabled={currentPage === totalPages}
+          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
     </div>
+  );
+};
+
+const CloseIcon = () => {
+  return (
+    <motion.svg
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.05,
+        },
+      }}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4 text-black"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 6l-12 12" />
+      <path d="M6 6l12 12" />
+    </motion.svg>
   );
 };
 
