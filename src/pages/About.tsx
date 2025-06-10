@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import photo from '../../public/images/placeholder.png';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import styles from "../assets/Styles/MainStyles.module.css";
 
 const AboutPage = () => {
     //String arrays to hold each team's data

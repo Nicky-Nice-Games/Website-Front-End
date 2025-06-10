@@ -9,9 +9,6 @@ import {
 import photo from '../../public/images/placeholder.png';
 import arcadeMachine from '../../public/images/arcade machine.png';
 import InfiniteMovingCards from '../components/ui/carousel-banner';
-import styles from "../assets/Styles/MainStyles.module.css";
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"></link>
 
 const HomePage = () => {
     const plugin = React.useRef(
@@ -31,11 +28,11 @@ const HomePage = () => {
         <div className="h-1/4 w-[100%] m-[2rem] flex gap-[4vw] items-center">
         <h3>{place}</h3>
         <img src={imgPath} alt={`Photo of ${name}`} className="w-[50px] h-[50px] rounded-full"/>
-        <p>{name}</p>
+        <p className="m-4">{name}</p>
         <div className="ml-auto flex gap-4">
-            <p>{time}</p>
-            <p>{score}</p>
-        </div>
+            <p className="m-4">{time}</p>
+            <p className="m-4">{score}</p>
+        </div> 
         </div>
     );
     }
@@ -120,8 +117,8 @@ const HomePage = () => {
                 </div>
                 
                 <div id="introdcution" className="w-full pl-[2rem] pr-[2rem] w-[100%]">
-                    <h2>Game Overview</h2>
-                    <p>
+                    <h2 className="text-[26px] m-4">Game Overview</h2>
+                    <p className="m-4">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Proin eu nisl eu libero sodales facilisis eu vitae risus. Morbi
                         id accumsan sapien. Donec eget feugiat libero, at volutpat 
@@ -145,8 +142,8 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div id="lore" className="ml-[2rem] mr-[2rem]">
-                    <h2>The Lore</h2>
-                    <p>
+                    <h2 className="text-[26px] m-4">The Lore</h2>
+                    <p className="m-4">
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
                         Pharetra faucibus gravida commodo quisque at. Dui ac arcu nulla augue sed odio sit.
                         Odio ultrices cursus et arcu neque neque viverra faucibus faucibus. Pellentesque aliquam tellus molestie sed quis sem a. Quam eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
@@ -162,7 +159,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div id="topscores" className="relative flex flex-col justify-center items-center">
-                    <h2>Top Scores</h2>
+                    <h2 className="text-[26px] m-4">Top Scores</h2>
                     <img src={arcadeMachine} className="top-0 z-0 h-[800px] w-[70%] max-[700px]:w-[100%]"></img>
                     <div id="scoreboard" 
                     className="absolute top-[14%] 
@@ -199,7 +196,7 @@ const HomePage = () => {
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
                         <a href="/Leaderboard">
-                            <p>See all scores!</p>
+                            <p className="m-4">See all scores!</p>
                         </a>
                         
                     </div>
