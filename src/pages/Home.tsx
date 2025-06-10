@@ -84,7 +84,7 @@ const HomePage = () => {
                     <h1 className="text-4xl font-bold">Brick City ????</h1>
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <a href="/NewsAndUpdates">
+                <a href="/news">
                     <div className="absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white">
                     <h3>See all news and updates!</h3>
                     </div>
