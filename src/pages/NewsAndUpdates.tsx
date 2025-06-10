@@ -38,6 +38,20 @@ const updates = [
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
   },
+  {
+    id: 6,
+    title: "Update 6",
+    date: "6/11/2025",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    image: '/assets/OIP.jpg',
+  },
+  {
+    id: 7,
+    title: "Update 7",
+    date: "6/12/2025",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    image: '/assets/OIP.jpg',
+  },
 ];
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
@@ -62,7 +76,7 @@ const NewsAndUpdatesPage = () => {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
 
   const totalPages = Math.ceil(sortedUpdates.length / itemsPerPage);
   const paginatedUpdates = sortedUpdates.slice(
@@ -174,8 +188,10 @@ const NewsAndUpdatesPage = () => {
         {/* Map over the updates array to render each update card */}
         {paginatedUpdates.map((update, index) => {
           const globalIndex = (currentPage - 1) * itemsPerPage + index;
-          // Every fourth item will be full-width
-          const isFullWidth = globalIndex % 4 === 0;
+          
+          const mostRecentId = sortedUpdates[0]?.id;
+          // Only the most recent update is full width
+          const isFullWidth = update.id === mostRecentId;
 
           return (
             <div
