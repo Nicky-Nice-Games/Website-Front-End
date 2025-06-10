@@ -83,14 +83,14 @@ const ItemsPage = () => {
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
 
   useEffect(() => {
-    // close modal on Escape key
+    // close pop up on Escape key
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setActive(false);
       }
     }
 
-    // lock body scroll when modal is open
+    // lock body scroll when pop up is open
     if (active && typeof active === "object") {
       document.body.style.overflow = "hidden";
     } else {
@@ -123,9 +123,13 @@ const ItemsPage = () => {
   return (
     <>
       <ContentNavigator currentPage={"items"} />
-      <div className="px-8">
-        <h2 className="text-black text-3xl ml-8">Items Page</h2>
-
+      <div className="px-8 min-h-screen">
+        <main className="px-8">
+                <h2
+  className=" /* default on xs */ text-black text-2xl sm:text-3xl md:text-4xl 
+  lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12">
+   Items Page
+ </h2>
         {/* overlay behind pop up when active */}
         <AnimatePresence>
           {active && typeof active === "object" && (
@@ -192,7 +196,7 @@ const ItemsPage = () => {
         </AnimatePresence>
 
         {/* grid of items */}
-        <div className="grid grid-cols-6 gap-4 p-8 mx-auto max-w-6xl">
+        <div className="grid grid-cols-4 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-6 md:grid-cols-4 ">
           {items.map((item) => (
             <motion.div
               layoutId={`item-${item.name}-${id}`}
@@ -212,6 +216,7 @@ const ItemsPage = () => {
             </motion.div>
           ))}
         </div>
+        </main>
       </div>
     </>
   );
