@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+
+import PlaceholderImg from "../../public/images/landscape-placeholder.svg"
+
+>>>>>>> d3a45ca49ba613a896f1dc3a1d655f71491d2357
 const PlayerStatsPage = () => {
     return (
         <div className="bg-black min-h-screen text-white p-4 md:p-8 ">
