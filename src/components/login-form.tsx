@@ -28,7 +28,7 @@ export function LoginForm({
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
 
-                 <Button variant="outline" className="w-full flex items-center justify-center gap-2 bg-[#F76902] text-white hover:bg-[#1a1a1a] hover:text-white">
+                 <Button variant="outline" className="w-full flex items-center justify-center gap-2 bg-[#F76902] text-white hover:bg-[#1a1a1a] hover:text-white cursor-pointer">
                   <img src='images/RITLogo.png' alt="RIT Logo" className="w-6 h-6 brightness-0 contrast-800" />
                   Login with RIT
                 </Button>
@@ -54,20 +54,20 @@ export function LoginForm({
                     <Label htmlFor="password">Password</Label>
                     <a
                       href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902]"
+                      className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902] hover:text-white"
                     >
                       Forgot your password?
                     </a>
                   </div>
                   <Input id="password" type="password" required />
                 </div>
-                <Button type="submit" className="w-full border border-1 text-white bg-[#F76902]">
+                <Button type="submit" className="w-full border border-1 text-white bg-[#F76902] cursor-pointer">
                   Start Racing
                 </Button>
               </div>
               <div className="text-center text-sm text-[#D0D3D4]">
                 Don&apos;t have an account?{" "}
-                <a href="#" className="underline underline-offset-4 text-[#F76902]">
+                <a href="#" className="underline underline-offset-4 text-[#F76902] hover:text-white">
                   Sign up
                 </a>
               </div>
@@ -75,9 +75,9 @@ export function LoginForm({
           </form>
         </CardContent>
       </Card>
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#" className="text-[#F76902]">Terms of Service</a>{" "}
-        and <a href="#" className="text-[#F76902]">Privacy Policy</a>.
+      <div className="text-muted-foreground text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+        By clicking continue, you agree to our <a href="#" className="text-[#F76902] hover:text-white">Terms of Service</a>{" "}
+        and <a href="#" className="text-[#F76902] hover:text-white">Privacy Policy</a>.
       </div>
     </div>
   )

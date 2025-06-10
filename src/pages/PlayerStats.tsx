@@ -1,5 +1,5 @@
 
-import PlaceholderImg from "../assets/Media/Images/placeholder.PNG"
+import PlaceholderImg from "../../public/images/pfp-placeholder.png"
 
 const PlayerStatsPage = () => {
     return (
