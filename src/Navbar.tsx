@@ -14,8 +14,8 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-lg z-30">
-        <div className="min-w-40">
+    return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-xs md:**:text-base lg:**:text-lg z-30">
+        <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
             <button className="cursor-pointer" onClick={() => {navigate('/home'); setCurrentPage("home")}}>
                 <img src="images/landscape-placeholder.svg" className='max-w-10' />
@@ -72,9 +72,9 @@ const Navbar = () => {
         <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
                     Username                
-                    <img src="images/pfp-placeholder.png" className='max-w-7 m-1' />
+                    <img src="images/pfp-placeholder.png" className='max-w-7 md:m-1' />
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="min-w-30 *:hover:bg-[#F76902]">
+                <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                         <button className="cursor-pointer" onClick={() => {navigate('/stats'); setCurrentPage("profile")}}>
                         My Stats

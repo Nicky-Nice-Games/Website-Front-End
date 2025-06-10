@@ -504,7 +504,7 @@ const TracksPage = () => {
             </AnimatePresence>
             <div className="mb-10">
                 <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">Tracks</h2>
-                <Carousel setApi={setApi} className="text-center border-solid border-slate-400 border-8 rounded-3xl w-180 m-auto">
+                <Carousel setApi={setApi} className="text-center border-solid border-slate-400 border-8 rounded-3xl w-80 md:w-180 m-auto">
                     <CarouselContent>
                         {tracks.map(track => {
                             return <CarouselItem>
