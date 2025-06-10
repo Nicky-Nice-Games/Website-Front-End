@@ -125,11 +125,10 @@ const ItemsPage = () => {
       <ContentNavigator currentPage={"items"} />
       <div className="px-8 min-h-screen">
         <main className="px-8">
-                <h2
-  className=" /* default on xs */ text-black text-2xl sm:text-3xl md:text-4xl 
-  lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12">
-   Items Page
- </h2>
+                <h2 className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
+                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12">
+                Items Page
+                </h2>
         {/* overlay behind pop up when active */}
         <AnimatePresence>
           {active && typeof active === "object" && (
@@ -196,7 +195,7 @@ const ItemsPage = () => {
         </AnimatePresence>
 
         {/* grid of items */}
-        <div className="grid grid-cols-4 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-6 md:grid-cols-4 ">
+        <div className="grid grid-cols-3 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-6 md:grid-cols-4 ">
           {items.map((item) => (
             <motion.div
               layoutId={`item-${item.name}-${id}`}
@@ -282,8 +281,13 @@ const CharactersPage = () => {
         <>
             <ContentNavigator currentPage={"characters"} />
             <div className="px-8">
-                <h2 className="text-black text-3xl ml-8 mb-8">Characters Page</h2>
-
+                <h2 className=" 
+                 text-black text-2xl sm:text-3xl  /* default on mobile */
+                 md:text-4xl /* default on small screens */
+                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 /* default on desktop */
+                ">
+                Characters Page
+                </h2>
                 {/* overlay behind pop up when active */}
                 <AnimatePresence>
                     {active && typeof active === "object" && (
@@ -347,24 +351,34 @@ const CharactersPage = () => {
                 </AnimatePresence>
 
                 {/* grid of character pop ups */}
-                <div className="grid grid-cols-4 gap-4 border border-2 border-black items-center justify-center p-8">
+                    <div className="
+                    grid grid-cols-2 gap-4 items-center justify-center p-8 /* default on mobile */
+                    lg:grid-cols-4 /* default on computer screens */
+                    ">
                     {characters.map((character) => (
                         <motion.div
-                            layoutId={`character-${character.name}-${id}`}
-                            key={character.name}
-                            onClick={() => setActive(character)} // open character pop up
-                            className="cursor-pointer hover:scale-105 transition-transform"
+                        layoutId={`character-${character.name}-${id}`}
+                        key={character.name}
+                        onClick={() => setActive(character)}
+                        className="cursor-pointer hover:scale-105 transition-transform"
                         >
-                            <motion.div layoutId={`image-${character.name}-${id}`}>
-                                <img
-                                    src={character.imgUrl}
-                                    alt={character.name}
-                                    className="h-90 w-90 rounded-md object-cover"
-                                />
-                            </motion.div>
+                        <motion.div layoutId={`image-${character.name}-${id}`}>
+                        
+                        <img
+                            src={character.imgUrl}
+                            alt={character.name}
+                            className="
+                            h-40 w-40         /* default on mobile */
+                            sm:h-56 sm:w-56   /* a bit bigger on small screens */
+                            lg:h-90 lg:w-90   /* default on computer screens */
+                            rounded-md
+                            object-cover
+                            "
+                        />
+                        </motion.div>
                         </motion.div>
                     ))}
-                </div>
+                    </div>
             </div>
         </>
     );
