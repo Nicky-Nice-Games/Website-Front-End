@@ -20,16 +20,17 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
-import PlaceholderImg from "../../public/images/pfp-placeholder.png"
+
+
 const ContentPage = () => {
     return (<>
-        <ContentNavigator currentPage="content"/>
+        <ContentNavigator currentPage="content" />
         <div className="grid grid-cols-2">
             <div>
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
-                <p className="m-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit porro quaerat deserunt! Fuga veritatis porro quo ipsum aperiam, laboriosam, exercitationem quas eveniet magnam quae ex dicta iure. Quo, deleniti sint? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae sint quia temporibus odit et architecto? Excepturi corrupti architecto eos repellat, eligendi eum, iste inventore, reprehenderit ratione harum porro ut dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, quam. Labore nobis tempora, minus accusamus assumenda doloremque fuga, neque vero consectetur at temporibus praesentium minima mollitia perferendis officia sit deleniti!</p>
+                <p className="m-3">RIT was born of an unlikely institutional marriage of an influential cultural association, the Rochester Athenaeum, founded in 1829, and a technical training school, the Mechanics Institute, founded in 1885. The institute adopted the name Rochester Institute of Technology in 1944 and awarded its first bachelor of science degree in 1955. A 1961 decision to leave downtown Rochester for farmland in the suburban town of Henrietta put RIT on its path to pre-eminence as a global university. Today, the university’s reputation and reach go well beyond Rochester. We have partnerships on nearly every continent and overseas campuses located in China, Croatia, Dubai, and Kosovo.</p>
             </div>
-            <img className="" src="images/landscape-placeholder.svg"></img>
+            <img className="rounded-lg" src="../../public/images/content-assets/RIT.jpg"></img>
         </div>
 
     </>)
@@ -40,8 +41,8 @@ interface ContentNavigatorProps {
 }
 
 const ContentNavigator = (props: ContentNavigatorProps) => {
-    const navigate = useNavigate();    
-    
+    const navigate = useNavigate();
+
     const characterButtonColor = props.currentPage === "characters" ? "bg-[#F76902] hover:bg-white" : "hover:bg-[#F76902]"
     const itemButtonColor = props.currentPage === "items" ? "bg-[#F76902] hover:bg-white" : "hover:bg-[#F76902]"
     const trackButtonColor = props.currentPage === "tracks" ? "bg-[#F76902] hover:bg-white" : "hover:bg-[#F76902]"
@@ -54,19 +55,19 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
                         <button className={`p-1 m-1 font-bold ${characterButtonColor} rounded-sm text-lg`} onClick={() => {
                             const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/characters";
                             navigate(navigateRoute);
-                            }}>Characters</button>
+                        }}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${itemButtonColor} rounded-sm text-lg`} onClick={() => {
                             const navigateRoute: string = props.currentPage === "items" ? "/content" : "/items";
                             navigate(navigateRoute);
-                            }}>Items</button>
+                        }}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${trackButtonColor} rounded-sm text-lg`} onClick={() => {
                             const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/tracks";
                             navigate(navigateRoute);
-                            }}>Tracks</button>
+                        }}>Tracks</button>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
@@ -74,147 +75,153 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
     );
 }
 
+import HkySr from "../../public/images/content-assets/HkySr.png";
+import Jamster from "../../public/images/content-assets/Jamster.png";
+import SophDin from "../../public/images/content-assets/SophDining.png";
+import OlJr from "../../public/images/content-assets/OLjr.png";
+import FrshSkt from "../../public/images/content-assets/FrshSkater.png";
+
 const ItemsPage = () => {
-  // state for tracking which item is active (expanded) or not
-  const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
-  >(null);
-  const id = useId(); // unique ID for layout animations
-  const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
+    // state for tracking which item is active (expanded) or not
+    const [active, setActive] = useState<
+        { name: string; description: string; imgUrl: string } | boolean | null
+    >(null);
+    const id = useId(); // unique ID for layout animations
+    const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
 
-  useEffect(() => {
-    // close modal on Escape key
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setActive(false);
-      }
-    }
+    useEffect(() => {
+        // close pop up on Escape key
+        function onKeyDown(event: KeyboardEvent) {
+            if (event.key === "Escape") {
+                setActive(false);
+            }
+        }
 
-    // lock body scroll when modal is open
-    if (active && typeof active === "object") {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+        // lock body scroll when pop up is open
+        if (active && typeof active === "object") {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
 
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [active]);
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [active]);
 
-  // close pop up when clicking outside
-  useOutsideClick(ref, () => setActive(null));
+    // close pop up when clicking outside
+    useOutsideClick(ref, () => setActive(null));
 
-  // sample list of items to display
-  const items = [
-    { imgUrl: PlaceholderImg, name: "Item 1", description: "Description for Item 1" },
-    { imgUrl: PlaceholderImg, name: "Item 2", description: "Description for Item 2" },
-    { imgUrl: PlaceholderImg, name: "Item 3", description: "Description for Item 3" },
-    { imgUrl: PlaceholderImg, name: "Item 4", description: "Description for Item 4" },
-    { imgUrl: PlaceholderImg, name: "Item 5", description: "Description for Item 5" },
-    { imgUrl: PlaceholderImg, name: "Item 6", description: "Description for Item 6" },
-    { imgUrl: PlaceholderImg, name: "Item 7", description: "Description for Item 7" },
-    { imgUrl: PlaceholderImg, name: "Item 8", description: "Description for Item 8" },
-    { imgUrl: PlaceholderImg, name: "Item 9", description: "Description for Item 9" },
-    { imgUrl: PlaceholderImg, name: "Item 10", description: "Description for Item 10" },
-    { imgUrl: PlaceholderImg, name: "Item 11", description: "Description for Item 11" },
-    { imgUrl: PlaceholderImg, name: "Item 12", description: "Description for Item 12" },
-  ];
+    // sample list of items to display
+    const items = [
+        { imgUrl: "../../images/content-assets/booster.png", name: "Boost", description: "Slightly adds to player’s velocity to simulate increase in speed for short duration" },
+        { imgUrl: "../../public/images/content-assets/item_box.png", name: "Fake Item Box", description: "Same size as item box, looks significantly different. Stuns kart when they drive into it" },
+        { imgUrl: "../../public/images/content-assets/puck.png", name: "Puck", description: "Projectile that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it." },
+        { imgUrl: "../../public/images/content-assets/spill.png", name: "Spill", description: "Sent behind the user and remains on the ground" },
+        { imgUrl: "../../public/images/content-assets/booster-upg.png", name: "Upgraded Boost", description: "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration" },
+        { imgUrl: "../../public/images/content-assets/item_box-upg.png", name: "Upgraded Fake Item Box", description: "Similar color/design to real item box, Still stuns kart when they drive into it" },
+        { imgUrl: "../../public/images/content-assets/puck-upg.png", name: "Upgraded Puck", description: "Projectiles that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it. Player releases 3 pucks instead of one when upgraded" },
+        { imgUrl: "../../public/images/content-assets/spill-upg.png", name: "Upgraded Spill", description: "Sent behind the user and remains on the ground, larger surface area when upgraded" },
+    ];
 
-  return (
-    <>
-      <ContentNavigator currentPage={"items"} />
-      <div className="px-8">
-        <h2 className="text-black text-3xl ml-8">Items Page</h2>
+    return (
+        <>
+            <ContentNavigator currentPage={"items"} />
+            <div className="px-8 min-h-screen">
+                <main className="px-8">
+                    <h2 className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
+                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12">
+                        Items Page
+                    </h2>
+                    {/* overlay behind pop up when active */}
+                    <AnimatePresence>
+                        {active && typeof active === "object" && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 bg-black/20 h-full w-full z-41"
+                            />
+                        )}
+                    </AnimatePresence>
 
-        {/* overlay behind pop up when active */}
-        <AnimatePresence>
-          {active && typeof active === "object" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 h-full w-full z-41"
-            />
-          )}
-        </AnimatePresence>
+                    {/* expanded item pop up */}
+                    <AnimatePresence>
+                        {active && typeof active === "object" ? (
+                            <div className="fixed inset-0 grid place-items-center z-[100]">
+                                <motion.button
+                                    key={`button-${active.name}-${id}`}
+                                    layout
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                                    className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+                                    onClick={() => setActive(null)}
+                                >
+                                    <CloseIcon /> {/* close icon pop up*/}
+                                </motion.button>
+                                <motion.div
+                                    layoutId={`item-${active.name}-${id}`}
+                                    ref={ref}
+                                    className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                                >
+                                    <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+                                        <img
+                                            width={200}
+                                            height={200}
+                                            src={active.imgUrl}
+                                            alt={active.name}
+                                            className="w-60 h-64 object-contain"
+                                        />
+                                    </motion.div>
 
-        {/* expanded item pop up */}
-        <AnimatePresence>
-          {active && typeof active === "object" ? (
-            <div className="fixed inset-0 grid place-items-center z-[100]">
-              <motion.button
-                key={`button-${active.name}-${id}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-                onClick={() => setActive(null)}
-              >
-                <CloseIcon /> {/* close icon pop up*/}
-              </motion.button>
-              <motion.div
-                layoutId={`item-${active.name}-${id}`}
-                ref={ref}
-                className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
-              >
-                <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
-                  <img
-                    width={200}
-                    height={200}
-                    src={active.imgUrl}
-                    alt={active.name}
-                    className="w-48 h-48 object-contain"
-                  />
-                </motion.div>
+                                    <div className="p-4">
+                                        <div className="flex justify-between items-start">
+                                            <div>
+                                                <motion.h3
+                                                    layoutId={`title-${active.name}-${id}`}
+                                                    className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 text-center"
+                                                >
+                                                    {active.name}
+                                                </motion.h3>
+                                                <motion.p
+                                                    layoutId={`description-${active.description}-${id}`}
+                                                    className="text-neutral-600 dark:text-neutral-400 text-base text-center"
+                                                >
+                                                    {active.description}
+                                                </motion.p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        ) : null}
+                    </AnimatePresence>
 
-                <div className="p-6">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <motion.h3
-                        layoutId={`title-${active.name}-${id}`}
-                        className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
-                      >
-                        {active.name}
-                      </motion.h3>
-                      <motion.p
-                        layoutId={`description-${active.description}-${id}`}
-                        className="text-neutral-600 dark:text-neutral-400 text-base"
-                      >
-                        {active.description}
-                      </motion.p>
+                    {/* grid of items */}
+                    <div className="grid grid-cols-3 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
+                        {items.map((item) => (
+                            <motion.div
+                                layoutId={`item-${item.name}-${id}`}
+                                key={item.name}
+                                onClick={() => setActive(item)} // open item pop up
+                                className="cursor-pointer"
+                            >
+                                <motion.div layoutId={`image-${item.name}-${id}`}>
+                                    <div className=" rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105 transition-transform">
+                                        <img
+                                            src={item.imgUrl}
+                                            alt={item.name}
+                                            className="h-50 w-50 object-contain"
+                                        />
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        ))}
                     </div>
-                  </div>
-                </div>
-              </motion.div>
+                </main>
             </div>
-          ) : null}
-        </AnimatePresence>
-
-        {/* grid of items */}
-        <div className="grid grid-cols-6 gap-4 p-8 mx-auto max-w-6xl">
-          {items.map((item) => (
-            <motion.div
-              layoutId={`item-${item.name}-${id}`}
-              key={item.name}
-              onClick={() => setActive(item)} // open item pop up
-              className="cursor-pointer"
-            >
-              <motion.div layoutId={`image-${item.name}-${id}`}>
-                <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center hover:scale-105 transition-transform">
-                  <img
-                    src={item.imgUrl}
-                    alt={item.name}
-                    className="h-16 w-16 object-contain"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 };
 
 const CharactersPage = () => {
@@ -248,28 +255,34 @@ const CharactersPage = () => {
     // sample list of characters to display
     const characters = [
         {
-            imgUrl: PlaceholderImg,
-            name: "Character 1",
+            imgUrl: HkySr,
+            name: "Hockey Senior",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",
+                "This is a senior",
         },
         {
-            imgUrl: PlaceholderImg,
-            name: "Character 2",
+            imgUrl: OlJr,
+            name: "Orienation Leader Junior",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",
+                "This is OL Junior",
         },
         {
-            imgUrl: PlaceholderImg,
-            name: "Character 3",
+            imgUrl: SophDin,
+            name: "Dining Worker Sophmore",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",
+                "This is a working sophmore",
         },
         {
-            imgUrl: PlaceholderImg,
-            name: "Character 4",
+            imgUrl: FrshSkt,
+            name: "Freshman Skater",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",
+                "Freshman Skater is so cool",
+        },
+        {
+            imgUrl: Jamster,
+            name: "Jamster",
+            description:
+                "Jamster the vibe",
         },
     ];
 
@@ -277,8 +290,13 @@ const CharactersPage = () => {
         <>
             <ContentNavigator currentPage={"characters"} />
             <div className="px-8">
-                <h2 className="text-black text-3xl ml-8 mb-8">Characters Page</h2>
-
+                <h2 className=" 
+                 text-black text-2xl sm:text-3xl  /* default on mobile */
+                 md:text-4xl /* default on small screens */
+                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 /* default on desktop */
+                ">
+                    Characters Page
+                </h2>
                 {/* overlay behind pop up when active */}
                 <AnimatePresence>
                     {active && typeof active === "object" && (
@@ -342,19 +360,29 @@ const CharactersPage = () => {
                 </AnimatePresence>
 
                 {/* grid of character pop ups */}
-                <div className="grid grid-cols-4 gap-4 border border-2 border-black items-center justify-center p-8">
+                <div className="
+                    grid grid-cols-2 gap-4 items-center justify-center p-8 /* default on mobile */
+                    lg:grid-cols-5 /* default on computer screens */
+                    ">
                     {characters.map((character) => (
                         <motion.div
                             layoutId={`character-${character.name}-${id}`}
                             key={character.name}
-                            onClick={() => setActive(character)} // open character pop up
+                            onClick={() => setActive(character)}
                             className="cursor-pointer hover:scale-105 transition-transform"
                         >
                             <motion.div layoutId={`image-${character.name}-${id}`}>
+
                                 <img
                                     src={character.imgUrl}
                                     alt={character.name}
-                                    className="h-90 w-90 rounded-md object-cover"
+                                    className="
+                            h-40 w-40         /* default on mobile */
+                            sm:h-56 sm:w-56   /* a bit bigger on small screens */
+                            lg:h-90 lg:w-90   /* default on computer screens */
+                            rounded-md
+                            object-cover
+                            "
                                 />
                             </motion.div>
                         </motion.div>
@@ -373,18 +401,18 @@ interface Track {
 
 const tracks: Array<Track> = [
     {
-        imgUrl: "images/placeholder.PNG",
-        name: "Sample Track",
+        imgUrl: "../../public/images/content-assets/shed.png",
+        name: "The Shed",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "images/placeholder.PNG",
-        name: "Sample Track 2",
+        imgUrl: "../../public/images/content-assets/QrterMile.png",
+        name: "Quarter Mile",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "images/placeholder.PNG",
-        name: "Sample Track 3",
+        imgUrl: "../../public/images/content-assets/Outerloop.png",
+        name: "RIT Outer Loop",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     }
 ]
@@ -417,7 +445,7 @@ const TracksPage = () => {
 
     return (
         <>
-            <ContentNavigator currentPage="tracks"/>
+            <ContentNavigator currentPage="tracks" />
             <AnimatePresence>
                 {active && typeof active === "object" && (
                     <motion.div
@@ -467,7 +495,7 @@ const TracksPage = () => {
                                         </motion.h3>
                                         <motion.p
                                             layoutId={`description-${active.description}-${id}`}
-                                            className="text-neutral-600 dark:text-neutral-400 text-base max-h-60 overflow-y-scroll"
+                                            className="text-neutral-600 dark:text-neutral-400 text-base max-h-60"
                                         >
                                             {active.description}
                                         </motion.p>
@@ -478,11 +506,11 @@ const TracksPage = () => {
                                 <img
                                     src={active.imgUrl}
                                     alt={active.name}
-                                    className="w-full sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                                    className=" w-full sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                                 />
                             </motion.div>
 
-                            
+
                         </motion.div>
                     </div>
                 ) : null}
@@ -493,24 +521,24 @@ const TracksPage = () => {
                     <CarouselContent>
                         {tracks.map(track => {
                             return <CarouselItem>
-                                    <motion.div
-                                        layoutId={`track-${track.name}-${id}`}
-                                        key={track.name}
-                                        onClick={() => setActive(track)}
-                                        className="p-4 flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
-                                    >
-                                        <div className="flex gap-4 flex-col w-full h-full">
-                                            <motion.div layoutId={`image-${track.name}-${id}`}>
-                                                <img
-                                                    width={100}
-                                                    height={200}
-                                                    src={track.imgUrl}
-                                                    alt={track.name}
-                                                    className="h-full w-full rounded-lg object-cover object-top"
-                                                />
-                                            </motion.div>
-                                        </div>
-                                    </motion.div>
+                                <motion.div
+                                    layoutId={`track-${track.name}-${id}`}
+                                    key={track.name}
+                                    onClick={() => setActive(track)}
+                                    className="p-4 flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                                >
+                                    <div className="flex gap-4 flex-col w-full h-full">
+                                        <motion.div layoutId={`image-${track.name}-${id}`}>
+                                            <img
+                                                width={100}
+                                                height={200}
+                                                src={track.imgUrl}
+                                                alt={track.name}
+                                                className="h-full w-full rounded-lg object-cover object-top"
+                                            />
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
                             </CarouselItem>
                         })}
                     </CarouselContent>
