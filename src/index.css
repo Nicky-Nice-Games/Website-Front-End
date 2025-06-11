@@ -129,7 +129,6 @@
 
 .bebas {
   font-family: 'Bebas Neue', sans-serif;
-<<<<<<< HEAD
 }
 
 @theme inline {
@@ -161,6 +160,3 @@
     @apply text-white text-4xl font-bold;
   }
 }
-=======
-}
->>>>>>> origin/main
