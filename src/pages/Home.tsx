@@ -53,9 +53,39 @@ const HomePage = () => {
     {
         imgSrc:'images/placeholder.PNG'
     },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
     ];
 
     const bannerImages2 = [
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
+    {
+        imgSrc:'images/placeholder.PNG'
+    },
     {
         imgSrc:'images/placeholder.PNG'
     },
@@ -112,7 +142,7 @@ const HomePage = () => {
 
             <main className="overflow-hidden">
                 <div className="mb-[8rem] mt-[4rem]">
-                    <div className="overflow-hidden rotate-6 w-[200%] h-[300px] m-[0rem] origin-top-left flex">
+                    <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
                     </div>
                 </div>
@@ -137,7 +167,7 @@ const HomePage = () => {
                     />
                 </div>
                 <div className="mb-[8rem] mt-[4rem]">
-                    <div className="overflow-hidden rotate-6 w-[200%] h-[300px] m-[0rem] origin-top-left flex">
+                    <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
 
                     </div>
@@ -154,7 +184,7 @@ const HomePage = () => {
                     </p>
                 </div>
                 <div className="mb-[2rem] mt-[8rem]">
-                    <div className="overflow-hidden -rotate-6 w-[200%] h-[300px] m-[0rem] origin-bottom-left flex">
+                    <div className="overflow-hidden -rotate-6 w-[100%] h-[300px] m-[0rem] origin-bottom-left flex">
                         <InfiniteMovingCards items={bannerImages2} direction="left" speed="slow"></InfiniteMovingCards>
 
                     </div>

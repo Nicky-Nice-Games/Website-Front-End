@@ -116,7 +116,7 @@ const AboutPage = () => {
             <div className='flex flex-column items-center w-full text-center'>
                 <Tabs defaultValue="GSP" className="w-[400px] w-4/5 bg-orange-100 m-auto">
 
-                <TabsList className='w-full flex flex-column h-full'>
+                <TabsList className='w-full flex-wrap flex-column h-full'>
                     <TabsTrigger value="GSP">GSP</TabsTrigger>
                     <TabsTrigger value="Production">Production</TabsTrigger>
                     <TabsTrigger value="Level Design">Level Design</TabsTrigger>
