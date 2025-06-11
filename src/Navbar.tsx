@@ -62,7 +62,7 @@ const Navbar = () => {
 
     const mobileNavList = <><NavigationMenuItem className="list-none">
         <NavigationMenuTrigger>Pages</NavigationMenuTrigger>
-        <NavigationMenuContent>
+        <NavigationMenuContent className="absolute min-w-36">
             <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
             <button className="cursor-pointer" onClick={() =>{navigate('/about'); setCurrentPage("about")}}>
                 About
