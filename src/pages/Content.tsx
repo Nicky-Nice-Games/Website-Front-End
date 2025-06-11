@@ -483,7 +483,7 @@ const TracksPage = () => {
                         <motion.div
                             layoutId={`track-${active.name}-${id}`}
                             ref={ref}
-                            className="h-fit md:max-h-[90%] flex flex-col-reverse md:flex-row bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                            className="w-19/20 h-fit md:max-h-[90%] flex flex-col-reverse md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
                         >
                             <div>
                                 <div className="flex justify-between items-start p-4">
@@ -507,7 +507,7 @@ const TracksPage = () => {
                                 <img
                                     src={active.imgUrl}
                                     alt={active.name}
-                                    className=" w-full sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                                    className=" w-full rounded-tr-lg rounded-tl-lg object-cover object-top"
                                 />
                             </motion.div>
 
