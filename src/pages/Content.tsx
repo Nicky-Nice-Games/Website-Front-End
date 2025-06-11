@@ -74,6 +74,15 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
     );
 }
 
+import Boost from "../../public/images/content-assets/booster.png";
+import Puck from "../../public/images/content-assets/puck.png";
+import ItemBox from "../../public/images/content-assets/item_box.png";
+import UpgBoost from "../../public/images/content-assets/booster-upg.png";
+import UpgPuck from "../../public/images/content-assets/puck-upg.png";
+import UpgItemBox from "../../public/images/content-assets/item_box-upg.png";
+import Spill from "../../public/images/content-assets/spill.png";
+import UpgSpill from "../../public/images/content-assets/spill-upg.png";
+
 const ItemsPage = () => {
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
@@ -106,18 +115,14 @@ const ItemsPage = () => {
 
   // sample list of items to display
   const items = [
-    { imgUrl: PlaceholderImg, name: "Item 1", description: "Description for Item 1" },
-    { imgUrl: PlaceholderImg, name: "Item 2", description: "Description for Item 2" },
-    { imgUrl: PlaceholderImg, name: "Item 3", description: "Description for Item 3" },
-    { imgUrl: PlaceholderImg, name: "Item 4", description: "Description for Item 4" },
-    { imgUrl: PlaceholderImg, name: "Item 5", description: "Description for Item 5" },
-    { imgUrl: PlaceholderImg, name: "Item 6", description: "Description for Item 6" },
-    { imgUrl: PlaceholderImg, name: "Item 7", description: "Description for Item 7" },
-    { imgUrl: PlaceholderImg, name: "Item 8", description: "Description for Item 8" },
-    { imgUrl: PlaceholderImg, name: "Item 9", description: "Description for Item 9" },
-    { imgUrl: PlaceholderImg, name: "Item 10", description: "Description for Item 10" },
-    { imgUrl: PlaceholderImg, name: "Item 11", description: "Description for Item 11" },
-    { imgUrl: PlaceholderImg, name: "Item 12", description: "Description for Item 12" },
+    { imgUrl: Boost, name: "Boost", description: "Slightly adds to player’s velocity to simulate increase in speed for short duration"},
+    { imgUrl: Puck, name: "Fake Item Box", description: "Same size as item box, looks significantly different. Stuns kart when they drive into it" },
+    { imgUrl: ItemBox, name: "Puck", description: "Projectile that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it." },
+    { imgUrl: Spill, name: "Spill", description: "Sent behind the user and remains on the ground" },
+    { imgUrl: UpgBoost, name: "Upgraded Boost", description: "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration" },
+    { imgUrl: UpgPuck, name: "Upgraded Puck", description: "Projectiles that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it. Player releases 3 pucks instead of one when upgraded"},
+    { imgUrl: UpgItemBox, name: "Upgraded Fake Item Box", description: "Similar color/design to real item box, Still stuns kart when they drive into it" },
+    { imgUrl: UpgSpill, name: "Upgraded Spill", description: "Sent behind the user and remains on the ground, larger surface area when upgraded" },
   ];
 
   return (
@@ -167,22 +172,22 @@ const ItemsPage = () => {
                     height={200}
                     src={active.imgUrl}
                     alt={active.name}
-                    className="w-48 h-48 object-contain"
+                    className="w-60 h-64 object-contain"
                   />
                 </motion.div>
 
-                <div className="p-6">
+                <div className="p-4">
                   <div className="flex justify-between items-start">
                     <div>
                       <motion.h3
                         layoutId={`title-${active.name}-${id}`}
-                        className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                        className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 text-center"
                       >
                         {active.name}
                       </motion.h3>
                       <motion.p
                         layoutId={`description-${active.description}-${id}`}
-                        className="text-neutral-600 dark:text-neutral-400 text-base"
+                        className="text-neutral-600 dark:text-neutral-400 text-base text-center"
                       >
                         {active.description}
                       </motion.p>
@@ -195,7 +200,7 @@ const ItemsPage = () => {
         </AnimatePresence>
 
         {/* grid of items */}
-        <div className="grid grid-cols-3 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-6 md:grid-cols-4 ">
+        <div className="grid grid-cols-3 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
           {items.map((item) => (
             <motion.div
               layoutId={`item-${item.name}-${id}`}
@@ -204,11 +209,11 @@ const ItemsPage = () => {
               className="cursor-pointer"
             >
               <motion.div layoutId={`image-${item.name}-${id}`}>
-                <div className="bg-gray-300 border-2 border-gray-600 rounded-xl h-24 w-24 flex items-center justify-center hover:scale-105 transition-transform">
+                <div className=" rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105 transition-transform">
                   <img
                     src={item.imgUrl}
                     alt={item.name}
-                    className="h-16 w-16 object-contain"
+                    className="h-50 w-50 object-contain"
                   />
                 </div>
               </motion.div>
