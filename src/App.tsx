@@ -74,6 +74,7 @@ import Footer from './components/footer';
 function App() {
   return (
     <Router>
+      
       <Navbar />
       <div className='min-h-190'>
         <Routes>
@@ -83,16 +84,17 @@ function App() {
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/newsAndUpdates" element={<NewsAndUpdatesPage />} />
-        <Route path="/playerStats" element={<PlayerStatsPage />} />
+        <Route path="/news" element={<NewsAndUpdatesPage />} />
+        <Route path="/stats" element={<PlayerStatsPage />} />
         <Route path="/forumPost" element={<ForumPost />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/tracks" element={<TracksPage />} />
         <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
-      <Footer></Footer>
       </div>
+      <Footer />
+      
     </Router>
   
   );

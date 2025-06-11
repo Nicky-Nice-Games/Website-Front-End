@@ -5,12 +5,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import photo from '../../public/images/placeholder.png';
 import arcadeMachine from '../../public/images/arcade machine.png';
-import Footer from '../components/footer';
 import InfiniteMovingCards from '../components/ui/carousel-banner';
 
 const HomePage = () => {
@@ -42,50 +39,51 @@ const HomePage = () => {
 
     const bannerImages1 = [
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     {
-        imgSrc:'../../public/images/scary.png'
+        imgSrc:'images/placeholder.PNG'
     },
     ];
 
+
     return(
-        <body>
+        <>
             <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
                 <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col md:justify-center align-center p-4 z-3">
                     <h1 className="h1-style">Brick City ????</h1>
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <a href="/NewsAndUpdates">
-                    <div className="absolute z-2 bottom-[4rem] right-[4rem] bg-black/75 p-[1rem] text-white">
+                <a href="/news">
+                    <div className="absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white">
                     <h3>See all news and updates!</h3>
                     </div>
                 </a>
@@ -93,8 +91,6 @@ const HomePage = () => {
                 <Carousel
                     plugins={[plugin.current]}
                     className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
-                    // onMouseEnter={() => plugin.current?.stop()}
-                    // onMouseLeave={() => plugin.current?.reset()}
                     >
                     <CarouselContent>
                         {Array.from({ length: 5 }).map((_, index) => (
@@ -115,7 +111,7 @@ const HomePage = () => {
 
 
             <main className="overflow-hidden">
-                <div className="mb-[8rem]">
+                <div className="mb-[8rem] mt-[4rem]">
                     <div className="overflow-hidden rotate-6 w-[200%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
                     </div>
@@ -135,9 +131,12 @@ const HomePage = () => {
                         tempus risus sed convallis. Proin efficitur vestibulum nibh ac
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
-                    <img src={photo} alt={`Photo of arcade machines`}></img>
+                    <img
+                        src={photo}
+                        alt="Photo of arcade machines"
+                    />
                 </div>
-                <div className="mb-[8rem]">
+                <div className="mb-[8rem] mt-[4rem]">
                     <div className="overflow-hidden rotate-6 w-[200%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
 
@@ -154,7 +153,7 @@ const HomePage = () => {
                         Odio ultriceset arcu neque neque viverra faucibus faucibus. Pellentesque aliquam tellus molestie sed quis sem a. Quam eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
                     </p>
                 </div>
-                <div className="mt-[8rem]">
+                <div className="mb-[2rem] mt-[8rem]">
                     <div className="overflow-hidden -rotate-6 w-[200%] h-[300px] m-[0rem] origin-bottom-left flex">
                         <InfiniteMovingCards items={bannerImages2} direction="left" speed="slow"></InfiniteMovingCards>
 
@@ -196,7 +195,7 @@ const HomePage = () => {
                         score="0">
                         </Score>
                     </div>
-                    <div id="link-container">
+                    <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
                         <a href="/Leaderboard">
                             <p className="m-4">See all scores!</p>
                         </a>
@@ -204,10 +203,8 @@ const HomePage = () => {
                     </div>
                 </div>
 
-            </main>
-            <Footer></Footer>
-            
-        </body>  
+            </main>            
+        </>  
     );
 }
 export default HomePage

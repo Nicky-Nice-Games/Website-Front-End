@@ -49,7 +49,7 @@ const Navbar = () => {
                 </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuLink>
-            <button onClick={() => navigate('/newsAndUpdates')}>
+            <button onClick={() => navigate('/news')}>
                 News & Updates
             </button>
             </NavigationMenuLink>
@@ -58,21 +58,6 @@ const Navbar = () => {
                 Leaderboard
             </button>
             </NavigationMenuLink>
-            {/* <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-inherit">Community</NavigationMenuTrigger>
-                <NavigationMenuContent className="*:hover:bg-[#F76902]">
-                    <NavigationMenuLink>
-                    <button onClick={() => navigate('/forum')}>
-                        Forum
-                    </button>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink>
-                    <button onClick={() => navigate('/leaderboard')}>
-                        Leaderboards
-                    </button>
-                    </NavigationMenuLink>
-                </NavigationMenuContent>
-            </NavigationMenuItem> */}
         </NavigationMenuList>
 
     const mobileNavList = <><NavigationMenuItem className="list-none">
@@ -118,7 +103,7 @@ const Navbar = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/playerStats')}>
+                        <button onClick={() => navigate('/stats')}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
