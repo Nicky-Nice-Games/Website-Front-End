@@ -79,20 +79,20 @@ function App() {
         <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/content" element={<ContentPage />} />
+        <Route path="/content/*" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/news" element={<NewsAndUpdatesPage />} />
-        <Route path="/stats" element={<PlayerStatsPage />} />
+        <Route path="/newsAndUpdates" element={<NewsAndUpdatesPage />} />
+        <Route path="/playerStats" element={<PlayerStatsPage />} />
         <Route path="/forumPost" element={<ForumPost />} />
-        <Route path="/content/characters" element={<CharactersPage />} />
-        <Route path="/content/tracks" element={<TracksPage />} />
-        <Route path="/content/items" element={<ItemsPage />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/tracks" element={<TracksPage />} />
+        <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
-      </div>
       <Footer></Footer>
+      </div>
     </Router>
   
   );
