@@ -75,7 +75,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className='min-h-185'>
+      <div className='min-h-190'>
         <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
