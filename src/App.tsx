@@ -23,6 +23,7 @@ import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
 import ForumPost from './pages/ForumPost';
 import Footer from './components/footer';
+import { useState } from 'react';
 
 /* function NavBar() {
   const navigate = useNavigate();
@@ -71,14 +72,24 @@ import Footer from './components/footer';
   );
 } */
 
+export interface AccountSchema {
+  pid: string;
+  email: string;
+  username: string;
+  password: string;
+  uid: number;
+}
+
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [account, setAccount] = useState<AccountSchema | null>(null);
+
   return (
     <Router>
-      
-      <Navbar />
+      <Navbar account={account} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <div className='min-h-190'>
         <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage setAccount={setAccount} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/content/*" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />

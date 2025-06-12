@@ -14,6 +14,7 @@ import {
 
 import {
     Carousel,
+    type CarouselApi,
     CarouselContent,
     CarouselItem,
     CarouselNext,
@@ -422,6 +423,10 @@ const TracksPage = () => {
     const [active, setActive] = useState<(typeof tracks)[number] | boolean | null>(
         null
     );
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+    const [count, setCount] = useState(0);
+    const [heading, setHeading] = useState("Tracks");
     const id = useId();
     const ref = useRef<HTMLDivElement>(null);
 
@@ -441,6 +446,23 @@ const TracksPage = () => {
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [active]);
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+        setCount(api.scrollSnapList().length)
+        setCurrent(api.selectedScrollSnap() + 1)
+        
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1)
+        })
+    }, [api]);
+
+    useEffect(() => {
+        const currentTrack = current > 0 ? current - 1 : current;
+        setHeading(tracks[currentTrack].name);
+    }, [current])
 
     useOutsideClick(ref, () => setActive(null));
 
@@ -517,8 +539,8 @@ const TracksPage = () => {
                 ) : null}
             </AnimatePresence>
             <div className="mb-10">
-                <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">Tracks</h2>
-                <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-60 sm:w-120 md:w-180 m-auto">
+                <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">{heading}</h2>
+                <Carousel setApi={setApi} className="text-center border-solid border-slate-400 border-8 rounded-3xl w-60 sm:w-120 md:w-180 m-auto">
                     <CarouselContent>
                         {tracks.map(track => {
                             return <CarouselItem>
@@ -546,6 +568,9 @@ const TracksPage = () => {
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
+                <div className="text-center text-xl">
+                    Track {current} of {count}
+                </div>
             </div>
 
         </>

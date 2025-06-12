@@ -1,8 +1,38 @@
 import { LoginForm } from "@/components/login-form"
 import { Trophy } from "lucide-react";
+import { useAuth0 } from "@auth0/auth0-react"
 
+const login = (callback: Function) => {
+  const username = document.querySelector('#username');
+    const password = document.querySelector('#password');
 
-const LoginPage = () => {
+  const accountInfoCheck = async (): Promise<any> => {
+    const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/${username}`);
+    const accountInfo = response.json();
+    return accountInfo;
+  }
+
+  const accountInfo = accountInfoCheck();
+  accountInfo.then(info => {
+    if (info.username != username || info.password != password) return false;
+    callback(info);
+  }, () => {
+    console.log("Username and password don't match.")
+    return false;
+  })
+  accountInfo.catch(error => {
+    console.log(error)
+    return false;
+  });
+
+}
+
+interface LoginParams {
+    setAccount: Function
+    setIsLoggedIn: Function
+}
+
+const LoginPage = ({ setAccount, setIsLoggedIn}: LoginParams) => {
     return(
 
         <>
@@ -17,7 +47,7 @@ const LoginPage = () => {
                         Name TBD
                     </h1>
                     </a>
-                    <LoginForm />
+                    <LoginForm onSubmit={e => {e.preventDefault(); console.log(e); login(setAccount); setIsLoggedIn(true); }}/>
                 </div>
             </div>
         </>

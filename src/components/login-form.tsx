@@ -36,16 +36,16 @@ export function LoginForm({
               </div>
                <div className="after:border-[#A2AAAD] relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-[#1a1a1a] text-[#D0D3D4] relative z-10 px-4">
-                  Or continue with email
+                  Or continue with username
                 </span>
               </div>
               <div className="grid gap-6">
                 <div className="grid gap-3 text-[#D0D3D4]">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="username">Username</Label>
                   <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
+                    id="username"
+                    type="username"
+                    placeholder="username..."
                     required
                   />
                 </div>
@@ -61,7 +61,8 @@ export function LoginForm({
                   </div>
                   <Input id="password" type="password" required />
                 </div>
-                <Button type="submit" className="w-full border border-1 text-white bg-[#F76902]">
+                <Button type="submit" className="w-full border border-1 text-white bg-[#F76902]" //onSubmit={() => login()}
+                >
                   Start Racing
                 </Button>
               </div>
@@ -75,10 +76,6 @@ export function LoginForm({
           </form>
         </CardContent>
       </Card>
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#" className="text-[#F76902]">Terms of Service</a>{" "}
-        and <a href="#" className="text-[#F76902]">Privacy Policy</a>.
-      </div>
     </div>
   )
 }

@@ -2,7 +2,15 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 // Array of updates
-const updates = [
+interface Update {
+  id: number;
+  title: string;
+  date: string;
+  subtitle: string;
+  image: string;
+}
+
+const updates: Update[] = [
   {
     id: 1,
     title: "Update 1",
@@ -69,7 +77,7 @@ const NewsAndUpdatesPage = () => {
 
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
+    Update | boolean | null
   >(null);
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
@@ -131,27 +139,27 @@ const NewsAndUpdatesPage = () => {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
-              key={`button-${active.name}-${id}`}
+              key={`button-${active.title}-${id}`}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
+              exit={{ opacity: 0, transition: { duration: 0.005 } }}
               className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
               onClick={() => setActive(null)}
             >
               <CloseIcon /> {/* close icon pop up*/}
             </motion.button>
             <motion.div
-              layoutId={`item-${active.name}-${id}`}
+              layoutId={`item-${active.title}-${id}`}
               ref={ref}
               className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
-              <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+              <motion.div layoutId={`image-${active.title}-${id}`} className="flex justify-center bg-gray-100 p-8">
                 <img
                   width={200}
                   height={200}
-                  src={active.imgUrl}
-                  alt={active.name}
+                  src={active.image}
+                  alt={active.image}
                   className="w-48 h-48 object-contain"
                 />
               </motion.div>
@@ -160,16 +168,16 @@ const NewsAndUpdatesPage = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <motion.h3
-                      layoutId={`title-${active.name}-${id}`}
+                      layoutId={`title-${active.title}-${id}`}
                       className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
                     >
-                      {active.name}
+                      {active.title}
                     </motion.h3>
                     <motion.p
-                      layoutId={`description-${active.description}-${id}`}
+                      layoutId={`description-${active.subtitle}-${id}`}
                       className="text-neutral-600 dark:text-neutral-400 text-base"
                     >
-                      {active.description}
+                      {active.subtitle}
                     </motion.p>
                   </div>
                 </div>
@@ -194,14 +202,11 @@ const NewsAndUpdatesPage = () => {
           const isFullWidth = update.id === mostRecentId;
 
           return (
-            <div
+            <motion.div
+              layoutId={`item-${update.title}-${id}`}
               key={update.id}// Unique key for each item
               onClick={() =>
-                setActive({
-                  name: update.title,
-                  description: update.subtitle,
-                  imgUrl: update.image,
-                })
+                setActive(update)
               }
               // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
@@ -225,7 +230,7 @@ const NewsAndUpdatesPage = () => {
                 {/* Subtitle */}
                 <p className="text-sm mt-1">{update.subtitle}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -262,7 +267,7 @@ const CloseIcon = () => {
       exit={{
         opacity: 0,
         transition: {
-          duration: 0.05,
+          duration: 0.02,
         },
       }}
       xmlns="http://www.w3.org/2000/svg"

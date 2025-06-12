@@ -6,15 +6,55 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger
 } from "./components/ui/navigation-menu"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import type { AccountSchema } from "./App";
 
-const Navbar = () => {
+interface NavbarParams {
+    account: AccountSchema | null
+    isLoggedIn: boolean
+    setIsLoggedIn: Function
+}
+
+
+const Navbar = ({ account, isLoggedIn, setIsLoggedIn }: NavbarParams) => {
     const [currentPage, setCurrentPage] = useState("home");
-    const isMobileDevice = useMediaQuery({ maxWidth: 500 });
+    const [username, setUsername] = useState("")
+    const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
+            <button className="cursor-pointer" onClick={() => {navigate('/login'); setCurrentPage("login")}}>
+                Login
+            </button>
+            </NavigationMenuLink>
 
-    const navigate = useNavigate();
+    const [loginNavbarItem, setLoginNavbarItem] = useState(loginButton);
+    const isMobileDevice = useMediaQuery({ maxWidth: 500 });
+    const navigate = useNavigate();    
+
+    const profileDropdown = <NavigationMenuItem className="list-none">
+                <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
+                    { isMobileDevice ? "" : username }                
+                    <img src="images/pfp-placeholder.png" className='max-w-7 md:m-1' />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
+                    <NavigationMenuLink>
+                        <button onClick={() => navigate('/stats')}>
+                        My Stats
+                        </button>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                        <button onClick={() => {navigate('/login'); setCurrentPage("login"); setIsLoggedIn(false); }}>
+                        Log Out
+                        </button>
+                    </NavigationMenuLink>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+
+    useEffect(() => {
+        isLoggedIn ? navigate('/home') : navigate('/login');
+        setLoginNavbarItem(isLoggedIn ? profileDropdown : loginButton);
+        if (account) setUsername(account.username); else setUsername("Username");
+    }, [isLoggedIn]);
 
     const pcNavList = <NavigationMenuList>
             <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
@@ -96,25 +136,8 @@ const Navbar = () => {
             </NavigationMenuLink>
         </div>
         { isMobileDevice ? mobileNavList : pcNavList}
-        <NavigationMenuItem className="list-none">
-                <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
-                    { isMobileDevice ? "" : "Username" }                
-                    <img src="images/pfp-placeholder.png" className='max-w-7 md:m-1' />
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
-                    <NavigationMenuLink>
-                        <button onClick={() => navigate('/stats')}>
-                        My Stats
-                        </button>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink>
-                        <button onClick={() => navigate('/login')}>
-                        Log Out
-                        </button>
-                    </NavigationMenuLink>
-                </NavigationMenuContent>
-            </NavigationMenuItem>
-    </NavigationMenu>
+        { loginNavbarItem } 
+        </NavigationMenu>
 }
 
 export default Navbar;
