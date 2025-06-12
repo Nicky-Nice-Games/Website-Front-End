@@ -23,9 +23,10 @@ import {
 
 
 const ContentPage = () => {
+
     return (<>
         <ContentNavigator currentPage="content" />
-        <div className="grid grid-cols-2">
+        <div className="flex flex-col-reverse md:grid md:grid-cols-2">
             <div>
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
                 <p className="m-3">RIT was born of an unlikely institutional marriage of an influential cultural association, the Rochester Athenaeum, founded in 1829, and a technical training school, the Mechanics Institute, founded in 1885. The institute adopted the name Rochester Institute of Technology in 1944 and awarded its first bachelor of science degree in 1955. A 1961 decision to leave downtown Rochester for farmland in the suburban town of Henrietta put RIT on its path to pre-eminence as a global university. Today, the university’s reputation and reach go well beyond Rochester. We have partnerships on nearly every continent and overseas campuses located in China, Croatia, Dubai, and Kosovo.</p>
@@ -113,14 +114,14 @@ const ItemsPage = () => {
 
     // sample list of items to display
     const items = [
-        { imgUrl: "../../images/content-assets/booster.png", name: "Boost", description: "Slightly adds to player’s velocity to simulate increase in speed for short duration" },
-        { imgUrl: "../../public/images/content-assets/item_box.png", name: "Fake Item Box", description: "Same size as item box, looks significantly different. Stuns kart when they drive into it" },
-        { imgUrl: "../../public/images/content-assets/puck.png", name: "Puck", description: "Projectile that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it." },
-        { imgUrl: "../../public/images/content-assets/spill.png", name: "Spill", description: "Sent behind the user and remains on the ground" },
-        { imgUrl: "../../public/images/content-assets/booster-upg.png", name: "Upgraded Boost", description: "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration" },
-        { imgUrl: "../../public/images/content-assets/item_box-upg.png", name: "Upgraded Fake Item Box", description: "Similar color/design to real item box, Still stuns kart when they drive into it" },
-        { imgUrl: "../../public/images/content-assets/puck-upg.png", name: "Upgraded Puck", description: "Projectiles that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it. Player releases 3 pucks instead of one when upgraded" },
-        { imgUrl: "../../public/images/content-assets/spill-upg.png", name: "Upgraded Spill", description: "Sent behind the user and remains on the ground, larger surface area when upgraded" },
+        { imgUrl: "images/content-assets/booster.png", name: "Boost", description: "Slightly adds to player’s velocity to simulate increase in speed for short duration" },
+        { imgUrl: "images/content-assets/item_box.png", name: "Fake Item Box", description: "Same size as item box, looks significantly different. Stuns kart when they drive into it" },
+        { imgUrl: "images/content-assets/puck.png", name: "Puck", description: "Projectile that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it." },
+        { imgUrl: "images/content-assets/spill.png", name: "Spill", description: "Sent behind the user and remains on the ground" },
+        { imgUrl: "images/content-assets/booster-upg.png", name: "Upgraded Boost", description: "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration" },
+        { imgUrl: "images/content-assets/item_box-upg.png", name: "Upgraded Fake Item Box", description: "Similar color/design to real item box, Still stuns kart when they drive into it" },
+        { imgUrl: "images/content-assets/puck-upg.png", name: "Upgraded Puck", description: "Projectiles that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it. Player releases 3 pucks instead of one when upgraded" },
+        { imgUrl: "images/content-assets/spill-upg.png", name: "Upgraded Spill", description: "Sent behind the user and remains on the ground, larger surface area when upgraded" },
     ];
 
     return (
@@ -482,7 +483,7 @@ const TracksPage = () => {
                         <motion.div
                             layoutId={`track-${active.name}-${id}`}
                             ref={ref}
-                            className="h-full md:h-fit md:max-h-[90%] flex flex-row bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                            className="w-19/20 h-fit md:max-h-[90%] flex flex-col-reverse md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
                         >
                             <div>
                                 <div className="flex justify-between items-start p-4">
@@ -495,7 +496,7 @@ const TracksPage = () => {
                                         </motion.h3>
                                         <motion.p
                                             layoutId={`description-${active.description}-${id}`}
-                                            className="text-neutral-600 dark:text-neutral-400 text-base max-h-60"
+                                            className="text-neutral-600 dark:text-neutral-400 text-base max-h-60 overflow-y-scroll"
                                         >
                                             {active.description}
                                         </motion.p>
@@ -506,7 +507,7 @@ const TracksPage = () => {
                                 <img
                                     src={active.imgUrl}
                                     alt={active.name}
-                                    className=" w-full sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                                    className=" w-full rounded-tr-lg rounded-tl-lg object-cover object-top"
                                 />
                             </motion.div>
 
@@ -517,7 +518,7 @@ const TracksPage = () => {
             </AnimatePresence>
             <div className="mb-10">
                 <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">Tracks</h2>
-                <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-180 m-auto">
+                <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-60 sm:w-120 md:w-180 m-auto">
                     <CarouselContent>
                         {tracks.map(track => {
                             return <CarouselItem>

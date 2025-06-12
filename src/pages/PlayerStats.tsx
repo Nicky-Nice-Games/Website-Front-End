@@ -1,6 +1,3 @@
-
-import PlaceholderImg from "../../public/images/pfp-placeholder.png"
-
 const PlayerStatsPage = () => {
     return (
         <div className="bg-black min-h-screen text-white p-4 md:p-8 ">
@@ -19,7 +16,7 @@ const PlayerStatsPage = () => {
                 {/* Player Image Section */}
                 <div className="flex justify-center order-3 lg:order-2 lg:mt-0 mt-4 mb-8 lg:mb-0">
                     <img 
-                        src={PlaceholderImg}
+                        src="images/placeholder.PNG"
                         alt="Player portrait"
                         className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-cover rounded-lg lg:mt-20"
                     />
