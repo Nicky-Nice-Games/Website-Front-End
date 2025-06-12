@@ -74,16 +74,16 @@ const NewsAndUpdatesPage = () => {
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
 
+  const [mostRecentUpdate, ...restUpdates] = sortedUpdates;
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
 
-  const totalPages = Math.ceil(sortedUpdates.length / itemsPerPage);
-  const paginatedUpdates = sortedUpdates.slice(
+  const totalPages = Math.ceil(restUpdates.length / itemsPerPage);
+  const paginatedUpdates = restUpdates.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
   // Handlers
   const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
@@ -136,8 +136,9 @@ const NewsAndUpdatesPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              className="flex absolute top-20 right-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
               onClick={() => setActive(null)}
+              aria-label="Close"
             >
               <CloseIcon /> {/* close icon pop up*/}
             </motion.button>
@@ -178,6 +179,29 @@ const NewsAndUpdatesPage = () => {
           </div>
         ) : null}
       </AnimatePresence>
+      {/* Most recent update */}
+      <div
+        key={mostRecentUpdate.id}
+        onClick={() =>
+          setActive({
+            name: mostRecentUpdate.title,
+            description: mostRecentUpdate.subtitle,
+            imgUrl: mostRecentUpdate.image,
+          })
+        }
+        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 transition-transform m-4"
+      >
+        <img
+          src={mostRecentUpdate.image}
+          alt={mostRecentUpdate.title}
+          className="w-full h-96 object-cover"
+        />
+        <div className="p-4">
+          <p className="text-xs text-[#F76902] font-semibold mb-1">{mostRecentUpdate.date}</p>
+          <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
+          <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
+        </div>
+      </div>
 
       {/* Grid container: 
             - 1 column on small screens,
@@ -188,7 +212,7 @@ const NewsAndUpdatesPage = () => {
         {/* Map over the updates array to render each update card */}
         {paginatedUpdates.map((update, index) => {
           const globalIndex = (currentPage - 1) * itemsPerPage + index;
-          
+
           const mostRecentId = sortedUpdates[0]?.id;
           // Only the most recent update is full width
           const isFullWidth = update.id === mostRecentId;
@@ -206,7 +230,7 @@ const NewsAndUpdatesPage = () => {
               // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
                 } bg-white text-black rounded-xl shadow overflow-hidden 
-        cursor-pointer hover:scale-105 transition-transform`}
+        cursor-pointer hover:scale-105 transition-transform m-4`}
             >
               {/* Image */}
               <img
