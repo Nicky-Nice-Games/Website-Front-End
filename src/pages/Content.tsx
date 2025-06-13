@@ -31,7 +31,7 @@ const ContentPage = () => {
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
                 <p className="m-3">RIT was born of an unlikely institutional marriage of an influential cultural association, the Rochester Athenaeum, founded in 1829, and a technical training school, the Mechanics Institute, founded in 1885. The institute adopted the name Rochester Institute of Technology in 1944 and awarded its first bachelor of science degree in 1955. A 1961 decision to leave downtown Rochester for farmland in the suburban town of Henrietta put RIT on its path to pre-eminence as a global university. Today, the university’s reputation and reach go well beyond Rochester. We have partnerships on nearly every continent and overseas campuses located in China, Croatia, Dubai, and Kosovo.</p>
             </div>
-            <img className="rounded-lg" src="../../public/images/content-assets/RIT.jpg"></img>
+            <img className="rounded-lg" src="images/content-assets/RIT.jpg"></img>
         </div>
 
     </>)
@@ -402,17 +402,17 @@ interface Track {
 
 const tracks: Array<Track> = [
     {
-        imgUrl: "../../public/images/content-assets/shed.png",
+        imgUrl: "./images/content-assets/shed.png",
         name: "The Shed",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "../../public/images/content-assets/QrterMile.png",
+        imgUrl: "./images/content-assets/QrterMile.png",
         name: "Quarter Mile",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "../../public/images/content-assets/Outerloop.png",
+        imgUrl: "./images/content-assets/Outerloop.png",
         name: "RIT Outer Loop",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     }

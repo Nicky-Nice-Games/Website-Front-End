@@ -8,7 +8,7 @@ const LeaderboardPage = () => {
 
     useEffect(() => {
         const getLeaderboardData = async (): Promise<any> => {
-            const response: Response = await fetch("data/leaderboard-data.json");
+            const response: Response = await fetch("./data/leaderboard-data.json");
             const data = await response.json();
             console.log(data);
             setLeaderboardData(data);

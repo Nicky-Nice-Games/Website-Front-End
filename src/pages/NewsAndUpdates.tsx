@@ -187,8 +187,8 @@ const NewsAndUpdatesPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Map over the updates array to render each update card */}
         {paginatedUpdates.map((update, index) => {
-          const globalIndex = (currentPage - 1) * itemsPerPage + index;
           
+
           const mostRecentId = sortedUpdates[0]?.id;
           // Only the most recent update is full width
           const isFullWidth = update.id === mostRecentId;
@@ -211,7 +211,7 @@ const NewsAndUpdatesPage = () => {
               {/* Image */}
               <img
                 src={update.image}
-                alt={update.title}
+                alt={update.title + index}
                 className={`w-full ${isFullWidth ? "h-96" : "h-72"} object-cover`}
               />
               {/* Text content of the update */}
