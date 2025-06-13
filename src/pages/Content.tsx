@@ -263,7 +263,7 @@ const CharactersPage = () => {
         },
         {
             imgUrl: OlJr,
-            name: "Orienation Leader Junior",
+            name: "Orientation Leader Junior",
             description:
                 "This is OL Junior",
         },

@@ -91,7 +91,7 @@ const Navbar = () => {
         <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
             <button className="cursor-pointer" onClick={() => {navigate('/home'); setCurrentPage("home")}}>
-                <img src="images/landscape-placeholder.svg" className='max-w-10' />
+                <img src="../../images/content-assets/tempLogo.png" className='max-w-10' />
             </button>
             </NavigationMenuLink>
         </div>
