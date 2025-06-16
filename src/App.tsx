@@ -73,7 +73,7 @@ import Footer from './components/footer';
 
 function App() {
   return (
-    <Router basename="/web/dist">
+    <Router basename="/web">
       
       <Navbar />
       <div className='min-h-190'>
