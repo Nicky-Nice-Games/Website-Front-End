@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import photo from '../../public/images/placeholder.png';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const AboutPage = () => {
@@ -13,6 +13,7 @@ const AboutPage = () => {
     const [qaData, setQaData] = useState<string[][]>([]);
     const [webData, setWebData] = useState<string[][]>([]);
     const [productionData, setProductionData] = useState<string[][]>([]);
+    const photo:string = 'images/placeholder.PNG';
 
     useEffect(() => {
         const getTeamData = async (): Promise<any> => {

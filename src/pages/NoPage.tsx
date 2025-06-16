@@ -77,7 +77,7 @@ const NoPage: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to="/home" // Link back to home
+                  to="/web" // Link back to home
                   className="inline-flex items-center px-6 py-3 border-2 border-cyan-800 text-white rounded-lg font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300 group"
                 >
                   <motion.span

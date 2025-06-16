@@ -21,7 +21,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     const [currentPage, setCurrentPage] = useState("home");
     const [username, setUsername] = useState("")
     const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/login'); setCurrentPage("login")}}>
+            <button className="cursor-pointer" onClick={() => {navigate('/web/login'); setCurrentPage("login")}}>
                 Login
             </button>
             </NavigationMenuLink>
@@ -33,16 +33,16 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     const profileDropdown = <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
                     { isMobileDevice ? "" : username }                
-                    <img src="images/pfp-placeholder.png" className='max-w-7 md:m-1' />
+                    <img src="/src/assets/pfp-placeholder.png" className='max-w-7 md:m-1' />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/stats')}>
+                        <button onClick={() => navigate('/web/stats')}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
-                        <button onClick={() => {navigate('/login'); setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
+                        <button onClick={() => {navigate('/web/login'); setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
                         Log Out
                         </button>
                     </NavigationMenuLink>
@@ -53,7 +53,6 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         if (account) {
             setUsername(account.username); 
             setLoginNavbarItem(profileDropdown);
-            navigate("/home");
         }
         else {
             setUsername("username");
@@ -63,43 +62,43 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
 
     const pcNavList = <NavigationMenuList>
             <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() =>{navigate('/about'); setCurrentPage("about")}}>
+            <button className="cursor-pointer" onClick={() =>{navigate('/web/about'); setCurrentPage("about")}}>
                 About
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
                 <NavigationMenuTrigger className={`${currentPage === "content" ? "bg-white" : "bg-inherit"}`}><button 
-                    onClick={() => {navigate('/content'); setCurrentPage("content")}}>
+                    onClick={() => {navigate('/web/content'); setCurrentPage("content")}}>
                         Content
                     </button></NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
                     <NavigationMenuLink>
                     <button 
-                    onClick={() => {navigate('/characters'); setCurrentPage("content")}}>
+                    onClick={() => {navigate('/web/characters'); setCurrentPage("content")}}>
                         Characters
                     </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
                     <button 
-                    onClick={() => {navigate('/items'); setCurrentPage("content")}}>
+                    onClick={() => {navigate('/web/items'); setCurrentPage("content")}}>
                         Items
                     </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
                     <button 
-                    onClick={() => {navigate('/tracks'); setCurrentPage("content")}}>
+                    onClick={() => {navigate('/web/tracks'); setCurrentPage("content")}}>
                         Tracks
                     </button>
                     </NavigationMenuLink>
                 </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuLink className={`${currentPage === "news" ? "bg-white" : ""}`}>
-            <button onClick={() => {navigate('/news'); setCurrentPage("news")}}>
+            <button onClick={() => {navigate('/web/news'); setCurrentPage("news")}}>
                 News & Updates
             </button>
             </NavigationMenuLink>
             <NavigationMenuLink className={`${currentPage === "leaderboard" ? "bg-white" : ""}`}>
-            <button onClick={() => {navigate('/leaderboard'); setCurrentPage("leaderboard")}}>
+            <button onClick={() => {navigate('/web/leaderboard'); setCurrentPage("leaderboard")}}>
                 Leaderboard
             </button>
             </NavigationMenuLink>
@@ -109,22 +108,22 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         <NavigationMenuTrigger>Pages</NavigationMenuTrigger>
         <NavigationMenuContent className="absolute min-w-36">
             <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() =>{navigate('/about'); setCurrentPage("about")}}>
+            <button className="cursor-pointer" onClick={() =>{navigate('/web/about'); setCurrentPage("about")}}>
                 About
             </button>
             </NavigationMenuLink>
             <NavigationMenuLink className={`${currentPage === "content" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() =>{navigate('/content'); setCurrentPage("content")}}>
+            <button className="cursor-pointer" onClick={() =>{navigate('/web/content'); setCurrentPage("content")}}>
                 Content
             </button>
             </NavigationMenuLink>
             <NavigationMenuLink className={`${currentPage === "news" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/news'); setCurrentPage("news")}}>
+            <button className="cursor-pointer" onClick={() => {navigate('/web/news'); setCurrentPage("news")}}>
                 News & Updates
             </button>
             </NavigationMenuLink>
             <NavigationMenuLink className={`${currentPage === "leaderboard" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/leaderboard'); setCurrentPage("leaderboard")}}>
+            <button className="cursor-pointer" onClick={() => {navigate('/web/leaderboard'); setCurrentPage("leaderboard")}}>
                 Leaderboard
             </button>
             </NavigationMenuLink>
@@ -135,8 +134,8 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-sm md:**:text-base lg:**:text-lg z-30">
         <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/home'); setCurrentPage("home")}}>
-                <img src="images/landscape-placeholder.svg" className='max-w-10' />
+            <button className="cursor-pointer" onClick={() => {navigate('/web'); setCurrentPage("home")}}>
+                <img src="/src/assets/landscape-placeholder.svg" className='max-w-10' />
             </button>
             </NavigationMenuLink>
         </div>

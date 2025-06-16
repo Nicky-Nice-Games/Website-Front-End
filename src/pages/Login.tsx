@@ -1,6 +1,7 @@
 import { LoginForm } from "@/components/login-form"
 import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
+import { useNavigate } from "react-router-dom";
 
 const login = (callback: Function) => {
   const username: HTMLInputElement | null = document.querySelector('#username');
@@ -35,6 +36,8 @@ interface LoginParams {
 }
 
 const LoginPage = ({ setAccount}: LoginParams) => {
+  const navigate = useNavigate();
+
     return(
 
         <>
@@ -51,6 +54,7 @@ const LoginPage = ({ setAccount}: LoginParams) => {
                     </a>
                     <LoginForm onSubmit={e => {e.preventDefault(); console.log(e); login((account: AccountSchema) => {
                         setAccount(account);
+                        navigate('/web')
                     }); }}/>
                 </div>
             </div>

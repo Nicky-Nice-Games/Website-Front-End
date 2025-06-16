@@ -25,53 +25,6 @@ import ForumPost from './pages/ForumPost';
 import Footer from './components/footer';
 import { useEffect, useState } from 'react';
 
-/* function NavBar() {
-  const navigate = useNavigate();
-
-  return (
-    <div className='flex flex-row w-full bg-[#F76902] justify-between'>
-      <button
-        onClick={() => navigate('/home')}
-      >
-        <img src="images/landscape-placeholder.svg" className='max-w-10'/>
-      </button>
-      <div>
-        <button
-          className='p-2'
-          onClick={() => navigate('/about')}>
-          About
-        </button>
-        <button
-          className='p-2'
-          onClick={() => navigate('/content')}>
-          Content
-        </button>
-        <button
-          className='p-2'
-          onClick={() => navigate('/newsAndUpdates')}>
-          News & Updates
-        </button>
-        <button
-          className='p-2'
-          onClick={() => navigate('/forum')}>
-          Community
-        </button>
-      </div>
-      <button
-      className='justify-end'
-      onClick={() => navigate('/playerStats')}
-      >
-        Username
-      </button>
-
-      <button
-        onClick={() => navigate('/content')}>
-        Content
-      </button>
-    </div>
-  );
-} */
-
 export interface AccountSchema { 
   pid: string;
   username: string;
