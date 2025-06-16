@@ -11,7 +11,6 @@ import { motion } from 'framer-motion'; // Import motion for simple animations
 
 const NoPage: React.FC = () => {
   return (
-
         // Full-screen container with a gradient background
     <div className="relative min-h-screen bg-gradient-to-br from-black via-[#F76902] to-[#1a1a1a] flex flex-col overflow-hidden particles-container">
 

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -24,6 +23,7 @@ export function LoginForm({
           <form>
             <div className="grid gap-6">
               <div className="grid gap-6">
+                <p id="error-message" className="text-red-600 text-center"></p>
                 <div className="grid gap-3 text-[#D0D3D4]">
                   <Label htmlFor="username">Username</Label>
                   <Input

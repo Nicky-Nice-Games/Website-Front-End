@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
     const storedUsername: string | null = localStorage.getItem("username");
-    if (!storedPID || !storedUsername) return;
+    if (!storedPID || !storedUsername) { setAccount(null); return; }
     const storedAccount: AccountSchema = {
       pid: storedPID,
       username: storedUsername
@@ -70,8 +70,6 @@ function App() {
   
   );
 }
-
-  
 
 export default App;
 

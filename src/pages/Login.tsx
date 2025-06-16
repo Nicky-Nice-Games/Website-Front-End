@@ -1,9 +1,8 @@
 import { LoginForm } from "@/components/login-form"
 import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
-import { useNavigate } from "react-router-dom";
 
-const login = (callback: Function) => {
+const login = (successCallback: Function, failedCallback: Function) => {
   const username: HTMLInputElement | null = document.querySelector('#username');
     const password: HTMLInputElement | null = document.querySelector('#password');
 
@@ -19,9 +18,9 @@ const login = (callback: Function) => {
   accountInfo.then(info => {
     localStorage.setItem("pid", info.pid);
     localStorage.setItem("username", info.username);
-    callback({ pid: info.pid, username: info.username });
+    successCallback({ pid: info.pid, username: info.username });
   }, () => {
-    console.log("Username and password don't match.")
+    failedCallback(username, password);
     return false;
   })
   accountInfo.catch(error => {
@@ -36,7 +35,6 @@ interface LoginParams {
 }
 
 const LoginPage = ({ setAccount}: LoginParams) => {
-  const navigate = useNavigate();
 
     return(
 
@@ -54,7 +52,11 @@ const LoginPage = ({ setAccount}: LoginParams) => {
                     </a>
                     <LoginForm onSubmit={e => {e.preventDefault(); console.log(e); login((account: AccountSchema) => {
                         setAccount(account);
-                        navigate('/web')
+                    }, (usernameElement: HTMLInputElement, passwordElement: HTMLInputElement) => {
+                      usernameElement.className += " border-red-800";
+                      passwordElement.className += " border-red-800";
+                      const errorMessage: HTMLParagraphElement | null = document.querySelector("#error-message");
+                      if (errorMessage) errorMessage.innerHTML = "Incorrect username/password";
                     }); }}/>
                 </div>
             </div>

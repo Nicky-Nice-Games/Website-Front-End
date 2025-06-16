@@ -28,7 +28,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
 
     const [loginNavbarItem, setLoginNavbarItem] = useState(loginButton);
     const isMobileDevice = useMediaQuery({ maxWidth: 500 });
-    const navigate = useNavigate();    
+    const navigate = useNavigate();
 
     const profileDropdown = <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
@@ -42,7 +42,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
                         </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
-                        <button onClick={() => {navigate('/web/login'); setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
+                        <button onClick={() => {setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
                         Log Out
                         </button>
                     </NavigationMenuLink>
@@ -53,10 +53,12 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         if (account) {
             setUsername(account.username); 
             setLoginNavbarItem(profileDropdown);
+            navigate('/web');
         }
         else {
             setUsername("username");
             setLoginNavbarItem(loginButton);
+            navigate('/web/login');
         };
     }, [account, username]);
 
