@@ -2,55 +2,63 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 // Array of updates
-const updates = [
+interface Update {
+  id: number;
+  title: string;
+  date: string;
+  subtitle: string;
+  image: string;
+}
+
+const updates: Update[] = [
   {
     id: 1,
     title: "Update 1",
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
   {
     id: 2,
     title: "Update 2",
     date: "6/4/2025",
     subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
   {
     id: 3,
     title: "Update 3",
     date: "6/5/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
   {
     id: 4,
     title: "Update 4",
     date: "6/6/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
   {
     id: 5,
     title: "Update 5",
     date: "6/10/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
   {
     id: 6,
     title: "Update 6",
     date: "6/11/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
   {
     id: 7,
     title: "Update 7",
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
   },
 ];
 
@@ -69,7 +77,7 @@ const NewsAndUpdatesPage = () => {
 
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
+    Update | boolean | null
   >(null);
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
@@ -131,7 +139,7 @@ const NewsAndUpdatesPage = () => {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
-              key={`button-${active.name}-${id}`}
+              key={`button-${active.title}-${id}`}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -143,16 +151,16 @@ const NewsAndUpdatesPage = () => {
               <CloseIcon /> {/* close icon pop up*/}
             </motion.button>
             <motion.div
-              layoutId={`item-${active.name}-${id}`}
+              layoutId={`item-${active.title}-${id}`}
               ref={ref}
               className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
-              <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+              <motion.div layoutId={`image-${active.title}-${id}`} className="flex justify-center bg-gray-100 p-8">
                 <img
                   width={200}
                   height={200}
-                  src={active.imgUrl}
-                  alt={active.name}
+                  src={active.image}
+                  alt={active.image}
                   className="w-48 h-48 object-contain"
                 />
               </motion.div>
@@ -161,16 +169,16 @@ const NewsAndUpdatesPage = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <motion.h3
-                      layoutId={`title-${active.name}-${id}`}
+                      layoutId={`title-${active.title}-${id}`}
                       className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
                     >
-                      {active.name}
+                      {active.title}
                     </motion.h3>
                     <motion.p
-                      layoutId={`description-${active.description}-${id}`}
+                      layoutId={`description-${active.subtitle}-${id}`}
                       className="text-neutral-600 dark:text-neutral-400 text-base"
                     >
-                      {active.description}
+                      {active.subtitle}
                     </motion.p>
                   </div>
                 </div>
@@ -180,14 +188,11 @@ const NewsAndUpdatesPage = () => {
         ) : null}
       </AnimatePresence>
       {/* Most recent update */}
-      <div
+      <motion.div
+        layoutId={`item-${mostRecentUpdate.title}-${id}`}
         key={mostRecentUpdate.id}
         onClick={() =>
-          setActive({
-            name: mostRecentUpdate.title,
-            description: mostRecentUpdate.subtitle,
-            imgUrl: mostRecentUpdate.image,
-          })
+          setActive(mostRecentUpdate)
         }
         className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 transition-transform m-4"
       >
@@ -201,7 +206,7 @@ const NewsAndUpdatesPage = () => {
           <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
           <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Grid container: 
             - 1 column on small screens,
@@ -210,22 +215,17 @@ const NewsAndUpdatesPage = () => {
             - with spacing (gap-6) between items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Map over the updates array to render each update card */}
-        {paginatedUpdates.map((update, index) => {
-          const globalIndex = (currentPage - 1) * itemsPerPage + index;
-
+        {paginatedUpdates.map((update) => {
           const mostRecentId = sortedUpdates[0]?.id;
           // Only the most recent update is full width
           const isFullWidth = update.id === mostRecentId;
 
           return (
-            <div
+            <motion.div
+              layoutId={`item-${update.title}-${id}`}
               key={update.id}// Unique key for each item
               onClick={() =>
-                setActive({
-                  name: update.title,
-                  description: update.subtitle,
-                  imgUrl: update.image,
-                })
+                setActive(update)
               }
               // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
@@ -249,7 +249,7 @@ const NewsAndUpdatesPage = () => {
                 {/* Subtitle */}
                 <p className="text-sm mt-1">{update.subtitle}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -286,7 +286,7 @@ const CloseIcon = () => {
       exit={{
         opacity: 0,
         transition: {
-          duration: 0.05,
+          duration: 0.02,
         },
       }}
       xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { columns } from "../components/leaderboard/columns"
 import { DataTable } from "../components/leaderboard/data-table"
-import '../index.css';
 
 const LeaderboardPage = () => {
     const [leaderboardData, setLeaderboardData] = useState([]);
