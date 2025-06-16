@@ -178,11 +178,11 @@ export const AchievementsPage = ({
 
   // Achievement names and colors
   const achievementData = [
-    { name: "First Win", color: "#f97316" }, // Orange
-    { name: "Speed Demon", color: "#ef4444" }, // Red
-    { name: "Perfect Lap", color: "#3b82f6" }, // Blue
-    { name: "Veteran Racer", color: "#10b981" }, // Green
-    { name: "Champion", color: "#f59e0b" }, // Yellow
+    { name: "First Win", requirement: "1 Win", color: "#f97316" }, // Orange
+    { name: "Amateur", requirement: "10 Win", color: "#ef4444" }, // Red
+    { name: "Pro", requirement: "25 Win", color: "#3b82f6" }, // Blue
+    { name: "Elite Racer", requirement: "50 Win", color: "#10b981" }, // Green
+    { name: "Champion", requirement: "100 Win", color: "#f59e0b" }, // Yellow
   ]
 
   return (
@@ -206,7 +206,8 @@ export const AchievementsPage = ({
         <div className="p-6">
           <h2 className="text-xl mb-4">Your Medals</h2>
 
-          <div className="mb-8 font-semibold"><h2>Offense Used</h2></div>
+          <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
 
           <div className="grid grid-cols-5 gap-8 justify-items-center">
             {achievementsStatus.map((unlocked, idx) => (
@@ -232,6 +233,8 @@ export const AchievementsPage = ({
                     {/* Tooltip */}
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                       {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
                     </div>
                   </div>
                 ) : (
@@ -249,13 +252,762 @@ export const AchievementsPage = ({
                   </div>
                 )}
                 {/* Achievement name */}
-                <p className="mt-2 text-sm text-center">
+                <p className="mt-2 text-md text-center">
                   {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
                 </p>
               </div>
             ))}
           </div>
         </div>
+
+        <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+         <div className="p-6 mb-8">
+          <div className="mb-8 font-semibold"><h2>1st Place Finishes</h2></div>
+
+          <div className="grid grid-cols-5 gap-8 justify-items-center">
+            {achievementsStatus.map((unlocked, idx) => (
+              <div key={idx} className="w-24 h-24 flex flex-col items-center">
+                {unlocked ? (
+                  // Unlocked medal with tooltip
+                  <div className="group relative">
+                    {/* Ribbon */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
+                      <div className="w-6 h-2 bg-black" />
+                    </div>
+                    {/* Hexagon medal */}
+                    <div
+                      className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                      style={{
+                        backgroundColor: achievementData[idx].color,
+                        clipPath: hexagonClip,
+                      }}
+                    >
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                      {achievementData[idx].requirement}
+
+                    </div>
+                  </div>
+                ) : (
+                  // Locked placeholder with tooltip
+                  <div className="group relative">
+                    <div
+                      className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                      style={{ clipPath: hexagonClip }}
+                    >
+                      <span className="text-2xl text-gray-600">🔒</span>
+                    </div>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {achievementData[idx].name}
+                    </div>
+                  </div>
+                )}
+                {/* Achievement name */}
+                <p className="mt-2 text-md text-center">
+                  {achievementData[idx].name}
+                </p>
+                <p className=" mt-0 text-sm text-center text-black">
+                  {achievementData[idx].requirement}
+
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>   
+      </div>
+
+        
       </Card>
     </div>
   )
