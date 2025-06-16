@@ -9,6 +9,7 @@ const updates = [
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const updates = [
     date: "6/4/2025",
     subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const updates = [
     date: "6/5/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const updates = [
     date: "6/6/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 5,
@@ -37,6 +41,7 @@ const updates = [
     date: "6/10/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 6,
@@ -44,6 +49,7 @@ const updates = [
     date: "6/11/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 7,
@@ -51,6 +57,7 @@ const updates = [
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: '/assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
   },
 ];
 
@@ -136,7 +143,7 @@ const NewsAndUpdatesPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-20 right-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
+              className="flex absolute top-14 right-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
               onClick={() => setActive(null)}
               aria-label="Close"
             >
@@ -145,15 +152,13 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.name}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-19/20 h-130 md:max-h-[90%] flex flex-col-reverse md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
             >
-              <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+              <motion.div layoutId={`image-${active.name}-${id}`} className="min-w-4/10 md:h-auto">
                 <img
-                  width={200}
-                  height={200}
                   src={active.imgUrl}
                   alt={active.name}
-                  className="w-48 h-48 object-contain"
+                  className="w-full h-full rounded-tr-lg rounded-tl-lg object-cover object-top"
                 />
               </motion.div>
 
@@ -168,7 +173,7 @@ const NewsAndUpdatesPage = () => {
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                      className="text-neutral-600 dark:text-neutral-400 text-base max-h-60 overflow-y-scroll"
                     >
                       {active.description}
                     </motion.p>
@@ -185,7 +190,7 @@ const NewsAndUpdatesPage = () => {
         onClick={() =>
           setActive({
             name: mostRecentUpdate.title,
-            description: mostRecentUpdate.subtitle,
+            description: mostRecentUpdate.text,
             imgUrl: mostRecentUpdate.image,
           })
         }
