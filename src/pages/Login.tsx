@@ -1,21 +1,24 @@
 import { LoginForm } from "@/components/login-form"
 import { Trophy } from "lucide-react";
-import { useAuth0 } from "@auth0/auth0-react"
+import type { AccountSchema } from "@/App";
 
 const login = (callback: Function) => {
-  const username = document.querySelector('#username');
-    const password = document.querySelector('#password');
+  const username: HTMLInputElement | null = document.querySelector('#username');
+    const password: HTMLInputElement | null = document.querySelector('#password');
+
+    if (!username || !password) return false;
 
   const accountInfoCheck = async (): Promise<any> => {
-    const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/${username}`);
-    const accountInfo = response.json();
+    const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${username.value}/${password.value}`);
+    const accountInfo = await response.json();
     return accountInfo;
   }
 
   const accountInfo = accountInfoCheck();
   accountInfo.then(info => {
-    if (info.username != username || info.password != password) return false;
-    callback(info);
+    localStorage.setItem("pid", info.pid);
+    localStorage.setItem("username", info.username);
+    callback({ pid: info.pid, username: info.username });
   }, () => {
     console.log("Username and password don't match.")
     return false;
@@ -29,10 +32,9 @@ const login = (callback: Function) => {
 
 interface LoginParams {
     setAccount: Function
-    setIsLoggedIn: Function
 }
 
-const LoginPage = ({ setAccount, setIsLoggedIn}: LoginParams) => {
+const LoginPage = ({ setAccount}: LoginParams) => {
     return(
 
         <>
@@ -47,7 +49,9 @@ const LoginPage = ({ setAccount, setIsLoggedIn}: LoginParams) => {
                         Name TBD
                     </h1>
                     </a>
-                    <LoginForm onSubmit={e => {e.preventDefault(); console.log(e); login(setAccount); setIsLoggedIn(true); }}/>
+                    <LoginForm onSubmit={e => {e.preventDefault(); console.log(e); login((account: AccountSchema) => {
+                        setAccount(account);
+                    }); }}/>
                 </div>
             </div>
         </>

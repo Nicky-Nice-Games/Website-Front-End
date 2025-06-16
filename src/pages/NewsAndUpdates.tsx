@@ -188,7 +188,8 @@ const NewsAndUpdatesPage = () => {
         ) : null}
       </AnimatePresence>
       {/* Most recent update */}
-      <div
+      <motion.div
+        layoutId={`item-${mostRecentUpdate.title}-${id}`}
         key={mostRecentUpdate.id}
         onClick={() =>
           setActive(mostRecentUpdate)
@@ -205,7 +206,7 @@ const NewsAndUpdatesPage = () => {
           <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
           <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Grid container: 
             - 1 column on small screens,

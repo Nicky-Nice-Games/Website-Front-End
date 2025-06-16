@@ -23,7 +23,7 @@ import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
 import ForumPost from './pages/ForumPost';
 import Footer from './components/footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /* function NavBar() {
   const navigate = useNavigate();
@@ -72,24 +72,31 @@ import { useState } from 'react';
   );
 } */
 
-export interface AccountSchema {
+export interface AccountSchema { 
   pid: string;
-  email: string;
   username: string;
-  password: string;
-  uid: number;
 }
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [account, setAccount] = useState<AccountSchema | null>(null);
+
+  useEffect(() => {
+    const storedPID: string | null = localStorage.getItem("pid");
+    const storedUsername: string | null = localStorage.getItem("username");
+    if (!storedPID || !storedUsername) return;
+    const storedAccount: AccountSchema = {
+      pid: storedPID,
+      username: storedUsername
+    }
+    setAccount(storedAccount);
+  }, []);
 
   return (
     <Router>
-      <Navbar account={account} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <Navbar account={account} setAccount={setAccount}/>
       <div className='min-h-190'>
         <Routes>
-        <Route path="/login" element={<LoginPage setAccount={setAccount} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/content/*" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
@@ -114,3 +121,4 @@ function App() {
   
 
 export default App;
+

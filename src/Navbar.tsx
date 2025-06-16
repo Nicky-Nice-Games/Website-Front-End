@@ -13,12 +13,11 @@ import type { AccountSchema } from "./App";
 
 interface NavbarParams {
     account: AccountSchema | null
-    isLoggedIn: boolean
-    setIsLoggedIn: Function
+    setAccount: Function;
 }
 
 
-const Navbar = ({ account, isLoggedIn, setIsLoggedIn }: NavbarParams) => {
+const Navbar = ({ account, setAccount}: NavbarParams) => {
     const [currentPage, setCurrentPage] = useState("home");
     const [username, setUsername] = useState("")
     const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
@@ -43,7 +42,7 @@ const Navbar = ({ account, isLoggedIn, setIsLoggedIn }: NavbarParams) => {
                         </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
-                        <button onClick={() => {navigate('/login'); setCurrentPage("login"); setIsLoggedIn(false); }}>
+                        <button onClick={() => {navigate('/login'); setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
                         Log Out
                         </button>
                     </NavigationMenuLink>
@@ -51,10 +50,16 @@ const Navbar = ({ account, isLoggedIn, setIsLoggedIn }: NavbarParams) => {
             </NavigationMenuItem>
 
     useEffect(() => {
-        isLoggedIn ? navigate('/home') : navigate('/login');
-        setLoginNavbarItem(isLoggedIn ? profileDropdown : loginButton);
-        if (account) setUsername(account.username); else setUsername("Username");
-    }, [isLoggedIn]);
+        if (account) {
+            setUsername(account.username); 
+            setLoginNavbarItem(profileDropdown);
+            navigate("/home");
+        }
+        else {
+            setUsername("username");
+            setLoginNavbarItem(loginButton);
+        };
+    }, [account, username]);
 
     const pcNavList = <NavigationMenuList>
             <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
