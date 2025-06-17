@@ -161,7 +161,7 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className="w-19/20 h-130 md:max-h-[90%] flex flex-col-reverse md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
+              className="w-19/20 h-180 md:h-130 md:max-h-[90%] flex flex-col md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
                 <img
@@ -171,7 +171,7 @@ const NewsAndUpdatesPage = () => {
                 />
               </motion.div>
 
-              <div className="p-6">
+              <div className="p-6 h-fit">
                 <div className="flex justify-between items-start">
                   <div>
                     <motion.h3
@@ -182,7 +182,7 @@ const NewsAndUpdatesPage = () => {
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.subtitle}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base max-h-60 overflow-y-scroll"
+                      className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
                     >
                       {active.text}
                     </motion.p>
