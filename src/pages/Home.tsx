@@ -7,7 +7,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel"
 
-import InfiniteMovingCards from '../components/ui/carousel-banner';
+import InfiniteMovingCards from '@/components/ui/carousel-banner';
 
 const HomePage = () => {
     const plugin = React.useRef(
