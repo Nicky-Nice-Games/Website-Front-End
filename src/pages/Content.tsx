@@ -172,7 +172,7 @@ const ItemsPage = () => {
 
                                     <div className="p-4">
                                         <div className="flex justify-between items-start">
-                                            <div>
+                                            <div className="w-full">
                                                 <motion.h3
                                                     layoutId={`title-${active.name}-${id}`}
                                                     className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 text-center"
