@@ -8,6 +8,7 @@ interface Update {
   date: string;
   subtitle: string;
   image: string;
+  text: string;
 }
 
 const updates: Update[] = [
@@ -16,7 +17,7 @@ const updates: Update[] = [
     title: "Update 1",
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -24,7 +25,7 @@ const updates: Update[] = [
     title: "Update 2",
     date: "6/4/2025",
     subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -32,7 +33,7 @@ const updates: Update[] = [
     title: "Update 3",
     date: "6/5/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -40,7 +41,7 @@ const updates: Update[] = [
     title: "Update 4",
     date: "6/6/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -48,7 +49,7 @@ const updates: Update[] = [
     title: "Update 5",
     date: "6/10/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -56,7 +57,7 @@ const updates: Update[] = [
     title: "Update 6",
     date: "6/11/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -64,7 +65,7 @@ const updates: Update[] = [
     title: "Update 7",
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
   },
 ];
@@ -183,7 +184,7 @@ const NewsAndUpdatesPage = () => {
                       layoutId={`description-${active.subtitle}-${id}`}
                       className="text-neutral-600 dark:text-neutral-400 text-base max-h-60 overflow-y-scroll"
                     >
-                      {active.subtitle}
+                      {active.text}
                     </motion.p>
                   </div>
                 </div>
