@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import photo from '../../public/images/placeholder.png';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const AboutPage = () => {
     //String arrays to hold each team's data
-    const [teamData, setTeamData] = useState<string[]>([]);
     const [gspData, setGspData] = useState<string[][]>([]);
     const [rndData, setRndData] = useState<string[][]>([]);
     const [contentData, setContentData] = useState<string[][]>([]);
@@ -13,13 +12,13 @@ const AboutPage = () => {
     const [qaData, setQaData] = useState<string[][]>([]);
     const [webData, setWebData] = useState<string[][]>([]);
     const [productionData, setProductionData] = useState<string[][]>([]);
+    const photo:string = 'images/placeholder.PNG';
 
     useEffect(() => {
         const getTeamData = async (): Promise<any> => {
             //Read in the team data from the file
             const repsonse: Response = await fetch("data/TheTeam.csv");
             const data = await repsonse.text();
-            setTeamData(data.split("|"));
 
             //Create temporary arrays
             const tempTeamData = data.split("|");
