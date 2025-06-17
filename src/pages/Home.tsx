@@ -6,14 +6,15 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import photo from '../../public/images/placeholder.png';
-import arcadeMachine from '../../public/images/arcade machine.png';
-import InfiniteMovingCards from '../components/ui/carousel-banner';
+
+import InfiniteMovingCards from '@/components/ui/carousel-banner';
 
 const HomePage = () => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
+  const photo: string = '/web/images/placeholder.PNG';
+  const arcadeMachine = '/web/images/arcade machine.png'
 
   type ScoreProps = {
         place: string;
@@ -39,67 +40,67 @@ const HomePage = () => {
 
     const bannerImages1 = [
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     {
-        imgSrc:'images/placeholder.PNG'
+        imgSrc:'/web/images/placeholder.PNG'
     },
     ];
 
@@ -112,7 +113,7 @@ const HomePage = () => {
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <a href="/news">
+                <a href="/web/news">
                     <div className="absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white">
                     <h3>See all news and updates!</h3>
                     </div>
@@ -143,7 +144,7 @@ const HomePage = () => {
             <main className="overflow-hidden">
                 <div className="mb-[8rem] mt-[4rem]">
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
-                        <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
+                        <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
                     </div>
                 </div>
                 
@@ -162,13 +163,13 @@ const HomePage = () => {
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
                     <img
-                        src={photo}
+                        src="/web/images/placeholder.PNG"
                         alt="Photo of arcade machines"
                     />
                 </div>
                 <div className="mb-[8rem] mt-[4rem]">
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
-                        <InfiniteMovingCards items={bannerImages1} direction="right" speed="slow"></InfiniteMovingCards>
+                        <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
 
                     </div>
                 </div>
@@ -185,7 +186,7 @@ const HomePage = () => {
                 </div>
                 <div className="mb-[2rem] mt-[8rem]">
                     <div className="overflow-hidden -rotate-6 w-[100%] h-[300px] m-[0rem] origin-bottom-left flex">
-                        <InfiniteMovingCards items={bannerImages2} direction="left" speed="slow"></InfiniteMovingCards>
+                        <InfiniteMovingCards items={bannerImages2} direction="left" speed="verySlow"></InfiniteMovingCards>
 
                     </div>
                 </div>
@@ -226,7 +227,7 @@ const HomePage = () => {
                         </Score>
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
-                        <a href="/Leaderboard">
+                        <a href="/web/leaderboard">
                             <p className="m-4">See all scores!</p>
                         </a>
                         
