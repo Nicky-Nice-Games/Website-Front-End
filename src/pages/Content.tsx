@@ -10,7 +10,7 @@ import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuList
-} from "../components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu"
 
 import {
     Carousel,
