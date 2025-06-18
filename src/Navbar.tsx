@@ -142,7 +142,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         </NavigationMenuItem>
     </>
 
-    return <NavigationMenu viewport={false} className={`bebas **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(web/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}>
+    return <NavigationMenu viewport={false} className={`bebas bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(web/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}>
         <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${navbarButton}`}>
             <button className="cursor-pointer" onClick={() => {navigate('/web'); setCurrentPage("home")}}>
