@@ -18,10 +18,12 @@ interface NavbarParams {
 
 
 const Navbar = ({ account, setAccount}: NavbarParams) => {
+    const navbarButton: string = "bg-size-[100%_100%] bg-[url(web/images/navbar/button.png)] hover:bg-[url(web/images/navbar/button-hover.png)] active:bg-[url(web/images/navbar/button-active.png)]";
+
     const [currentPage, setCurrentPage] = useState("home");
     const [username, setUsername] = useState("")
-    const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/web/login'); setCurrentPage("login")}}>
+    const loginButton = <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`cursor-pointer ${currentPage == "login" ? "active-outline" : "passive-outline"}`} onClick={() => {navigate('/web/login'); setCurrentPage("login")}}>
                 Login
             </button>
             </NavigationMenuLink>
@@ -30,14 +32,15 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     const isMobileDevice = useMediaQuery({ maxWidth: 500 });
     const navigate = useNavigate();
 
+    
     const profileDropdown = <NavigationMenuItem className="list-none">
-                <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
-                    { isMobileDevice ? "" : username }                
+                <NavigationMenuTrigger className={`${navbarButton} bg-inherit`}>
+                    <button className={`${currentPage === "stats" ? "active-outline" : "passive-outline"}`}>{ isMobileDevice ? "" : username }</button>                
                     <img src="/src/assets/pfp-placeholder.png" className='max-w-7 md:m-1' />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/web/stats')}>
+                        <button onClick={() => { navigate('/web/stats'); setCurrentPage("stats"); }}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
@@ -62,14 +65,20 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         };
     }, [account, username]);
 
+    useEffect(() => {
+        if (account) setLoginNavbarItem(profileDropdown);
+        else setLoginNavbarItem(loginButton);
+    }, [currentPage])
+
     const pcNavList = <NavigationMenuList>
-            <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() =>{navigate('/web/about'); setCurrentPage("about")}}>
+            <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`cursor-pointer ${currentPage === "about" ? "active-outline" : "passive-outline"}`} onClick={() =>{navigate('/web/about'); setCurrentPage("about")}}>
                 About
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
-                <NavigationMenuTrigger className={`${currentPage === "content" ? "bg-white" : "bg-inherit"}`}><button 
+                <NavigationMenuTrigger className={`${navbarButton} bg-inherit`}><button 
+                    className={`${currentPage === "content" ? "active-outline" : "passive-outline"}`}
                     onClick={() => {navigate('/web/content'); setCurrentPage("content")}}>
                         Content
                     </button></NavigationMenuTrigger>
@@ -94,13 +103,13 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
                     </NavigationMenuLink>
                 </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuLink className={`${currentPage === "news" ? "bg-white" : ""}`}>
-            <button onClick={() => {navigate('/web/news'); setCurrentPage("news")}}>
+            <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`${currentPage === "news" ? "active-outline" : "passive-outline"}`} onClick={() => {navigate('/web/news'); setCurrentPage("news")}}>
                 News & Updates
             </button>
             </NavigationMenuLink>
-            <NavigationMenuLink className={`${currentPage === "leaderboard" ? "bg-white" : ""}`}>
-            <button onClick={() => {navigate('/web/leaderboard'); setCurrentPage("leaderboard")}}>
+            <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`${currentPage === "leaderboard" ? "active-outline" : "passive-outline"}`} onClick={() => {navigate('/web/leaderboard'); setCurrentPage("leaderboard")}}>
                 Leaderboard
             </button>
             </NavigationMenuLink>
@@ -133,11 +142,11 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         </NavigationMenuItem>
     </>
 
-    return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-sm md:**:text-base lg:**:text-lg z-30">
+    return <NavigationMenu viewport={false} className={`graffiti sticky top-0 flex flex-row w-full justify-between bg-[url(web/images/navbar/background.png)] font-semibold **:text-sm md:**:text-2xl z-30`}>
         <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
             <button className="cursor-pointer" onClick={() => {navigate('/web'); setCurrentPage("home")}}>
-                <img src="/src/assets/landscape-placeholder.svg" className='max-w-10' />
+                <img src="/src/assets/landscape-placeholder.svg" className='max-w-10 z-' />
             </button>
             </NavigationMenuLink>
         </div>
