@@ -49,18 +49,18 @@ function App() {
       <Navbar account={account} setAccount={setAccount}/>
       <div className='min-h-190'>
         <Routes>
-        <Route path="/web/login" element={<LoginPage setAccount={setAccount}/>} />
-        <Route path="/web/about" element={<AboutPage />} />
-        <Route path="/web/content/*" element={<ContentPage />} />
-        <Route path="/web/forum" element={<ForumPage />} />
+        <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/content/*" element={<ContentPage />} />
+        <Route path="/forum" element={<ForumPage />} />
         <Route path="/web" element={<HomePage />} />
-        <Route path="/web/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/web/news" element={<NewsAndUpdatesPage />} />
-        <Route path="/web/stats" element={<PlayerStatsPage />} />
-        <Route path="/web/forumPost" element={<ForumPost />} />
-        <Route path="/web/characters" element={<CharactersPage />} />
-        <Route path="/web/tracks" element={<TracksPage />} />
-        <Route path="/web/items" element={<ItemsPage />} />
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/news" element={<NewsAndUpdatesPage />} />
+        <Route path="/stats" element={<PlayerStatsPage />} />
+        <Route path="/forumPost" element={<ForumPost />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/tracks" element={<TracksPage />} />
+        <Route path="/items" element={<ItemsPage />} />
         <Route path="*" element={<NoPage/>}></Route>
       </Routes>
       </div>

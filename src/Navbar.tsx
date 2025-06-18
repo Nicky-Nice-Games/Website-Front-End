@@ -21,7 +21,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     const [currentPage, setCurrentPage] = useState("home");
     const [username, setUsername] = useState("")
     const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/web/login'); setCurrentPage("login")}}>
+            <button className="cursor-pointer" onClick={() => {navigate('/login'); setCurrentPage("login")}}>
                 Login
             </button>
             </NavigationMenuLink>
@@ -29,6 +29,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     const [loginNavbarItem, setLoginNavbarItem] = useState(loginButton);
     const isMobileDevice = useMediaQuery({ maxWidth: 500 });
     const navigate = useNavigate();
+    loginNavbarItem;
 
     const profileDropdown = <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
@@ -37,7 +38,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/web/stats')}>
+                        <button onClick={() => navigate('/stats')}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
@@ -58,7 +59,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         else {
             setUsername("username");
             setLoginNavbarItem(loginButton);
-            navigate('/web/login');
+            navigate('/login');
         };
     }, [account, username]);
 

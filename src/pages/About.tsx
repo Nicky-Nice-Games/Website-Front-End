@@ -62,7 +62,6 @@ const AboutPage = () => {
             }
 
             //Set the actual data arrays with the data from 
-            setTeamData(teamData);
             setGspData(tempGSPData);
             setContentData(tempContentData);
             setLevelData(tempLevelData);
