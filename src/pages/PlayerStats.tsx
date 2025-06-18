@@ -72,27 +72,28 @@ const InfoPage = ({ setActiveTab }: { setActiveTab: (tab: 'info' | 'achievements
         <div className="bg-black min-h-screen text-white p-4 md:p-8 ">
             {/* Info Sub Page*/}
             <Card className="bg-gray-600 w-[45%] mx-auto rounded-none">
-                 {/* Header/class nav bar*/}
               {/* Header/class nav bar */}
                 <Card className="h-auto w-full mx-auto rounded-none">
                   <CardContent className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 h-full px-4 py-2">
                     {/* Left side/Buttons */}
-                    <div className="flex justify-center md:justify-start items-center space-x-2">
-                      <button 
-                        className="font-bold underline"
+                    <div className="flex border border-2 border-gray-200 bg-gray-100 p-2 justify-center md:justify-start items-center space-x-2">
+                       <button 
+                        className="font-bold underline hover:bg-gray-200 hover:cursor-pointer border border-2 border-gray-300 rounded-md py-1 px-2"
                         onClick={() => setActiveTab('info')}
                       >
                         Info
                       </button>
+                     
                       <span className="hidden md:inline">|</span>
                       <button 
+                      className="hover:cursor-pointer hover:bg-gray-200 border border-2 border-gray-300 rounded-md py-1 px-2"
                         onClick={() => setActiveTab('achievements')}
                       >
                         Achievements
                       </button>
                     </div>
 
-                    {/* Right side - Profile */}
+                    {/* Right side/Profile */}
                     <div className="flex justify-center md:justify-end items-center space-x-2">
                       <h2 className="text-black">Username</h2>
                       <div className="relative -top-1">
@@ -106,72 +107,51 @@ const InfoPage = ({ setActiveTab }: { setActiveTab: (tab: 'info' | 'achievements
                   </CardContent>
                 </Card>
 
-
                 {/* Random cool background banner */}
                 <Card className=" h-48 w-full mx-auto rounded-none"></Card>
 
-               
+               {/* Overall stats grid */}
+<Card className="w-full mx-auto p-0 rounded-none min-h-[18rem]">
+  <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-black w-full h-full">
+    
+    {/* Section 1 */}
+    <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 md:border-r border-black">
+      <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
+        {stats.map((label, idx) => (
+          <React.Fragment key={idx}>
+            <div className="px-4 py-1 text-left text-sm whitespace-nowrap">{label}</div>
+            <div className="px-4 py-1 text-left text-sm whitespace-nowrap">{statsData[idx]}</div>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
 
-                {/* )verall stats grid*/}
-                <Card className="h-56 w-full mx-auto p-0 rounded-none">
-                    <div className="grid grid-cols-6 border-2 border-black h-full">
-                        
-                        <div className="col-span-2 flex items-center justify-center bg-gray-200 border-r border-black">
-                        {/* makes the left column 65%, right column 35% */}
-                        <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
-                            {/* Looping function that gets stats labels and corresponding data*/}
-                            {stats.map((label, idx) => (
-                            <React.Fragment key={idx}>
-                                {/* label cell */}
-                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                                {label}
-                                </div>
-                                {/* value cell */}
-                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                                {statsData[idx]}
-                                </div>
-                            </React.Fragment>
-                            ))}
-                        </div>
-                        </div>
-                         <div className="col-span-2 flex items-center justify-center bg-gray-200 border-r border-black">
-                        {/* makes the left column 65%, right column 35% */}
-                        <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
-                            {/* Looping function that gets stats labels and corresponding data*/}
-                            {stats2.map((label, idx) => (
-                            <React.Fragment key={idx}>
-                                {/* label cell */}
-                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                                {label}
-                                </div>
-                                {/* value cell */}
-                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                                {stats2Data[idx]}
-                                </div>
-                            </React.Fragment>
-                            ))}
-                        </div>
-                        </div>
-                        <div className="col-span-2 flex items-center justify-center bg-gray-200">
-                        {/* makes the left column 65%, right column 35% */}
-                        <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
-                            {/* Looping function that gets stats labels and corresponding data*/}
-                            {stats3.map((label, idx) => (
-                            <React.Fragment key={idx}>
-                                {/* label cell */}
-                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                                {label}
-                                </div>
-                                {/* value cell */}
-                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                                {stats3Data[idx]}
-                                </div>
-                            </React.Fragment>
-                            ))}
-                        </div>
-                        </div>
-                    </div>
-                </Card>
+    {/* Section 2 */}
+    <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 md:border-r border-black">
+      <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
+        {stats2.map((label, idx) => (
+          <React.Fragment key={idx}>
+            <div className="px-4 py-1 text-left text-sm whitespace-nowrap">{label}</div>
+            <div className="px-4 py-1 text-left text-sm whitespace-nowrap">{stats2Data[idx]}</div>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+
+    {/* Section 3 */}
+    <div className="flex items-center justify-center bg-gray-200">
+      <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
+        {stats3.map((label, idx) => (
+          <React.Fragment key={idx}>
+            <div className="px-4 py-1 text-left text-sm whitespace-nowrap">{label}</div>
+            <div className="px-4 py-1 text-left text-sm whitespace-nowrap">{stats3Data[idx]}</div>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+    
+  </div>
+</Card>
 
                 {/* Recent Races Activity */}
                 <Card className="mr-4 ml-4">
@@ -274,11 +254,11 @@ export const AchievementsPage = ({
     "polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)"
 
     const achievementSections = [
-  "1st Place Finishes",
-  "Podium Finishes",
-  "Races",
-  "Items Collected",
-];
+      "1st Place Finishes",
+      "Podium Finishes",
+      "Races",
+      "Items Collected",
+    ];
 
   // Achievement names and colors
   const achievementData = [
@@ -314,20 +294,36 @@ export const AchievementsPage = ({
   return (
   <div className="bg-black min-h-screen text-white p-4 md:p-8">
     <Card className="bg-gray-600 w-[45%] mx-auto rounded-none">
-      {/* tabs */}
-      <Card className="h-16 w-full mx-auto rounded-none">
-        <CardContent className="text-black flex space-x-4 px-4">
-          <button onClick={() => setActiveTab("info")}>Info</button>
-          <span>|</span>
-          <button
-            className="font-bold underline"
-            onClick={() => setActiveTab("achievements")}
-          >
-            Achievements
-          </button>
+     
+       {/* Header/class nav bar */}
+      <Card className="h-auto w-full mx-auto rounded-none">
+        <CardContent className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 h-full px-4 py-2">
+          {/* Left side/Buttons */}
+          <div className="flex border border-2 border-gray-200 bg-gray-100 p-2 justify-center md:justify-start items-center space-x-2">
+          <button className="hover:cursor-pointer hover:bg-gray-200 border border-2 border-gray-300 rounded-md py-1 px-2" onClick={() => setActiveTab("info")}>Info</button>
+
+            <span className="hidden md:inline">|</span>
+              <button
+              className="font-bold underline hover:cursor-pointer hover:bg-gray-200 border border-2 border-gray-300 rounded-md py-1 px-2"
+              onClick={() => setActiveTab("achievements")}
+            >
+              Achievements
+            </button>
+          </div>
+
+          {/* Right side/Profile */}
+          <div className="flex justify-center md:justify-end items-center space-x-2">
+            <h2 className="text-black">Username</h2>
+            <div className="relative -top-1">
+              <img 
+                src="images/placeholder.PNG"
+                alt="Profile picture"
+                className="rounded-full h-10 w-10 object-cover" 
+              />
+            </div>
+          </div>
         </CardContent>
       </Card>
-      
       {achievementSections.map((sectionTitle, sectionIndex) => {
         const startIdx = sectionIndex * 5;
         const medals = achievementData.slice(startIdx, startIdx + 5);
