@@ -8,7 +8,7 @@ const updates = [
     title: "Update 1",
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -16,7 +16,7 @@ const updates = [
     title: "Update 2",
     date: "6/4/2025",
     subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -24,7 +24,7 @@ const updates = [
     title: "Update 3",
     date: "6/5/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -32,7 +32,7 @@ const updates = [
     title: "Update 4",
     date: "6/6/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -40,7 +40,7 @@ const updates = [
     title: "Update 5",
     date: "6/10/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -48,7 +48,7 @@ const updates = [
     title: "Update 6",
     date: "6/11/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
@@ -56,7 +56,7 @@ const updates = [
     title: "Update 7",
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
   },
 ];
@@ -216,7 +216,8 @@ const NewsAndUpdatesPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Map over the updates array to render each update card */}
         {paginatedUpdates.map((update, index) => {
-          const globalIndex = (currentPage - 1) * itemsPerPage + index;
+          //const globalIndex = (currentPage - 1) * itemsPerPage + index;
+          index = index;
 
           const mostRecentId = sortedUpdates[0]?.id;
           // Only the most recent update is full width
