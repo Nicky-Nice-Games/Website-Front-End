@@ -10,10 +10,11 @@ import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuList
-} from "../components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu"
 
 import {
     Carousel,
+    type CarouselApi,
     CarouselContent,
     CarouselItem,
     CarouselNext,
@@ -31,7 +32,7 @@ const ContentPage = () => {
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
                 <p className="m-3">RIT was born of an unlikely institutional marriage of an influential cultural association, the Rochester Athenaeum, founded in 1829, and a technical training school, the Mechanics Institute, founded in 1885. The institute adopted the name Rochester Institute of Technology in 1944 and awarded its first bachelor of science degree in 1955. A 1961 decision to leave downtown Rochester for farmland in the suburban town of Henrietta put RIT on its path to pre-eminence as a global university. Today, the university’s reputation and reach go well beyond Rochester. We have partnerships on nearly every continent and overseas campuses located in China, Croatia, Dubai, and Kosovo.</p>
             </div>
-            <img className="rounded-lg" src="images/content-assets/RIT.jpg"></img>
+            <img className="rounded-lg" src="/images/content-assets/RIT.jpg"></img>
         </div>
 
     </>)
@@ -54,19 +55,19 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${characterButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/characters";
+                            const navigateRoute: string = props.currentPage === "characters" ? "/web/content" : "/web/characters";
                             navigate(navigateRoute);
                         }}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${itemButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "items" ? "/content" : "/items";
+                            const navigateRoute: string = props.currentPage === "items" ? "/web/content" : "/web/items";
                             navigate(navigateRoute);
                         }}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${trackButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/tracks";
+                            const navigateRoute: string = props.currentPage === "tracks" ? "/web/content" : "/web/tracks";
                             navigate(navigateRoute);
                         }}>Tracks</button>
                     </NavigationMenuItem>
@@ -75,12 +76,6 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
         </>
     );
 }
-
-import HkySr from "../../public/images/content-assets/HkySr.png";
-import Jamster from "../../public/images/content-assets/Jamster.png";
-import SophDin from "../../public/images/content-assets/SophDining.png";
-import OlJr from "../../public/images/content-assets/OLjr.png";
-import FrshSkt from "../../public/images/content-assets/FrshSkater.png";
 
 const ItemsPage = () => {
     // state for tracking which item is active (expanded) or not
@@ -177,7 +172,7 @@ const ItemsPage = () => {
 
                                     <div className="p-4">
                                         <div className="flex justify-between items-start">
-                                            <div>
+                                            <div className="w-full">
                                                 <motion.h3
                                                     layoutId={`title-${active.name}-${id}`}
                                                     className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 text-center"
@@ -256,31 +251,31 @@ const CharactersPage = () => {
     // sample list of characters to display
     const characters = [
         {
-            imgUrl: HkySr,
+            imgUrl: "images/content-assets/HkySr.png",
             name: "Hockey Senior",
             description:
                 "This is a senior",
         },
         {
-            imgUrl: OlJr,
-            name: "Orientation Leader Junior",
+            imgUrl: "images/content-assets/OLjr.png",
+            name: "Orienation Leader Junior",
             description:
                 "This is OL Junior",
         },
         {
-            imgUrl: SophDin,
+            imgUrl: "images/content-assets/SophDining.png",
             name: "Dining Worker Sophmore",
             description:
                 "This is a working sophmore",
         },
         {
-            imgUrl: FrshSkt,
+            imgUrl: "images/content-assets/FrshSkater.PNG",
             name: "Freshman Skater",
             description:
                 "Freshman Skater is so cool",
         },
         {
-            imgUrl: Jamster,
+            imgUrl: "images/content-assets/Jamster.png",
             name: "Jamster",
             description:
                 "Jamster the vibe",
@@ -422,6 +417,10 @@ const TracksPage = () => {
     const [active, setActive] = useState<(typeof tracks)[number] | boolean | null>(
         null
     );
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+    const [count, setCount] = useState(0);
+    const [heading, setHeading] = useState("Tracks");
     const id = useId();
     const ref = useRef<HTMLDivElement>(null);
 
@@ -441,6 +440,23 @@ const TracksPage = () => {
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [active]);
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+        setCount(api.scrollSnapList().length)
+        setCurrent(api.selectedScrollSnap() + 1)
+        
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1)
+        })
+    }, [api]);
+
+    useEffect(() => {
+        const currentTrack = current > 0 ? current - 1 : current;
+        setHeading(tracks[currentTrack].name);
+    }, [current])
 
     useOutsideClick(ref, () => setActive(null));
 
@@ -517,8 +533,8 @@ const TracksPage = () => {
                 ) : null}
             </AnimatePresence>
             <div className="mb-10">
-                <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">Tracks</h2>
-                <Carousel className="text-center border-solid border-slate-400 border-8 rounded-3xl w-60 sm:w-120 md:w-180 m-auto">
+                <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">{heading}</h2>
+                <Carousel setApi={setApi} className="text-center border-solid border-slate-400 border-8 rounded-3xl w-60 sm:w-120 md:w-180 m-auto">
                     <CarouselContent>
                         {tracks.map(track => {
                             return <CarouselItem>
@@ -546,6 +562,9 @@ const TracksPage = () => {
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
+                <div className="text-center text-xl">
+                    Track {current} of {count}
+                </div>
             </div>
 
         </>

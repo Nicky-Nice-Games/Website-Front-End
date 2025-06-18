@@ -7,14 +7,13 @@ export const InfiniteMovingCards = ({
   items,
   direction = "left",
   speed = "fast",
-  pauseOnHover = true,
   className,
 }: {
   items: {
     imgSrc: string;
   }[];
   direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
+  speed?: "fast" | "normal" | "slow" | "verySlow";
   pauseOnHover?: boolean;
   className?: string;
 }) => {
@@ -63,8 +62,10 @@ export const InfiniteMovingCards = ({
         containerRef.current.style.setProperty("--animation-duration", "20s");
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
+      } else if (speed === "slow") {
         containerRef.current.style.setProperty("--animation-duration", "80s");
+      } else {
+        containerRef.current.style.setProperty("--animation-duration", "160s");
       }
     }
   };
