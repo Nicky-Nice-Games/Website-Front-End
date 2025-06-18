@@ -32,7 +32,7 @@ const ContentPage = () => {
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
                 <p className="m-3">RIT was born of an unlikely institutional marriage of an influential cultural association, the Rochester Athenaeum, founded in 1829, and a technical training school, the Mechanics Institute, founded in 1885. The institute adopted the name Rochester Institute of Technology in 1944 and awarded its first bachelor of science degree in 1955. A 1961 decision to leave downtown Rochester for farmland in the suburban town of Henrietta put RIT on its path to pre-eminence as a global university. Today, the university’s reputation and reach go well beyond Rochester. We have partnerships on nearly every continent and overseas campuses located in China, Croatia, Dubai, and Kosovo.</p>
             </div>
-            <img className="rounded-lg" src="/images/content-assets/RIT.jpg"></img>
+            <img className="rounded-lg" src="./images/content-assets/RIT.jpg"></img>
         </div>
 
     </>)
@@ -55,19 +55,19 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${characterButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "characters" ? "/web/content" : "/web/characters";
+                            const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/characters";
                             navigate(navigateRoute);
                         }}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${itemButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "items" ? "/web/content" : "/web/items";
+                            const navigateRoute: string = props.currentPage === "items" ? "/content" : "/items";
                             navigate(navigateRoute);
                         }}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${trackButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "tracks" ? "/web/content" : "/web/tracks";
+                            const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/tracks";
                             navigate(navigateRoute);
                         }}>Tracks</button>
                     </NavigationMenuItem>

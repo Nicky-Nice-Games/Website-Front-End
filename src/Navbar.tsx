@@ -54,7 +54,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
         if (account) {
             setUsername(account.username); 
             setLoginNavbarItem(profileDropdown);
-            navigate('/web');
+            navigate('*/');
         }
         else {
             setUsername("username");
@@ -137,7 +137,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-sm md:**:text-base lg:**:text-lg z-30">
         <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('./home'); setCurrentPage("home")}}>
+            <button className="cursor-pointer" onClick={() => {navigate(''); setCurrentPage("home")}}>
                 <img src="./images/content-assets/tempLogo.png" className='max-w-10' />
             </button>
             </NavigationMenuLink>
