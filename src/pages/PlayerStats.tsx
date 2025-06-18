@@ -16,72 +16,107 @@ const PlayerStatsPage = () => {
 
 const InfoPage = ({ setActiveTab }: { setActiveTab: (tab: 'info' | 'achievements') => void }) => {
     const stats = [
-        "Fastest Time",
-        "Favorite Character",
-        "Favorite Kart Color",
-        "Favorite Race Track",
-        "Podium Finishes",
         "Wins",
-        "Races"
+        "Fastest Time",
+        "Podium Finishes",
+        "Races",
+        "Wall Crashes",
     ];
 
-    const statsData = [
+       const statsData = [
+        "4",
         "3.006",
+        "17",
+        "83",
+        "7"
+    ];
+
+     const stats2 = [
+        "Item-Based Hits",
+        "Offensive Items Used",
+        "Traps Used",
+        "Boosts Used",
+        "Specific Boosts Used",
+    ];
+
+ 
+        const stats2Data = [
+        "76",
+        "13",
+        "20",
+        "43",
+        "17",
+        "4",
+        "7"
+    ];
+    
+    const stats3 = [
+       "Favorite Character",
+        "Favorite Kart",
+        "Favorite Kart Color",
+        "Favorite Race Track",
+        "Track Spin Outs"
+    ];
+
+ 
+        const stats3Data = [
         "Lebron",
         "Red",
         "The Shed",
-        "17",
         "4",
-        "83"
+        "7"
     ];
     
+
     return (
         <div className="bg-black min-h-screen text-white p-4 md:p-8 ">
-            {/* Info SUb Page*/}
+            {/* Info Sub Page*/}
             <Card className="bg-gray-600 w-[45%] mx-auto rounded-none">
                  {/* Header/class nav bar*/}
-                <Card className="h-16 w-full mx-auto rounded-none">
-                    <CardContent className="text-black flex space-x-4 px-4">
-                        <button 
-                            className="font-bold underline"
-                            onClick={() => setActiveTab('info')}
-                        >
-                            Info
-                        </button>
-                        <span>|</span>
-                        <button 
-                            className=""
-                            onClick={() => setActiveTab('achievements')}
-                        >
-                            Achievements
-                        </button>
-                    </CardContent>
+              {/* Header/class nav bar */}
+                <Card className="h-auto w-full mx-auto rounded-none">
+                  <CardContent className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 h-full px-4 py-2">
+                    {/* Left side/Buttons */}
+                    <div className="flex justify-center md:justify-start items-center space-x-2">
+                      <button 
+                        className="font-bold underline"
+                        onClick={() => setActiveTab('info')}
+                      >
+                        Info
+                      </button>
+                      <span className="hidden md:inline">|</span>
+                      <button 
+                        onClick={() => setActiveTab('achievements')}
+                      >
+                        Achievements
+                      </button>
+                    </div>
+
+                    {/* Right side - Profile */}
+                    <div className="flex justify-center md:justify-end items-center space-x-2">
+                      <h2 className="text-black">Username</h2>
+                      <div className="relative -top-1">
+                        <img 
+                          src="images/placeholder.PNG"
+                          alt="Profile picture"
+                          className="rounded-full h-10 w-10 object-cover" 
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
                 </Card>
+
 
                 {/* Random cool background banner */}
                 <Card className=" h-48 w-full mx-auto rounded-none"></Card>
 
-                {/* Profile Pic/Username*/}
-                <Card className="h-32 w-full mx-auto rounded-none">
-                    <div className="flex items-center space-x-4 px-4"> 
-                            <img 
-                            src="images/placeholder.PNG"
-                            alt ="profile picture"
-                            className="grid cols-2 ml-16 rounded-4xl h-24 w-24 mb-2"
-                        ></img>
-                        <h2 className="text-black"> 
-                            Username
-                        </h2>
-                    </div> 
-                </Card>
+               
 
-                {/* Go karts logo/ overall stats grid*/}
-                <Card className="h-64 w-full mx-auto p-0 rounded-none">
+                {/* )verall stats grid*/}
+                <Card className="h-56 w-full mx-auto p-0 rounded-none">
                     <div className="grid grid-cols-6 border-2 border-black h-full">
-                        <div className="col-span-4 flex items-center justify-center bg-gray-400">
-                        1
-                        </div>
-                        <div className="col-span-2 flex items-center justify-center bg-gray-200">
+                        
+                        <div className="col-span-2 flex items-center justify-center bg-gray-200 border-r border-black">
                         {/* makes the left column 65%, right column 35% */}
                         <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
                             {/* Looping function that gets stats labels and corresponding data*/}
@@ -94,6 +129,42 @@ const InfoPage = ({ setActiveTab }: { setActiveTab: (tab: 'info' | 'achievements
                                 {/* value cell */}
                                 <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
                                 {statsData[idx]}
+                                </div>
+                            </React.Fragment>
+                            ))}
+                        </div>
+                        </div>
+                         <div className="col-span-2 flex items-center justify-center bg-gray-200 border-r border-black">
+                        {/* makes the left column 65%, right column 35% */}
+                        <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
+                            {/* Looping function that gets stats labels and corresponding data*/}
+                            {stats2.map((label, idx) => (
+                            <React.Fragment key={idx}>
+                                {/* label cell */}
+                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
+                                {label}
+                                </div>
+                                {/* value cell */}
+                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
+                                {stats2Data[idx]}
+                                </div>
+                            </React.Fragment>
+                            ))}
+                        </div>
+                        </div>
+                        <div className="col-span-2 flex items-center justify-center bg-gray-200">
+                        {/* makes the left column 65%, right column 35% */}
+                        <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
+                            {/* Looping function that gets stats labels and corresponding data*/}
+                            {stats3.map((label, idx) => (
+                            <React.Fragment key={idx}>
+                                {/* label cell */}
+                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
+                                {label}
+                                </div>
+                                {/* value cell */}
+                                <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
+                                {stats3Data[idx]}
                                 </div>
                             </React.Fragment>
                             ))}
@@ -207,14 +278,6 @@ export const AchievementsPage = ({
   "Podium Finishes",
   "Races",
   "Items Collected",
-  "Item-Based Hits",
-  "Offensive Items Used",
-  "Specific Offensive Items Used",
-  "Traps Used",
-  "Boosts Used",
-  "Specific Boosts Used",
-  "Wall Crashes",
-  "Track Fallouts"
 ];
 
   // Achievement names and colors
@@ -246,67 +309,6 @@ export const AchievementsPage = ({
     { name: "Item Hoarder", requirement: "Collect 150 items", color: "#3b82f6" },
     { name: "Supply Master", requirement: "Collect 200 items", color: "#10b981" },
     { name: "Item Overlord", requirement: "Collect 350 items", color: "#f59e0b" },
-
-
-
-    /* Item-Based Hits (On opponenets) */
-    { name: "First Strike", requirement: "Hit an opponent with 1 item", color: "#f97316" },
-    { name: "Sharpshooter", requirement: "Hit 25 opponents", color: "#ef4444" },
-    { name: "Brawler", requirement: "Hit 50 opponents", color: "#3b82f6" },
-    { name: "Wrecking Force", requirement: "Hit 100 opponents", color: "#10b981" },
-    { name: "Item Assassin", requirement: "Hit 150 opponents", color: "#f59e0b" },
-
-
-    /* Offensive items used (On opponents) */
-    { name: "First Throw", requirement: "Use 3 offensive items", color: "#f97316" },
-    { name: "Trigger Happy", requirement: "Use 25 offensive items", color: "#ef4444" },
-    { name: "Arsenal User", requirement: "Use 50 offensive items", color: "#3b82f6" },
-    { name: "Demolitionist", requirement: "Use 100 offensive items", color: "#10b981" },
-    { name: "Mayhem Dealer", requirement: "Use 200 offensive items", color: "#f59e0b" },
-
-
-      /* Offensive [specific] items used (On opponents) */
-    { name: "First Win", requirement: "1 Win", color: "#f97316" }, // Orange
-    { name: "Amateur", requirement: "10 Win", color: "#ef4444" }, // Red
-    { name: "Pro", requirement: "25 Win", color: "#3b82f6" }, // Blue
-    { name: "Elite Racer", requirement: "50 Win", color: "#10b981" }, // Green
-    { name: "Champion", requirement: "100 Win", color: "#f59e0b" }, // Yellow
-
-      /* Traps used (On opponents) */
-    { name: "Drop It!", requirement: "Place 5 traps", color: "#f97316" },
-    { name: "Booby Trapper", requirement: "Place 25 traps", color: "#ef4444" },
-    { name: "Hazard Handler", requirement: "Place 05 traps", color: "#3b82f6" },
-    { name: "Track Menace", requirement: "Place 80 traps", color: "#10b981" },
-    { name: "Chaos Architect", requirement: "Place 150 traps", color: "#f59e0b" },
-
-      /* Boosts Used */
-    { name: "First Burst", requirement: "Use 5 boosts", color: "#f97316" },
-    { name: "Boost Beginner", requirement: "Use 20=5 boosts", color: "#ef4444" },
-    { name: "Speedster", requirement: "Use 50 boosts", color: "#3b82f6" },
-    { name: "Nitro Pro", requirement: "Use 150 boosts", color: "#10b981" },
-    { name: "Turbo Titan", requirement: "Use 300 boosts", color: "#f59e0b" },
-
-      /* [Specific] boosts used*/
-    { name: "First Win", requirement: "1 Win", color: "#f97316" }, // Orange
-    { name: "Amateur", requirement: "10 Win", color: "#ef4444" }, // Red
-    { name: "Pro", requirement: "25 Win", color: "#3b82f6" }, // Blue
-    { name: "Elite Racer", requirement: "50 Win", color: "#10b981" }, // Green
-    { name: "Champion", requirement: "100 Win", color: "#f59e0b" }, // Yellow
-
-      /* Wall Crashes */
-    { name: "Bump Beginner", requirement: "Crash into walls 5 times", color: "#f97316" },
-    { name: "Clumsy Driver", requirement: "Crash 25 times", color: "#ef4444" },
-    { name: "Bumper Car", requirement: "Crash 60 times", color: "#3b82f6" },
-    { name: "Wall Magnet", requirement: "Crash 120 times", color: "#10b981" },
-    { name: "Crash King", requirement: "Crash 200 times", color: "#f59e0b" },
-
-
-      /* Times fallen off track */
-    { name: "Whoops!", requirement: "Fall off once", color: "#f97316" },
-    { name: "Edge Dancer", requirement: "Fall 10 times", color: "#ef4444" },
-    { name: "Track Dropper", requirement: "Fall 25 times", color: "#3b82f6" },
-    { name: "Risk Taker", requirement: "Fall 50 times", color: "#10b981" },
-    { name: "Gravity Challenger", requirement: "Fall 100 times", color: "#f59e0b" },
   ]
 
   return (
