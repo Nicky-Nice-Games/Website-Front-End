@@ -55,19 +55,19 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${characterButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "characters" ? "/web/content" : "/web/characters";
+                            const navigateRoute: string = props.currentPage === "characters" ? "/content" : "/characters";
                             navigate(navigateRoute);
                         }}>Characters</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${itemButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "items" ? "/web/content" : "/web/items";
+                            const navigateRoute: string = props.currentPage === "items" ? "/content" : "/items";
                             navigate(navigateRoute);
                         }}>Items</button>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <button className={`p-1 m-1 font-bold ${trackButtonColor} rounded-sm text-lg`} onClick={() => {
-                            const navigateRoute: string = props.currentPage === "tracks" ? "/web/content" : "/web/tracks";
+                            const navigateRoute: string = props.currentPage === "tracks" ? "/content" : "/tracks";
                             navigate(navigateRoute);
                         }}>Tracks</button>
                     </NavigationMenuItem>

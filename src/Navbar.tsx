@@ -38,14 +38,14 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
                     <button className={`${currentPage === "stats" ? "active-outline" : "passive-outline"}`}>{ isMobileDevice ? "" : username }</button>                
                     <img src="/src/assets/pfp-placeholder.png" className='max-w-7 md:m-1' />
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
+                <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902] absolute">
                     <NavigationMenuLink>
                         <button onClick={() => { navigate('/stats'); setCurrentPage("stats"); }}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
                     <NavigationMenuLink>
-                        <button onClick={() => { navigate('/web/login'); setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
+                        <button onClick={() => { navigate('/login'); setCurrentPage("login"); setAccount(null); localStorage.clear()}}>
                         Log Out
                         </button>
                     </NavigationMenuLink>
@@ -116,7 +116,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
 
     const mobileNavList = <><NavigationMenuItem className="list-none">
         <NavigationMenuTrigger className={`${navbarButton} bg-inherit`}><p className="passive-outline">Pages</p></NavigationMenuTrigger>
-        <NavigationMenuContent className="absolute min-w-36">
+        <NavigationMenuContent className="absolute -left-5 min-w-30">
             <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
             <button className="cursor-pointer" onClick={() =>{navigate('./about'); setCurrentPage("about")}}>
                 About
@@ -150,7 +150,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
             </NavigationMenuLink>
         </div>
         { isMobileDevice ? mobileNavList : pcNavList}
-        {loginNavbarItem}
+        { profileDropdown }
     </NavigationMenu>
 }
 
