@@ -113,7 +113,7 @@ const HomePage = () => {
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <a href="/web/news">
+                <a href="./news">
                     <div className="absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white">
                     <h3>See all news and updates!</h3>
                     </div>
@@ -227,7 +227,7 @@ const HomePage = () => {
                         </Score>
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
-                        <a href="/web/leaderboard">
+                        <a href="/leaderboard">
                             <p className="m-4">See all scores!</p>
                         </a>
                         

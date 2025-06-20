@@ -27,7 +27,7 @@ const ContentPage = () => {
 
     return (<>
         <ContentNavigator currentPage="content" />
-        <div className="flex flex-col-reverse md:grid md:grid-cols-2">
+        <div className="flex flex-col-reverse md:grid md:grid-cols-2 pr-3">
             <div>
                 <h3 className="text-center text-4xl m-2 font-black">About the Location</h3>
                 <p className="m-3">RIT was born of an unlikely institutional marriage of an influential cultural association, the Rochester Athenaeum, founded in 1829, and a technical training school, the Mechanics Institute, founded in 1885. The institute adopted the name Rochester Institute of Technology in 1944 and awarded its first bachelor of science degree in 1955. A 1961 decision to leave downtown Rochester for farmland in the suburban town of Henrietta put RIT on its path to pre-eminence as a global university. Today, the university’s reputation and reach go well beyond Rochester. We have partnerships on nearly every continent and overseas campuses located in China, Croatia, Dubai, and Kosovo.</p>
@@ -160,7 +160,7 @@ const ItemsPage = () => {
                                     ref={ref}
                                     className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
                                 >
-                                    <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+                                    <motion.div layoutId={`image-${active.name}-${id}`} className="bg-[url(images/card-background.png)] flex justify-center bg-gray-100 p-8">
                                         <img
                                             width={200}
                                             height={200}
@@ -170,12 +170,12 @@ const ItemsPage = () => {
                                         />
                                     </motion.div>
 
-                                    <div className="p-4">
-                                        <div className="flex justify-between items-start">
+                                    <div className="p-4 bg-[url(images/bottom-card.png)]">
+                                        <div className=" flex justify-between items-start">
                                             <div className="w-full">
                                                 <motion.h3
                                                     layoutId={`title-${active.name}-${id}`}
-                                                    className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 text-center"
+                                                    className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
                                                 >
                                                     {active.name}
                                                 </motion.h3>
@@ -203,7 +203,7 @@ const ItemsPage = () => {
                                 className="cursor-pointer"
                             >
                                 <motion.div layoutId={`image-${item.name}-${id}`}>
-                                    <div className=" rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105 transition-transform">
+                                    <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105 transition-transform">
                                         <img
                                             src={item.imgUrl}
                                             alt={item.name}
@@ -258,15 +258,15 @@ const CharactersPage = () => {
         },
         {
             imgUrl: "images/content-assets/OLjr.png",
-            name: "Orienation Leader Junior",
+            name: "Orientation Leader Junior",
             description:
                 "This is OL Junior",
         },
         {
             imgUrl: "images/content-assets/SophDining.png",
-            name: "Dining Worker Sophmore",
+            name: "Dining Worker Sophomore",
             description:
-                "This is a working sophmore",
+                "This is a working sophomore",
         },
         {
             imgUrl: "images/content-assets/FrshSkater.PNG",
@@ -407,7 +407,7 @@ const tracks: Array<Track> = [
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     },
     {
-        imgUrl: "./images/content-assets/Outerloop.png",
+        imgUrl: "./images/content-assets/OuterLoop.png",
         name: "RIT Outer Loop",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat."
     }
