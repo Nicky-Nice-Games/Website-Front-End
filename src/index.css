@@ -127,8 +127,60 @@
   font-display: swap; /* Optional: improves loading behavior */
 }
 
+@font-face {
+  font-family: 'Graffiti Youth';
+  src: url('/web/font/GraffitiYouth-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
+@font-face {
+  font-family: 'Painterz';
+  src: url('/web/font/Painterz.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
 .bebas {
   font-family: 'Bebas Neue', sans-serif;
+}
+
+.graffiti {
+  font-family: 'Graffiti Youth', serif;
+  letter-spacing: 1px;
+}
+
+.painterz {
+  font-family: 'Painterz', sans-serif;
+}
+
+.passive-outline {
+  text-shadow:
+    -1px -1px 0 #e7ee33,
+     0   -1px 0 #e7ee33,
+     1px -1px 0 #e7ee33,
+     1px  0   0 #e7ee33,
+     1px  1px 0 #e7ee33,
+     0    1px 0 #e7ee33,
+    -1px  1px 0 #e7ee33,
+    -1px  0   0 #e7ee33;
+}
+
+.passive-outline:hover {
+ color:#5C6000
+}
+
+.active-outline {
+  color: #e7ee33;
+  text-shadow:
+    -1px -1px 0 #000,
+     0   -1px 0 #000,
+     1px -1px 0 #000,
+     1px  0   0 #000,
+     1px  1px 0 #000,
+     0    1px 0 #000,
+    -1px  1px 0 #000,
+    -1px  0   0 #000;
 }
 
 @theme inline {
