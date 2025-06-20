@@ -150,7 +150,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
             </NavigationMenuLink>
         </div>
         { isMobileDevice ? mobileNavList : pcNavList}
-        { profileDropdown }
+        { loginNavbarItem }
     </NavigationMenu>
 }
 
