@@ -33,10 +33,10 @@ const InfoPage = ({ setActiveTab }: { setActiveTab: (tab: 'info' | 'achievements
 
      const stats2 = [
         "Item-Based Hits",
-        "Offensive Items Used",
+        "Offense Items Used",
         "Traps Used",
         "Boosts Used",
-        "Specific Boosts Used",
+        "Unique Boosts Used",
     ];
 
  
@@ -112,7 +112,7 @@ const InfoPage = ({ setActiveTab }: { setActiveTab: (tab: 'info' | 'achievements
 
                {/* Overall stats grid */}
 <Card className="w-full mx-auto p-0 rounded-none min-h-[18rem]">
-  <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-black w-full h-full">
+  <div className="grid grid-cols-1 md:grid-cols-1  lg:grid-cols-3 lg:text-[14px] border-2 border-black w-full h-full">
     
     {/* Section 1 */}
     <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 md:border-r border-black">
