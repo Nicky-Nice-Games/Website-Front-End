@@ -83,6 +83,18 @@ const NewsAndUpdatesPage = () => {
     return dateB - dateA;
   });
 
+  // Checks if screen size is mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
     Update | boolean | null
@@ -96,7 +108,7 @@ const NewsAndUpdatesPage = () => {
   const itemsPerPage = 3;
 
   const totalPages = Math.ceil(restUpdates.length / itemsPerPage);
-  const paginatedUpdates = restUpdates.slice(
+  const paginatedUpdates = isMobile ? restUpdates : restUpdates.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -163,7 +175,7 @@ const NewsAndUpdatesPage = () => {
               ref={ref}
               className="w-19/20 h-[90%] md:h-130 md:max-h-[90%] flex flex-col md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
             >
-              <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
+              <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto ">
                 <img
                   src={active.image}
                   alt={active.title}
@@ -176,7 +188,7 @@ const NewsAndUpdatesPage = () => {
                   <div>
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                      className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 "
                     >
                       {active.title}
                     </motion.h3>
@@ -259,23 +271,25 @@ const NewsAndUpdatesPage = () => {
           );
         })}
       </div>
-      <div className="flex justify-center gap-4 mt-6">
-        <button
-          onClick={prevPage}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
-        <button
-          onClick={nextPage}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
+      {!isMobile && (
+        <div className="flex justify-center gap-4 mt-6">
+          <button
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
+          <button
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
