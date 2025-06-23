@@ -48,6 +48,7 @@ function App() {
   return (
     <Router basename="/web">
       <Navbar account={account} setAccount={setAccount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+
       <div className='min-h-190'>
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
