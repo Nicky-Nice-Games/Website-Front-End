@@ -536,12 +536,12 @@ const TracksPage = () => {
     <>
       <ContentNavigator currentPage="tracks" />
       <div className="flex flex-col-reverse md:flex-row">
-        <div className="text-center md:w-1/2 md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
-          <div className="">
+        <div className="text-center md:w-1/2 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
+          <div className="text-white">
             <h1 className="md:m-20 md:mb-10 md:max-w-[40%] lg:max-w-[60%] font-black text-3xl">
               {heading}
             </h1>
-            <p className="text-lg md:skew-x-[4deg] xl:skew-x-[18deg] slanted-text m-5 md:ml-20 lg:ml-28 xl:ml-40 md:mr-24 lg:mr-34 xl:mr-48 md:mb-60">
+            <p className="text-lg md:skew-x-[4deg] xl:skew-x-[18deg] slanted-text m-5 md:ml-20 lg:ml-28 xl:ml-40 md:mr-24 lg:mr-34 xl:mr-53 md:mb-60">
               {description}
             </p>
           </div>
@@ -552,7 +552,7 @@ const TracksPage = () => {
           </h2>
           <Carousel
             setApi={setApi}
-            className="text-center border-solid border-slate-400 border-8 rounded-3xl w-full m-auto"
+            className="text-center rounded-3xl w-full m-auto"
           >
             <CarouselContent>
               {tracks.map((track) => {
