@@ -32,6 +32,7 @@ export interface AccountSchema {
 
 function App() {
   const [account, setAccount] = useState<AccountSchema | null>(null);
+  const [currentPage, setCurrentPage] = useState("home");
 
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
@@ -46,14 +47,14 @@ function App() {
 
   return (
     <Router basename="/web">
-      <Navbar account={account} setAccount={setAccount}/>
+      <Navbar account={account} setAccount={setAccount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
       <div className='min-h-190'>
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/content/*" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
-        <Route path="" element={<HomePage />} />
+        <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/news" element={<NewsAndUpdatesPage />} />
         <Route path="/stats" element={<PlayerStatsPage />} />

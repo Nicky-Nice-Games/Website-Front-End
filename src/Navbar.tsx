@@ -13,12 +13,13 @@ import type { AccountSchema } from "./App";
 
 interface NavbarParams {
     account: AccountSchema | null
+    setCurrentPage: Function;
+    currentPage: string | null
     setAccount: Function;
 }
 
 
-const Navbar = ({ account, setAccount}: NavbarParams) => {
-    const [currentPage, setCurrentPage] = useState("home");
+const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParams) => {
     const [username, setUsername] = useState("")
     const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
             <button className="cursor-pointer" onClick={() => {navigate('/login'); setCurrentPage("login")}}>
@@ -137,7 +138,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     return <NavigationMenu viewport={false} className="sticky top-0 flex flex-row w-full justify-between bg-[#F76902] font-semibold **:text-sm md:**:text-base lg:**:text-lg z-30">
         <div className="md:min-w-40">
             <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate(''); setCurrentPage("home")}}>
+            <button className="cursor-pointer" onClick={() => {navigate('/home'); setCurrentPage("home")}}>
                 <img src="./images/content-assets/tempLogo.png" className='max-w-10' />
             </button>
             </NavigationMenuLink>
