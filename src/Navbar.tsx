@@ -13,14 +13,14 @@ import type { AccountSchema } from "./App";
 
 interface NavbarParams {
     account: AccountSchema | null
+    setCurrentPage: Function;
+    currentPage: string | null
     setAccount: Function;
 }
 
 
-const Navbar = ({ account, setAccount}: NavbarParams) => {
+const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParams) => {
     const navbarButton: string = "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
-
-    const [currentPage, setCurrentPage] = useState("home");
     const [username, setUsername] = useState("")
     const loginButton = <NavigationMenuLink className={`${navbarButton}`}>
             <button className={`cursor-pointer ${currentPage == "login" ? "active-outline" : "passive-outline"}`} onClick={() => {navigate('/login'); setCurrentPage("login")}}>
@@ -31,6 +31,7 @@ const Navbar = ({ account, setAccount}: NavbarParams) => {
     const [loginNavbarItem, setLoginNavbarItem] = useState(loginButton);
     const isMobileDevice = useMediaQuery({ maxWidth: 500 });
     const navigate = useNavigate();
+    loginNavbarItem;
 
     
     const profileDropdown = <NavigationMenuItem className="list-none">
