@@ -90,7 +90,7 @@ const InfoPage = ({
 
         {/* Overall stats grid */}
         <Card className="w-full mx-auto p-0 rounded-none min-h-[18rem]">
-          <div className="grid grid-cols-1 md:grid-cols-1  lg:grid-cols-3 lg:text-[14px] border-2 border-black w-full h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:text-[14px] border-2 border-black w-full h-full">
             {/* Section 1 */}
             <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 md:border-r border-black">
               <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
@@ -108,7 +108,7 @@ const InfoPage = ({
             </div>
 
             {/* Section 2 */}
-            <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 md:border-r border-black">
+            <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 lg:border-r border-black">
               <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
                 {stats2.map((label, idx) => (
                   <React.Fragment key={idx}>
@@ -125,7 +125,7 @@ const InfoPage = ({
 
             {/* Section 3 */}
             <div className="flex items-center justify-center bg-gray-200">
-              <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
+              <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full md:border-r border-black">
                 {stats3.map((label, idx) => (
                   <React.Fragment key={idx}>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
@@ -333,14 +333,14 @@ export const AchievementsPage = ({
 
   return (
     <div className="bg-black min-h-screen text-white p-4 md:p-8">
-      <Card className="bg-gray-600 w-[45%] mx-auto rounded-none">
+      <Card className="bg-gray-600 w-full md:w-[90%] lg:w-[70%] xl:w-[45%] mx-auto rounded-none">
         {/* Header/class nav bar */}
         <Card className="h-auto w-full mx-auto rounded-none">
-          <CardContent className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 h-full px-4 py-2">
+          <CardContent className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-4 h-full px-2 md:px-4 py-2">
             {/* Left side/Buttons */}
-            <div className="flex border border-2 border-gray-200 bg-gray-100 p-2 justify-center md:justify-start items-center space-x-2">
+            <div className="flex border-2 border-gray-200 bg-gray-100 p-1 md:p-2 justify-center md:justify-start items-center space-x-2">
               <button
-                className="hover:cursor-pointer hover:bg-gray-200 border border-2 border-gray-300 rounded-md py-1 px-2"
+                className="hover:cursor-pointer hover:bg-gray-200 border-2 border-gray-300 rounded-md py-1 px-2 text-sm md:text-base"
                 onClick={() => setActiveTab("info")}
               >
                 Info
@@ -348,7 +348,7 @@ export const AchievementsPage = ({
 
               <span className="hidden md:inline">|</span>
               <button
-                className="font-bold underline hover:cursor-pointer hover:bg-gray-200 border border-2 border-gray-300 rounded-md py-1 px-2"
+                className="font-bold underline hover:cursor-pointer hover:bg-gray-200 border-2 border-gray-300 rounded-md py-1 px-2 text-sm md:text-base"
                 onClick={() => setActiveTab("achievements")}
               >
                 Achievements
@@ -357,12 +357,12 @@ export const AchievementsPage = ({
 
             {/* Right side/Profile */}
             <div className="flex justify-center md:justify-end items-center space-x-2">
-              <h2 className="text-black">Username</h2>
+              <h2 className="text-black text-sm md:text-base">Username</h2>
               <div className="relative -top-1">
                 <img
                   src="images/placeholder.PNG"
                   alt="Profile picture"
-                  className="rounded-full h-10 w-10 object-cover"
+                  className="rounded-full h-8 w-8 md:h-10 md:w-10 object-cover"
                 />
               </div>
             </div>
@@ -375,56 +375,58 @@ export const AchievementsPage = ({
           return (
             <div
               key={sectionTitle}
-              className="p-6 mb-8 mr-4 ml-4 border-2 border-white rounded-md"
+              className="p-4 md:p-6 mb-6 md:mb-8 mr-2 ml-2 md:mr-4 md:ml-4 border-2 border-white rounded-md"
             >
-              <div className="mb-8 font-semibold">
-                <h2>{sectionTitle}</h2>
+              <div className="mb-4 md:mb-8 font-semibold">
+                <h2 className="text-lg md:text-xl">{sectionTitle}</h2>
               </div>
-              <div className="grid grid-cols-5 gap-4 justify-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 justify-items-center">
                 {achievementsStatus.map((unlocked, idx) => (
                   <div
                     key={idx}
-                    className="w-full flex flex-col items-center p-2"
+                    className="w-full flex flex-col items-center p-1 md:p-2"
                   >
                     {unlocked ? (
                       <div className="group relative">
                         {/* Ribbon */}
-                        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                          <div className="w-6 h-6 bg-yellow-500 rounded-t-full" />
-                          <div className="w-6 h-2 bg-black" />
+                        <div className="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                          <div className="w-5 h-5 md:w-6 md:h-6 bg-yellow-500 rounded-t-full" />
+                          <div className="w-5 h-1.5 md:w-6 md:h-2 bg-black" />
                         </div>
                         {/* Hexagon medal */}
                         <div
-                          className="w-24 h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
+                          className="w-22 h-22 md:w-24 md:h-24 lg:w-24 lg:h-24 border-4 border-yellow-400 flex items-center justify-center transition-transform hover:scale-110"
                           style={{
                             backgroundColor: medals[idx].color,
                             clipPath: hexagonClip,
                           }}
                         >
-                          <span className="text-2xl">🏆</span>
+                          <span className="text-xl md:text-2xl">🏆</span>
                         </div>
                         {/* Tooltip */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 md:mb-2 px-1 md:px-2 py-0.5 md:py-1 bg-black text-white text-xs md:text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                           {medals[idx].name} – {medals[idx].requirement}
                         </div>
                       </div>
                     ) : (
                       <div className="group relative">
                         <div
-                          className="w-24 h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
+                          className="w-22 h-22 md:w-24 md:h-24 lg:w-24 lg:h-24 border-2 border-gray-700 bg-gray-800 flex items-center justify-center"
                           style={{ clipPath: hexagonClip }}
                         >
-                          <span className="text-2xl text-gray-600">🔒</span>
+                          <span className="text-xl md:text-2xl text-gray-600">
+                            🔒
+                          </span>
                         </div>
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 md:mb-2 px-1 md:px-2 py-0.5 md:py-1 bg-black text-white text-xs md:text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                           {medals[idx].name}
                         </div>
                       </div>
                     )}
-                    <p className="mt-2 text-md text-center break-words w-full px-1">
+                    <p className="mt-1 md:mt-2 text-md md:text-md text-center break-words w-full px-1 font-semibold">
                       {medals[idx].name}
                     </p>
-                    <p className="mt-0 text-sm text-center text-gray-300 w-full px-1">
+                    <p className="mt-0 text-sm text-center text-gray-300 w-full px-1 mb-2 sm:mb-0">
                       {medals[idx].requirement}
                     </p>
                   </div>
