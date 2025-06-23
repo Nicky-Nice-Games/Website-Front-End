@@ -66,7 +66,7 @@ const updates: Update[] = [
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     image: 'assets/OIP.jpg',
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
   },
 ];
 
@@ -172,38 +172,69 @@ const NewsAndUpdatesPage = () => {
               <CloseIcon /> {/* close icon pop up*/}
             </motion.button>
             <motion.div
-              layoutId={`item-${active.title}-${id}`}
-              ref={ref}
-              className="w-19/20 h-[90%] md:h-130 md:max-h-[90%] flex flex-col md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
+  layoutId={`item-${active.title}-${id}`}
+  ref={ref}
+  className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
+    isMobile ? "flex flex-col overflow-y-auto" : "flex flex-col md:flex-row"
+  }`}
+>
+  {isMobile ? (
+    // Mobile layout
+    <>
+      <motion.div layoutId={`image-${active.title}-${id}`}>
+        <img
+          src={active.image}
+          alt={active.title}
+          className="w-full object-cover object-top"
+        />
+      </motion.div>
+      <div className="p-6">
+        <motion.h3
+          layoutId={`title-${active.title}-${id}`}
+          className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+        >
+          {active.title}
+        </motion.h3>
+        <motion.p
+          layoutId={`description-${active.subtitle}-${id}`}
+          className="text-neutral-600 dark:text-neutral-400 text-base"
+        >
+          {active.text}
+        </motion.p>
+      </div>
+    </>
+  ) : (
+    // Desktop layout
+    <>
+      <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
+        <img
+          src={active.image}
+          alt={active.title}
+          className="w-full h-full object-cover object-top rounded-xl"
+        />
+      </motion.div>
+      <div className="p-6 h-fit">
+        <div className="flex justify-between items-start">
+          <div>
+            <motion.h3
+              layoutId={`title-${active.title}-${id}`}
+              className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
             >
-              {/* expanded card img */}
-              <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto ">
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  className="w-full h-full rounded-tr-lg rounded-xl object-cover object-top"
-                />
-              </motion.div>
+              {active.title}
+            </motion.h3>
+            <motion.p
+              layoutId={`description-${active.subtitle}-${id}`}
+              className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
+            >
+              {active.text}
+            </motion.p>
+          </div>
+        </div>
+      </div>
+    </>
+  )}
+</motion.div>
 
-              <div className="p-6 h-fit">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <motion.h3
-                      layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 "
-                    >
-                      {active.title}
-                    </motion.h3>
-                    <motion.p
-                      layoutId={`description-${active.subtitle}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
-                    >
-                      {active.text}
-                    </motion.p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         ) : null}
       </AnimatePresence>
