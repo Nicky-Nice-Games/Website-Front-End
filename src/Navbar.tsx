@@ -20,6 +20,7 @@ interface NavbarParams {
 
 
 const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParams) => {
+    const navbarButton: string = "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
     const [username, setUsername] = useState("")
     const loginButton = <NavigationMenuLink className={`${navbarButton}`}>
             <button className={`cursor-pointer ${currentPage == "login" ? "active-outline" : "passive-outline"}`} onClick={() => {navigate('/login'); setCurrentPage("login")}}>
