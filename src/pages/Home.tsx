@@ -6,15 +6,21 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-
+import { useNavigate } from "react-router-dom"
 import InfiniteMovingCards from '@/components/ui/carousel-banner';
 
-const HomePage = () => {
+interface HomePageParams{
+    setCurrentPage: Function;
+}
+
+const HomePage = ({setCurrentPage}:HomePageParams) => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
   const photo: string = '/web/images/placeholder.PNG';
   const arcadeMachine = '/web/images/arcade machine.png'
+
+  const navigate = useNavigate();
 
   type ScoreProps = {
         place: string;
@@ -104,7 +110,6 @@ const HomePage = () => {
     },
     ];
 
-
     return(
         <>
             <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
@@ -113,11 +118,9 @@ const HomePage = () => {
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <a href="/web/news">
-                    <div className="absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white">
-                    <h3>See all news and updates!</h3>
-                    </div>
-                </a>
+                <button className="cursor-pointer absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white" onClick={() => {navigate('/news'); setCurrentPage('news')}}>
+                    <h3>See all news and updates!</h3>                
+                </button>
                 
                 <Carousel
                     plugins={[plugin.current]}
@@ -167,13 +170,13 @@ const HomePage = () => {
                         alt="Photo of arcade machines"
                     />
                 </div>
-                <div className="mb-[8rem] mt-[4rem]">
+                <div className="mb-[12rem] mt-[4rem]">
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
 
                     </div>
                 </div>
-                <div id="lore" className="ml-[2rem] mr-[2rem]">
+                <div id="lore" className="ml-[2rem] mr-[2rem] text-center m-[10%]">
                     <h2 className="text-[26px] m-4">The Lore</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
@@ -184,7 +187,7 @@ const HomePage = () => {
                         Odio ultriceset arcu neque neque viverra faucibus faucibus. Pellentesque aliquam tellus molestie sed quis sem a. Quam eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
                     </p>
                 </div>
-                <div className="mb-[2rem] mt-[8rem]">
+                <div className="mb-[2rem] mt-[12rem]">
                     <div className="overflow-hidden -rotate-6 w-[100%] h-[300px] m-[0rem] origin-bottom-left flex">
                         <InfiniteMovingCards items={bannerImages2} direction="left" speed="verySlow"></InfiniteMovingCards>
 
@@ -227,9 +230,10 @@ const HomePage = () => {
                         </Score>
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
-                        <a href="/web/leaderboard">
+                        
+                        <button className="cursor-pointer" onClick={() => {navigate('/leaderboard'); setCurrentPage('leaderboard')}}>
                             <p className="m-4">See all scores!</p>
-                        </a>
+                        </button>
                         
                     </div>
                 </div>

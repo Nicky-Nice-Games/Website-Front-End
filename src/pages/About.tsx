@@ -17,7 +17,7 @@ const AboutPage = () => {
     useEffect(() => {
         const getTeamData = async (): Promise<any> => {
             //Read in the team data from the file
-            const repsonse: Response = await fetch("data/TheTeam.csv");
+            const repsonse: Response = await fetch("./data/TheTeam.csv");
             const data = await repsonse.text();
 
             //Create temporary arrays
