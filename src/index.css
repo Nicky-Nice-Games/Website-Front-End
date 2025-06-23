@@ -141,6 +141,20 @@
   font-display: swap; /* Optional: improves loading behavior */
 }
 
+@font-face {
+  font-family: 'Aileron-Slight-Slant';
+  src: url('/web/font/Aileron-Slight-Slant.otf') format('opentype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
+@font-face {
+  font-family: 'Aileron-Heavy-Slant';
+  src: url('/web/font/Aileron-Heavy-Slant.otf') format('opentype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
 .bebas {
   font-family: 'Bebas Neue', sans-serif;
 }
@@ -153,6 +167,19 @@
 .painterz {
   font-family: 'Painterz', sans-serif;
 }
+
+@media screen and (min-width: 768px) {
+  .slanted-text {
+  font-family: 'Aileron-Slight-Slant', sans-serif;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .slanted-text {
+  font-family: 'Aileron-Heavy-Slant', sans-serif;
+  }
+}
+
 
 .passive-outline {
   text-shadow:
