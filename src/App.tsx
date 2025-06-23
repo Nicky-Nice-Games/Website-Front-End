@@ -48,11 +48,12 @@ function App() {
   return (
     <Router basename="/web">
       <Navbar account={account} setAccount={setAccount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+
       <div className='min-h-190'>
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/content/*" element={<ContentPage />} />
+        <Route path="/content" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
