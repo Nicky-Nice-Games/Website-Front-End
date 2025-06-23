@@ -491,7 +491,7 @@ const tracks: Array<Track> = [
     imgUrl: "images/content-assets/shed.png",
     name: "The Shed",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     imgUrl: "images/content-assets/QrterMile.png",
@@ -536,17 +536,17 @@ const TracksPage = () => {
     <>
       <ContentNavigator currentPage="tracks" />
       <div className="flex flex-col-reverse md:flex-row">
-        <div className="text-center md:w-1/2 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
+        <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
           <div className="text-white">
-            <h1 className="md:m-20 md:mb-10 md:max-w-[40%] lg:max-w-[60%] font-black text-3xl">
+            <h1 className="md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
               {heading}
             </h1>
-            <p className="text-lg md:skew-x-[4deg] xl:skew-x-[18deg] slanted-text m-5 md:ml-20 lg:ml-28 xl:ml-40 md:mr-24 lg:mr-34 xl:mr-53 md:mb-60">
+               <p className="text-center text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[19%] md:mr-[22%] md:mb-20">
               {description}
             </p>
           </div>
         </div>
-        <div className="mb-10 md:w-1/2">
+        <div className="mb-10 md:w-2/5">
           <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">
             Tracks
           </h2>
