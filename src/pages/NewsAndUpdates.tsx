@@ -164,7 +164,8 @@ const NewsAndUpdatesPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-14 right-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
+              // exit button
+              className="flex absolute top-14 right-1 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
               onClick={() => setActive(null)}
               aria-label="Close"
             >
@@ -175,11 +176,12 @@ const NewsAndUpdatesPage = () => {
               ref={ref}
               className="w-19/20 h-[90%] md:h-130 md:max-h-[90%] flex flex-col md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
             >
+              {/* expanded card img */}
               <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto ">
                 <img
                   src={active.image}
                   alt={active.title}
-                  className="w-full h-full rounded-tr-lg rounded-tl-lg object-cover object-top"
+                  className="w-full h-full rounded-tr-lg rounded-xl object-cover object-top"
                 />
               </motion.div>
 
