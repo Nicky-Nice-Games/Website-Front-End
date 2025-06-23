@@ -330,7 +330,6 @@ export const AchievementsPage = ({
       color: "#f59e0b",
     },
   ];
-
   return (
     <div className="bg-black min-h-screen text-white p-4 md:p-8">
       <Card className="bg-gray-600 w-full md:w-[90%] lg:w-[70%] xl:w-[45%] mx-auto rounded-none">
