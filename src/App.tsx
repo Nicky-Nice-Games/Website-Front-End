@@ -53,9 +53,9 @@ function App() {
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/content/*" element={<ContentPage />} />
+        <Route path="/content" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
-        <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/news" element={<NewsAndUpdatesPage />} />
         <Route path="/stats" element={<PlayerStatsPage />} />

@@ -21,8 +21,8 @@ interface NavbarParams {
 
 const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParams) => {
     const [username, setUsername] = useState("")
-    const loginButton = <NavigationMenuLink className={`${currentPage === "login" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() => {navigate('/login'); setCurrentPage("login")}}>
+    const loginButton = <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`cursor-pointer ${currentPage == "login" ? "active-outline" : "passive-outline"}`} onClick={() => {navigate('/login'); setCurrentPage("login")}}>
                 Login
             </button>
             </NavigationMenuLink>
@@ -40,8 +40,7 @@ const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParam
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902] absolute">
                     <NavigationMenuLink>
-                        <button onClick={() => navigate('/stats')}>
-
+                        <button onClick={() => { navigate('/stats'); setCurrentPage("stats"); }}>
                         My Stats
                         </button>
                     </NavigationMenuLink>
@@ -57,14 +56,11 @@ const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParam
         if (account) {
             setUsername(account.username); 
             setLoginNavbarItem(profileDropdown);
-            navigate('*/');
-
+            navigate('/home');
         }
         else {
             setUsername("username");
             setLoginNavbarItem(loginButton);
-            navigate('/login');
-
         };
     }, [account, username]);
 
@@ -74,15 +70,15 @@ const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParam
     }, [currentPage])
 
     const pcNavList = <NavigationMenuList>
-
-            <NavigationMenuLink className={`${currentPage === "about" ? "bg-white" : ""}`}>
-            <button className="cursor-pointer" onClick={() =>{navigate('./about'); setCurrentPage("about")}}>
+            <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`cursor-pointer ${currentPage === "about" ? "active-outline" : "passive-outline"}`} onClick={() =>{navigate('/about'); setCurrentPage("about")}}>
                 About
             </button>
             </NavigationMenuLink>
             <NavigationMenuItem>
-                <NavigationMenuTrigger className={`${currentPage === "content" ? "bg-white" : "bg-inherit"}`}><button 
-                    onClick={() => {navigate('./content'); setCurrentPage("content")}}>
+                <NavigationMenuTrigger className={`${navbarButton} bg-inherit`}><button 
+                    className={`${currentPage === "content" ? "active-outline" : "passive-outline"}`}
+                    onClick={() => {navigate('/content'); setCurrentPage("content")}}>
                         Content
                     </button></NavigationMenuTrigger>
                 <NavigationMenuContent className="*:hover:bg-[#F76902]">
@@ -106,14 +102,13 @@ const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParam
                     </NavigationMenuLink>
                 </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuLink className={`${currentPage === "news" ? "bg-white" : ""}`}>
-            <button onClick={() => {navigate('./news'); setCurrentPage("news")}}>
+            <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`${currentPage === "news" ? "active-outline" : "passive-outline"} mx-1`} onClick={() => {navigate('/news'); setCurrentPage("news")}}>
                 News & Updates
             </button>
             </NavigationMenuLink>
-            <NavigationMenuLink className={`${currentPage === "leaderboard" ? "bg-white" : ""}`}>
-            <button onClick={() => {navigate('./leaderboard'); setCurrentPage("leaderboard")}}>
-         
+            <NavigationMenuLink className={`${navbarButton}`}>
+            <button className={`${currentPage === "leaderboard" ? "active-outline" : "passive-outline"} mx-1`} onClick={() => {navigate('/leaderboard'); setCurrentPage("leaderboard")}}>
                 Leaderboard
             </button>
             </NavigationMenuLink>
@@ -148,33 +143,14 @@ const Navbar = ({ account, setAccount, setCurrentPage, currentPage}: NavbarParam
 
     return <NavigationMenu viewport={false} className={`bebas bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}>
         <div className="md:min-w-40">
-            <NavigationMenuLink className={`max-w-14 ${currentPage === "home" ? "bg-white" : ""}`}>
-
+            <NavigationMenuLink className={`max-w-14 ${navbarButton}`}>
             <button className="cursor-pointer" onClick={() => {navigate('/home'); setCurrentPage("home")}}>
                 <img src="./images/content-assets/tempLogo.png" className='max-w-10' />
             </button>
             </NavigationMenuLink>
         </div>
         { isMobileDevice ? mobileNavList : pcNavList}
-        <NavigationMenuItem className="list-none">
-                <NavigationMenuTrigger className={`${currentPage === "profile" ? "bg-white" : "bg-inherit"}`}>
-                    { isMobileDevice ? "" : "Username" }                
-                    <img src="./images/pfp-placeholder.png" className='max-w-7 md:m-1' />
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902]">
-                    <NavigationMenuLink>
-                        <button onClick={() => navigate('./stats')}>
-                        My Stats
-                        </button>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink>
-                        <button onClick={() => navigate('./login')}>
-                        Log Out
-                        </button>
-                    </NavigationMenuLink>
-                </NavigationMenuContent>
-            </NavigationMenuItem>
-
+        { loginNavbarItem }
     </NavigationMenu>
 }
 
