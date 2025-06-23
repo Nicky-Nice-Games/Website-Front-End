@@ -2,55 +2,71 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 // Array of updates
-const updates = [
+interface Update {
+  id: number;
+  title: string;
+  date: string;
+  subtitle: string;
+  image: string;
+  text: string;
+}
+
+const updates: Update[] = [
   {
     id: 1,
     title: "Update 1",
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 2,
     title: "Update 2",
     date: "6/4/2025",
     subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 3,
     title: "Update 3",
     date: "6/5/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 4,
     title: "Update 4",
     date: "6/6/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 5,
     title: "Update 5",
     date: "6/10/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 6,
     title: "Update 6",
     date: "6/11/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 7,
     title: "Update 7",
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: '/assets/OIP.jpg',
+    image: 'assets/OIP.jpg',
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
   },
 ];
 
@@ -69,21 +85,21 @@ const NewsAndUpdatesPage = () => {
 
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
+    Update | boolean | null
   >(null);
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
 
+  const [mostRecentUpdate, ...restUpdates] = sortedUpdates;
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
 
-  const totalPages = Math.ceil(sortedUpdates.length / itemsPerPage);
-  const paginatedUpdates = sortedUpdates.slice(
+  const totalPages = Math.ceil(restUpdates.length / itemsPerPage);
+  const paginatedUpdates = restUpdates.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
   // Handlers
   const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
@@ -131,45 +147,44 @@ const NewsAndUpdatesPage = () => {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
-              key={`button-${active.name}-${id}`}
+              key={`button-${active.title}-${id}`}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              className="flex absolute top-14 right-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
               onClick={() => setActive(null)}
+              aria-label="Close"
             >
               <CloseIcon /> {/* close icon pop up*/}
             </motion.button>
             <motion.div
-              layoutId={`item-${active.name}-${id}`}
+              layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-19/20 h-[90%] md:h-130 md:max-h-[90%] flex flex-col md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
             >
-              <motion.div layoutId={`image-${active.name}-${id}`} className="flex justify-center bg-gray-100 p-8">
+              <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
                 <img
-                  width={200}
-                  height={200}
-                  src={active.imgUrl}
-                  alt={active.name}
-                  className="w-48 h-48 object-contain"
+                  src={active.image}
+                  alt={active.title}
+                  className="w-full h-full rounded-tr-lg rounded-tl-lg object-cover object-top"
                 />
               </motion.div>
 
-              <div className="p-6">
+              <div className="p-6 h-fit">
                 <div className="flex justify-between items-start">
                   <div>
                     <motion.h3
-                      layoutId={`title-${active.name}-${id}`}
+                      layoutId={`title-${active.title}-${id}`}
                       className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
                     >
-                      {active.name}
+                      {active.title}
                     </motion.h3>
                     <motion.p
-                      layoutId={`description-${active.description}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                      layoutId={`description-${active.subtitle}-${id}`}
+                      className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
                     >
-                      {active.description}
+                      {active.text}
                     </motion.p>
                   </div>
                 </div>
@@ -178,6 +193,26 @@ const NewsAndUpdatesPage = () => {
           </div>
         ) : null}
       </AnimatePresence>
+      {/* Most recent update */}
+      <motion.div
+        layoutId={`item-${mostRecentUpdate.title}-${id}`}
+        key={mostRecentUpdate.id}
+        onClick={() =>
+          setActive(mostRecentUpdate)
+        }
+        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 transition-transform m-4"
+      >
+        <img
+          src={mostRecentUpdate.image}
+          alt={mostRecentUpdate.title}
+          className="w-full h-96 object-cover"
+        />
+        <div className="p-4">
+          <p className="text-xs text-[#F76902] font-semibold mb-1">{mostRecentUpdate.date}</p>
+          <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
+          <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
+        </div>
+      </motion.div>
 
       {/* Grid container: 
             - 1 column on small screens,
@@ -186,27 +221,22 @@ const NewsAndUpdatesPage = () => {
             - with spacing (gap-6) between items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Map over the updates array to render each update card */}
-        {paginatedUpdates.map((update, index) => {
-          const globalIndex = (currentPage - 1) * itemsPerPage + index;
-          
+        {paginatedUpdates.map((update) => {
           const mostRecentId = sortedUpdates[0]?.id;
           // Only the most recent update is full width
           const isFullWidth = update.id === mostRecentId;
 
           return (
-            <div
+            <motion.div
+              layoutId={`item-${update.title}-${id}`}
               key={update.id}// Unique key for each item
               onClick={() =>
-                setActive({
-                  name: update.title,
-                  description: update.subtitle,
-                  imgUrl: update.image,
-                })
+                setActive(update)
               }
               // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
                 } bg-white text-black rounded-xl shadow overflow-hidden 
-        cursor-pointer hover:scale-105 transition-transform`}
+        cursor-pointer hover:scale-105 transition-transform m-4`}
             >
               {/* Image */}
               <img
@@ -225,7 +255,7 @@ const NewsAndUpdatesPage = () => {
                 {/* Subtitle */}
                 <p className="text-sm mt-1">{update.subtitle}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -262,7 +292,7 @@ const CloseIcon = () => {
       exit={{
         opacity: 0,
         transition: {
-          duration: 0.05,
+          duration: 0.02,
         },
       }}
       xmlns="http://www.w3.org/2000/svg"

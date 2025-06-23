@@ -23,64 +23,35 @@ import NoPage from './pages/NoPage';
 import Navbar from './Navbar';
 import ForumPost from './pages/ForumPost';
 import Footer from './components/footer';
+import { useEffect, useState } from 'react';
 
-/* function NavBar() {
-  const navigate = useNavigate();
-
-  return (
-    <div className='flex flex-row w-full bg-[#F76902] justify-between'>
-      <button
-        onClick={() => navigate('/home')}
-      >
-        <img src="images/landscape-placeholder.svg" className='max-w-10'/>
-      </button>
-      <div>
-        <button
-          className='p-2'
-          onClick={() => navigate('/about')}>
-          About
-        </button>
-        <button
-          className='p-2'
-          onClick={() => navigate('/content')}>
-          Content
-        </button>
-        <button
-          className='p-2'
-          onClick={() => navigate('/newsAndUpdates')}>
-          News & Updates
-        </button>
-        <button
-          className='p-2'
-          onClick={() => navigate('/forum')}>
-          Community
-        </button>
-      </div>
-      <button
-      className='justify-end'
-      onClick={() => navigate('/playerStats')}
-      >
-        Username
-      </button>
-
-      <button
-        onClick={() => navigate('/content')}>
-        Content
-      </button>
-    </div>
-  );
-} */
+export interface AccountSchema { 
+  pid: string;
+  username: string;
+}
 
 function App() {
+  const [account, setAccount] = useState<AccountSchema | null>(null);
+
+  useEffect(() => {
+    const storedPID: string | null = localStorage.getItem("pid");
+    const storedUsername: string | null = localStorage.getItem("username");
+    if (!storedPID || !storedUsername) { setAccount(null); return; }
+    const storedAccount: AccountSchema = {
+      pid: storedPID,
+      username: storedUsername
+    }
+    setAccount(storedAccount);
+  }, []);
+
   return (
-    <Router>
-      
-      <Navbar />
+    <Router basename="/web">
+      <Navbar account={account} setAccount={setAccount}/>
       <div className='min-h-190'>
         <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/content/*" element={<ContentPage />} />
+        <Route path="/content" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
@@ -94,12 +65,10 @@ function App() {
       </Routes>
       </div>
       <Footer />
-      
     </Router>
   
   );
 }
 
-  
-
 export default App;
+

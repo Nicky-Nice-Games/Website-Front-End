@@ -1,8 +1,41 @@
 import { LoginForm } from "@/components/login-form"
 import { Trophy } from "lucide-react";
+import type { AccountSchema } from "@/App";
 
+const login = (successCallback: Function, failedCallback: Function) => {
+  const username: HTMLInputElement | null = document.querySelector('#username');
+    const password: HTMLInputElement | null = document.querySelector('#password');
 
-const LoginPage = () => {
+    if (!username || !password) return false;
+
+  const accountInfoCheck = async (): Promise<any> => {
+    const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${username.value}/${password.value}`);
+    const accountInfo = await response.json();
+    return accountInfo;
+  }
+
+  const accountInfo = accountInfoCheck();
+  accountInfo.then(info => {
+    localStorage.setItem("pid", info.pid);
+    localStorage.setItem("username", info.username);
+    successCallback({ pid: info.pid, username: info.username });
+  }, () => {
+    failedCallback(username, password);
+    return false;
+  })
+  accountInfo.catch(error => {
+    console.log(error)
+    return false;
+  });
+
+}
+
+interface LoginParams {
+    setAccount: Function
+}
+
+const LoginPage = ({ setAccount}: LoginParams) => {
+
     return(
 
         <>
@@ -17,7 +50,14 @@ const LoginPage = () => {
                         Name TBD
                     </h1>
                     </a>
-                    <LoginForm />
+                    <LoginForm onSubmit={e => {e.preventDefault(); console.log(e); login((account: AccountSchema) => {
+                        setAccount(account);
+                    }, (usernameElement: HTMLInputElement, passwordElement: HTMLInputElement) => {
+                      usernameElement.className += " border-red-800";
+                      passwordElement.className += " border-red-800";
+                      const errorMessage: HTMLParagraphElement | null = document.querySelector("#error-message");
+                      if (errorMessage) errorMessage.innerHTML = "Incorrect username/password";
+                    }); }}/>
                 </div>
             </div>
         </>
