@@ -282,7 +282,7 @@ const ItemsPage = () => {
           </AnimatePresence>
 
           {/* grid of items */}
-          <div className="grid grid-cols-3 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
+          <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
             {items.map((item) => (
               <motion.div
                 layoutId={`item-${item.name}-${id}`}
