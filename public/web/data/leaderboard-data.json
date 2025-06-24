@@ -2,7 +2,6 @@
     {
         "id": "2388asdje",
         "profile": {
-            "index": 1,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -14,7 +13,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 2,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -26,7 +24,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 3,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -38,7 +35,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 4,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -50,7 +46,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 5,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -62,7 +57,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 6,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -74,7 +68,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 7,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -86,19 +79,17 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 8,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
             "username": "username",
-            "raceTimeMilliseconds": 934928
+            "raceTimeMilliseconds": 111111
         },
         "score": 27200
     },
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 9,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -110,7 +101,6 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 10,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
@@ -122,19 +112,17 @@
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 11,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {
             "username": "username",
-            "raceTimeMilliseconds": 934928
+            "raceTimeMilliseconds": 333333
         },
         "score": 56000
     },
     {
         "id": "3098sjisf",
         "profile": {
-            "index": 12,
             "pictureLink": "images/pfp-placeholder.png"
         },
         "player": {

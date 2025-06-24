@@ -1,5 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown } from "lucide-react"
+import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { millisecondsToSeconds } from "framer-motion"
 import { useMediaQuery } from "react-responsive"
@@ -54,43 +54,72 @@ export const columns: ColumnDef<Racer>[] = [
     accessorKey: "profile",
     header: () => <h1 className="max-w-1"></h1>,
     cell: ({ row }) => {
+      const isMobileDevice = useMediaQuery({maxWidth: 600}); 
         const data: Profile = row.getValue("profile");
         return <div className="flex flex-row items-center justify-center w-full">
             <h1 className="font-bold text-base md:text-xl mr-3">{formatPlacing(data.index)}</h1>
-            <img src={data.pictureLink} className="max-w-9"/>
+            {isMobileDevice ? "" : <img src={data.pictureLink} className="max-w-9"/>}
         </div>
     }
   },
   {
     accessorKey: "player",
-    header: ({ column }) => { return (
+    header: ({ column }) => { 
+      const isSorted = column.getIsSorted();
+      let arrowIcon;
+      switch (isSorted) {
+        case "asc":
+          arrowIcon = <ArrowUp />
+          break;
+        case "desc":
+          arrowIcon = <ArrowDown />
+          break;
+        default:
+          arrowIcon = <ArrowUpDown />
+          break;
+      }
+      return (
     <Button
           variant="ghost"
           className="m-0 p-0"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          onClick={() => column.toggleSorting(isSorted === "asc")}
         >
           Player
-          <ArrowUpDown className="md:ml-2 md:h-4 md:w-4" />
+          {arrowIcon}
         </Button>)},
     cell: ({ row }) => {
-        const isMobileDevice = useMediaQuery({maxWidth: 600}); 
         const data: Player = row.getValue("player");
-        return <div className="md:min-w-30">
-            { isMobileDevice ? "" : <h2 className="text-xs md:text-base text-left">{data.username}</h2>}
+        return <div className="md:min-w-50">
+            <h2 className="text-xs md:text-base text-left">{data.username}</h2>
             <h2 className="text-sm md:text-lg text-right">{formatTime(data.raceTimeMilliseconds)}</h2>
         </div>
     }
    },
   {
     accessorKey: "score",
-    header: ({ column }) => { return (
+    header: ({ column }) => { 
+      const isSorted = column.getIsSorted();
+      let arrowIcon;
+      switch (isSorted) {
+        case "asc":
+          arrowIcon = <ArrowUp />
+          break;
+        case "desc":
+          arrowIcon = <ArrowDown />
+          break;
+        default:
+          arrowIcon = <ArrowUpDown />
+          break;
+      }
+      return (
+      
     <Button
           variant="ghost"
-          className="p-0"
+          className="p-0 text-right"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Score
-          <ArrowUpDown className="m-0 md:ml-2 md:h-4 md:w-4" />
+          {arrowIcon}
         </Button>)},
     cell: ({ row }) => {
       const isMobileDevice = useMediaQuery({maxWidth: 600}); 
