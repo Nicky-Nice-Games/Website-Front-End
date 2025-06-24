@@ -39,14 +39,14 @@ const LoginPage = ({ setAccount}: LoginParams) => {
     return(
 
         <>
-            <div className="bg-[#000000] flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+            <div className="flex flex-col items-center justify-center gap-6 p-6 md:p-20">
                  <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
                     <Trophy className="size-8" />
                 </div>
                 <div className="flex w-full max-w-sm flex-col gap-6">
                     <a href="#" className="flex items-center gap-2 self-center font-medium">
                        
-                    <h1 className="text-white text-4xl">
+                    <h1 className=" text-4xl">
                         Name TBD
                     </h1>
                     </a>
