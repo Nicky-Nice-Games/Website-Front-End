@@ -547,7 +547,7 @@ const TracksPage = () => {
           </div>
         </div>
         <div className="mb-10 md:w-2/5">
-          <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">
+          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-4 z-10 w-50 m-auto">
             Tracks
           </h2>
           <Carousel
@@ -573,7 +573,7 @@ const TracksPage = () => {
             </CarouselContent>
             <div className="flex flex-row justify-center">
               <CarouselPrevious />
-              <div className="text-center text-xl">
+              <div className="text-center text-xl px-4">
                 Track {current} of {count}
               </div>
               <CarouselNext />
