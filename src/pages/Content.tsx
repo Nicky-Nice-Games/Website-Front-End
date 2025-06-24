@@ -282,7 +282,7 @@ const ItemsPage = () => {
           </AnimatePresence>
 
           {/* grid of items */}
-          <div className="grid grid-cols-3 grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
+          <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
             {items.map((item) => (
               <motion.div
                 layoutId={`item-${item.name}-${id}`}
@@ -291,7 +291,7 @@ const ItemsPage = () => {
                 className="cursor-pointer"
               >
                 <motion.div layoutId={`image-${item.name}-${id}`}>
-                  <div className=" rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105 transition-transform">
+                  <div className=" rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
                     <img
                       src={item.imgUrl}
                       alt={item.name}
@@ -416,7 +416,7 @@ const CharactersPage = () => {
                 {/* left side: character image */}
                 <motion.div
                   layoutId={`image-${active.name}-${id}`}
-                  className="flex-shrink-0 w-1/3"
+                  className="w-1/3"
                 >
                   <img
                     src={active.imgUrl}
@@ -457,7 +457,7 @@ const CharactersPage = () => {
               layoutId={`character-${character.name}-${id}`}
               key={character.name}
               onClick={() => setActive(character)}
-              className="cursor-pointer hover:scale-105 transition-transform"
+              className="cursor-pointer hover:scale-105"
             >
               <motion.div layoutId={`image-${character.name}-${id}`}>
                 <img
@@ -541,7 +541,7 @@ const TracksPage = () => {
             <h1 className="md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
               {heading}
             </h1>
-               <p className="text-center text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[19%] md:mr-[22%] md:mb-20">
+            <p className="text-center text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[19%] md:mr-[22%] md:mb-20">
               {description}
             </p>
           </div>
