@@ -54,6 +54,7 @@ export const columns: ColumnDef<Racer>[] = [
     accessorKey: "profile",
     header: () => <h1 className="max-w-1"></h1>,
     cell: ({ row }) => {
+      if (!row.getValue("profile")) return;
       const isMobileDevice = useMediaQuery({maxWidth: 600}); 
         const data: Profile = row.getValue("profile");
         return <div className="flex flex-row items-center justify-center w-full">
@@ -88,6 +89,7 @@ export const columns: ColumnDef<Racer>[] = [
           {arrowIcon}
         </Button>)},
     cell: ({ row }) => {
+      if (!row.getValue("player")) return;
         const data: Player = row.getValue("player");
         return <div className="md:min-w-50">
             <h2 className="text-xs md:text-base text-left">{data.username}</h2>
@@ -122,7 +124,8 @@ export const columns: ColumnDef<Racer>[] = [
           {arrowIcon}
         </Button>)},
     cell: ({ row }) => {
-      const isMobileDevice = useMediaQuery({maxWidth: 600}); 
+      if (!row.getValue("profile")) return <div className="min-h-[36px] md:min-h-[52px]"></div>;
+      const isMobileDevice = useMediaQuery( {maxWidth: 600}); 
      return <h2 className={`${isMobileDevice ? "text-left" : "text-right"} text-sm md:text-lg`}>{row.getValue("score")}</h2>}
   }
 ]
