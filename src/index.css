@@ -239,3 +239,7 @@
     @apply text-white text-4xl font-bold;
   }
 }
+
+#score {
+  text-align: right;
+}
