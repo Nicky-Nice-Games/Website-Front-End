@@ -47,13 +47,13 @@ export function DataTable<TData, TValue>({
     return (
         <div>
             <div className="rounded-md border">
-                <Table>
+                <Table className="lg:min-h-[731.5px]">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id}>
+                                        <TableHead key={header.id} id={header.id}>
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -94,15 +94,31 @@ export function DataTable<TData, TValue>({
                 <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => table.previousPage()}
+                    onClick={() => { const pageNumberInput:HTMLInputElement | null = document.querySelector("#page-number-input");
+                        if (pageNumberInput) pageNumberInput.value = "";
+                        table.previousPage(); }}
                     disabled={!table.getCanPreviousPage()}
                 >
                     Previous
                 </Button>
+                <div>
+                    <p>Page 
+                        <input 
+                        id="page-number-input"
+                        type="number" 
+                        className="w-6 mx-2 bg-gray-200 rounded-sm" 
+                        min={1} 
+                        max={table.getPageCount()} 
+                        placeholder={(table.getState().pagination.pageIndex + 1).toString()} 
+                        onKeyDown={(e:any) => {if (e.key === 'Enter') table.setPageIndex(e.target.value - 1)}} />
+                        of {table.getPageCount()}</p>
+                </div>
                 <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => table.nextPage()}
+                    onClick={() => { const pageNumberInput:HTMLInputElement | null = document.querySelector("#page-number-input");
+                        if (pageNumberInput) pageNumberInput.value = "";
+                        table.nextPage(); }}
                     disabled={!table.getCanNextPage()}
                 >
                     Next
