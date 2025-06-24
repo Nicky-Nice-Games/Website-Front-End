@@ -12,13 +12,13 @@ import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "./App";
 
 interface NavbarParams {
-    account: AccountSchema | null
-    setCurrentPage: Function;
-    currentPage: string | null
+    account: AccountSchema | null;
     setAccount: Function;
+    currentPage: string | null;
+    setCurrentPage: Function;
 }
 
-const Navbar = ({ account, setAccount }: NavbarParams) => {
+const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarParams) => {
   const navbarButton: string =
     "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
 
