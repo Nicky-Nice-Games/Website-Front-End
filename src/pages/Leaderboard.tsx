@@ -7,8 +7,17 @@ const LeaderboardPage = () => {
 
     useEffect(() => {
         const getLeaderboardData = async (): Promise<any> => {
-            const response: Response = await fetch("data/leaderboard-data.json");
-            const data = await response.json();
+            const response: Response = await fetch("./data/leaderboard-data.json");
+            let data = await response.json();
+            data = data.sort((a: any, b: any) => a.player.raceTimeMilliseconds - b.player.raceTimeMilliseconds);  
+            data.map((item: any) => {
+                item.profile.index = data.indexOf(item) + 1; 
+            })
+            if (data.length % 10 > 0) {
+                for (let i = 0; i < data.length % 10; i++){
+                    data.push({});
+                }
+            }
             console.log(data);
             setLeaderboardData(data);
         }
