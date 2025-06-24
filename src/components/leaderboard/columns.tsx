@@ -1,17 +1,8 @@
 import type { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown } from "lucide-react"
-import { MoreHorizontal } from "lucide-react"
- 
+import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { millisecondsToSeconds } from "framer-motion"
+import { useMediaQuery } from "react-responsive"
 
 const formatTime = (milliseconds: number): string => {
     let seconds = millisecondsToSeconds(milliseconds);
@@ -63,69 +54,78 @@ export const columns: ColumnDef<Racer>[] = [
     accessorKey: "profile",
     header: () => <h1 className="max-w-1"></h1>,
     cell: ({ row }) => {
+      if (!row.getValue("profile")) return;
+      const isMobileDevice = useMediaQuery({maxWidth: 600}); 
         const data: Profile = row.getValue("profile");
         return <div className="flex flex-row items-center justify-center w-full">
-            <h1 className="font-bold text-xl mr-3">{formatPlacing(data.index)}</h1>
-            <img src={data.pictureLink} className="max-w-9"/>
+            <h1 className="font-bold text-base md:text-xl mr-3">{formatPlacing(data.index)}</h1>
+            {isMobileDevice ? "" : <img src={data.pictureLink} className="max-w-9"/>}
         </div>
     }
   },
   {
     accessorKey: "player",
-    header: ({ column }) => { return (
+    header: ({ column }) => { 
+      const isSorted = column.getIsSorted();
+      let arrowIcon;
+      switch (isSorted) {
+        case "asc":
+          arrowIcon = <ArrowUp />
+          break;
+        case "desc":
+          arrowIcon = <ArrowDown />
+          break;
+        default:
+          arrowIcon = <ArrowUpDown />
+          break;
+      }
+      return (
     <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="m-0 p-0"
+          onClick={() => column.toggleSorting(isSorted === "asc")}
         >
           Player
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {arrowIcon}
         </Button>)},
     cell: ({ row }) => {
+      if (!row.getValue("player")) return;
         const data: Player = row.getValue("player");
-        return <div className="min-w-30">
-            <h2 className="text-base text-left">{data.username}</h2>
-            <h2 className="text-lg text-right">{formatTime(data.raceTimeMilliseconds)}</h2>
+        return <div className="md:min-w-50">
+            <h2 className="text-xs md:text-base text-left">{data.username}</h2>
+            <h2 className="text-sm md:text-lg text-right">{formatTime(data.raceTimeMilliseconds)}</h2>
         </div>
     }
    },
-//    {
-//     id: "actions",
-//     cell: ({ row }) => {
-//       const payment = row.original
- 
-//       return (
-//         <DropdownMenu>
-//           <DropdownMenuTrigger asChild>
-//             <Button variant="ghost" className="h-8 w-8 p-0">
-//               <span className="sr-only">Open menu</span>
-//               <MoreHorizontal className="h-4 w-4" />
-//             </Button>
-//           </DropdownMenuTrigger>
-//           <DropdownMenuContent align="end">
-//             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-//             <DropdownMenuItem
-//               onClick={() => navigator.clipboard.writeText(payment.id)}
-//             >
-//               Copy payment ID
-//             </DropdownMenuItem>
-//             <DropdownMenuSeparator />
-//             <DropdownMenuItem>View customer</DropdownMenuItem>
-//             <DropdownMenuItem>View payment details</DropdownMenuItem>
-//           </DropdownMenuContent>
-//         </DropdownMenu>
-//       )
-//     },
-//   },
   {
     accessorKey: "score",
-    header: ({ column }) => { return (
+    header: ({ column }) => { 
+      const isSorted = column.getIsSorted();
+      let arrowIcon;
+      switch (isSorted) {
+        case "asc":
+          arrowIcon = <ArrowUp />
+          break;
+        case "desc":
+          arrowIcon = <ArrowDown />
+          break;
+        default:
+          arrowIcon = <ArrowUpDown />
+          break;
+      }
+      return (
+      
     <Button
           variant="ghost"
+          className="p-0 text-right"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Score
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {arrowIcon}
         </Button>)},
-    cell: ({ row }) => <h2 className="text-right text-lg">{row.getValue("score")}</h2>
+    cell: ({ row }) => {
+      if (!row.getValue("profile")) return <div className="min-h-[36px] md:min-h-[52px]"></div>;
+      const isMobileDevice = useMediaQuery( {maxWidth: 600}); 
+     return <h2 className={`${isMobileDevice ? "text-left" : "text-right"} text-sm md:text-lg`}>{row.getValue("score")}</h2>}
   }
 ]
