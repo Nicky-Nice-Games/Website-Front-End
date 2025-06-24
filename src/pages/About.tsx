@@ -92,7 +92,7 @@ const AboutPage = () => {
         return (
             <div className="m-4 w-[200px]">
                 <img src={image} alt={`Photo of ${name}`} className="h-[200px]" />
-                <p className="person-name">{name}</p>
+                <p className="person-name font-bold">{name}</p>
                 <p className="person-position">{position}</p>
                 <p className="person-email">{email}</p>
             </div>
@@ -114,15 +114,15 @@ const AboutPage = () => {
             </div>
             <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1>
             <div className='flex flex-column items-center w-full text-center'>
-                <Tabs defaultValue="GSP" className="w-[400px] w-4/5 bg-orange-100 m-auto">
+                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-orange-100 m-auto">
 
                     <TabsList className='w-full flex-wrap flex-column h-full'>
-                        <TabsTrigger value="GSP">GSP</TabsTrigger>
+                        <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
                         <TabsTrigger value="Production">Production</TabsTrigger>
                         <TabsTrigger value="Level Design">Level Design</TabsTrigger>
                         <TabsTrigger value="Content">Content</TabsTrigger>
-                        <TabsTrigger value="RND">RND</TabsTrigger>
-                        <TabsTrigger value="QA">QA</TabsTrigger>
+                        <TabsTrigger value="RND">Research Development</TabsTrigger>
+                        <TabsTrigger value="QA">Quality Assurance</TabsTrigger>
                         <TabsTrigger value="Support">Support</TabsTrigger>
                         <TabsTrigger value="Web">Web</TabsTrigger>
 
