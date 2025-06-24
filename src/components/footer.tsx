@@ -19,10 +19,10 @@ export const Footer = () => {
                 ></img>
               </div>
               <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                <img src="./images/x-logo.png" className="w-14 h-12"></img>
+                <img src="./images/x-logo.png" className="w-10 h-10"></img>
               </div>
               <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                <img src="./images/github-logo.png" className="w-14 h-12"></img>
+                <img src="./images/github-logo.png" className="w-10 h-10"></img>
               </div>
             </div>
             <div className="text-4xl">Contact us!</div>
