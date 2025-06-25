@@ -2,7 +2,7 @@ export const Footer = () => {
   return (
     <>
       <footer className="bg-black text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
           <div>
             <img
               src="./images/content-assets/tempLogo.png"
