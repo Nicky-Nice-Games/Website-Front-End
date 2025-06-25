@@ -205,8 +205,7 @@ const ItemsPage = () => {
   return (
     <>
       <ContentNavigator currentPage={"items"} />
-      <div className="px-8 min-h-screen">
-        <main className="px-8">
+      <main className="px-8">
           <h2
             className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
                 lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12"
@@ -303,7 +302,6 @@ const ItemsPage = () => {
             ))}
           </div>
         </main>
-      </div>
     </>
   );
 };
@@ -535,7 +533,7 @@ const TracksPage = () => {
   return (
     <>
       <ContentNavigator currentPage="tracks" />
-      <div className="flex flex-col-reverse md:flex-row">
+      <div className="h-full flex flex-col-reverse md:flex-row">
         <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
           <div className="text-white">
             <h1 className="md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">

@@ -31,6 +31,10 @@ export function DataTable<TData, TValue>({
     data,
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
+    const [currentPageIndex, setCurrentPageIndex] = React.useState<number>(1);
+    const [endingImageElement, setEndingImageElement] = React.useState(<img />);
+
+    const endOfTableImage = <img src="images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[37vh]"/>
 
     const table = useReactTable({
         data,
@@ -44,10 +48,14 @@ export function DataTable<TData, TValue>({
         }
     })
 
+    React.useEffect(() => {
+        setEndingImageElement(currentPageIndex == table.getPageCount() ? endOfTableImage : <img />);
+    }, [currentPageIndex]);
+
     return (
         <div>
             <div className="rounded-md border">
-                <Table className="lg:min-h-[731.5px]">
+                <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -88,29 +96,31 @@ export function DataTable<TData, TValue>({
                             </TableRow>
                         )}
                     </TableBody>
-                </Table>
+                </Table>    
             </div>
+            { endingImageElement }
             <div className="flex items-center justify-between space-x-2 py-4">
                 <Button
                     variant="outline"
                     size="sm"
                     onClick={() => { const pageNumberInput:HTMLInputElement | null = document.querySelector("#page-number-input");
                         if (pageNumberInput) pageNumberInput.value = "";
+                        setCurrentPageIndex(currentPageIndex - 1);
                         table.previousPage(); }}
                     disabled={!table.getCanPreviousPage()}
                 >
                     Previous
                 </Button>
                 <div>
-                    <p>Page 
+                    <p className="text-lg">Page 
                         <input 
                         id="page-number-input"
                         type="number" 
-                        className="w-6 mx-2 bg-gray-200 rounded-sm" 
+                        className="w-8 mx-2 pl-2 bg-gray-200 rounded-sm" 
                         min={1} 
                         max={table.getPageCount()} 
                         placeholder={(table.getState().pagination.pageIndex + 1).toString()} 
-                        onKeyDown={(e:any) => {if (e.key === 'Enter') table.setPageIndex(e.target.value - 1)}} />
+                        onKeyDown={(e:any) => {if (e.key === 'Enter') setCurrentPageIndex(e.target.value - 1); table.setPageIndex(e.target.value - 1)}} />
                         of {table.getPageCount()}</p>
                 </div>
                 <Button
@@ -118,6 +128,7 @@ export function DataTable<TData, TValue>({
                     size="sm"
                     onClick={() => { const pageNumberInput:HTMLInputElement | null = document.querySelector("#page-number-input");
                         if (pageNumberInput) pageNumberInput.value = "";
+                        setCurrentPageIndex(currentPageIndex + 1);
                         table.nextPage(); }}
                     disabled={!table.getCanNextPage()}
                 >
