@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useId, useRef, useState } from "react";
+import { act, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
@@ -311,7 +311,7 @@ const ItemsPage = () => {
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
   const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
+    { name: string; description: string; imgUrl: string; songName: String; songLink: string} | boolean | null
   >(null);
   const id = useId();
   const ref = useRef<HTMLDivElement>(null); // ref to detect clicks outside pop up
@@ -344,26 +344,39 @@ const CharactersPage = () => {
       imgUrl: "images/content-assets/HkySr.png",
       name: "Hockey Senior",
       description: "This is a senior",
+      songName: "Eye Of The Tiger - Survivor",
+      songLink: "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1"
     },
     {
       imgUrl: "images/content-assets/OLjr.png",
-      name: "Orienation Leader Junior",
+      name: "Orientation Leader Junior",
       description: "This is OL Junior",
+       songName: "Turbo Hustle - DJ Maestro",
+      songLink: "https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1"
     },
     {
       imgUrl: "images/content-assets/SophDining.png",
       name: "Dining Worker Sophmore",
       description: "This is a working sophmore",
+       songName: "Feel Good Inc. - Gorillaz",
+      songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
     },
     {
       imgUrl: "images/content-assets/FrshSkater.PNG",
       name: "Freshman Skater",
-      description: "Freshman Skater is so cool",
+      description: `Name: Morgan 
+      Major: Photography
+      Likes: Skating, Thrifting Clothes, Going Fast 
+      Dislikes: Waking Up For Class`,
+       songName: "Skater Boi - Avril Lavigne",
+      songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
     },
     {
       imgUrl: "images/content-assets/Jamster.png",
       name: "Jamster",
       description: "Jamster the vibe",
+      songName: "Hamster Dance -  Hampton and the Hamsters",
+      songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
     },
   ];
 
@@ -435,9 +448,10 @@ const CharactersPage = () => {
                   </motion.h3>
                   <motion.p
                     layoutId={`description-${active.description}-${id}`} // pop up animation description
-                    className="text-gray-600 text-lg"
+                    className="text-gray-600 text-lg whitespace-pre-line"
                   >
-                    {active.description}
+                    {active.description} <motion.br />
+                    Favorite Song: <motion.a href={active.songLink}>{active.songName}</motion.a>
                   </motion.p>
                 </div>
               </motion.div>
