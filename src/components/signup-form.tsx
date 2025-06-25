@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useNavigate } from "react-router-dom"
 
-export function LoginForm({
+export function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -20,13 +20,22 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="bg-[#1a1a1a]">
         <CardHeader className="text-center">
-          <CardTitle className="text-xl text-white">Welcome Back, Racers</CardTitle>
+          <CardTitle className="text-xl text-white">Join The Competition</CardTitle>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid gap-6">
               <div className="grid gap-6">
                 <p id="error-message" className="text-red-600 text-center"></p>
+                <div className="grid gap-3 text-[#D0D3D4]">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
                 <div className="grid gap-3 text-[#D0D3D4]">
                   <Label htmlFor="username">Username</Label>
                   <Input
@@ -38,15 +47,25 @@ export function LoginForm({
                 </div>
                 <div className="grid gap-3">
                   <div className="flex items-center text-[#D0D3D4]">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">Enter Password</Label>
                     <a
                       href="#"
                       className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902]"
                     >
-                      Forgot your password?
                     </a>
                   </div>
                   <Input id="password" type="password" required />
+                </div>
+                <div className="grid gap-3">
+                  <div className="flex items-center text-[#D0D3D4]">
+                    <Label htmlFor="retype-password">Retype Password</Label>
+                    <a
+                      href="#"
+                      className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902]"
+                    >
+                    </a>
+                  </div>
+                  <Input id="retype-password" type="password" required />
                 </div>
                 <Button type="submit" className="w-full border border-1 text-white bg-[#F76902]" //onSubmit={() => login()}
                 >
@@ -54,9 +73,9 @@ export function LoginForm({
                 </Button>
               </div>
               <div className="text-center text-sm text-[#D0D3D4]">
-                Don&apos;t have an account?{" "}
-                <button onClick={() => navigate("/signup")} className="underline underline-offset-4 text-[#F76902]">
-                  Sign up
+                Already have an account?{" "}
+                <button onClick={() => navigate('/login')} className="underline underline-offset-4 text-[#F76902]">
+                  Login
                 </button>
               </div>
             </div>

@@ -275,7 +275,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
         </NavigationMenuLink>
       </div>
       {isMobileDevice ? mobileNavList : pcNavList}
-      {profileDropdown}
+      { loginNavbarItem }
     </NavigationMenu>
   );
 };

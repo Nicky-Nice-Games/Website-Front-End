@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import LoginPage from './pages/Login';
+import SignupPage from './pages/Signup';
 import AboutPage from './pages/About';
 import {
   ContentPage,
@@ -52,6 +53,7 @@ function App() {
       <div className='min-h-190'>
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
+        <Route path="/signup" element={<SignupPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/content" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
