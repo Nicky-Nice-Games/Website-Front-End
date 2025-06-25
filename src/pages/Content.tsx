@@ -247,7 +247,7 @@ const ItemsPage = () => {
                 >
                   <motion.div
                     layoutId={`image-${active.name}-${id}`}
-                    className="flex justify-center bg-gray-100 p-8"
+                    className="flex justify-center bg-[url(images/card-background.png)] p-8"
                   >
                     <img
                       width={200}
@@ -258,12 +258,12 @@ const ItemsPage = () => {
                     />
                   </motion.div>
 
-                  <div className="p-4">
+                  <div className="p-4 bg-[url(images/bottom-card.png)]">
                     <div className="flex justify-between items-start">
                       <div className="w-full">
                         <motion.h3
                           layoutId={`title-${active.name}-${id}`}
-                          className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4 text-center"
+                          className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
                         >
                           {active.name}
                         </motion.h3>
@@ -291,7 +291,7 @@ const ItemsPage = () => {
                 className="cursor-pointer"
               >
                 <motion.div layoutId={`image-${item.name}-${id}`}>
-                  <div className=" rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
+                  <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
                     <img
                       src={item.imgUrl}
                       alt={item.name}
@@ -547,7 +547,7 @@ const TracksPage = () => {
           </div>
         </div>
         <div className="mb-10 md:w-2/5">
-          <h2 className="text-white text-center text-xl rounded-lg bg-[#7C878E] relative top-4 z-10 w-50 m-auto">
+          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-4 z-10 w-50 m-auto">
             Tracks
           </h2>
           <Carousel
@@ -573,7 +573,7 @@ const TracksPage = () => {
             </CarouselContent>
             <div className="flex flex-row justify-center">
               <CarouselPrevious />
-              <div className="text-center text-xl">
+              <div className="text-center text-xl px-4">
                 Track {current} of {count}
               </div>
               <CarouselNext />
