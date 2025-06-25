@@ -139,8 +139,6 @@ const NewsAndUpdatesPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
-
-
   return (
     <div className="min-h-screen bg-black p-6">
       {/* overlay behind pop up when active */}
@@ -245,7 +243,7 @@ const NewsAndUpdatesPage = () => {
         onClick={() =>
           setActive(mostRecentUpdate)
         }
-        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 transition-transform m-4"
+        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 m-4"
       >
         <img
           src={mostRecentUpdate.image}
@@ -284,7 +282,7 @@ const NewsAndUpdatesPage = () => {
               // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
                 } bg-white text-black rounded-xl shadow overflow-hidden 
-        cursor-pointer hover:scale-105 transition-transform m-4`}
+        cursor-pointer hover:scale-105 m-4`}
             >
               {/* Image */}
               <img
