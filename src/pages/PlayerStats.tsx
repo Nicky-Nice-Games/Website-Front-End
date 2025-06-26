@@ -1,20 +1,38 @@
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Pfp from "../components/pfp";
-const PlayerStatsPage = () => {
+import type { AccountSchema } from "@/App";
+const PlayerStatsPage = ({ setAccount, account }: StatsPageParams) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
 
   if (activeTab === "achievements") {
-    return <AchievementsPage setActiveTab={setActiveTab} />;
+    return (
+      <AchievementsPage setActiveTab={setActiveTab} setAccount={setAccount} />
+    );
   }
 
-  return <InfoPage setActiveTab={setActiveTab} />;
+  return (
+    <InfoPage
+      setActiveTab={setActiveTab}
+      setAccount={setAccount}
+      account={account}
+    />
+  );
 };
+
+interface StatsPageParams {
+  setAccount: Function;
+  account: AccountSchema | null;
+}
 
 const InfoPage = ({
   setActiveTab,
+  setAccount,
+  account,
 }: {
   setActiveTab: (tab: "info" | "achievements") => void;
+  setAccount: Function;
+  account: AccountSchema | null;
 }) => {
   const stats = [
     "Wins",
@@ -77,7 +95,7 @@ const InfoPage = ({
                 <h2 className="text-black text-sm md:text-base font-medium">
                   Username
                 </h2>
-                <Pfp />
+                <Pfp setAccount={setAccount} account={account} />
               </div>
 
               {/* <div className="flex justify-center md:justify-end mt-2">
@@ -236,10 +254,12 @@ const InfoPage = ({
 type AchievementsPageProps = {
   setActiveTab: (tab: "info" | "achievements") => void;
   achievementsStatus?: boolean[];
+  setAccount: Function;
 };
 
 export const AchievementsPage = ({
   setActiveTab,
+  setAccount,
   achievementsStatus = [true, false, true, false, true], // Default with some unlocked medals (For Testing)
 }: AchievementsPageProps) => {
   // Medals shape (rotated 30 degrees)

@@ -1,14 +1,21 @@
+import type { AccountSchema } from "@/App";
 import { useState } from "react";
 const avatarOptions = [
-  "../../web/images/bottom-card.png",
-  "../../web/images/github-logo.png",
-  "../../web/images/instagram-logo.png",
-  "../../web/images/instagram-logo.png",
-  "../../web/images/github-logo.png",
-  "../../web/images/bottom-card.png",
+  "images/bottom-card.png",
+  "images/github-logo.png",
+  "images/instagram-logo.png",
+  "images/instagram-logo.png",
+  "images/github-logo.png",
+  "images/bottom-card.png",
 ];
 
-export default function Pfp() {
+export default function Pfp({
+  setAccount,
+  account,
+}: {
+  setAccount: Function;
+  account: AccountSchema | null;
+}) {
   const [currentSrc, setCurrentSrc] = useState("/images/placeholder.PNG");
   const [isEditing, setIsEditing] = useState(false);
 
@@ -46,6 +53,14 @@ export default function Pfp() {
                   onClick={() => {
                     setCurrentSrc(src);
                     setIsEditing(false);
+                    if (account) {
+                      const storedAccount: AccountSchema = {
+                        pid: account.pid,
+                        username: account.username,
+                        pfpUrl: src,
+                      };
+                      setAccount(storedAccount);
+                    }
                   }}
                 />
               ))}

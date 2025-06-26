@@ -65,7 +65,7 @@ const Navbar = ({
           {isMobileDevice ? "" : username}
         </button>
         <img
-          src="/src/assets/pfp-placeholder.png"
+          src={account ? account.pfpUrl : "/src/assets/pfp-placeholder.png"}
           className="max-w-7 md:m-1 rounded-full"
         />
       </NavigationMenuTrigger>
@@ -306,7 +306,7 @@ const Navbar = ({
           <button
             className="cursor-pointer"
             onClick={() => {
-                scrollToTop();
+              scrollToTop();
               navigate("/home");
               setCurrentPage("home");
             }}
@@ -319,7 +319,7 @@ const Navbar = ({
         </NavigationMenuLink>
       </div>
       {isMobileDevice ? mobileNavList : pcNavList}
-      { loginNavbarItem }
+      {profileDropdown}
     </NavigationMenu>
   );
 };

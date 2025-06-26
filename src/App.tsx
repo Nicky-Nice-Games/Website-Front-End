@@ -34,9 +34,9 @@ function App() {
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
     const storedUsername: string | null = localStorage.getItem("username");
-    const storedPfpUrl: string | null = localStorage.getItem("username");
+    const storedPfpUrl: string | null = localStorage.getItem("imglink");
 
-    if (!storedPID || !storedUsername) {
+    if (!storedPID || !storedUsername || !storedPfpUrl) {
       setAccount(null);
       return;
     }
@@ -76,7 +76,12 @@ function App() {
           />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="/news" element={<NewsAndUpdatesPage />} />
-          <Route path="/stats" element={<PlayerStatsPage />} />
+          <Route
+            path="/stats"
+            element={
+              <PlayerStatsPage account={account} setAccount={setAccount} />
+            }
+          />
           <Route path="/forumPost" element={<ForumPost />} />
           <Route path="/characters" element={<CharactersPage />} />
           <Route path="/tracks" element={<TracksPage />} />
