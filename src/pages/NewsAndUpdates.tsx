@@ -65,6 +65,7 @@ const updates: Update[] = [
     title: "Update 7",
     date: "6/12/2025",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+
     image: './assets/OIP.jpg',
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
   },
@@ -83,6 +84,18 @@ const NewsAndUpdatesPage = () => {
     return dateB - dateA;
   });
 
+  // Checks if screen size is mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
     Update | boolean | null
@@ -96,7 +109,7 @@ const NewsAndUpdatesPage = () => {
   const itemsPerPage = 3;
 
   const totalPages = Math.ceil(restUpdates.length / itemsPerPage);
-  const paginatedUpdates = restUpdates.slice(
+  const paginatedUpdates = isMobile ? restUpdates : restUpdates.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -126,8 +139,6 @@ const NewsAndUpdatesPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
-
-
   return (
     <div className="min-h-screen bg-black p-6">
       {/* overlay behind pop up when active */}
@@ -152,7 +163,8 @@ const NewsAndUpdatesPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-14 right-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
+              // exit button
+              className="flex absolute top-14 right-1 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
               onClick={() => setActive(null)}
               aria-label="Close"
             >
@@ -161,19 +173,20 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className="w-19/20 h-[90%] md:h-130 md:max-h-[90%] flex flex-col md:flex-row bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
+              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile ? "flex flex-col overflow-y-auto" : "flex flex-col md:flex-row"
+                }`}
             >
-              <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  className="w-full h-full rounded-tr-lg rounded-tl-lg object-cover object-top"
-                />
-              </motion.div>
-
-              <div className="p-6 h-fit">
-                <div className="flex justify-between items-start">
-                  <div>
+              {isMobile ? (
+                // Mobile layout
+                <>
+                  <motion.div layoutId={`image-${active.title}-${id}`}>
+                    <img
+                      src={active.image}
+                      alt={active.title}
+                      className="w-full object-cover object-top"
+                    />
+                  </motion.div>
+                  <div className="p-6">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
                       className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
@@ -182,14 +195,44 @@ const NewsAndUpdatesPage = () => {
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.subtitle}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
+                      className="text-neutral-600 dark:text-neutral-400 text-base"
                     >
                       {active.text}
                     </motion.p>
                   </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                // Desktop layout
+                <>
+                  <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
+                    <img
+                      src={active.image}
+                      alt={active.title}
+                      className="w-full h-full object-cover object-top rounded-xl"
+                    />
+                  </motion.div>
+                  <div className="p-6 h-fit">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <motion.h3
+                          layoutId={`title-${active.title}-${id}`}
+                          className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                        >
+                          {active.title}
+                        </motion.h3>
+                        <motion.p
+                          layoutId={`description-${active.subtitle}-${id}`}
+                          className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
+                        >
+                          {active.text}
+                        </motion.p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
             </motion.div>
+
           </div>
         ) : null}
       </AnimatePresence>
@@ -200,7 +243,7 @@ const NewsAndUpdatesPage = () => {
         onClick={() =>
           setActive(mostRecentUpdate)
         }
-        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 transition-transform m-4"
+        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 m-4"
       >
         <img
           src={mostRecentUpdate.image}
@@ -239,7 +282,7 @@ const NewsAndUpdatesPage = () => {
               // Full width for all images, but height depends on if it's full-width or not
               className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
                 } bg-white text-black rounded-xl shadow overflow-hidden 
-        cursor-pointer hover:scale-105 transition-transform m-4`}
+        cursor-pointer hover:scale-105 m-4`}
             >
               {/* Image */}
               <img
@@ -262,23 +305,35 @@ const NewsAndUpdatesPage = () => {
           );
         })}
       </div>
-      <div className="flex justify-center gap-4 mt-6">
-        <button
-          onClick={prevPage}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
-        <button
-          onClick={nextPage}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
+      {!isMobile && (
+        <div className="flex justify-center gap-4 mt-6">
+          <button
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
+          <button
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
+      {isMobile && (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+          >
+            ↑ Back to top
+          </button>
+        </div>
+      )}
     </div>
   );
 };

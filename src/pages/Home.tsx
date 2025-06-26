@@ -118,7 +118,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <button className="cursor-pointer absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 p-[1rem] text-white" onClick={() => {navigate('/news'); setCurrentPage('news')}}>
+                <button className="cursor-pointer absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 hover:bg-[#AA3300] p-[1rem] text-white" onClick={() => {window.scrollTo({ top: 0, behavior: "instant" }); navigate('/news'); setCurrentPage('news')}}>
                     <h3>See all news and updates!</h3>                
                 </button>
                 
@@ -231,7 +231,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
                         
-                        <button className="cursor-pointer" onClick={() => {navigate('/leaderboard'); setCurrentPage('leaderboard')}}>
+                        <button className="cursor-pointer hover:bg-[#DD3300]" onClick={() => {window.scrollTo({ top: 0, behavior: "instant" }); navigate('/leaderboard'); setCurrentPage('leaderboard')}}>
                             <p className="m-4">See all scores!</p>
                         </button>
                         

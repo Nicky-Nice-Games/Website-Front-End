@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import LoginPage from './pages/Login';
+import SignupPage from './pages/Signup';
 import AboutPage from './pages/About';
 import {
   ContentPage,
@@ -49,9 +50,10 @@ function App() {
     <Router basename="/web">
       <Navbar account={account} setAccount={setAccount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
 
-      <div className='min-h-190'>
+      <div className='min-h-[80vh]'>
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
+        <Route path="/signup" element={<SignupPage setAccount={setAccount}/>} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/content" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
