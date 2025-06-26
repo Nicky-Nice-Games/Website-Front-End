@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./pages/Login";
+import SignupPage from "./pages/Signup";
 import AboutPage from "./pages/About";
 import {
   ContentPage,
@@ -33,7 +34,7 @@ function App() {
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
     const storedUsername: string | null = localStorage.getItem("username");
-    const storedUsername: string | null = localStorage.getItem("username");
+    const storedPfpUrl: string | null = localStorage.getItem("username");
 
     if (!storedPID || !storedUsername) {
       setAccount(null);
@@ -56,11 +57,15 @@ function App() {
         currentPage={currentPage}
       />
 
-      <div className="min-h-190">
+      <div className="min-h-[80vh]">
         <Routes>
           <Route
             path="/login"
             element={<LoginPage setAccount={setAccount} />}
+          />
+          <Route
+            path="/signup"
+            element={<SignupPage setAccount={setAccount} />}
           />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/content" element={<ContentPage />} />

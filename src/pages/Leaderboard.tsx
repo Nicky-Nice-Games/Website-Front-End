@@ -13,11 +13,6 @@ const LeaderboardPage = () => {
             data.map((item: any) => {
                 item.profile.index = data.indexOf(item) + 1; 
             })
-            if (data.length % 10 > 0) {
-                for (let i = 0; i < data.length % 10; i++){
-                    data.push({});
-                }
-            }
             console.log(data);
             setLeaderboardData(data);
         }

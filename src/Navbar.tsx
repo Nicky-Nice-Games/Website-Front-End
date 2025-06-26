@@ -12,24 +12,31 @@ import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "./App";
 
 interface NavbarParams {
-    account: AccountSchema | null;
-    setAccount: Function;
-    currentPage: string | null;
-    setCurrentPage: Function;
+  account: AccountSchema | null;
+  setAccount: Function;
+  currentPage: string | null;
+  setCurrentPage: Function;
 }
 
-const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarParams) => {
+const Navbar = ({
+  account,
+  setAccount,
+  currentPage,
+  setCurrentPage,
+}: NavbarParams) => {
   const navbarButton: string =
     "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
   const [username, setUsername] = useState("");
   const loginButton = (
-    <NavigationMenuLink className={`${navbarButton}`}>
+    <NavigationMenuLink className={`${navbarButton} mr-3`}>
       <button
         className={`cursor-pointer ${
           currentPage == "login" ? "active-outline" : "passive-outline"
         }`}
         onClick={() => {
+          scrollToTop();
           navigate("/login");
           setCurrentPage("login");
         }}
@@ -44,21 +51,29 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
   const navigate = useNavigate();
 
   const profileDropdown = (
-    <NavigationMenuItem className="list-none">
-      <NavigationMenuTrigger className={`${navbarButton} bg-inherit`}>
+    <NavigationMenuItem className="list-none md:mr-4">
+      <NavigationMenuTrigger
+        className={`${navbarButton} bg-inherit ${
+          currentPage === "content" ? "active-outline" : "passive-outline"
+        }`}
+      >
         <button
-          className={`${
+          className={`cursor-pointer ${
             currentPage === "stats" ? "active-outline" : "passive-outline"
           }`}
         >
           {isMobileDevice ? "" : username}
         </button>
-        <img src="/src/assets/pfp-placeholder.png" className="max-w-7 md:m-1" />
+        <img
+          src="/src/assets/pfp-placeholder.png"
+          className="max-w-7 md:m-1 rounded-full"
+        />
       </NavigationMenuTrigger>
       <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902] absolute">
         <NavigationMenuLink>
           <button
             onClick={() => {
+              scrollToTop();
               navigate("/stats");
               setCurrentPage("stats");
             }}
@@ -69,6 +84,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
         <NavigationMenuLink>
           <button
             onClick={() => {
+              scrollToTop();
               navigate("/login");
               setCurrentPage("login");
               setAccount(null);
@@ -100,12 +116,17 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
 
   const pcNavList = (
     <NavigationMenuList>
-      <NavigationMenuLink className={`${navbarButton}`}>
+      <NavigationMenuLink
+        className={`${navbarButton} ${
+          currentPage === "about" ? "active-outline" : "passive-outline"
+        }`}
+      >
         <button
           className={`cursor-pointer ${
             currentPage === "about" ? "active-outline" : "passive-outline"
           }`}
           onClick={() => {
+            scrollToTop();
             navigate("/about");
             setCurrentPage("about");
           }}
@@ -114,12 +135,17 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
         </button>
       </NavigationMenuLink>
       <NavigationMenuItem>
-        <NavigationMenuTrigger className={`${navbarButton} bg-inherit`}>
+        <NavigationMenuTrigger
+          className={`${navbarButton} bg-inherit ${
+            currentPage === "content" ? "active-outline" : "passive-outline"
+          }`}
+        >
           <button
-            className={`${
+            className={`cursor-pointer ${
               currentPage === "content" ? "active-outline" : "passive-outline"
             }`}
             onClick={() => {
+              scrollToTop();
               navigate("/content");
               setCurrentPage("content");
             }}
@@ -131,6 +157,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
           <NavigationMenuLink>
             <button
               onClick={() => {
+                scrollToTop();
                 navigate("./characters");
                 setCurrentPage("content");
               }}
@@ -141,6 +168,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
           <NavigationMenuLink>
             <button
               onClick={() => {
+                scrollToTop();
                 navigate("./items");
                 setCurrentPage("content");
               }}
@@ -151,6 +179,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
           <NavigationMenuLink>
             <button
               onClick={() => {
+                scrollToTop();
                 navigate("./tracks");
                 setCurrentPage("content");
               }}
@@ -160,12 +189,17 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
           </NavigationMenuLink>
         </NavigationMenuContent>
       </NavigationMenuItem>
-      <NavigationMenuLink className={`${navbarButton}`}>
+      <NavigationMenuLink
+        className={`${navbarButton} ${
+          currentPage === "news" ? "active-outline" : "passive-outline"
+        }`}
+      >
         <button
-          className={`${
+          className={`cursor-pointer ${
             currentPage === "news" ? "active-outline" : "passive-outline"
           } mx-1`}
           onClick={() => {
+            scrollToTop();
             navigate("/news");
             setCurrentPage("news");
           }}
@@ -173,12 +207,17 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
           News & Updates
         </button>
       </NavigationMenuLink>
-      <NavigationMenuLink className={`${navbarButton}`}>
+      <NavigationMenuLink
+        className={`${navbarButton} ${
+          currentPage === "leaderboard" ? "active-outline" : "passive-outline"
+        }`}
+      >
         <button
-          className={`${
+          className={`cursor-pointer ${
             currentPage === "leaderboard" ? "active-outline" : "passive-outline"
           } mx-1`}
           onClick={() => {
+            scrollToTop();
             navigate("/leaderboard");
             setCurrentPage("leaderboard");
           }}
@@ -202,6 +241,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
             <button
               className="cursor-pointer"
               onClick={() => {
+                scrollToTop();
                 navigate("./about");
                 setCurrentPage("about");
               }}
@@ -215,6 +255,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
             <button
               className="cursor-pointer"
               onClick={() => {
+                scrollToTop();
                 navigate("./content");
                 setCurrentPage("content");
               }}
@@ -228,6 +269,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
             <button
               className="cursor-pointer"
               onClick={() => {
+                scrollToTop();
                 navigate("./news");
                 setCurrentPage("news");
               }}
@@ -241,6 +283,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
             <button
               className="cursor-pointer"
               onClick={() => {
+                scrollToTop();
                 navigate("./leaderboard");
                 setCurrentPage("leaderboard");
               }}
@@ -259,10 +302,11 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
       className={`bebas bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}
     >
       <div className="md:min-w-40">
-        <NavigationMenuLink className={`max-w-14 ${navbarButton}`}>
+        <NavigationMenuLink className={`max-w-14 ${navbarButton} md:ml-4`}>
           <button
             className="cursor-pointer"
             onClick={() => {
+                scrollToTop();
               navigate("/home");
               setCurrentPage("home");
             }}
@@ -275,7 +319,7 @@ const Navbar = ({ account, setAccount, currentPage, setCurrentPage }: NavbarPara
         </NavigationMenuLink>
       </div>
       {isMobileDevice ? mobileNavList : pcNavList}
-      {profileDropdown}
+      { loginNavbarItem }
     </NavigationMenu>
   );
 };
