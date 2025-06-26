@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-
+import Pfp from "../components/pfp";
 const PlayerStatsPage = () => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
 
@@ -72,15 +72,20 @@ const InfoPage = ({
             </div>
 
             {/* Right side/Profile */}
-            <div className="flex justify-center md:justify-end items-center space-x-2">
-              <h2 className="text-black text-sm md:text-base">Username</h2>
-              <div className="relative -top-1">
-                <img
-                  src="images/placeholder.PNG"
-                  alt="Profile picture"
-                  className="rounded-full h-8 w-8 md:h-10 md:w-10 object-cover"
-                />
+            <div className="w-full">
+              <div className="flex justify-center md:justify-end items-center space-x-4">
+                <h2 className="text-black text-sm md:text-base font-medium">
+                  Username
+                </h2>
+                <Pfp />
               </div>
+
+              {/* <div className="flex justify-center md:justify-end mt-2">
+                <button className="px-2 py-1 text-xs md:text-sm border rounded"
+                onClick={}>
+                  Edit
+                </button>
+              </div> */}
             </div>
           </CardContent>
         </Card>
