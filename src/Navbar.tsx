@@ -30,7 +30,7 @@ const Navbar = ({
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
   const [username, setUsername] = useState("");
   const loginButton = (
-    <NavigationMenuLink className={`${navbarButton}`}>
+    <NavigationMenuLink className={`${navbarButton} mr-3`}>
       <button
         className={`cursor-pointer ${
           currentPage == "login" ? "active-outline" : "passive-outline"
