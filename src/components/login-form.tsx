@@ -8,16 +8,19 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useNavigate } from "react-router-dom"
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const navigate = useNavigate();
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="bg-[#DDDDDD] border-black">
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome Racers</CardTitle>
+          <CardTitle className="text-xl text-white">Welcome Back, Racers</CardTitle>
         </CardHeader>
         <CardContent>
           <form>
@@ -53,9 +56,9 @@ export function LoginForm({
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <a href="#" className="underline underline-offset-4 text-[#F76902]">
+                <button onClick={() => navigate("/signup")} className="underline underline-offset-4 text-[#F76902]">
                   Sign up
-                </a>
+                </button>
               </div>
             </div>
           </form>
