@@ -216,6 +216,7 @@ const NewsAndUpdatesPage = () => {
                       })}
                     </div>
                   </div>
+                  </div>
                 </>
               ) : (
                 // Desktop layout
@@ -278,6 +279,8 @@ const NewsAndUpdatesPage = () => {
                       </div>
                     </div>
                   </div>
+                  </div>
+
                 </>
               )}
             </motion.div>
