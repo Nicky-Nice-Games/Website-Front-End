@@ -125,7 +125,6 @@ export const columns: ColumnDef<Racer>[] = [
         </Button>)},
     cell: ({ row }) => {
       if (!row.getValue("profile")) return <div className="min-h-[36px] md:min-h-[52px]"></div>;
-      const isMobileDevice = useMediaQuery( {maxWidth: 600}); 
-     return <h2 className={`text-right text-sm md:text-lg`}>{row.getValue("score")}</h2>}
+      return <h2 className={`text-right text-sm md:text-lg`}>{row.getValue("score")}</h2>}
   }
 ]

@@ -165,7 +165,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         tempus risus sed convallis. Proin efficitur vestibulum nibh ac
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
-                    <img
+                    <img className="ml-4"
                         src="/web/images/placeholder.PNG"
                         alt="Photo of arcade machines"
                     />
@@ -177,7 +177,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </div>
                 </div>
                 <div id="lore" className="ml-[2rem] mr-[2rem] text-center m-[10%]">
-                    <h2 className="text-[26px] m-4">The Lore</h2>
+                    <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
                         Pharetra faucibus gravida commodo quisque at. Dui ac arcu nulla augue sed odio sit.

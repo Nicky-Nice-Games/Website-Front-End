@@ -274,17 +274,6 @@ const ItemsPage = () => {
         <AnimatePresence>
           {active && typeof active === "object" ? (
             <div className="fixed inset-0 grid place-items-center z-[100]">
-              <motion.button
-                key={`button-${active.name}-${id}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-                onClick={() => setActive(null)}
-              >
-                <CloseIcon /> {/* close icon pop up*/}
-              </motion.button>
               <motion.div
                 layoutId={`item-${active.name}-${id}`}
                 ref={ref}
@@ -294,6 +283,7 @@ const ItemsPage = () => {
                   layoutId={`image-${active.name}-${id}`}
                   className="flex justify-center bg-[url(images/card-background.png)] p-8"
                 >
+                  <div className="m-3"></div>
                   <img
                     width={200}
                     height={200}
@@ -301,7 +291,19 @@ const ItemsPage = () => {
                     alt={active.name}
                     className="w-60 h-64 object-contain"
                   />
+                  <motion.button
+                        key={`button-${active.name}-${id}`}
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                        className="flex relative bottom-5 left-22 md:left-24 items-center justify-center rounded-full h-6 w-6"
+                        onClick={() => setActive(null)}
+                      >
+                        <CloseIcon /> {/* close icon pop up*/}
+                      </motion.button>
                 </motion.div>
+                
 
                 <div className="p-4 bg-[url(images/bottom-card.png)]">
                   <div className="flex justify-between items-start">
@@ -466,18 +468,6 @@ const CharactersPage = () => {
         <AnimatePresence>
           {active && typeof active === "object" ? (
             <div className="fixed inset-0 grid place-items-center z-[100] p-4">
-              <motion.button
-                key={`button-${active.name}-${id}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-4 right-4 items-center justify-center bg-white rounded-full h-8 w-8 shadow-md"
-                onClick={() => setActive(null)} // close pop up
-              >
-                <CloseIcon /> {/* close icon */}
-              </motion.button>
-
               <motion.div
                 layoutId={`character-${active.name}-${id}`}
                 ref={ref} // ref used for outside click detection
@@ -496,13 +486,27 @@ const CharactersPage = () => {
                 </motion.div>
 
                 {/* right side: character name and description */}
-                <div className="p-8 flex flex-col justify-top text-left">
-                  <motion.h3
-                    layoutId={`title-${active.name}-${id}`} // pop up animation name
-                    className="text-4xl font-bold mb-4"
-                  >
-                    {active.name}
-                  </motion.h3>
+                <div className="p-8 w-9/10 lg:min-h-70 flex flex-col justify-top text-left">
+                  <div className="flex flex-row justify-between">
+                    <motion.h3
+                      layoutId={`title-${active.name}-${id}`} // pop up animation name
+                      className="text-4xl font-bold mb-4"
+                    >
+                      {active.name}
+                    </motion.h3>
+                    <motion.button
+                      key={`button-${active.name}-${id}`}
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                      className="flex relative bottom-4 left-4 items-center justify-center bg-white rounded-full h-8 w-8"
+                      onClick={() => setActive(null)} // close pop up
+                    >
+                      <CloseIcon /> {/* close icon */}
+                    </motion.button>
+                  </div>
+
                   <motion.p
                     layoutId={`description-${active.description}-${id}`} // pop up animation description
                     className="text-gray-600 text-lg whitespace-pre-line"
@@ -609,7 +613,7 @@ const TracksPage = () => {
       <div className="h-full flex flex-col-reverse md:flex-row">
         <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
           <div className="text-white">
-            <h1 className="md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
+            <h1 className="mt-5 md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
               {heading}
             </h1>
             <p className="text-center text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[19%] md:mr-[22%] md:mb-20">
@@ -618,7 +622,7 @@ const TracksPage = () => {
           </div>
         </div>
         <div className="mb-10 md:w-2/5">
-          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-4 z-10 w-50 m-auto">
+          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-3 z-10 w-50 m-auto">
             Tracks
           </h2>
           <Carousel
@@ -680,7 +684,7 @@ const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-6 w-6 text-black"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
