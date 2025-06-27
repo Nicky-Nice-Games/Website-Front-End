@@ -167,7 +167,7 @@ const ItemsPage = () => {
     },
     {
       imgUrl: "images/content-assets/flying_rocket_boost.png",
-      name: "",
+      name: "Flying Rocket Boost",
       description:
         "increase your speed by 300% for 3 seconds, lifts character up in the air",
     },
