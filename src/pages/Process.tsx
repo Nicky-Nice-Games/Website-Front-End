@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 const ProcessPage = () => {
     const photo:string = 'images/placeholder.PNG';
 
@@ -13,6 +15,7 @@ const ProcessPage = () => {
                     <img src={photo} alt="Photo of the team"
                         className='m-[1rem] md:mt-0 self-center md:self-end md:w-[400px] w-[100%] h-[300px]'
                     />
+
                 </div>
     </main>
     </>)
