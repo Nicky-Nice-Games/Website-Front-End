@@ -27,6 +27,7 @@ const updates: Update[] = [
     title: "Update 1",
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
+
     image: './assets/OIP.jpg',
     text: [
       { type: "heading", level: 2, text: "Content Team" },
@@ -61,14 +62,14 @@ const updates: Update[] = [
         ]
       }
     ]
-  },
 
+  },
 ];
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
-  const [month, day, year] = dateStr.split('/');
-  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  const [month, day, year] = dateStr.split("/");
+  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 };
 
 const NewsAndUpdatesPage = () => {
@@ -91,9 +92,7 @@ const NewsAndUpdatesPage = () => {
   }, []);
 
   // state for tracking which item is active (expanded) or not
-  const [active, setActive] = useState<
-    Update | boolean | null
-  >(null);
+  const [active, setActive] = useState<Update | boolean | null>(null);
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
 
@@ -103,12 +102,15 @@ const NewsAndUpdatesPage = () => {
   const itemsPerPage = 3;
 
   const totalPages = Math.ceil(restUpdates.length / itemsPerPage);
-  const paginatedUpdates = isMobile ? restUpdates : restUpdates.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const paginatedUpdates = isMobile
+    ? restUpdates
+    : restUpdates.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+      );
   // Handlers
-  const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const nextPage = () =>
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
   useEffect(() => {
@@ -151,24 +153,14 @@ const NewsAndUpdatesPage = () => {
       <AnimatePresence>
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
-            <motion.button
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              // exit button
-              className="flex absolute top-14 right-1 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
-              onClick={() => setActive(null)}
-              aria-label="Close"
-            >
-              <CloseIcon /> {/* close icon pop up*/}
-            </motion.button>
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile ? "flex flex-col overflow-y-auto" : "flex flex-col md:flex-row"
-                }`}
+              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
+                isMobile
+                  ? "flex flex-col overflow-y-auto"
+                  : "flex flex-col md:flex-row"
+              }`}
             >
               {isMobile ? (
                 // Mobile layout
@@ -181,12 +173,14 @@ const NewsAndUpdatesPage = () => {
                     />
                   </motion.div>
                   <div className="p-6">
-                    <motion.h3
+                    <div className="flex flex-row justify-between">
+                      <motion.h3
                       layoutId={`title-${active.title}-${id}`}
                       className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
                     >
                       {active.title}
                     </motion.h3>
+
                     <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
                       {active.text.map((block, i) => {
                         if (block.type === "paragraph") {
@@ -221,13 +215,15 @@ const NewsAndUpdatesPage = () => {
                         return null;
                       })}
                     </div>
-
                   </div>
                 </>
               ) : (
                 // Desktop layout
                 <>
-                  <motion.div layoutId={`image-${active.title}-${id}`} className="min-w-4/10 md:h-auto">
+                  <motion.div
+                    layoutId={`image-${active.title}-${id}`}
+                    className="min-w-4/10 md:h-auto"
+                  >
                     <img
                       src={active.image}
                       alt={active.title}
@@ -237,12 +233,14 @@ const NewsAndUpdatesPage = () => {
                   <div className="p-6 h-fit">
                     <div className="flex justify-between items-start">
                       <div>
-                        <motion.h3
+                        <div className="flex flex-row justify-between">
+                          <motion.h3
                           layoutId={`title-${active.title}-${id}`}
                           className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
                         >
                           {active.title}
                         </motion.h3>
+
                         <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
                           {active.text.map((block, i) => {
                             if (block.type === "paragraph") {
@@ -277,14 +275,12 @@ const NewsAndUpdatesPage = () => {
                             return null;
                           })}
                         </div>
-
                       </div>
                     </div>
                   </div>
                 </>
               )}
             </motion.div>
-
           </div>
         ) : null}
       </AnimatePresence>
@@ -292,9 +288,7 @@ const NewsAndUpdatesPage = () => {
       <motion.div
         layoutId={`item-${mostRecentUpdate.title}-${id}`}
         key={mostRecentUpdate.id}
-        onClick={() =>
-          setActive(mostRecentUpdate)
-        }
+        onClick={() => setActive(mostRecentUpdate)}
         className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 m-4"
       >
         <img
@@ -303,7 +297,9 @@ const NewsAndUpdatesPage = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-4">
-          <p className="text-xs text-[#F76902] font-semibold mb-1">{mostRecentUpdate.date}</p>
+          <p className="text-xs text-[#F76902] font-semibold mb-1">
+            {mostRecentUpdate.date}
+          </p>
           <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
           <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
         </div>
@@ -327,20 +323,21 @@ const NewsAndUpdatesPage = () => {
           return (
             <motion.div
               layoutId={`item-${update.title}-${id}`}
-              key={update.id}// Unique key for each item
-              onClick={() =>
-                setActive(update)
-              }
+              key={update.id} // Unique key for each item
+              onClick={() => setActive(update)}
               // Full width for all images, but height depends on if it's full-width or not
-              className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
-                } bg-white text-black rounded-xl shadow overflow-hidden 
+              className={`${
+                isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
+              } bg-white text-black rounded-xl shadow overflow-hidden 
         cursor-pointer hover:scale-105 m-4`}
             >
               {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full ${isFullWidth ? "h-96" : "h-72"} object-cover`}
+                className={`w-full ${
+                  isFullWidth ? "h-96" : "h-72"
+                } object-cover`}
               />
               {/* Text content of the update */}
               <div className="p-4">
@@ -414,7 +411,7 @@ const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-6 w-6 text-black"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />

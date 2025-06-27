@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useId, useRef, useState } from "react";
+import { act, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
@@ -154,51 +154,97 @@ const ItemsPage = () => {
   // sample list of items to display
   const items = [
     {
-      imgUrl: "images/content-assets/booster.png",
+      imgUrl: "images/content-assets/rocket_boost.png",
       name: "Boost",
       description:
         "Slightly adds to player’s velocity to simulate increase in speed for short duration",
     },
     {
-      imgUrl: "images/content-assets/item_box.png",
-      name: "Fake Item Box",
-      description:
-        "Same size as item box, looks significantly different. Stuns kart when they drive into it",
-    },
-    {
-      imgUrl: "images/content-assets/puck.png",
-      name: "Puck",
-      description:
-        "Projectile that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it.",
-    },
-    {
-      imgUrl: "images/content-assets/spill.png",
-      name: "Spill",
-      description: "Sent behind the user and remains on the ground",
-    },
-    {
-      imgUrl: "images/content-assets/booster-upg.png",
-      name: "Upgraded Boost",
+      imgUrl: "images/content-assets/double_rocket_boost.png",
+      name: "as",
       description:
         "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
     },
     {
-      imgUrl: "images/content-assets/item_box-upg.png",
-      name: "Upgraded Fake Item Box",
+      imgUrl: "images/content-assets/flying_rocket_boost.png",
+      name: "Upgraded s",
       description:
-        "Similar color/design to real item box, Still stuns kart when they drive into it",
+        "Higher speed s that adds to player’s velocity to simulate increase in speed for short duration",
     },
     {
-      imgUrl: "images/content-assets/puck-upg.png",
-      name: "Upgraded Puck",
+      imgUrl: "images/content-assets/warp_boost.png",
+      name: "Upgraded Boost",
       description:
-        "Projectiles that shoots forward from player’s current facing direction and bounces off walls up to three times. Slows opposing players down when hit by it. Player releases 3 pucks instead of one when upgraded",
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
     },
-    {
-      imgUrl: "images/content-assets/spill-upg.png",
-      name: "Upgraded Spill",
+        {
+      imgUrl: "images/content-assets/4_sec_shield.png",
+      name: "4 Second Shield",
       description:
-        "Sent behind the user and remains on the ground, larger surface area when upgraded",
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/6_sec_shield.png",
+      name: "6 Second Shield",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/8_sec_shield.png",
+      name: "8 Second Shield",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/10_sec_shield.png",
+      name: "10 Second Shield",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/puck.png",
+      name: "Puck",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/puck_upgraded.png",
+      name: "Spikey Puck",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/triple_homing_puck.png",
+      name: "Triple Homing Pucks",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+            {
+      imgUrl: "images/content-assets/flying_puck.png",
+      name: "Flying Puck",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },
+         {
+      imgUrl: "images/content-assets/spill.png",
+      name: "Spill",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },     {
+      imgUrl: "images/content-assets/cracked_brick-wall.png",
+      name: "Cracked Brick Wall",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },     {
+      imgUrl: "images/content-assets/spill_upgraded.png",
+      name: "Confused Ritchie",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+    },     {
+      imgUrl: "images/content-assets/fake_item_box.png",
+      name: "Fake Power Up Block",
+      description:
+        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
     },
   ];
 
@@ -206,102 +252,104 @@ const ItemsPage = () => {
     <>
       <ContentNavigator currentPage={"items"} />
       <main className="px-8">
-          <h2
-            className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
+        <h2
+          className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
                 lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12"
-          >
-            Items Page
-          </h2>
-          {/* overlay behind pop up when active */}
-          <AnimatePresence>
-            {active && typeof active === "object" && (
+        >
+          Items Page
+        </h2>
+        {/* overlay behind pop up when active */}
+        <AnimatePresence>
+          {active && typeof active === "object" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/20 h-full w-full z-41"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* expanded item pop up */}
+        <AnimatePresence>
+          {active && typeof active === "object" ? (
+            <div className="fixed inset-0 grid place-items-center z-[100]">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/20 h-full w-full z-41"
-              />
-            )}
-          </AnimatePresence>
-
-          {/* expanded item pop up */}
-          <AnimatePresence>
-            {active && typeof active === "object" ? (
-              <div className="fixed inset-0 grid place-items-center z-[100]">
-                <motion.button
-                  key={`button-${active.name}-${id}`}
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                  className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-                  onClick={() => setActive(null)}
-                >
-                  <CloseIcon /> {/* close icon pop up*/}
-                </motion.button>
+                layoutId={`item-${active.name}-${id}`}
+                ref={ref}
+                className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              >
                 <motion.div
-                  layoutId={`item-${active.name}-${id}`}
-                  ref={ref}
-                  className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                  layoutId={`image-${active.name}-${id}`}
+                  className="flex justify-center bg-[url(images/card-background.png)] p-8"
                 >
-                  <motion.div
-                    layoutId={`image-${active.name}-${id}`}
-                    className="flex justify-center bg-[url(images/card-background.png)] p-8"
-                  >
-                    <img
-                      width={200}
-                      height={200}
-                      src={active.imgUrl}
-                      alt={active.name}
-                      className="w-60 h-64 object-contain"
-                    />
-                  </motion.div>
+                  <div className="m-3"></div>
+                  <img
+                    width={200}
+                    height={200}
+                    src={active.imgUrl}
+                    alt={active.name}
+                    className="w-60 h-64 object-contain"
+                  />
+                  <motion.button
+                        key={`button-${active.name}-${id}`}
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                        className="flex relative bottom-5 left-22 md:left-24 items-center justify-center rounded-full h-6 w-6"
+                        onClick={() => setActive(null)}
+                      >
+                        <CloseIcon /> {/* close icon pop up*/}
+                      </motion.button>
+                </motion.div>
+                
 
-                  <div className="p-4 bg-[url(images/bottom-card.png)]">
-                    <div className="flex justify-between items-start">
-                      <div className="w-full">
-                        <motion.h3
-                          layoutId={`title-${active.name}-${id}`}
-                          className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
-                        >
-                          {active.name}
-                        </motion.h3>
-                        <motion.p
-                          layoutId={`description-${active.description}-${id}`}
-                          className="text-neutral-600 dark:text-neutral-400 text-base text-center"
-                        >
-                          {active.description}
-                        </motion.p>
-                      </div>
+                <div className="p-4 bg-[url(images/bottom-card.png)]">
+                  <div className="flex justify-between items-start">
+                    <div className="w-full">
+                      <motion.h3
+                        layoutId={`title-${active.name}-${id}`}
+                        className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
+                      >
+                        {active.name}
+                      </motion.h3>
+                      <motion.p
+                        layoutId={`description-${active.description}-${id}`}
+                        className="text-neutral-600 dark:text-neutral-400 text-base text-center"
+                      >
+                        {active.description}
+                      </motion.p>
                     </div>
                   </div>
-                </motion.div>
-              </div>
-            ) : null}
-          </AnimatePresence>
-
-          {/* grid of items */}
-          <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
-            {items.map((item) => (
-              <motion.div
-                layoutId={`item-${item.name}-${id}`}
-                key={item.name}
-                onClick={() => setActive(item)} // open item pop up
-                className="cursor-pointer"
-              >
-                <motion.div layoutId={`image-${item.name}-${id}`}>
-                  <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
-                    <img
-                      src={item.imgUrl}
-                      alt={item.name}
-                      className="h-50 w-50 object-contain"
-                    />
-                  </div>
-                </motion.div>
+                </div>
               </motion.div>
-            ))}
-          </div>
-        </main>
+            </div>
+          ) : null}
+        </AnimatePresence>
+
+        {/* grid of items */}
+        <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
+          {items.map((item) => (
+            <motion.div
+              layoutId={`item-${item.name}-${id}`}
+              key={item.name}
+              onClick={() => setActive(item)} // open item pop up
+              className="cursor-pointer"
+            >
+              <motion.div layoutId={`image-${item.name}-${id}`}>
+                <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
+                  <img
+                    src={item.imgUrl}
+                    alt={item.name}
+                    className="h-50 w-50 object-contain"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </main>
     </>
   );
 };
@@ -309,7 +357,7 @@ const ItemsPage = () => {
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
   const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
+    { name: string; description: string; imgUrl: string; songName: String; songLink: string } | boolean | null
   >(null);
   const id = useId();
   const ref = useRef<HTMLDivElement>(null); // ref to detect clicks outside pop up
@@ -342,26 +390,52 @@ const CharactersPage = () => {
       imgUrl: "images/content-assets/HkySr.png",
       name: "Hockey Senior",
       description: "This is a senior",
+      songName:
+        `Name: Kai (They/Them)
+      Major: Business
+      Likes: Chaos, Hockey, Bandanas, Going On Adventures, Being Team Captain
+      Dislikes: Sitting around, Losing a game`,
+      songLink: "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1"
     },
     {
       imgUrl: "images/content-assets/OLjr.png",
-      name: "Orienation Leader Junior",
-      description: "This is OL Junior",
+      name: "Orientation Leader Junior",
+      description: `Name: Emma (She/Her)
+      Major: Game Design and Development
+      Likes: Pins, Walking, Early Morning Walks, Bucket Hats
+      Dislikes: Loud Music, Sleeping In`,
+      songName: "Turbo Hustle - DJ Maestro",
+      songLink: "https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1"
     },
     {
       imgUrl: "images/content-assets/SophDining.png",
       name: "Dining Worker Sophmore",
-      description: "This is a working sophmore",
+      description: `Name: Reese (He/Him)
+      Major: Packaging Science
+      Likes: Free Stuff, Creating Playlists For Events, Anime, Energy Drinks
+      Dislikes: Working 3 Jobs, Sleep`,
+      songName: "Feel Good Inc. - Gorillaz",
+      songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
     },
     {
       imgUrl: "images/content-assets/FrshSkater.PNG",
       name: "Freshman Skater",
-      description: "Freshman Skater is so cool",
+      description: `Name: Morgan (She/They)
+      Major: Photography
+      Likes: Skating, Thrifting Clothes, Going Fast, Finding Spots
+      Dislikes: Waking Up For Class`,
+      songName: "Skater Boi - Avril Lavigne",
+      songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
     },
     {
       imgUrl: "images/content-assets/Jamster.png",
       name: "Jamster",
-      description: "Jamster the vibe",
+      description: `Name: Jamster (They/Them)
+      Major: All
+      Likes: Gaming, Jamming, Running Around
+      Dislikes: Not Getting Snacks`,
+      songName: "Hamster Dance -  Hampton and the Hamsters",
+      songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
     },
   ];
 
@@ -394,18 +468,6 @@ const CharactersPage = () => {
         <AnimatePresence>
           {active && typeof active === "object" ? (
             <div className="fixed inset-0 grid place-items-center z-[100] p-4">
-              <motion.button
-                key={`button-${active.name}-${id}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-4 right-4 items-center justify-center bg-white rounded-full h-8 w-8 shadow-md"
-                onClick={() => setActive(null)} // close pop up
-              >
-                <CloseIcon /> {/* close icon */}
-              </motion.button>
-
               <motion.div
                 layoutId={`character-${active.name}-${id}`}
                 ref={ref} // ref used for outside click detection
@@ -424,18 +486,33 @@ const CharactersPage = () => {
                 </motion.div>
 
                 {/* right side: character name and description */}
-                <div className="p-8 flex flex-col justify-top text-left">
-                  <motion.h3
-                    layoutId={`title-${active.name}-${id}`} // pop up animation name
-                    className="text-4xl font-bold mb-4"
-                  >
-                    {active.name}
-                  </motion.h3>
+                <div className="p-8 w-9/10 lg:min-h-70 flex flex-col justify-top text-left">
+                  <div className="flex flex-row justify-between">
+                    <motion.h3
+                      layoutId={`title-${active.name}-${id}`} // pop up animation name
+                      className="text-4xl font-bold mb-4"
+                    >
+                      {active.name}
+                    </motion.h3>
+                    <motion.button
+                      key={`button-${active.name}-${id}`}
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                      className="flex relative bottom-4 left-4 items-center justify-center bg-white rounded-full h-8 w-8"
+                      onClick={() => setActive(null)} // close pop up
+                    >
+                      <CloseIcon /> {/* close icon */}
+                    </motion.button>
+                  </div>
+
                   <motion.p
                     layoutId={`description-${active.description}-${id}`} // pop up animation description
-                    className="text-gray-600 text-lg"
+                    className="text-gray-600 text-lg whitespace-pre-line"
                   >
-                    {active.description}
+                    {active.description} <motion.br />
+                    Favorite Song: <motion.a href={active.songLink}>{active.songName}</motion.a>
                   </motion.p>
                 </div>
               </motion.div>
@@ -536,7 +613,7 @@ const TracksPage = () => {
       <div className="h-full flex flex-col-reverse md:flex-row">
         <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
           <div className="text-white">
-            <h1 className="md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
+            <h1 className="mt-5 md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
               {heading}
             </h1>
             <p className="text-center text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[19%] md:mr-[22%] md:mb-20">
@@ -545,7 +622,7 @@ const TracksPage = () => {
           </div>
         </div>
         <div className="mb-10 md:w-2/5">
-          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-4 z-10 w-50 m-auto">
+          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-3 z-10 w-50 m-auto">
             Tracks
           </h2>
           <Carousel
@@ -607,7 +684,7 @@ const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-6 w-6 text-black"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
