@@ -206,102 +206,104 @@ const ItemsPage = () => {
     <>
       <ContentNavigator currentPage={"items"} />
       <main className="px-8">
-          <h2
-            className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
+        <h2
+          className=" /* Default CSS */ text-black text-2xl sm:text-3xl md:text-4xl 
                 lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12"
-          >
-            Items Page
-          </h2>
-          {/* overlay behind pop up when active */}
-          <AnimatePresence>
-            {active && typeof active === "object" && (
+        >
+          Items Page
+        </h2>
+        {/* overlay behind pop up when active */}
+        <AnimatePresence>
+          {active && typeof active === "object" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/20 h-full w-full z-41"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* expanded item pop up */}
+        <AnimatePresence>
+          {active && typeof active === "object" ? (
+            <div className="fixed inset-0 grid place-items-center z-[100]">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/20 h-full w-full z-41"
-              />
-            )}
-          </AnimatePresence>
-
-          {/* expanded item pop up */}
-          <AnimatePresence>
-            {active && typeof active === "object" ? (
-              <div className="fixed inset-0 grid place-items-center z-[100]">
-                <motion.button
-                  key={`button-${active.name}-${id}`}
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                  className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-                  onClick={() => setActive(null)}
-                >
-                  <CloseIcon /> {/* close icon pop up*/}
-                </motion.button>
+                layoutId={`item-${active.name}-${id}`}
+                ref={ref}
+                className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              >
                 <motion.div
-                  layoutId={`item-${active.name}-${id}`}
-                  ref={ref}
-                  className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                  layoutId={`image-${active.name}-${id}`}
+                  className="flex justify-center bg-[url(images/card-background.png)] p-8"
                 >
-                  <motion.div
-                    layoutId={`image-${active.name}-${id}`}
-                    className="flex justify-center bg-[url(images/card-background.png)] p-8"
-                  >
-                    <img
-                      width={200}
-                      height={200}
-                      src={active.imgUrl}
-                      alt={active.name}
-                      className="w-60 h-64 object-contain"
-                    />
-                  </motion.div>
+                  <div className="m-3"></div>
+                  <img
+                    width={200}
+                    height={200}
+                    src={active.imgUrl}
+                    alt={active.name}
+                    className="w-60 h-64 object-contain"
+                  />
+                  <motion.button
+                        key={`button-${active.name}-${id}`}
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                        className="flex relative bottom-5 left-22 md:left-24 items-center justify-center rounded-full h-6 w-6"
+                        onClick={() => setActive(null)}
+                      >
+                        <CloseIcon /> {/* close icon pop up*/}
+                      </motion.button>
+                </motion.div>
+                
 
-                  <div className="p-4 bg-[url(images/bottom-card.png)]">
-                    <div className="flex justify-between items-start">
-                      <div className="w-full">
-                        <motion.h3
-                          layoutId={`title-${active.name}-${id}`}
-                          className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
-                        >
-                          {active.name}
-                        </motion.h3>
-                        <motion.p
-                          layoutId={`description-${active.description}-${id}`}
-                          className="text-neutral-600 dark:text-neutral-400 text-base text-center"
-                        >
-                          {active.description}
-                        </motion.p>
-                      </div>
+                <div className="p-4 bg-[url(images/bottom-card.png)]">
+                  <div className="flex justify-between items-start">
+                    <div className="w-full">
+                      <motion.h3
+                        layoutId={`title-${active.name}-${id}`}
+                        className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
+                      >
+                        {active.name}
+                      </motion.h3>
+                      <motion.p
+                        layoutId={`description-${active.description}-${id}`}
+                        className="text-neutral-600 dark:text-neutral-400 text-base text-center"
+                      >
+                        {active.description}
+                      </motion.p>
                     </div>
                   </div>
-                </motion.div>
-              </div>
-            ) : null}
-          </AnimatePresence>
-
-          {/* grid of items */}
-          <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
-            {items.map((item) => (
-              <motion.div
-                layoutId={`item-${item.name}-${id}`}
-                key={item.name}
-                onClick={() => setActive(item)} // open item pop up
-                className="cursor-pointer"
-              >
-                <motion.div layoutId={`image-${item.name}-${id}`}>
-                  <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
-                    <img
-                      src={item.imgUrl}
-                      alt={item.name}
-                      className="h-50 w-50 object-contain"
-                    />
-                  </div>
-                </motion.div>
+                </div>
               </motion.div>
-            ))}
-          </div>
-        </main>
+            </div>
+          ) : null}
+        </AnimatePresence>
+
+        {/* grid of items */}
+        <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
+          {items.map((item) => (
+            <motion.div
+              layoutId={`item-${item.name}-${id}`}
+              key={item.name}
+              onClick={() => setActive(item)} // open item pop up
+              className="cursor-pointer"
+            >
+              <motion.div layoutId={`image-${item.name}-${id}`}>
+                <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
+                  <img
+                    src={item.imgUrl}
+                    alt={item.name}
+                    className="h-50 w-50 object-contain"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </main>
     </>
   );
 };
@@ -394,18 +396,6 @@ const CharactersPage = () => {
         <AnimatePresence>
           {active && typeof active === "object" ? (
             <div className="fixed inset-0 grid place-items-center z-[100] p-4">
-              <motion.button
-                key={`button-${active.name}-${id}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-4 right-4 items-center justify-center bg-white rounded-full h-8 w-8 shadow-md"
-                onClick={() => setActive(null)} // close pop up
-              >
-                <CloseIcon /> {/* close icon */}
-              </motion.button>
-
               <motion.div
                 layoutId={`character-${active.name}-${id}`}
                 ref={ref} // ref used for outside click detection
@@ -424,13 +414,27 @@ const CharactersPage = () => {
                 </motion.div>
 
                 {/* right side: character name and description */}
-                <div className="p-8 flex flex-col justify-top text-left">
-                  <motion.h3
-                    layoutId={`title-${active.name}-${id}`} // pop up animation name
-                    className="text-4xl font-bold mb-4"
-                  >
-                    {active.name}
-                  </motion.h3>
+                <div className="p-8 w-9/10 lg:min-h-70 flex flex-col justify-top text-left">
+                  <div className="flex flex-row justify-between">
+                    <motion.h3
+                      layoutId={`title-${active.name}-${id}`} // pop up animation name
+                      className="text-4xl font-bold mb-4"
+                    >
+                      {active.name}
+                    </motion.h3>
+                    <motion.button
+                      key={`button-${active.name}-${id}`}
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                      className="flex relative bottom-4 left-4 items-center justify-center bg-white rounded-full h-8 w-8"
+                      onClick={() => setActive(null)} // close pop up
+                    >
+                      <CloseIcon /> {/* close icon */}
+                    </motion.button>
+                  </div>
+
                   <motion.p
                     layoutId={`description-${active.description}-${id}`} // pop up animation description
                     className="text-gray-600 text-lg"
@@ -607,7 +611,7 @@ const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-6 w-6 text-black"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
