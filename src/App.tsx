@@ -7,7 +7,8 @@ import {
 
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
-import AboutPage from './pages/About';
+import AboutUsPage from './pages/About';
+import ProcessPage from './pages/Process';
 import {
   ContentPage,
   CharactersPage,
@@ -54,7 +55,8 @@ function App() {
         <Routes>
         <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
         <Route path="/signup" element={<SignupPage setAccount={setAccount}/>} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/aboutUs" element={<AboutUsPage />} />
+        <Route path="/process" element={<ProcessPage/>}/>
         <Route path="/content" element={<ContentPage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
