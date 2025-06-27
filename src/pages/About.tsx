@@ -91,7 +91,7 @@ const AboutUsPage = () => {
         return (
             <div className="m-4 w-[200px]">
                 <img src={image} alt={`Photo of ${name}`} className="h-[200px]" />
-                <p className="person-name">{name}</p>
+                <p className="person-name font-bold">{name}</p>
                 <p className="person-position">{position}</p>
                 <p className="person-email">{email}</p>
             </div>
