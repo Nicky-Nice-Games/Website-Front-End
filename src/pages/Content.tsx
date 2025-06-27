@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { act, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
@@ -155,96 +155,96 @@ const ItemsPage = () => {
   const items = [
     {
       imgUrl: "images/content-assets/rocket_boost.png",
-      name: "Boost",
+      name: "Rocket Boost",
       description:
-        "Slightly adds to player’s velocity to simulate increase in speed for short duration",
+        "increase your speed by 100% for 3 seconds",
     },
     {
       imgUrl: "images/content-assets/double_rocket_boost.png",
-      name: "as",
+      name: "Double Rocket Boost",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "increase your speed by 200% for 3 seconds",
     },
     {
       imgUrl: "images/content-assets/flying_rocket_boost.png",
-      name: "Upgraded s",
+      name: "",
       description:
-        "Higher speed s that adds to player’s velocity to simulate increase in speed for short duration",
+        "increase your speed by 300% for 3 seconds, lifts character up in the air",
     },
     {
       imgUrl: "images/content-assets/warp_boost.png",
       name: "Upgraded Boost",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "jump through a warp portal and move your kart up 3 map checkpoints",
     },
         {
       imgUrl: "images/content-assets/4_sec_shield.png",
       name: "4 Second Shield",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "Become invulnerable for 4 seconds",
     },
             {
       imgUrl: "images/content-assets/6_sec_shield.png",
       name: "6 Second Shield",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "Become invulnerable for 6 seconds",
     },
             {
       imgUrl: "images/content-assets/8_sec_shield.png",
       name: "8 Second Shield",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "Become invulnerable for 8 seconds",
     },
             {
       imgUrl: "images/content-assets/10_sec_shield.png",
       name: "10 Second Shield",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "Become invulnerable for 10 seconds",
     },
             {
       imgUrl: "images/content-assets/puck.png",
       name: "Puck",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "A tier one (base) level offensive projective, If player is hit with a puck, they are slowed down",
     },
             {
       imgUrl: "images/content-assets/puck_upgraded.png",
-      name: "Spikey Puck",
+      name: "Homing Spikey Puck",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "A tier two level offensive projective, Will auto go to next player ahead and hit them",
     },
             {
       imgUrl: "images/content-assets/triple_homing_puck.png",
       name: "Triple Homing Pucks",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "A tier three level offensive projective, will use three pucks with the same features of Homing Spikey Puck",
     },
             {
       imgUrl: "images/content-assets/flying_puck.png",
       name: "Flying Puck",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "A level four (Final/Max) offensive projective, will go attack the player in first",
     },
          {
       imgUrl: "images/content-assets/spill.png",
       name: "Spill",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "When Placed down if a player goes over it, slips on the oil and is slowed down",
     },     {
       imgUrl: "images/content-assets/cracked_brick-wall.png",
       name: "Cracked Brick Wall",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "TBD",
     },     {
       imgUrl: "images/content-assets/spill_upgraded.png",
       name: "Confused Ritchie",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "Reverses control if drove into",
     },     {
       imgUrl: "images/content-assets/fake_item_box.png",
       name: "Fake Power Up Block",
       description:
-        "Higher speed increase that adds to player’s velocity to simulate increase in speed for short duration",
+        "Mimics a normal power up block but causes stun/slow down",
     },
   ];
 
@@ -387,12 +387,12 @@ const CharactersPage = () => {
     {
       imgUrl: "images/content-assets/HkySr.png",
       name: "Hockey Senior",
-      description: "This is a senior",
-      songName:
-        `Name: Kai (They/Them)
+      description: `Name: Kai (They/Them)
       Major: Business
-      Likes: Chaos, Hockey, Bandanas, Going On Adventures, Being Team Captain
+      Likes: Hockey, Bandanas, Going On Adventures, Being Team Captain
       Dislikes: Sitting around, Losing a game`,
+      songName:
+        `Eye of the Tiger - Survivor`,
       songLink: "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1"
     },
     {
