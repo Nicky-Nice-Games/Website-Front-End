@@ -2,11 +2,12 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
+type ListItem = string | { text: string; children?: ListItem[] };
 
 interface ContentBlock {
   type: "paragraph" | "list" | "heading";
   text?: string;
-  items?: string[];
+  items?: ListItem[]; // NEW
   ordered?: boolean;
   level?: number; // for headings
 }
@@ -54,12 +55,25 @@ const updates: Update[] = [
         ]
       },
       { type: "heading", level: 2, text: "Level Design Team " },
-      { type: "paragraph", text: "Sketching"},
-      { type: "list", 
+      { type: "paragraph", text: "Sketching" },
+      {
+        type: "list",
         ordered: false,
         items: [
-          "8 sketched race track concepts",
-        ]
+          {
+            text: "8 sketched race track concepts",
+            children: [
+              "The Quarter Mile (2 Variations)",
+              "Polisseni Loop (2 Variations)",
+              "RIT Woods",
+              "The SHED",
+              "The SAU",
+              "Global Village",
+              "Double Dorm Room",
+              "Finals Brick Road",
+            ]
+          },
+        ],
       }
     ]
 
@@ -105,9 +119,9 @@ const NewsAndUpdatesPage = () => {
   const paginatedUpdates = isMobile
     ? restUpdates
     : restUpdates.slice(
-        (currentPage - 1) * itemsPerPage,
-        currentPage * itemsPerPage
-      );
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    );
   // Handlers
   const nextPage = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
@@ -135,6 +149,29 @@ const NewsAndUpdatesPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
+  const RecursiveList: React.FC<{
+    items: ListItem[];
+    ordered?: boolean;
+  }> = ({ items, ordered }) => {
+    const ListTag = ordered ? "ol" : "ul";
+
+    return (
+      <ListTag className={`${ordered ? "list-decimal" : "list-disc"} pl-4 space-y-1`}>
+        {items.map((item, i) => {
+          if (typeof item === "string") {
+            return <li key={i}>{item}</li>;
+          }
+          return (
+            <li key={i}>
+              {item.text}
+              {item.children && <RecursiveList items={item.children} ordered={ordered} />}
+            </li>
+          );
+        })}
+      </ListTag>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-black p-6">
       {/* overlay behind pop up when active */}
@@ -156,11 +193,10 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
-                isMobile
+              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile
                   ? "flex flex-col overflow-y-auto"
                   : "flex flex-col md:flex-row"
-              }`}
+                }`}
             >
               {isMobile ? (
                 // Mobile layout
@@ -175,47 +211,47 @@ const NewsAndUpdatesPage = () => {
                   <div className="p-6">
                     <div className="flex flex-row justify-between">
                       <motion.h3
-                      layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
-                    >
-                      {active.title}
-                    </motion.h3>
+                        layoutId={`title-${active.title}-${id}`}
+                        className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                      >
+                        {active.title}
+                      </motion.h3>
 
-                    <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
-                      {active.text.map((block, i) => {
-                        if (block.type === "paragraph") {
-                          return <p key={i}>{block.text}</p>;
-                        }
+                      <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
+                        {active.text.map((block, i) => {
+                          if (block.type === "paragraph") {
+                            return <p key={i}>{block.text}</p>;
+                          }
 
-                        if (block.type === "heading") {
-                          const HeadingTag = `h${block.level || 2}` as any;
-                          return (
-                            <HeadingTag
-                              key={i}
-                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                            >
-                              {block.text}
-                            </HeadingTag>
-                          );
-                        }
+                          if (block.type === "heading") {
+                            const HeadingTag = `h${block.level || 2}` as any;
+                            return (
+                              <HeadingTag
+                                key={i}
+                                className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                              >
+                                {block.text}
+                              </HeadingTag>
+                            );
+                          }
 
-                        if (block.type === "list") {
-                          const ListTag = block.ordered ? "ol" : "ul";
-                          return (
-                            <ListTag
-                              key={i}
-                              className={`${block.ordered ? "list-decimal" : "list-disc"
-                                } list-inside pl-4 space-y-1`}
-                            >
-                              {block.items?.map((item, j) => <li key={j}>{item}</li>)}
-                            </ListTag>
-                          );
-                        }
+                          if (block.type === "list") {
+                            const ListTag = block.ordered ? "ol" : "ul";
+                            return (
+                              <ListTag
+                                key={i}
+                                className={`${block.ordered ? "list-decimal" : "list-disc"
+                                  } list-inside pl-4 space-y-1`}
+                              >
+                                <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                              </ListTag>
+                            );
+                          }
 
-                        return null;
-                      })}
+                          return null;
+                        })}
+                      </div>
                     </div>
-                  </div>
                   </div>
                 </>
               ) : (
@@ -236,49 +272,49 @@ const NewsAndUpdatesPage = () => {
                       <div>
                         <div className="flex flex-row justify-between">
                           <motion.h3
-                          layoutId={`title-${active.title}-${id}`}
-                          className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
-                        >
-                          {active.title}
-                        </motion.h3>
+                            layoutId={`title-${active.title}-${id}`}
+                            className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                          >
+                            {active.title}
+                          </motion.h3>
 
-                        <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
-                          {active.text.map((block, i) => {
-                            if (block.type === "paragraph") {
-                              return <p key={i}>{block.text}</p>;
-                            }
+                          <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
+                            {active.text.map((block, i) => {
+                              if (block.type === "paragraph") {
+                                return <p key={i}>{block.text}</p>;
+                              }
 
-                            if (block.type === "heading") {
-                              const HeadingTag = `h${block.level || 2}` as any;
-                              return (
-                                <HeadingTag
-                                  key={i}
-                                  className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                                >
-                                  {block.text}
-                                </HeadingTag>
-                              );
-                            }
+                              if (block.type === "heading") {
+                                const HeadingTag = `h${block.level || 2}` as any;
+                                return (
+                                  <HeadingTag
+                                    key={i}
+                                    className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                                  >
+                                    {block.text}
+                                  </HeadingTag>
+                                );
+                              }
 
-                            if (block.type === "list") {
-                              const ListTag = block.ordered ? "ol" : "ul";
-                              return (
-                                <ListTag
-                                  key={i}
-                                  className={`${block.ordered ? "list-decimal" : "list-disc"
-                                    } list-inside pl-4 space-y-1`}
-                                >
-                                  {block.items?.map((item, j) => <li key={j}>{item}</li>)}
-                                </ListTag>
-                              );
-                            }
+                              if (block.type === "list") {
+                                const ListTag = block.ordered ? "ol" : "ul";
+                                return (
+                                  <ListTag
+                                    key={i}
+                                    className={`${block.ordered ? "list-decimal" : "list-disc"
+                                      } list-inside pl-4 space-y-1`}
+                                  >
+                                    <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                                  </ListTag>
+                                );
+                              }
 
-                            return null;
-                          })}
+                              return null;
+                            })}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   </div>
 
                 </>
@@ -329,18 +365,16 @@ const NewsAndUpdatesPage = () => {
               key={update.id} // Unique key for each item
               onClick={() => setActive(update)}
               // Full width for all images, but height depends on if it's full-width or not
-              className={`${
-                isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
-              } bg-white text-black rounded-xl shadow overflow-hidden 
+              className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
+                } bg-white text-black rounded-xl shadow overflow-hidden 
         cursor-pointer hover:scale-105 m-4`}
             >
               {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full ${
-                  isFullWidth ? "h-96" : "h-72"
-                } object-cover`}
+                className={`w-full ${isFullWidth ? "h-96" : "h-72"
+                  } object-cover`}
               />
               {/* Text content of the update */}
               <div className="p-4">
