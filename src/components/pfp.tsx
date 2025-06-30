@@ -1,5 +1,6 @@
 import type { AccountSchema } from "@/App";
 import { useState } from "react";
+import PfpEditBtn from "../components/pfp-edit-btn";
 const avatarOptions = [
   "images/bottom-card.png",
   "images/github-logo.png",
@@ -8,14 +9,20 @@ const avatarOptions = [
   "images/github-logo.png",
   "images/bottom-card.png",
 ];
+import type { Dispatch, SetStateAction } from "react";
+
+export interface PfpProps {
+  account: AccountSchema | null;
+  setAccount: Dispatch<SetStateAction<AccountSchema | null>>;
+  /** show or hide the Edit button */
+  showEdit?: boolean;
+}
 
 export default function Pfp({
   setAccount,
   account,
-}: {
-  setAccount: Function;
-  account: AccountSchema | null;
-}) {
+  showEdit = true,
+}: PfpProps) {
   const [currentSrc, setCurrentSrc] = useState("/images/placeholder.PNG");
   const [isEditing, setIsEditing] = useState(false);
 
@@ -30,14 +37,11 @@ export default function Pfp({
         />
       </div>
 
-      {/* Edit button */}
-      <button
-        className="mt-2 px-3 py-1 text-sm border rounded hover:bg-gray-100"
-        onClick={() => setIsEditing(true)}
-      >
-        Edit
-      </button>
-
+      <PfpEditBtn
+        className={showEdit ? "" : "hidden"}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+      />
       {/* Avatar picker overlay */}
       {isEditing && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">

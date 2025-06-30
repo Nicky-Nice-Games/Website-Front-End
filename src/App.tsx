@@ -21,6 +21,9 @@ import ForumPost from "./pages/ForumPost";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
 
+const [currentSrc, setCurrentSrc] = useState<string>("/images/placeholder.PNG");
+const [isEditing, setIsEditing] = useState(false);
+
 export interface AccountSchema {
   pid: string;
   username: string;

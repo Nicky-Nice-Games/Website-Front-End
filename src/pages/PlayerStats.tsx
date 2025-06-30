@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import Pfp from "../components/pfp";
+import Pfp from "@/components/pfp";
+import Pfp1 from "@/components/pfp";
+
 import type { AccountSchema } from "@/App";
+import PfpEditBtn from "../components/pfp-edit-btn";
+
 const PlayerStatsPage = ({ setAccount, account }: StatsPageParams) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
 
@@ -95,9 +99,12 @@ const InfoPage = ({
                 <h2 className="text-black text-sm md:text-base font-medium">
                   Username
                 </h2>
-                <Pfp setAccount={setAccount} account={account} />
+                <Pfp
+                  account={account}
+                  setAccount={setAccount} // React’s useState setter fits this
+                  showEdit={false}
+                />
               </div>
-
               {/* <div className="flex justify-center md:justify-end mt-2">
                 <button className="px-2 py-1 text-xs md:text-sm border rounded"
                 onClick={}>
