@@ -4,6 +4,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const ProcessPage = () => {
     const photo:string = 'images/placeholder.PNG';
 
+    type PopUpProps = {
+        name:string
+        concepts: string;
+        conceptsCap: string;
+        designSheet: string;
+        designSheetCap: string;
+    };
+
+    function PopUp({ name, concepts, conceptsCap, designSheet, designSheetCap }: PopUpProps) {
+        return (
+            <div className="absolute top-[4rem] left-[4rem] w-[60%]">
+                <h1>{name}</h1>
+                <div className="flex flex-wrap">
+                    <div className="flex flex-column">
+                        <img src="concepts"></img>
+                        <p>{conceptsCap}</p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return(<>
     <main className="ml-[2rem] mr-[2rem]">
         <div>
