@@ -14,8 +14,8 @@ const LeaderboardPage = () => {
     </div>
 
     return <div className="text-center max-w-8/10 m-auto">
-        <button onClick={() => setMapId(0)} className="absolute left-[10%] top-[11.5vh] text-xl font-bold hover:text-orange-500">
-            Back
+        <button onClick={() => setMapId(0)} className="absolute left-[10%] top-[11.5vh] text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
+            <h5 className="rotate-180 text-white">Back</h5>
         </button>
         <h1 className="bebas text-black italic m-10 text-5xl">Leaderboard</h1>
         <LeaderboardTable mapId={mapId} />
@@ -47,10 +47,10 @@ const MapSelect = ({ setMapId }: {setMapId: Function}) => {
     ]
     return <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-between">
         {tracks.map(t => {
-            return <div className="md:w-[45%]">
-                <h1 className="text-lg">{t.name}</h1>
+            return <div className="md:w-[45%] md:mx-4 mb-10">
+                <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto px-3 py-1 rounded-lg">{t.name}</h1>
                 <button onClick={() => setMapId(tracks.indexOf(t) + 1)} className="hover:brightness-125">
-                    <img src={t.imgLink} className="object-fill h-[30vh]"/>
+                    <img src={t.imgLink} className="rounded-xl h-[30vh]"/>
                 </button>
             </div>
         })}
