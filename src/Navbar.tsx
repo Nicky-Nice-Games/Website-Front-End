@@ -340,7 +340,7 @@ const Navbar = ({
         </NavigationMenuLink>
       </div>
       {isMobileDevice ? mobileNavList : pcNavList}
-      { profileDropdown }
+      { loginNavbarItem }
     </NavigationMenu>
   );
 };

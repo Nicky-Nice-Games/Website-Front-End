@@ -14,7 +14,7 @@ const LeaderboardPage = () => {
     </div>
 
     return <div className="text-center max-w-8/10 m-auto">
-        <button onClick={() => setMapId(0)} className="absolute left-[10%] top-[11.5vh] text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
+        <button onClick={() => setMapId(0)} className="absolute left-[10%] top-34 md:top-25 text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
             <h5 className="rotate-180 text-white">Back</h5>
         </button>
         <h1 className="bebas text-black italic m-10 text-5xl">Leaderboard</h1>
