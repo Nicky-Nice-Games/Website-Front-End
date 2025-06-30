@@ -54,7 +54,7 @@ const Navbar = ({
     <NavigationMenuItem className="list-none md:mr-4">
       <NavigationMenuTrigger
         className={`${navbarButton} bg-inherit ${
-          currentPage === "content" ? "active-outline" : "passive-outline"
+          currentPage === "stats" ? "active-outline" : "passive-outline"
         }`}
       >
         <button
@@ -116,24 +116,45 @@ const Navbar = ({
 
   const pcNavList = (
     <NavigationMenuList>
-      <NavigationMenuLink
-        className={`${navbarButton} ${
-          currentPage === "about" ? "active-outline" : "passive-outline"
-        }`}
-      >
-        <button
-          className={`cursor-pointer ${
+      <NavigationMenuItem>
+        <NavigationMenuTrigger
+          className={`${navbarButton} bg-inherit ${
             currentPage === "about" ? "active-outline" : "passive-outline"
           }`}
-          onClick={() => {
-            scrollToTop();
-            navigate("/about");
-            setCurrentPage("about");
-          }}
         >
-          About
-        </button>
-      </NavigationMenuLink>
+          <button
+            className={`cursor-pointer ${
+              currentPage === "about" ? "active-outline" : "passive-outline"
+            }`}
+          >
+            About
+          </button>
+        </NavigationMenuTrigger>
+        <NavigationMenuContent className="absolute -left-3 *:hover:bg-[#F76902] min-w-30">
+          <NavigationMenuLink>
+            <button
+              onClick={() => {
+                scrollToTop();
+                navigate("./process");
+                setCurrentPage("about");
+              }}
+            >
+              Process
+            </button>
+          </NavigationMenuLink>
+          <NavigationMenuLink>
+            <button
+              onClick={() => {
+                scrollToTop();
+                navigate("./aboutUs");
+                setCurrentPage("about");
+              }}
+            >
+              About Us
+            </button>
+          </NavigationMenuLink>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuTrigger
           className={`${navbarButton} bg-inherit ${
@@ -153,7 +174,7 @@ const Navbar = ({
             Content
           </button>
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="*:hover:bg-[#F76902]">
+        <NavigationMenuContent className="absolute -left-2 *:hover:bg-[#F76902]">
           <NavigationMenuLink>
             <button
               onClick={() => {
@@ -242,7 +263,7 @@ const Navbar = ({
               className="cursor-pointer"
               onClick={() => {
                 scrollToTop();
-                navigate("./about");
+                navigate("./process");
                 setCurrentPage("about");
               }}
             >
@@ -319,7 +340,7 @@ const Navbar = ({
         </NavigationMenuLink>
       </div>
       {isMobileDevice ? mobileNavList : pcNavList}
-      { loginNavbarItem }
+      { profileDropdown }
     </NavigationMenu>
   );
 };
