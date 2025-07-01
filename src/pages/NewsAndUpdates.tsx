@@ -7,11 +7,14 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 type ListItem = string | { text: string; children?: ListItem[] };
 
 interface ContentBlock {
-  type: "paragraph" | "list" | "heading";
+  type: "paragraph" | "list" | "heading" | "image";
   text?: string;
   items?: ListItem[];
   ordered?: boolean;
   level?: number; // for headings
+  src?: string;
+  alt?: string;
+  caption?: string;
 }
 
 // Array of updates
@@ -84,8 +87,9 @@ const updates: Update[] = [
           }
         ]
       },
-      { type: "paragraph", text: "Greyboxing (as of 11:10 AM 5/30/2025)"},
-      { type: "list",
+      { type: "paragraph", text: "Greyboxing (as of 11:10 AM 5/30/2025)" },
+      {
+        type: "list",
         ordered: false,
         items: [
           {
@@ -101,12 +105,12 @@ const updates: Update[] = [
           }
         ]
       },
-      {type: "paragraph", text: "Test Chambers in Unity"},
+      { type: "paragraph", text: "Test Chambers in Unity" },
       {
         type: "list",
         ordered: false,
         items: [
-          {  text: "1 road and ramps room for testing basic physics"},
+          { text: "1 road and ramps room for testing basic physics" },
           {
             text: "2 terrain testing chambers",
             children: [
@@ -116,46 +120,51 @@ const updates: Update[] = [
           }
         ]
       },
-      {  type: "heading", level: 2, text: "QA Team"},
-      { type: "paragraph", text: "Jonathan, Team lead worked with backend on Unity to backend & backend to Unity integration. Nathan worked with Gio, Bobby, and Zachary S, on the GitHub guides and setup. Lydia worked with the production team and assisted the frontend team with figma utilization. Ronnel made playtesting form questions for users to fill out."},
-      { type: "heading", level: 2, text: "Gameplay Team "},
+      { type: "heading", level: 2, text: "QA Team" },
+      { type: "paragraph", text: "Jonathan, Team lead worked with backend on Unity to backend & backend to Unity integration. Nathan worked with Gio, Bobby, and Zachary S, on the GitHub guides and setup. Lydia worked with the production team and assisted the frontend team with figma utilization. Ronnel made playtesting form questions for users to fill out." },
+      { type: "heading", level: 2, text: "Gameplay Team " },
       {
         type: "list",
         ordered: false,
         items: [
-          { text: "Prototyped menu and game states"},
-          { text: "Prototyped AI pathing"},
-          { text: "Prototyped HUD",
+          { text: "Prototyped menu and game states" },
+          { text: "Prototyped AI pathing" },
+          {
+            text: "Prototyped HUD",
             children: [
               "Layout",
               "Minimap",
               "Other information"
             ]
           },
-          { text: "Prototyped multiplayer networking"},
-          { text: "Prototyped item system",
+          { text: "Prototyped multiplayer networking" },
+          {
+            text: "Prototyped item system",
             children: [
               "Picking up items",
               "Using items"
             ]
           },
-          { text: "Prototyped kart functionalities and player controls"},
+          { text: "Prototyped kart functionalities and player controls" },
         ]
       },
-      { type: "heading", level: 2, text: "R&D Team"},
-      { type: "list",
+      { type: "heading", level: 2, text: "R&D Team" },
+      {
+        type: "list",
         ordered: false,
         items: [
-          { text: "Prototyped communication between Arduino and Unity"},
-          { text: "Research into components for the cabinet’s seat technology and design"}
+          { text: "Prototyped communication between Arduino and Unity" },
+          { text: "Research into components for the cabinet’s seat technology and design" }
         ]
       },
-      { type: "heading", level: 2, text: "Production Team"},
-      { type: "list", 
+      { type: "heading", level: 2, text: "Production Team" },
+      {
+        type: "list",
         ordered: false,
         items: [
-          { text: "Josh, the project lead, has been busy this week creating, rehearsing, and iterating a presentation that he’s giving to the whole team on Friday. Josh’s goal with his presentation is to unify our team’s vision and ensure we can all move forward confidently. We want everyone to have a solid understanding of the goals of our project and the direction we want to move in so that we can efficiently work together and create a cool project."},
-          { text: "Further developed our social media marketing plans so that we can create a coherent brand identity",
+          { text: "Josh, the project lead, has been busy this week creating, rehearsing, and iterating a presentation that he’s giving to the whole team on Friday. Josh’s goal with his presentation is to unify our team’s vision and ensure we can all move forward confidently. We want everyone to have a solid understanding of the goals of our project and the direction we want to move in so that we can efficiently work together and create a cool project." },
+          {
+            text: "Further developed our social media marketing plans so that we can create a coherent brand identity",
             children: [
               "Created a social media usage survey for team members to fill out to gauge a better understanding of the most popular social media platforms amongst IGM students. After reviewing the responses, our plan is to use YouTube, Instagram, Reddit, TikTok, and X(Twitter) for our marketing purposes",
               "Started to build out a content calendar of when we plan to post specific content, which will help us in the coming weeks when we are actually posting",
@@ -163,22 +172,24 @@ const updates: Update[] = [
               "Prototyping designs for social media posts"
             ]
           },
-          { text: "Created some quick mockup designs for posters/fliers that we would like to put around campus to market our game and communicated with team members outside our group who are helping to create finished designs"},
-          { text: "Met with team leads to answer questions and give guidance to keep the project moving forward and ensure we are all working toward creating the best project"}
+          { text: "Created some quick mockup designs for posters/fliers that we would like to put around campus to market our game and communicated with team members outside our group who are helping to create finished designs" },
+          { text: "Met with team leads to answer questions and give guidance to keep the project moving forward and ensure we are all working toward creating the best project" }
         ]
       },
-      { type: "heading", level: 2, text: "Support Team"},
-      { 
+      { type: "heading", level: 2, text: "Support Team" },
+      {
         type: "list",
         ordered: false,
         items: [
-          { text: "Shadowed teams to get a sense of what they were working on and how progress was coming along, keeping notes on a shared document",
+          {
+            text: "Shadowed teams to get a sense of what they were working on and how progress was coming along, keeping notes on a shared document",
             children: [
               "This allows us to see what they have completed as well as what they are currently doing, making it easier for us to jump in if assistance is needed"
             ]
           },
-          { text: "Created a procedure document for cloning a GitHub repository"},
-          { text: "Our build engineer, Giovanni Paulino, has also been very busy this week…",
+          { text: "Created a procedure document for cloning a GitHub repository" },
+          {
+            text: "Our build engineer, Giovanni Paulino, has also been very busy this week…",
             children: [
               "Created a Unity project and uploaded it to the main repository",
               "Cloned this repository on another device an opened the Unity project successfully, with the help of our local Game Developer, Bobby Pellegrino",
@@ -193,9 +204,9 @@ const updates: Update[] = [
 
                 ]
               },
-              { text: "Gathered a list of tools used or that could be used in the development process"},
-              { text: "Created a branching/merging procedure w/ QA team"},
-              { text: "Worked with R&D to brainstorm different cabinet designs"}
+              { text: "Gathered a list of tools used or that could be used in the development process" },
+              { text: "Created a branching/merging procedure w/ QA team" },
+              { text: "Worked with R&D to brainstorm different cabinet designs" }
             ]
           }
         ]
@@ -209,7 +220,8 @@ const updates: Update[] = [
     subtitle: "Start of production",
     image: './assets/OIP.jpg',
     text: [
-      { type: "paragraph", text: "./assets/OIP.jpg"}
+      { type: "image", 
+        src: "./assets/OIP.jpg", }
     ]
   }
 ];
@@ -328,8 +340,8 @@ const NewsAndUpdatesPage = () => {
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
               className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile
-                  ? "flex flex-col overflow-y-auto"
-                  : "flex flex-col md:flex-row"
+                ? "flex flex-col overflow-y-auto"
+                : "flex flex-col md:flex-row"
                 }`}
             >
               {isMobile ? (
@@ -379,6 +391,19 @@ const NewsAndUpdatesPage = () => {
                               >
                                 <RecursiveList items={block.items ?? []} ordered={block.ordered} />
                               </ListTag>
+                            );
+                          }
+
+                          if (block.type === "image") {
+                            return (
+                              <div key={i} className="my-4">
+                                <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                                {block.caption && (
+                                  <p className="text-sm text-center text-neutral-500 mt-1 italic">
+                                    {block.caption}
+                                  </p>
+                                )}
+                              </div>
                             );
                           }
 
@@ -440,6 +465,19 @@ const NewsAndUpdatesPage = () => {
                                   >
                                     <RecursiveList items={block.items ?? []} ordered={block.ordered} />
                                   </ListTag>
+                                );
+                              }
+
+                              if (block.type === "image") {
+                                return (
+                                  <div key={i} className="my-4">
+                                    <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                                    {block.caption && (
+                                      <p className="text-sm text-center text-neutral-500 mt-1 italic">
+                                        {block.caption}
+                                      </p>
+                                    )}
+                                  </div>
                                 );
                               }
 
