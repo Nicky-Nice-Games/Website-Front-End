@@ -31,7 +31,7 @@ export function DataTable<TData, TValue>({
     data,
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
-    const [currentPageIndex, setCurrentPageIndex] = React.useState<number>(1);
+    const [currentPageIndex, setCurrentPageIndex] = React.useState<number>(0);
     const [endingImageElement, setEndingImageElement] = React.useState(<img />);
 
     const endOfTableImage = <img src="images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[37vh]"/>
@@ -49,7 +49,7 @@ export function DataTable<TData, TValue>({
     })
 
     React.useEffect(() => {
-        setEndingImageElement(currentPageIndex == table.getPageCount() ? endOfTableImage : <img />);
+        setEndingImageElement(currentPageIndex + 1 == table.getPageCount() ? endOfTableImage : <img />);
     }, [currentPageIndex]);
 
     return (
@@ -120,7 +120,7 @@ export function DataTable<TData, TValue>({
                         min={1} 
                         max={table.getPageCount()} 
                         placeholder={(table.getState().pagination.pageIndex + 1).toString()} 
-                        onKeyDown={(e:any) => {if (e.key === 'Enter') setCurrentPageIndex(e.target.value - 1); table.setPageIndex(e.target.value - 1)}} />
+                        onKeyDown={(e:any) => {if (e.key === 'Enter') { setCurrentPageIndex(e.target.value - 1); table.setPageIndex(e.target.value - 1)}}} />
                         of {table.getPageCount()}</p>
                 </div>
                 <Button

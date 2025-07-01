@@ -1,6 +1,16 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+
+
+interface ContentBlock {
+  type: "paragraph" | "list" | "heading";
+  text?: string;
+  items?: string[];
+  ordered?: boolean;
+  level?: number; // for headings
+}
+
 // Array of updates
 interface Update {
   id: number;
@@ -8,7 +18,7 @@ interface Update {
   date: string;
   subtitle: string;
   image: string;
-  text: string;
+  text: ContentBlock[];
 }
 
 const updates: Update[] = [
@@ -17,57 +27,42 @@ const updates: Update[] = [
     title: "Update 1",
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 2,
-    title: "Update 2",
-    date: "6/4/2025",
-    subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 3,
-    title: "Update 3",
-    date: "6/5/2025",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 4,
-    title: "Update 4",
-    date: "6/6/2025",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 5,
-    title: "Update 5",
-    date: "6/10/2025",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 6,
-    title: "Update 6",
-    date: "6/11/2025",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 7,
-    title: "Update 7",
-    date: "6/12/2025",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 
-    image: "./assets/OIP.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat. ",
+    image: './assets/OIP.jpg',
+    text: [
+      { type: "heading", level: 2, text: "Content Team" },
+      { type: "paragraph", text: "Dev textures" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "Finished 32 PNG dev textures for level designers.",
+          "Finished dummy racer (rigged, weighted and textured)",
+          "This dummy helped us notice early on that textures don’t port from Maya to Unity through .FBX, you have to override the texture in Unity for it to apply. Knowing this now will make it so we don’t have questions with future models",
+          "Finished dummy kart",
+        ]
+      },
+      { type: "paragraph", text: "Concept art" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "Over 40 total separate concept character designs",
+          "6 concepts for each year (freshman, sophomore, junior, senior)",
+          "2 IGM “mascot” concepts by each team member",
+          "6 sorta misc “themed” concepts",
+        ]
+      },
+      { type: "heading", level: 2, text: "Level Design Team " },
+      { type: "paragraph", text: "Sketching"},
+      { type: "list", 
+        ordered: false,
+        items: [
+          "8 sketched race track concepts",
+        ]
+      }
+    ]
+
   },
 ];
 
@@ -185,27 +180,42 @@ const NewsAndUpdatesPage = () => {
                     >
                       {active.title}
                     </motion.h3>
-                    <motion.button
-                          key={`button-${active.title}-${id}`}
-                          layout
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                          // exit button
-                          className="flex relative bottom-2 left-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
-                          onClick={() => setActive(null)}
-                          aria-label="Close"
-                        >
-                          <CloseIcon /> {/* close icon pop up*/}
-                        </motion.button>
+
+                    <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
+                      {active.text.map((block, i) => {
+                        if (block.type === "paragraph") {
+                          return <p key={i}>{block.text}</p>;
+                        }
+
+                        if (block.type === "heading") {
+                          const HeadingTag = `h${block.level || 2}` as any;
+                          return (
+                            <HeadingTag
+                              key={i}
+                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                            >
+                              {block.text}
+                            </HeadingTag>
+                          );
+                        }
+
+                        if (block.type === "list") {
+                          const ListTag = block.ordered ? "ol" : "ul";
+                          return (
+                            <ListTag
+                              key={i}
+                              className={`${block.ordered ? "list-decimal" : "list-disc"
+                                } list-inside pl-4 space-y-1`}
+                            >
+                              {block.items?.map((item, j) => <li key={j}>{item}</li>)}
+                            </ListTag>
+                          );
+                        }
+
+                        return null;
+                      })}
                     </div>
-                    
-                    <motion.p
-                      layoutId={`description-${active.subtitle}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
-                    >
-                      {active.text}
-                    </motion.p>
+                  </div>
                   </div>
                 </>
               ) : (
@@ -231,30 +241,46 @@ const NewsAndUpdatesPage = () => {
                         >
                           {active.title}
                         </motion.h3>
-                        <motion.button
-                          key={`button-${active.title}-${id}`}
-                          layout
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                          // exit button
-                          className="flex relative bottom-2 left-2 items-center justify-center bg-white hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full h-8 w-8 z-50"
-                          onClick={() => setActive(null)}
-                          aria-label="Close"
-                        >
-                          <CloseIcon /> {/* close icon pop up*/}
-                        </motion.button>
+
+                        <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
+                          {active.text.map((block, i) => {
+                            if (block.type === "paragraph") {
+                              return <p key={i}>{block.text}</p>;
+                            }
+
+                            if (block.type === "heading") {
+                              const HeadingTag = `h${block.level || 2}` as any;
+                              return (
+                                <HeadingTag
+                                  key={i}
+                                  className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                                >
+                                  {block.text}
+                                </HeadingTag>
+                              );
+                            }
+
+                            if (block.type === "list") {
+                              const ListTag = block.ordered ? "ol" : "ul";
+                              return (
+                                <ListTag
+                                  key={i}
+                                  className={`${block.ordered ? "list-decimal" : "list-disc"
+                                    } list-inside pl-4 space-y-1`}
+                                >
+                                  {block.items?.map((item, j) => <li key={j}>{item}</li>)}
+                                </ListTag>
+                              );
+                            }
+
+                            return null;
+                          })}
                         </div>
-                        
-                        <motion.p
-                          layoutId={`description-${active.subtitle}-${id}`}
-                          className="text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll"
-                        >
-                          {active.text}
-                        </motion.p>
                       </div>
                     </div>
                   </div>
+                  </div>
+
                 </>
               )}
             </motion.div>
