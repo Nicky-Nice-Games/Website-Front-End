@@ -2,12 +2,14 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
+
+
 type ListItem = string | { text: string; children?: ListItem[] };
 
 interface ContentBlock {
   type: "paragraph" | "list" | "heading";
   text?: string;
-  items?: ListItem[]; // NEW
+  items?: ListItem[];
   ordered?: boolean;
   level?: number; // for headings
 }
@@ -25,9 +27,9 @@ interface Update {
 const updates: Update[] = [
   {
     id: 1,
-    title: "Update 1",
-    date: "6/3/2025",
-    subtitle: "At vero eos et accusamus et iusto odio dignissimos",
+    title: "Week 1",
+    date: "5/25/2025",
+    subtitle: "Start of production",
 
     image: './assets/OIP.jpg',
     text: [
@@ -73,11 +75,143 @@ const updates: Update[] = [
               "Finals Brick Road",
             ]
           },
-        ],
+          {
+            text: "2 sketched battle mode track concepts",
+            children: [
+              "RITZ Dining Hall",
+              "Ice Rink"
+            ]
+          }
+        ]
+      },
+      { type: "paragraph", text: "Greyboxing (as of 11:10 AM 5/30/2025)"},
+      { type: "list",
+        ordered: false,
+        items: [
+          {
+            text: "3 rough track layouts in Blender",
+            children: [
+              "Quarter Mile A & B",
+              "Global Village"
+            ]
+          },
+          {
+            text: "1 detailed track layout in Unity",
+            children: ["RIT Woods"]
+          }
+        ]
+      },
+      {type: "paragraph", text: "Test Chambers in Unity"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          {  text: "1 road and ramps room for testing basic physics"},
+          {
+            text: "2 terrain testing chambers",
+            children: [
+              "The Tube: a straight path through all of the dev textures",
+              "The Grid: a 5x6 grid of rooms each containing one dev texture"
+            ]
+          }
+        ]
+      },
+      {  type: "heading", level: 2, text: "QA Team"},
+      { type: "paragraph", text: "Jonathan, Team lead worked with backend on Unity to backend & backend to Unity integration. Nathan worked with Gio, Bobby, and Zachary S, on the GitHub guides and setup. Lydia worked with the production team and assisted the frontend team with figma utilization. Ronnel made playtesting form questions for users to fill out."},
+      { type: "heading", level: 2, text: "Gameplay Team "},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Prototyped menu and game states"},
+          { text: "Prototyped AI pathing"},
+          { text: "Prototyped HUD",
+            children: [
+              "Layout",
+              "Minimap",
+              "Other information"
+            ]
+          },
+          { text: "Prototyped multiplayer networking"},
+          { text: "Prototyped item system",
+            children: [
+              "Picking up items",
+              "Using items"
+            ]
+          },
+          { text: "Prototyped kart functionalities and player controls"},
+        ]
+      },
+      { type: "heading", level: 2, text: "R&D Team"},
+      { type: "list",
+        ordered: false,
+        items: [
+          { text: "Prototyped communication between Arduino and Unity"},
+          { text: "Research into components for the cabinet’s seat technology and design"}
+        ]
+      },
+      { type: "heading", level: 2, text: "Production Team"},
+      { type: "list", 
+        ordered: false,
+        items: [
+          { text: "Josh, the project lead, has been busy this week creating, rehearsing, and iterating a presentation that he’s giving to the whole team on Friday. Josh’s goal with his presentation is to unify our team’s vision and ensure we can all move forward confidently. We want everyone to have a solid understanding of the goals of our project and the direction we want to move in so that we can efficiently work together and create a cool project."},
+          { text: "Further developed our social media marketing plans so that we can create a coherent brand identity",
+            children: [
+              "Created a social media usage survey for team members to fill out to gauge a better understanding of the most popular social media platforms amongst IGM students. After reviewing the responses, our plan is to use YouTube, Instagram, Reddit, TikTok, and X(Twitter) for our marketing purposes",
+              "Started to build out a content calendar of when we plan to post specific content, which will help us in the coming weeks when we are actually posting",
+              "Created a personal info survey to gather information on each team member to include in “Meet the Team” Instagram posts",
+              "Prototyping designs for social media posts"
+            ]
+          },
+          { text: "Created some quick mockup designs for posters/fliers that we would like to put around campus to market our game and communicated with team members outside our group who are helping to create finished designs"},
+          { text: "Met with team leads to answer questions and give guidance to keep the project moving forward and ensure we are all working toward creating the best project"}
+        ]
+      },
+      { type: "heading", level: 2, text: "Support Team"},
+      { 
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Shadowed teams to get a sense of what they were working on and how progress was coming along, keeping notes on a shared document",
+            children: [
+              "This allows us to see what they have completed as well as what they are currently doing, making it easier for us to jump in if assistance is needed"
+            ]
+          },
+          { text: "Created a procedure document for cloning a GitHub repository"},
+          { text: "Our build engineer, Giovanni Paulino, has also been very busy this week…",
+            children: [
+              "Created a Unity project and uploaded it to the main repository",
+              "Cloned this repository on another device an opened the Unity project successfully, with the help of our local Game Developer, Bobby Pellegrino",
+              "Troubleshooted issues with filename length, large files, and creating .gitignore and .gitattributes files with Nathan Arlauckas from the QA Team",
+              {
+                text: "In collaboration with several people, created a branch ruleset to:",
+                children: [
+                  "Prohibit pushing content directly to the main repository",
+                  "Require all merges with the main repository to be in the form of a pull request",
+                  "Require a member of specific teams (such as the QA team or Support team) to review and approve all pull requests",
+                  "Require all pull requests to run a workflow with a GitHub-hosted runner to test the code (not a part of the branch ruleset, but a part of the pull request process)"
+
+                ]
+              },
+              { text: "Gathered a list of tools used or that could be used in the development process"},
+              { text: "Created a branching/merging procedure w/ QA team"},
+              { text: "Worked with R&D to brainstorm different cabinet designs"}
+            ]
+          }
+        ]
       }
     ]
-
   },
+  {
+    id: 2,
+    title: "Week 2",
+    date: "6/1/2025",
+    subtitle: "Start of production",
+    image: './assets/OIP.jpg',
+    text: [
+      { type: "paragraph", text: "./assets/OIP.jpg"}
+    ]
+  }
 ];
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
