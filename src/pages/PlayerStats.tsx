@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import type { AccountSchema } from "@/App";
 import { millisecondsToSeconds } from "framer-motion"
 
+//#region Helper Functions
+
 const formatTime = (milliseconds: number): string => {
     let seconds = millisecondsToSeconds(milliseconds);
     let minutes = Math.floor(seconds / 60);
@@ -37,11 +39,29 @@ interface ItemsUsedObject {
   [propName: string]: number;
 }
 
-const sumItemsUsed = (itemsUsedObject: ItemsUsedObject) => {
+const sumItemsUsed = (itemsUsedObject: ItemsUsedObject): number => {
   let totalItemsUsed = 0;
   Object.values(itemsUsedObject).forEach(i => { totalItemsUsed += i;})
   return totalItemsUsed;
 }
+
+const getTotalItemsUsed = (playerData: any): number => {
+  return (
+    sumItemsUsed(playerData.offenseUsage) +
+    sumItemsUsed(playerData.trapUsage) +
+    sumItemsUsed(playerData.boostUsage) +
+    sumItemsUsed(playerData.defenseUsage)
+  );
+}
+
+const checkAchievementProgress = (stat: number, milestones: number[]): boolean[] => {
+  let achievementStatus:boolean[] = [];
+  for (let i = 0; i < milestones.length; i++){
+    achievementStatus.push(stat >= milestones[i]);
+  }
+  return achievementStatus;
+}
+//#endregion
 
 const PlayerStatsPage = ({ account }:{ account: AccountSchema | null}) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
@@ -107,7 +127,6 @@ const InfoPage = ({
   const statsList3: Stat[] = [
     {name: "Favorite Character", value: characters[playerData.favoriteChara - 1]},
     {name: "Favorite Track", value: "???"},
-    {name: "Track Spin-Outs", value: "???"}
   ];
 
   return (
@@ -281,23 +300,32 @@ const InfoPage = ({
 type AchievementsPageProps = {
   playerData: any
   setActiveTab: (tab: "info" | "achievements") => void;
-  achievementsStatus?: boolean[];
 };
 
 export const AchievementsPage = ({
-  //playerData,
+  playerData,
   setActiveTab,
-  achievementsStatus = [true, false, true, false, true], // Default with some unlocked medals (For Testing)
 }: AchievementsPageProps) => {
   // Medals shape (rotated 30 degrees)
   const hexagonClip =
     "polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)";
 
+
+  const firstPlaceFinishes = playerData.firstPlace;
+  const top3Finishes = playerData.podium;
+  const totalRaces = 250 //Currently not in the backend
+  const itemsUsed = getTotalItemsUsed(playerData);
+
+  const firstPlaceAchievements = checkAchievementProgress(firstPlaceFinishes, [1, 10, 25, 50, 100]);
+  const top3Achievements = checkAchievementProgress(top3Finishes, [1, 25, 50, 100, 200]);
+  const totalRaceAchievements = checkAchievementProgress(totalRaces, [1, 25, 50, 100, 250]);
+  const itemsUsedAchievements = checkAchievementProgress(itemsUsed, [25, 75, 150, 200, 350]);
+  
   const achievementSections = [
-    "1st Place Finishes",
-    "Podium Finishes",
-    "Races",
-    "Items Collected",
+    { name: "1st Place Finishes", progress: firstPlaceAchievements },
+    { name: "Podium Finishes", progress: top3Achievements },
+    { name: "Races", progress: totalRaceAchievements },
+    { name: "Items Collected", progress: itemsUsedAchievements }
   ];
 
   // Achievement names and colors
@@ -419,20 +447,20 @@ export const AchievementsPage = ({
             </div>
           </CardContent>
         </Card>
-        {achievementSections.map((sectionTitle, sectionIndex) => {
+        {achievementSections.map((section, sectionIndex) => {
           const startIdx = sectionIndex * 5;
           const medals = achievementData.slice(startIdx, startIdx + 5);
 
           return (
             <div
-              key={sectionTitle}
+              key={section.name}
               className="p-4 md:p-6 mb-6 md:mb-8 mr-2 ml-2 md:mr-4 md:ml-4 border-2 border-white rounded-md"
             >
               <div className="mb-4 md:mb-8 font-semibold">
-                <h2 className="text-lg md:text-xl">{sectionTitle}</h2>
+                <h2 className="text-lg md:text-xl">{section.name}</h2>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 justify-items-center">
-                {achievementsStatus.map((unlocked, idx) => (
+                {section.progress.map((unlocked, idx) => (
                   <div
                     key={idx}
                     className="w-full flex flex-col items-center p-1 md:p-2"
