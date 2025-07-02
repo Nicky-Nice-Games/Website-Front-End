@@ -34,7 +34,7 @@ export function DataTable<TData, TValue>({
     const [currentPageIndex, setCurrentPageIndex] = React.useState<number>(0);
     const [endingImageElement, setEndingImageElement] = React.useState(<img />);
 
-    const endOfTableImage = <img src="images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[37vh]"/>
+    const endOfTableImage = <img src="images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[29vh]"/>
 
     const table = useReactTable({
         data,
@@ -54,7 +54,7 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
-            <div className="rounded-md border">
+            <div className="rounded-md border bg-[#FFF8]">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

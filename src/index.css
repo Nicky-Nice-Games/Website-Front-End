@@ -240,6 +240,6 @@
   }
 }
 
-#score {
+#score, #raceTime {
   text-align: right;
 }

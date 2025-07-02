@@ -33,8 +33,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const PlacementVariants = {
         first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
-
     }
+    
    function Score({ place, imgPath, name, time, score, color}:ScoreProps) {
     return (
         <div className="h-1/7 w-[100%] m-[1rem] flex gap-[2vw] md:gap-[4vw] items-center text-white">

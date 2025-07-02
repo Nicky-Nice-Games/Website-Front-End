@@ -89,8 +89,8 @@ const AboutUsPage = () => {
 
     function Person({ name, position, email, image }: PersonProps) {
         return (
-            <div className="m-4 w-[200px]">
-                <img src={image} alt={`Photo of ${name}`} className="h-[200px]" />
+            <div className="m-4 w-[200px] rounded-md bg-orange-100">
+                <img src={image} alt={`Photo of ${name}`} className="h-[200px] rounded-md" />
                 <p className="person-name font-bold">{name}</p>
                 <p className="person-position">{position}</p>
                 <p className="person-email">{email}</p>
@@ -102,7 +102,7 @@ const AboutUsPage = () => {
         <main className='m-8'>
             <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1>
             <div className='flex flex-column items-center w-full text-center'>
-                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-orange-100 m-auto">
+                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-[url(images/tab-bg.png)] m-auto">
 
                     <TabsList className='w-full flex-wrap flex-column h-full'>
                         <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
@@ -117,7 +117,7 @@ const AboutUsPage = () => {
                     </TabsList>
 
                     <TabsContent value="GSP">
-                        <h2 className='text-2xl m-1 mx-0'> {gspData.length > 0 ? gspData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {gspData.map((personData, index) => (
@@ -132,7 +132,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Production">
-                        <h2 className='text-2xl m-1 mx-0'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {productionData.map((personData, index) => (
@@ -147,7 +147,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Level Design">
-                        <h2 className='text-2xl m-1 mx-0'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {levelData.map((personData, index) => (
@@ -163,7 +163,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Content">
-                        <h2 className='text-2xl m-1 mx-0'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {contentData.map((personData, index) => (
@@ -178,7 +178,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="QA">
-                        <h2 className='text-2xl m-1 mx-0'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {qaData.map((personData, index) => (
@@ -193,7 +193,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Support">
-                        <h2 className='text-2xl m-1 mx-0'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {supportData.map((personData, index) => (
@@ -209,7 +209,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Web">
-                        <h2 className='text-2xl m-1 mx-0'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {webData.map((personData, index) => (
@@ -225,7 +225,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="RND">
-                        <h2 className='text-2xl m-1 mx-0'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {rndData.map((personData, index) => (
