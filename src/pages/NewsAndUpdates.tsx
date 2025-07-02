@@ -220,19 +220,21 @@ const updates: Update[] = [
     subtitle: "Start of production",
     image: './assets/OIP.jpg',
     text: [
-      {  type: "heading", level: 2, text: "Production Team"},
+      { type: "heading", level: 2, text: "Production Team" },
       {
         type: "list",
         ordered: false,
         items: [
-          { text: "Narrowing down the name of the game"},
-          { text: "Migrating Design Doc over to GitHub",
+          { text: "Narrowing down the name of the game" },
+          {
+            text: "Migrating Design Doc over to GitHub",
             children: [
               "Filled out more of the Lorem Ipsum in the design document"
             ]
           },
-          { text: "Met with teams, checking in on how they’re doing so far on the project"},
-          { text: "Josh tasks:",
+          { text: "Met with teams, checking in on how they’re doing so far on the project" },
+          {
+            text: "Josh tasks:",
             children: [
               "Worked on pitch presentation",
               "Did a lot of meetings"
@@ -256,11 +258,152 @@ const updates: Update[] = [
               "Feedback hardware"
             ]
           },
-          { text: "Design sketches completed"},
-          { text: "World-scale 3D models finished"},
+          { text: "Design sketches completed" },
+          { text: "World-scale 3D models finished" },
         ]
       },
-      { type: "image", src: './assets/blog-image-1.png'}
+      { type: "image", src: './assets/blog-image-1.png' },
+      { type: "image", src: './assets/blog-image-2.png' },
+      { type: "heading", level: 2, text: "QA Team" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Ensured that everybody was added to the Nicky Nice Games Github Organization." },
+          { text: "Got the whole QA team briefed on how to review pull requests & started reviewing them." },
+          { text: "Implemented feature request issue templates and bug report issue templates in the github repositories." },
+          { text: "Began work on a poster design to advertise the game. (certainly not a final version)" },
+        ]
+      },
+      { type: "heading", level: 2, text: "Support Team" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          {
+            text: "Checked in with each team every day to ask what they’ve been working on and what they’ve completed, and communicated any information and updates to the rest of the support team in our Discord channel, making sure everyone is aware",
+            children: ["Again, this makes it easier for us to jump in if assistance is needed"]
+          },
+          {
+            text: "Assisted teams that requested support on a task(s) in getting them completed",
+            children: [
+              {
+                text: "Zach (Team Lead) assisted the Content Team by creating a test scene in Unity to see if you could programmatically animate the 3D rigged models",
+                children: [
+                  "Successfully done using a provided 3D rigged model with 3 animation states from Content Team, Unity’s Animator Branch Tree and AnimatorController, and a script which changed the animation state of the 3D rigged model with user input on the keyboard",
+                  "Also helps out the GSP Team for when they need to implement this in the future "
+
+                ]
+              },
+              { text: "Giovanni (Build Engineer) assisted in setting up the repositories for the teams",
+                children: [
+                  "Helped Logan create the repository and Unity project, as well as test it",
+                  "Set the branch rulesets for all three repositories",
+                  "Researched the GitHub Wiki feature and delivered a presentation on it",
+                  { text: "Aided the production team in creating a GitHub Wiki for the project’s design documentation",
+                    children: ["All of support team helped starting to migrate the documentation from the original design document to the GitHub Wiki, as well as reorganizing it in a better order and layout"]
+                  },
+                  "Researched automatic testing and building for Unity projects"
+                ]
+              },
+              { text: "Bobby (Game Developer) helped with various sound-related problems",
+                children: [
+                  { text: "Helped the GSP Team with some weird sound issues.",
+                    children: [
+                      "Clipped a sound effect to start sooner.",
+                      "Solved an issue where the newly clipped audio sounded a bit distorted in the Unity scene."
+                    ]
+                  },
+                  { text: "Helped make an extra sound effect for the Content Team.",
+                    children: [ "It was originally intended to be a sound for bumping into a wall, but it will likely be used elsewhere in the game, possibly as a speed boost sound."]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      { type: "heading", level: 2, text: "Gameplay Team"},
+      { type: "list",
+        ordered: false,
+        items: [
+          { text: "Improved Kart Functionality and Feel",
+            children: [
+              "Added Drift Hop Animation",
+              "Better Drifting",
+              "Better Camera Following",
+              "Better Collision"
+            ]
+          },
+          { text: "Prototyped Track",
+            children: [
+              "Placement and Lap Information",
+              "Checkpoints Requirement",
+              "Prototyped boost panel"
+            ]
+          },
+          { text: "Prototyped AI Driving",
+            children: [
+              "AI follow pathing",
+              "AI can use Items"
+            ]
+          },
+          { text: "Item System Expanded (Functional Items)",
+            children: [
+              "Spill Hazard",
+              "Boost",
+              "Shield",
+              "Hockey Puck (It Bounces!)",
+              "Fake Item Box",
+            ]
+          },
+          { text: "Audio Added",
+            children: [
+              "Music in Menus",
+              "Kart Sounds",
+              "Item Sounds"
+            ]
+          },
+          { text: "Player Select Menu Functionality Added",
+            children: [
+              "Choosing character will load character sprite for your kart in track scene"
+            ]
+          },
+          { text: "Prototyped Carousel HUD for Arcade Controls"},
+          { text: "Backend Communication can now communicate between client and server?"}
+        ]
+      },
+      { type: "heading", level: 2, text: "Content Team"},
+      { type: "list",
+        ordered: false,
+        items: [
+          { text: "We went over all the concepts we came up with during Week 2 and singled out 6 characters for our base game. We also sorted characters into what order we will approach them if we reach our stretch goal of a cast of 12",
+            children: ["(all our week2 concepts v)"]
+          }
+        ]
+      },
+      { type: "image",
+        src: "./assets/blog-image-3.png"
+      },
+      { type: "list",
+        ordered: false,
+        items: [ { text: "Here’s all the character spec sheets for base game"}]
+      },
+      { type: "image",
+        src: "./assets/blog-image-4.png"
+      },
+      { type: "image",
+        src: "./assets/blog-image-5.png"
+      },
+      { type: "image",
+        src: "./assets/blog-image-6.png"
+      },
+      { type: "image",
+        src: "./assets/blog-image-7.png"
+      },
+      { type: "image",
+        src: "./assets/blog-image-8.png"
+      },
     ]
   }
 ];
@@ -334,28 +477,42 @@ const NewsAndUpdatesPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
+  // Nests unordered lists with custom bullet symbols based on depth
   const RecursiveList: React.FC<{
     items: ListItem[];
     ordered?: boolean;
-  }> = ({ items, ordered }) => {
-    const ListTag = ordered ? "ol" : "ul";
+    depth?: number;
+  }> = ({ items, ordered, depth = 0 }) => {
+    const bulletSymbols = ["•", "◦", "▪", "–", "»"];
 
     return (
-      <ListTag className={`${ordered ? "list-decimal" : "list-disc"} pl-4 space-y-1`}>
+      <ul className="pl-4 space-y-1">
         {items.map((item, i) => {
+          const symbol = ordered ? "" : bulletSymbols[Math.min(depth, bulletSymbols.length - 1)];
+
           if (typeof item === "string") {
-            return <li key={i}>{item}</li>;
+            return (
+              <li key={i}>
+                {!ordered && <span className="mr-1">{symbol}</span>}
+                {item}
+              </li>
+            );
           }
+
           return (
             <li key={i}>
+              {!ordered && <span className="mr-1">{symbol}</span>}
               {item.text}
-              {item.children && <RecursiveList items={item.children} ordered={ordered} />}
+              {item.children && (
+                <RecursiveList items={item.children} ordered={ordered} depth={depth + 1} />
+              )}
             </li>
           );
         })}
-      </ListTag>
+      </ul>
     );
   };
+
 
   return (
     <div className="min-h-screen bg-black p-6">
