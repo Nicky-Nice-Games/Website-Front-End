@@ -71,7 +71,7 @@ const PlayerStatsPage = ({ account }:{ account: AccountSchema | null}) => {
   useEffect(() => {
     if (account) {
       //Fetch player profile data
-      getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${account.pid}`, setPlayerData);
+      getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getdetailinfo/${account.pid}`, setPlayerData);
       //Fetch data for recent races
       getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`, setRecentRaces);
     }
@@ -104,7 +104,7 @@ const InfoPage = ({
     {name: "Wins", value: playerData.firstPlace},
     {name: "Fastest Time", value: formatTime(playerData.fastestTime)},
     {name: "Podium Finishes", value: playerData.podium},
-    {name: "Races", value: "???"},
+    {name: "Races", value: playerData.totalRaces},
     {name: "Wall Crashes", value: playerData.collisionWithWall}
   ];
 
@@ -122,11 +122,11 @@ const InfoPage = ({
   ];
 
   const characters = ["Morgan", "Reese", "Emma", "Kai", "Jamster", "Gim"];
-  const tracks = ["Outer Loop", "Dorm Room", "Golisano", "Brick Road"];
+  const tracks = ["Outer Loop", "Quarter Mile", "Golisano", "Brick Road", "Dorm Room"];
 
   const statsList3: Stat[] = [
     {name: "Favorite Character", value: characters[playerData.favoriteChara - 1]},
-    {name: "Favorite Track", value: "???"},
+    {name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1]},
   ];
 
   return (
