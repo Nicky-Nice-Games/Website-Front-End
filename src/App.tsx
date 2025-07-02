@@ -62,7 +62,7 @@ function App() {
         <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/news" element={<NewsAndUpdatesPage />} />
-        <Route path="/stats" element={<PlayerStatsPage />} />
+        <Route path="/stats" element={<PlayerStatsPage account={account}/>} />
         <Route path="/forumPost" element={<ForumPost />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/tracks" element={<TracksPage />} />

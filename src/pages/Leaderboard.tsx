@@ -4,25 +4,30 @@ import { DataTable } from "@/components/leaderboard/data-table"
 
 const LeaderboardPage = () => {
     const [mapId, setMapId] = useState(0);
+    const [mapName, setMapName] = useState("");
+    const [mapImage, setMapImage] = useState("")
 
-    useEffect(()=> {}, [mapId]);
+    useEffect(()=> {}, [mapId, mapImage]);
 
     if (mapId < 1) return <div className="text-center">
         <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">Leaderboard</h1>
         <h2 className="text-xl mb-8 font-semibold">Click a map to view its leaderboard</h2>
-        <MapSelect setMapId={setMapId} />
+        <MapSelect setMapId={setMapId} setMapName={setMapName} setMapImage={setMapImage} />
     </div>
 
-    return <div className="text-center max-w-8/10 m-auto">
+    return <div className={`${mapImage} pt-10 bg-slate-400 bg-cover bg-center bg-blend-soft-light`}>
+        <div className="text-center max-w-8/10 m-auto bg-[#FFF4] rounded-lg">
         <button onClick={() => setMapId(0)} className="absolute left-[10%] top-34 md:top-25 text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
             <h5 className="rotate-180 text-white">Back</h5>
         </button>
-        <h1 className="bebas text-black italic m-10 text-5xl">Leaderboard</h1>
+        <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
+        <h2 className="text-xl mb-2 font-semibold">{mapName}</h2>
         <LeaderboardTable mapId={mapId} />
     </div>
+    </div> 
 }
 
-const MapSelect = ({ setMapId }: {setMapId: Function}) => {
+const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, setMapName: Function, setMapImage: Function}) => {
     interface Track{
         name: string;
         imgLink: string;
@@ -49,7 +54,11 @@ const MapSelect = ({ setMapId }: {setMapId: Function}) => {
         {tracks.map(t => {
             return <div className="md:w-[45%] md:mx-4 mb-10">
                 <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto px-3 py-1 rounded-lg">{t.name}</h1>
-                <button onClick={() => setMapId(tracks.indexOf(t) + 1)} className="hover:brightness-125">
+                <button onClick={() => {
+                    setMapId(tracks.indexOf(t) + 1);
+                    setMapName(t.name);
+                    setMapImage(`bg-[url(${t.imgLink})]`)
+                }} className="hover:brightness-125">
                     <img src={t.imgLink} className="rounded-xl h-[30vh]"/>
                 </button>
             </div>
@@ -63,6 +72,7 @@ const LeaderboardTable = ({ mapId }: {mapId: number}) => {
     useEffect(() => {
         const getLeaderboardData = async (): Promise<any> => {
             const response: Response = await fetch("./data/leaderboard-data.json");
+            //const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/${mapId}`);
             let data = await response.json();
             data = data.sort((a: any, b: any) => a.player.raceTimeMilliseconds - b.player.raceTimeMilliseconds);  
             data.map((item: any) => {
