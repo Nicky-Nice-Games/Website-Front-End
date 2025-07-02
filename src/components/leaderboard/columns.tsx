@@ -52,14 +52,14 @@ export type Racer = {
 export const columns: ColumnDef<Racer>[] = [
   {
     accessorKey: "profile",
-    header: () => <h1 className="max-w-1"></h1>,
+    header: () => <h1></h1>,
     cell: ({ row }) => {
       if (!row.getValue("profile")) return;
       const isMobileDevice = useMediaQuery({maxWidth: 600}); 
         const data: Profile = row.getValue("profile");
         return <div className="flex flex-row items-center justify-center w-full">
             <h1 className="font-bold text-base md:text-xl mr-3">{formatPlacing(data.index)}</h1>
-            {isMobileDevice ? "" : <img src={data.pictureLink} className="max-w-9"/>}
+            {isMobileDevice ? "" : <img src={data.pictureLink} className="max-w-9 rounded-full  "/>}
         </div>
     }
   },
@@ -80,14 +80,18 @@ export const columns: ColumnDef<Racer>[] = [
           break;
       }
       return (
-    <Button
+        <div className="flex flex-row justify-between content-center">
+          <h1 className="md:text-base pt-2 md:pt-1.5">Player</h1>
+          <Button
           variant="ghost"
-          className="m-0 p-0"
+          className="m-0 p-0 right-align"
           onClick={() => column.toggleSorting(isSorted === "asc")}
         >
-          Player
+          Race Time
           {arrowIcon}
-        </Button>)},
+        </Button>
+        </div>
+    )},
     cell: ({ row }) => {
       if (!row.getValue("player")) return;
         const data: Player = row.getValue("player");
