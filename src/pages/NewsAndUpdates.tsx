@@ -220,8 +220,47 @@ const updates: Update[] = [
     subtitle: "Start of production",
     image: './assets/OIP.jpg',
     text: [
-      { type: "image", 
-        src: "./assets/OIP.jpg", }
+      {  type: "heading", level: 2, text: "Production Team"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Narrowing down the name of the game"},
+          { text: "Migrating Design Doc over to GitHub",
+            children: [
+              "Filled out more of the Lorem Ipsum in the design document"
+            ]
+          },
+          { text: "Met with teams, checking in on how they’re doing so far on the project"},
+          { text: "Josh tasks:",
+            children: [
+              "Worked on pitch presentation",
+              "Did a lot of meetings"
+            ]
+          },
+        ]
+      },
+      {
+        type: "heading", level: 2, text: "R&D Team"
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          {
+            text: "Cabinets design research finished",
+            children: [
+              "Design Inspiration",
+              "Best Practices",
+              "Seating options",
+              "Feedback hardware"
+            ]
+          },
+          { text: "Design sketches completed"},
+          { text: "World-scale 3D models finished"},
+        ]
+      },
+      { type: "image", src: './assets/blog-image-1.png'}
     ]
   }
 ];
@@ -354,62 +393,56 @@ const NewsAndUpdatesPage = () => {
                       className="w-full object-cover object-top"
                     />
                   </motion.div>
-                  <div className="p-6">
-                    <div className="flex flex-row justify-between">
-                      <motion.h3
-                        layoutId={`title-${active.title}-${id}`}
-                        className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
-                      >
-                        {active.title}
-                      </motion.h3>
+                  <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                    <motion.h3
+                      layoutId={`title-${active.title}-${id}`}
+                      className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
+                    >
+                      {active.title}
+                    </motion.h3>
 
-                      <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
-                        {active.text.map((block, i) => {
-                          if (block.type === "paragraph") {
-                            return <p key={i}>{block.text}</p>;
-                          }
+                    <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
+                      {active.text.map((block, i) => {
+                        if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
 
-                          if (block.type === "heading") {
-                            const HeadingTag = `h${block.level || 2}` as any;
-                            return (
-                              <HeadingTag
-                                key={i}
-                                className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                              >
-                                {block.text}
-                              </HeadingTag>
-                            );
-                          }
+                        if (block.type === "heading") {
+                          const HeadingTag = `h${block.level || 2}` as any;
+                          return (
+                            <HeadingTag
+                              key={i}
+                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                            >
+                              {block.text}
+                            </HeadingTag>
+                          );
+                        }
 
-                          if (block.type === "list") {
-                            const ListTag = block.ordered ? "ol" : "ul";
-                            return (
-                              <ListTag
-                                key={i}
-                                className={`${block.ordered ? "list-decimal" : "list-disc"
-                                  } list-inside pl-4 space-y-1`}
-                              >
-                                <RecursiveList items={block.items ?? []} ordered={block.ordered} />
-                              </ListTag>
-                            );
-                          }
+                        if (block.type === "list") {
+                          const ListTag = block.ordered ? "ol" : "ul";
+                          return (
+                            <ListTag
+                              key={i}
+                              className={`${block.ordered ? "list-decimal" : "list-disc"} list-inside pl-4 space-y-1`}
+                            >
+                              <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                            </ListTag>
+                          );
+                        }
 
-                          if (block.type === "image") {
-                            return (
-                              <div key={i} className="my-4">
-                                <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
-                                {block.caption && (
-                                  <p className="text-sm text-center text-neutral-500 mt-1 italic">
-                                    {block.caption}
-                                  </p>
-                                )}
-                              </div>
-                            );
-                          }
-
-                          return null;
-                        })}
-                      </div>
+                        if (block.type === "image") {
+                          return (
+                            <div key={i} className="my-4">
+                              <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                              {block.caption && (
+                                <p className="text-sm text-center text-neutral-500 mt-1 italic">
+                                  {block.caption}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
                     </div>
                   </div>
                 </>
@@ -426,69 +459,58 @@ const NewsAndUpdatesPage = () => {
                       className="w-full h-full object-cover object-top rounded-xl"
                     />
                   </motion.div>
-                  <div className="p-6 h-fit">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="flex flex-row justify-between">
-                          <motion.h3
-                            layoutId={`title-${active.title}-${id}`}
-                            className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
-                          >
-                            {active.title}
-                          </motion.h3>
+                  <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                    <motion.h3
+                      layoutId={`title-${active.title}-${id}`}
+                      className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
+                    >
+                      {active.title}
+                    </motion.h3>
 
-                          <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
-                            {active.text.map((block, i) => {
-                              if (block.type === "paragraph") {
-                                return <p key={i}>{block.text}</p>;
-                              }
+                    <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
+                      {active.text.map((block, i) => {
+                        if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
 
-                              if (block.type === "heading") {
-                                const HeadingTag = `h${block.level || 2}` as any;
-                                return (
-                                  <HeadingTag
-                                    key={i}
-                                    className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                                  >
-                                    {block.text}
-                                  </HeadingTag>
-                                );
-                              }
+                        if (block.type === "heading") {
+                          const HeadingTag = `h${block.level || 2}` as any;
+                          return (
+                            <HeadingTag
+                              key={i}
+                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                            >
+                              {block.text}
+                            </HeadingTag>
+                          );
+                        }
 
-                              if (block.type === "list") {
-                                const ListTag = block.ordered ? "ol" : "ul";
-                                return (
-                                  <ListTag
-                                    key={i}
-                                    className={`${block.ordered ? "list-decimal" : "list-disc"
-                                      } list-inside pl-4 space-y-1`}
-                                  >
-                                    <RecursiveList items={block.items ?? []} ordered={block.ordered} />
-                                  </ListTag>
-                                );
-                              }
+                        if (block.type === "list") {
+                          const ListTag = block.ordered ? "ol" : "ul";
+                          return (
+                            <ListTag
+                              key={i}
+                              className={`${block.ordered ? "list-decimal" : "list-disc"} list-inside pl-4 space-y-1`}
+                            >
+                              <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                            </ListTag>
+                          );
+                        }
 
-                              if (block.type === "image") {
-                                return (
-                                  <div key={i} className="my-4">
-                                    <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
-                                    {block.caption && (
-                                      <p className="text-sm text-center text-neutral-500 mt-1 italic">
-                                        {block.caption}
-                                      </p>
-                                    )}
-                                  </div>
-                                );
-                              }
-
-                              return null;
-                            })}
-                          </div>
-                        </div>
-                      </div>
+                        if (block.type === "image") {
+                          return (
+                            <div key={i} className="my-4">
+                              <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                              {block.caption && (
+                                <p className="text-sm text-center text-neutral-500 mt-1 italic">
+                                  {block.caption}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
                     </div>
                   </div>
-
                 </>
               )}
             </motion.div>
