@@ -53,6 +53,7 @@ const ContentPage = () => {
   );
 };
 
+
 interface ContentNavigatorProps {
   currentPage: string;
 }
@@ -121,13 +122,17 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
   );
 };
 
+//Items Page - displays in-game items and their abilities in a grid list
 const ItemsPage = () => {
+
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<
     { name: string; description: string; imgUrl: string } | boolean | null
   >(null);
+
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
+
 
   useEffect(() => {
     // close pop up on Escape key
@@ -151,7 +156,7 @@ const ItemsPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
-  // sample list of items to display
+  //list of items to display
   const items = [
     {
       imgUrl: "images/content-assets/rocket_boost.png",
@@ -279,11 +284,15 @@ const ItemsPage = () => {
                 ref={ref}
                 className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
               >
+
+                {/*Shows Information used to create layout of item*/}
                 <motion.div
                   layoutId={`image-${active.name}-${id}`}
                   className="flex justify-center bg-[url(images/card-background.png)] p-8"
                 >
                   <div className="m-3"></div>
+
+                  {/*Image of character*/}
                   <img
                     width={200}
                     height={200}
@@ -291,6 +300,7 @@ const ItemsPage = () => {
                     alt={active.name}
                     className="w-60 h-64 object-contain"
                   />
+
                   <motion.button
                     key={`button-${active.name}-${id}`}
                     layout
@@ -304,7 +314,7 @@ const ItemsPage = () => {
                   </motion.button>
                 </motion.div>
 
-
+                {/*Bottom half of the item card - has info and name of item*/}
                 <div className="p-4 bg-[url(images/bottom-card.png)]">
                   <div className="flex justify-between items-start">
                     <div className="w-full">
@@ -328,6 +338,7 @@ const ItemsPage = () => {
           ) : null}
         </AnimatePresence>
 
+
         {/* grid of items */}
         <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
           {items.map((item) => (
@@ -337,6 +348,7 @@ const ItemsPage = () => {
               onClick={() => setActive(item)} // open item pop up
               className="cursor-pointer"
             >
+              {/*Sizes of items that are in the grid */}
               <motion.div layoutId={`image-${item.name}-${id}`}>
                 <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
                   <img
@@ -447,6 +459,8 @@ const CharactersPage = () => {
   return (
     <>
       <ContentNavigator currentPage={"characters"} />
+
+      {/*Header of characters page*/}
       <div className="px-8">
         <h2
           className=" 
@@ -560,6 +574,7 @@ const CharactersPage = () => {
   );
 };
 
+//Track Interface with needed information
 interface Track {
   imgUrl: string;
   name: string;
@@ -593,7 +608,10 @@ const tracks: Array<Track> = [
   },
 ];
 
+//Tracks Page - Sub Page of Content
 const TracksPage = () => {
+
+  //different information used to create page
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -618,8 +636,10 @@ const TracksPage = () => {
     setDescription(tracks[currentTrack].description);
   }, [current]);
 
+  //information of heading and track carasoul
   return (
     <>
+    {/*This is the header and description of each item*/}
       <ContentNavigator currentPage="tracks" />
       <div className="h-full flex flex-col-reverse md:flex-row">
         <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
@@ -657,6 +677,8 @@ const TracksPage = () => {
                 );
               })}
             </CarouselContent>
+
+            {/*This shows how many tracks you are on and what track is the current one*/}
             <div className="flex flex-row justify-center">
               <CarouselPrevious />
               <div className="text-center text-xl px-4">
