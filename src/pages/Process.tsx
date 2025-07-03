@@ -100,8 +100,7 @@ const ProcessPage = () => {
             <img
               src={photo}
               alt="Picture of RIT"
-              className="mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end 
-                    md:w-[400px] w-1/4"
+              className="mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-1/4"
             />
             <p className="">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
@@ -121,7 +120,7 @@ const ProcessPage = () => {
             </p>
           </div>
           <div className="flex md:flex-row flex-col items-stretch">
-            <p className="">
+            <p className="mr-8">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
               donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu.
               Dui elementum neque lacus cursus lacus sem convallis enim.

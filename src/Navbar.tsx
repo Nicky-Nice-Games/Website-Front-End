@@ -335,11 +335,11 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className={`bebas bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}
+      className={`bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
-        <NavigationMenuLink className={`max-w-14 ${navbarButton} md:ml-4`}>
+        <NavigationMenuLink className={`max-w-13 h-12 ${navbarButton} md:ml-4`}>
           <button
             className="cursor-pointer"
             onClick={() => {
@@ -350,7 +350,7 @@ const Navbar = ({
           >
             <img
               src="./images/content-assets/tempLogo.png"
-              className="max-w-10"
+              className="max-w-9 relative bottom-1"
             />
           </button>
         </NavigationMenuLink>

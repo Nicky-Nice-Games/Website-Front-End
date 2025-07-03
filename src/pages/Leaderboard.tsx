@@ -22,7 +22,7 @@ const LeaderboardPage = () => {
     // Renders when a map has been chosen
     return <div className={`${mapImage} pt-10 bg-gray-400 bg-cover bg-center bg-blend-soft-light`}>
         <div className="text-center max-w-8/10 m-auto bg-[#FFF4] rounded-lg">
-        <button onClick={() => setMapId(0)} className="absolute left-[10%] top-34 md:top-25 text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
+        <button onClick={() => setMapId(0)} className="absolute left-[11%] top-34 md:top-25 text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
             <h5 className="rotate-180 text-white">Back</h5>
         </button>
         <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
@@ -46,7 +46,7 @@ const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, s
         },
         {
             name: "Quarter Mile",
-            imgLink: "images/content-assets/QrterMile.png"
+            imgLink: "images/placeholder.PNG"
         },
         {
             name: "Golisano",
@@ -58,14 +58,14 @@ const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, s
         },
         {
             name: "RIT Dorm Room",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/content-assets/dorm.png"
         }
     ]
 
     return <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center">
         {tracks.map(t => {
             return <div className="md:w-[45%] md:mx-4 mb-10">
-                <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto px-3 py-1 rounded-lg">{t.name}</h1>
+                <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto mb-2 px-3 py-1 rounded-lg">{t.name}</h1>
                 <button onClick={() => {
                     setMapId(tracks.indexOf(t) + 1);                    // Add to the index, as the map id starts with 1 in backend
                     setMapName(t.name);
@@ -83,8 +83,8 @@ const LeaderboardTable = ({ mapId }: {mapId: number}) => {
 
     useEffect(() => {
         const getLeaderboardData = async (): Promise<any> => {
-            //const response: Response = await fetch("./data/leaderboard-data.json");
-            const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=${mapId}`);
+            const response: Response = await fetch("./data/leaderboard-data.json");
+            //const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=${mapId}`);
             let data = await response.json();
             data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);  
             data.map((item: any) => {

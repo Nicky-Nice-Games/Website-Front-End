@@ -31,9 +31,9 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         color:string;
     };
 
-    const PlacementVariants = {
-        first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
-    }
+    // const PlacementVariants = {
+    //     first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
+    // }
     
    function Score({ place, imgPath, name, time, score, color}:ScoreProps) {
     return (
