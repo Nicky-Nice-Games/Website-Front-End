@@ -89,10 +89,10 @@ const AboutUsPage = () => {
 
     function Person({ name, position, email, image }: PersonProps) {
         return (
-            <div className="m-4 w-[200px] rounded-md bg-orange-100">
-                <img src={image} alt={`Photo of ${name}`} className="h-[200px] rounded-md" />
+            <div className="m-4 w-[200px] rounded-md p-1 bg-[url(images/tabs-card.png)]">
+                <img src={image} alt={`Photo of ${name}`} className="h-[200px] p-2 rounded-md" />
                 <p className="person-name font-bold">{name}</p>
-                <p className="person-position">{position}</p>
+                <p className="person-position px-2">{position}</p>
                 <p className="person-email">{email}</p>
             </div>
         );
@@ -102,7 +102,7 @@ const AboutUsPage = () => {
         <main className='m-8'>
             <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1>
             <div className='flex flex-column items-center w-full text-center'>
-                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-[url(images/tab-bg.png)] m-auto">
+                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-orange-100 m-auto">
 
                     <TabsList className='w-full flex-wrap flex-column h-full'>
                         <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
