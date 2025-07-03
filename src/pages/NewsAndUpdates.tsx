@@ -217,7 +217,7 @@ const updates: Update[] = [
     id: 2,
     title: "Week 2",
     date: "6/1/2025",
-    subtitle: "Start of production",
+    subtitle: "Continued production",
     image: './assets/OIP.jpg',
     text: [
       { type: "heading", level: 2, text: "Production Team" },
@@ -403,6 +403,99 @@ const updates: Update[] = [
       },
       { type: "image",
         src: "./assets/blog-image-8.png"
+      },
+      { 
+        type: "list",
+        ordered: false,
+        items: [{ text: "Beginning to model characters/karts"}]
+      },
+      { type: "image", src: "./assets/blog-image-9.png"},
+      { type: "image", src: "./assets/blog-image-10.png"},
+      { type: "image", src: "./assets/blog-image-11.png"},
+      { 
+        type: "list",
+        ordered: false,
+        items: [{ text: "Menus (order of start menu, player select, backsplash)"}]
+      },
+      { type: "image", src: "./assets/blog-image-12.png"},
+      { type: "image", src: "./assets/blog-image-13.jpg"},
+      { type: "image", src: "./assets/blog-image-14.png"},
+      { type: "paragraph", text: "What else to include:"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Bug Fixes",
+            children: ["We learned that importing rigged models from Maya to Blender messes up the rig! So we’re just going to rig and animate models in Blender from now on."]
+          }
+        ]
+      },
+      { type: "image", src: "./assets/blog-image-15.png"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Possible additions related to the development process/timeline for your team",
+            children: ["We are deciding between two designs for the IGM mascot! They’ll be the 6th character"]
+          }
+        ]
+      },
+      { type: "image", src: "./assets/blog-image-16.png"},
+      { type: "image", src: "./assets/blog-image-17.png"},
+      { type: "heading", level: 2, text: "Level Design Team"},
+      { type: "paragraph", text: "Sketching"},
+      { type: "image", src: "./assets/blog-image-18.png"},
+      { type: "image", src: "./assets/blog-image-19.png"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Golisano Hall (3 floors)",}
+        ]
+      },
+      { type: "paragraph", text: "Greyboxing Progress (as of 3:16, 6/5/25)"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Finished prototypes for:",}
+        ]
+      },
+      { type: "image", src: "./assets/blog-image-20.png"},
+      { type: "paragraph", text: "Outer Loop"},
+      { type: "image", src: "./assets/blog-image-21.png"},
+      { type: "paragraph", text: "Quarter Mile"},
+      { type: "image", src: "./assets/blog-image-22.png"},
+      { type: "paragraph", text: "Golisano Hall"},
+      { type: "image", src: "./assets/blog-image-23.png"},
+      { type: "paragraph", text: "Finals Brick Road"},
+      { type: "image", src: "./assets/blog-image-24.png"},
+      { type: "paragraph", text: "SHED"},
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Detailed track layout in Unity for:",
+            children: [
+              "Outer Loop (see above)",
+              "SHED (see above)"
+            ]
+          }
+        ]
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { text: "Completed One Pagers for:",
+            children: [
+              "Finals Brick Road",
+              "Outer Loop",
+              "Golisano Hall"
+            ]
+          },
+          { text: "Met with Content and GSP teams to discuss levels and contents for the levels"}
+        ]
       },
     ]
   }
