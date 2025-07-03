@@ -18,7 +18,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
   const photo: string = '/web/images/placeholder.PNG';
-  const arcadeMachine = '/web/images/arcade machine.png'
+  const arcadeMachine = '/web/images/arcade machine 2.png'
 
   const navigate = useNavigate();
 
@@ -28,18 +28,23 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         name: string;
         time: string;
         score: string
+        color:string;
     };
 
-   function Score({ place, imgPath, name, time, score }:ScoreProps) {
+    const PlacementVariants = {
+        first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
+    }
+    
+   function Score({ place, imgPath, name, time, score, color}:ScoreProps) {
     return (
-        <div className="h-1/4 w-[100%] m-[2rem] flex gap-[4vw] items-center">
-        <h3>{place}</h3>
-        <img src={imgPath} alt={`Photo of ${name}`} className="w-[50px] h-[50px] rounded-full"/>
-        <p className="m-4">{name}</p>
-        <div className="ml-auto flex gap-4">
-            <p className="m-4">{time}</p>
-            <p className="m-4">{score}</p>
-        </div> 
+        <div className="h-1/7 w-[100%] m-[1rem] flex gap-[2vw] md:gap-[4vw] items-center text-white">
+        <h3 className={`graffiti text-[40px] md:text-[60px] ${color}`}>{place}</h3>
+        <img src={imgPath} alt={`Photo of ${name}`} className="hidden md:block w-[60px] outline-[5px] outline-[#38bdf8] h-[60px] rounded-full ml-auto" />
+        <p className="ml-auto md:m-2 bebas text-[30px] md:text-[40px]">{name}</p>
+        <div className="ml-auto flex-wrap md:gap-4 gap-1">
+            <p className="m-0 bebas text-[20px]">time: {time}</p>
+            <p className="m-0 bebas text-[20px]">score: {score}</p>
+        </div>
         </div>
     );
     }
@@ -118,8 +123,16 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
-                <button className="cursor-pointer absolute z-2 bottom-[4rem] md:right-[4rem] right-[10rem] bg-black/75 hover:bg-[#AA3300] p-[1rem] text-white" onClick={() => {window.scrollTo({ top: 0, behavior: "instant" }); navigate('/news'); setCurrentPage('news')}}>
-                    <h3>See all news and updates!</h3>                
+                <button className="cursor-pointer absolute bottom-[4rem] md:right-[4rem] right-[10rem] w-[300px]
+                p-[1rem] text-white transform transition duration-300 hover:-translate-y-2 z-2"
+                onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                    navigate('/news');
+                    setCurrentPage('news');
+                }}
+                >
+                    <h3 className=" relative z-3 font-medium text-white dark:text-neutral-200">See all news and updates!</h3>
+                    <img src='/web/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
                 </button>
                 
                 <Carousel
@@ -145,13 +158,15 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
 
             <main className="overflow-hidden">
-                <div className="mb-[8rem] mt-[4rem]">
+                <div className=" mt-[4rem]">
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
                     </div>
                 </div>
                 
-                <div id="introdcution" className="w-full pl-[2rem] pr-[2rem] w-[100%]">
+                <div id="introdcution" className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
+                    bg-repeat"
+                    style={{ backgroundImage: "url('/web/images/white checker.png')" }} >
                     <h2 className="text-[26px] m-4">Game Overview</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -170,7 +185,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         alt="Photo of arcade machines"
                     />
                 </div>
-                <div className="mb-[12rem] mt-[4rem]">
+                <div className="mb-[12rem] bg-repeat"
+                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
 
@@ -187,58 +203,81 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         Odio ultriceset arcu neque neque viverra faucibus faucibus. Pellentesque aliquam tellus molestie sed quis sem a. Quam eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
                     </p>
                 </div>
-                <div className="mb-[2rem] mt-[12rem]">
-                    <div className="overflow-hidden -rotate-6 w-[100%] h-[300px] m-[0rem] origin-bottom-left flex">
-                        <InfiniteMovingCards items={bannerImages2} direction="left" speed="verySlow"></InfiniteMovingCards>
-
-                    </div>
+                <div
+                className="mt-[12rem] relative bg-center bg-no-repeat 2xl:bg-cover"
+                style={{ backgroundImage: "url('/web/images/black checker.png')" }}
+                >
+                <div className="overflow-hidden -rotate-6 w-full h-[300px] m-0 origin-bottom-left flex">
+                    <InfiniteMovingCards items={bannerImages2} direction="left" speed="verySlow" />
                 </div>
-                <div id="topscores" className="relative flex flex-col justify-center items-center">
-                    <h2 className="text-[26px] m-4">Top Scores</h2>
-                    <img src={arcadeMachine} className="top-0 z-0 h-[800px] w-[70%] max-[700px]:w-[100%]"></img>
+                </div>
+                <div
+                    className="pt-[2rem] w-[100%] relative bg-center bg-no-repeat 2xl:bg-cover"
+                    style={{ backgroundImage: "url('/web/images/black checker.png')" }}
+                >
+                    <div id="topscores" className="relative flex flex-col justify-center items-center">
+                    <img src={arcadeMachine} className="top-0 z-0 w-[60%] h-[900px] max-[700px]:w-[100%]"></img>
                     <div id="scoreboard" 
-                    className="absolute top-[14%] 
+                    className="absolute top-[27%] 
                     w-[37%] max-[700px]:w-[60%] h-[500px] 
-                    flex flex-col justify-center items-center m-[2rem] z-10">
+                    flex flex-col items-center m-[2rem] z-10">
                         <Score 
                         place="1st"      
                         imgPath={photo}
                         name="name"
                         time="0"
-                        score="0">
+                        score="0"
+                        color="text-[#facc15]">
                         </Score>
                         <Score 
                         place="2nd"      
                         imgPath={photo}
                         name="name"
                         time="0"
-                        score="0">
+                        score="0"
+                        color="text-[#cbd5e1]">
                         </Score>
                         <Score 
                         place="3rd"      
                         imgPath={photo}
                         name="name"
                         time="0"
-                        score="0">
+                        score="0"
+                        color="text-[#fdba74]">
                         </Score>
                         <Score 
                         place="4th"      
                         imgPath={photo}
                         name="name"
                         time="0"
-                        score="0">
+                        score="0"
+                        color="text-[#f59e0b]">
                         </Score>
                     </div>
-                    <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-[100%] p-[1rem] text-white text-center">
-                        
-                        <button className="cursor-pointer hover:bg-[#DD3300]" onClick={() => {window.scrollTo({ top: 0, behavior: "instant" }); navigate('/leaderboard'); setCurrentPage('leaderboard')}}>
-                            <p className="m-4">See all scores!</p>
+                    <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-full p-4 text-white text-center">
+                        <button
+                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:-translate-y-2"
+                            onClick={() => {
+                            window.scrollTo({ top: 0, behavior: "instant" });
+                            navigate('/leaderboard');
+                            setCurrentPage('leaderboard');
+                            }}
+                        >
+                            <h3 className="relative z-10 font-medium text-white dark:text-neutral-200">
+                            See all scores!
+                            </h3>
+                            <img
+                            src="/web/images/arrow.png"
+                            className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
+                            />
                         </button>
-                        
                     </div>
-                </div>
 
-            </main>            
+                </div>
+            </div>
+                
+
+        </main>            
         </>  
     );
 }

@@ -1,9 +1,10 @@
 /*import { useState } from 'react';*/
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LoginPage from "./pages/Login";
-import SignupPage from "./pages/Signup";
-import AboutPage from "./pages/About";
+import LoginPage from './pages/Login';
+import SignupPage from './pages/Signup';
+import AboutUsPage from './pages/AboutUs';
+import ProcessPage from './pages/Process';
 import {
   ContentPage,
   CharactersPage,
@@ -62,35 +63,22 @@ function App() {
 
       <div className="min-h-[80vh]">
         <Routes>
-          <Route
-            path="/login"
-            element={<LoginPage setAccount={setAccount} />}
-          />
-          <Route
-            path="/signup"
-            element={<SignupPage setAccount={setAccount} />}
-          />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/content" element={<ContentPage />} />
-          <Route path="/forum" element={<ForumPage />} />
-          <Route
-            path="/home"
-            element={<HomePage setCurrentPage={setCurrentPage} />}
-          />
-          <Route path="/leaderboard" element={<LeaderboardPage />} />
-          <Route path="/news" element={<NewsAndUpdatesPage />} />
-          <Route
-            path="/stats"
-            element={
-              <PlayerStatsPage account={account} setAccount={setAccount} />
-            }
-          />
-          <Route path="/forumPost" element={<ForumPost />} />
-          <Route path="/characters" element={<CharactersPage />} />
-          <Route path="/tracks" element={<TracksPage />} />
-          <Route path="/items" element={<ItemsPage />} />
-          <Route path="*" element={<NoPage />}></Route>
-        </Routes>
+        <Route path="/login" element={<LoginPage setAccount={setAccount}/>} />
+        <Route path="/signup" element={<SignupPage setAccount={setAccount}/>} />
+        <Route path="/aboutUs" element={<AboutUsPage />} />
+        <Route path="/process" element={<ProcessPage/>}/>
+        <Route path="/content" element={<ContentPage />} />
+        <Route path="/forum" element={<ForumPage />} />
+        <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/news" element={<NewsAndUpdatesPage />} />
+        <Route path="/stats" element={<PlayerStatsPage account={account} setAccount={setAccount}/>} />
+        <Route path="/forumPost" element={<ForumPost />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/tracks" element={<TracksPage />} />
+        <Route path="/items" element={<ItemsPage />} />
+        <Route path="*" element={<NoPage/>}></Route>
+      </Routes>
       </div>
       <Footer />
     </Router>
