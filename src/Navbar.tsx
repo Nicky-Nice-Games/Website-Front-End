@@ -343,7 +343,7 @@ const Navbar = ({
           <button
             className="cursor-pointer"
             onClick={() => {
-                scrollToTop();
+              scrollToTop();
               navigate("/home");
               setCurrentPage("home");
             }}
@@ -358,7 +358,7 @@ const Navbar = ({
       {/*Center: Main navigation list. Depends on screen width.*/}
       {isMobileDevice ? mobileNavList : pcNavList}
       {/*Right side: Login button or profile dropdown, depending on whether you're logged in.*/}
-      { loginNavbarItem }
+      {profileDropdown}
     </NavigationMenu>
   );
 };
