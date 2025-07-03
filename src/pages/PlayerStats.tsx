@@ -1,50 +1,65 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { AccountSchema } from "@/App";
-import { millisecondsToSeconds } from "framer-motion"
+import { millisecondsToSeconds } from "framer-motion";
 
 //#region Helper Functions
 
+// Convert milliseconds to formatted "MM:SS:MS" string
 const formatTime = (milliseconds: number): string => {
-    let seconds = millisecondsToSeconds(milliseconds);
-    let minutes = Math.floor(seconds / 60);
-    milliseconds %= 1000;
-    seconds %= 60
+  // Convert to total seconds
+  let seconds = millisecondsToSeconds(milliseconds);
 
-    const formattedMilliseconds = String(milliseconds).padStart(3, '0');
-    const formattedSeconds = String(Math.floor(seconds)).padStart(2, '0');
-    const formattedMinutes = String(minutes).padStart(2, '0');
+  // Compute whole minutes
+  let minutes = Math.floor(seconds / 60);
 
-    return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
-}
+  // Keep only the leftover milliseconds and seconds
+  milliseconds %= 1000;
+  seconds %= 60;
 
+  // Pad each part to fixed width
+  const formattedMilliseconds = String(milliseconds).padStart(3, "0");
+  const formattedSeconds = String(Math.floor(seconds)).padStart(2, "0");
+  const formattedMinutes = String(minutes).padStart(2, "0");
+
+  // Return "MM:SS:MS"
+  return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
+};
+
+// Fetch JSON from a URL and pass it to a callback
 const getData = (url: string, callback: Function) => {
+  // Internal async function to fetch and parse
   const fetchData = async (): Promise<any> => {
     const response: Response = await fetch(url);
     const playerData = await response.json();
     return playerData;
-  }
+  };
 
+  // Call fetch and handle the promise
   const playerData = fetchData();
-  playerData.then(data => {
-    callback(data)
+  playerData.then((data) => {
+    callback(data);
   });
-  playerData.catch(err => {
+  playerData.catch((err) => {
     console.log(err);
     return false;
-  })
-}
+  });
+};
 
 interface ItemsUsedObject {
-  [propName: string]: number;
+  [propName: string]: number; // Map item names to counts
 }
 
+// Sum all values in an items-used map
 const sumItemsUsed = (itemsUsedObject: ItemsUsedObject): number => {
   let totalItemsUsed = 0;
-  Object.values(itemsUsedObject).forEach(i => { totalItemsUsed += i;})
+  Object.values(itemsUsedObject).forEach((i) => {
+    totalItemsUsed += i; // Add each count
+  });
   return totalItemsUsed;
-}
+};
 
+// Calculate total items used across all categories
 const getTotalItemsUsed = (playerData: any): number => {
   return (
     sumItemsUsed(playerData.offenseUsage) +
@@ -52,38 +67,67 @@ const getTotalItemsUsed = (playerData: any): number => {
     sumItemsUsed(playerData.boostUsage) +
     sumItemsUsed(playerData.defenseUsage)
   );
-}
+};
 
-const checkAchievementProgress = (stat: number, milestones: number[]): boolean[] => {
-  let achievementStatus:boolean[] = [];
-  for (let i = 0; i < milestones.length; i++){
+// For a stat and list of milestones, return array of booleans
+// indicating which milestones have been reached
+const checkAchievementProgress = (
+  stat: number,
+  milestones: number[]
+): boolean[] => {
+  let achievementStatus: boolean[] = [];
+  for (let i = 0; i < milestones.length; i++) {
     achievementStatus.push(stat >= milestones[i]);
   }
   return achievementStatus;
-}
+};
 //#endregion
 
-const PlayerStatsPage = ({ account }:{ account: AccountSchema | null}) => {
+const PlayerStatsPage = ({ account }: { account: AccountSchema | null }) => {
+  // Track which tab is currently active: "info" or "achievements"
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
+  // Store fetched player statistics
   const [playerData, setPlayerData] = useState(null);
+  // Store a list of the player's most recent races
   const [recentRaces, setRecentRaces] = useState(null);
 
   useEffect(() => {
     if (account) {
       //Fetch player profile data
-      getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${account.pid}`, setPlayerData);
+      getData(
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${account.pid}`,
+        setPlayerData
+      );
       //Fetch data for recent races
-      getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`, setRecentRaces);
+      getData(
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`,
+        setRecentRaces
+      );
     }
   }, []);
 
-  if (!playerData || !account) return <h1 className="bebas text-center font-black text-5xl mt-8">No Data Found!</h1>
+  //If no player data is found the text below appears
+  if (!playerData || !account)
+    return (
+      <h1 className="bebas text-center font-black text-5xl mt-8">
+        No Data Found!
+      </h1>
+    );
 
   if (activeTab === "achievements") {
-    return <AchievementsPage playerData={playerData} setActiveTab={setActiveTab} />;
+    return (
+      <AchievementsPage playerData={playerData} setActiveTab={setActiveTab} />
+    );
   }
 
-  return <InfoPage playerData={playerData} recentRaces={recentRaces} setActiveTab={setActiveTab}  />;
+  //Info Page
+  return (
+    <InfoPage
+      playerData={playerData}
+      recentRaces={recentRaces}
+      setActiveTab={setActiveTab}
+    />
+  );
 };
 
 const InfoPage = ({
@@ -91,21 +135,21 @@ const InfoPage = ({
   recentRaces,
   setActiveTab,
 }: {
-  playerData: any,
-  recentRaces: any,
+  playerData: any;
+  recentRaces: any;
   setActiveTab: (tab: "info" | "achievements") => void;
 }) => {
   interface Stat {
-    name: string
-    value: string | number
+    name: string;
+    value: string | number;
   }
 
-  const statsList1: Stat[] = [ 
-    {name: "Wins", value: playerData.firstPlace},
-    {name: "Fastest Time", value: formatTime(playerData.fastestTime)},
-    {name: "Podium Finishes", value: playerData.podium},
-    {name: "Races", value: "???"},
-    {name: "Wall Crashes", value: playerData.collisionWithWall}
+  const statsList1: Stat[] = [
+    { name: "Wins", value: playerData.firstPlace },
+    { name: "Fastest Time", value: formatTime(playerData.fastestTime) },
+    { name: "Podium Finishes", value: playerData.podium },
+    { name: "Races", value: "???" },
+    { name: "Wall Crashes", value: playerData.collisionWithWall },
   ];
 
   const offenseUsed = sumItemsUsed(playerData.offenseUsage);
@@ -114,19 +158,22 @@ const InfoPage = ({
   const boostsUsed = sumItemsUsed(playerData.boostUsage);
 
   const statsList2: Stat[] = [
-    {name: "Item-Based Hits", value: offenseUsed + trapsUsed},
-    {name: "Offensive Items Used", value: offenseUsed},
-    {name: "Defensive Items Used", value: defenseUsed},
-    {name: "Traps Used", value: trapsUsed},
-    {name: "Boosts Used", value: boostsUsed}
+    { name: "Item-Based Hits", value: offenseUsed + trapsUsed },
+    { name: "Offensive Items Used", value: offenseUsed },
+    { name: "Defensive Items Used", value: defenseUsed },
+    { name: "Traps Used", value: trapsUsed },
+    { name: "Boosts Used", value: boostsUsed },
   ];
 
   const characters = ["Morgan", "Reese", "Emma", "Kai", "Jamster", "Gim"];
   const tracks = ["Outer Loop", "Dorm Room", "Golisano", "Brick Road"];
 
   const statsList3: Stat[] = [
-    {name: "Favorite Character", value: characters[playerData.favoriteChara - 1]},
-    {name: "Favorite Track", value: "???"},
+    {
+      name: "Favorite Character",
+      value: characters[playerData.favoriteChara - 1],
+    },
+    { name: "Favorite Track", value: "???" },
   ];
 
   return (
@@ -229,10 +276,12 @@ const InfoPage = ({
           <h2 className="ml-4 mb-2 text-lg font-semibold">Recent Races</h2>
           <div className="space-y-2 px-4">
             {recentRaces.map((race: any) => {
-              return <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>{tracks[race.mapRaced - 1]}</span>
-              <span>{formatTime(race.raceTime)}</span>
-            </div>
+              return (
+                <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
+                  <span>{tracks[race.mapRaced - 1]}</span>
+                  <span>{formatTime(race.raceTime)}</span>
+                </div>
+              );
             })}
           </div>
         </Card>
@@ -297,11 +346,13 @@ const InfoPage = ({
   );
 };
 
+//Props needed for the achievements page
 type AchievementsPageProps = {
-  playerData: any
+  playerData: any;
   setActiveTab: (tab: "info" | "achievements") => void;
 };
 
+// Achievements Page
 export const AchievementsPage = ({
   playerData,
   setActiveTab,
@@ -310,22 +361,35 @@ export const AchievementsPage = ({
   const hexagonClip =
     "polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)";
 
-
+  // Load data needed from back end API
   const firstPlaceFinishes = playerData.firstPlace;
   const top3Finishes = playerData.podium;
-  const totalRaces = 250 //Currently not in the backend
+  const totalRaces = 250; //Currently not in the backend
   const itemsUsed = getTotalItemsUsed(playerData);
 
-  const firstPlaceAchievements = checkAchievementProgress(firstPlaceFinishes, [1, 10, 25, 50, 100]);
-  const top3Achievements = checkAchievementProgress(top3Finishes, [1, 25, 50, 100, 200]);
-  const totalRaceAchievements = checkAchievementProgress(totalRaces, [1, 25, 50, 100, 250]);
-  const itemsUsedAchievements = checkAchievementProgress(itemsUsed, [25, 75, 150, 200, 350]);
-  
+  const firstPlaceAchievements = checkAchievementProgress(
+    firstPlaceFinishes,
+    [1, 10, 25, 50, 100]
+  );
+  const top3Achievements = checkAchievementProgress(
+    top3Finishes,
+    [1, 25, 50, 100, 200]
+  );
+  const totalRaceAchievements = checkAchievementProgress(
+    totalRaces,
+    [1, 25, 50, 100, 250]
+  );
+  const itemsUsedAchievements = checkAchievementProgress(
+    itemsUsed,
+    [25, 75, 150, 200, 350]
+  );
+
+  // Types of achievements
   const achievementSections = [
     { name: "1st Place Finishes", progress: firstPlaceAchievements },
     { name: "Podium Finishes", progress: top3Achievements },
     { name: "Races", progress: totalRaceAchievements },
-    { name: "Items Collected", progress: itemsUsedAchievements }
+    { name: "Items Collected", progress: itemsUsedAchievements },
   ];
 
   // Achievement names and colors
@@ -456,9 +520,12 @@ export const AchievementsPage = ({
               key={section.name}
               className="p-4 md:p-6 mb-6 md:mb-8 mr-2 ml-2 md:mr-4 md:ml-4 border-2 border-white rounded-md"
             >
+              {/* Section header */}
               <div className="mb-4 md:mb-8 font-semibold">
                 <h2 className="text-lg md:text-xl">{section.name}</h2>
               </div>
+
+              {/* Grid of medals */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 justify-items-center">
                 {section.progress.map((unlocked, idx) => (
                   <div
@@ -497,6 +564,8 @@ export const AchievementsPage = ({
                             🔒
                           </span>
                         </div>
+
+                        {/* Medal name */}
                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 md:mb-2 px-1 md:px-2 py-0.5 md:py-1 bg-black text-white text-xs md:text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                           {medals[idx].name}
                         </div>
@@ -505,6 +574,8 @@ export const AchievementsPage = ({
                     <p className="mt-1 md:mt-2 text-md md:text-md text-center break-words w-full px-1 font-semibold">
                       {medals[idx].name}
                     </p>
+
+                    {/* Requirement text */}
                     <p className="mt-0 text-sm text-center text-gray-300 w-full px-1 mb-2 sm:mb-0">
                       {medals[idx].requirement}
                     </p>
