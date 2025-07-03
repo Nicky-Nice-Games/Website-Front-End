@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "./App";
 
+/// Parameters to be passed into the navbar component
 interface NavbarParams {
   account: AccountSchema | null;
   setAccount: Function;
@@ -24,15 +25,22 @@ const Navbar = ({
   currentPage,
   setCurrentPage,
 }: NavbarParams) => {
+  // Tailwind classes to set the button background for normal, hover and active states.
   const navbarButton: string =
     "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
+
+  // Assigned upon login
   const [username, setUsername] = useState("");
+
+  // Login button
+  // Only appears when not logged in
   const loginButton = (
     <NavigationMenuLink className={`${navbarButton} mr-3`}>
       <button
         className={`cursor-pointer ${
+          // Highlight the text if user is on the same page as this button
           currentPage == "login" ? "active-outline" : "passive-outline"
         }`}
         onClick={() => {
@@ -50,6 +58,8 @@ const Navbar = ({
   const isMobileDevice = useMediaQuery({ maxWidth: 500 });
   const navigate = useNavigate();
 
+  // Profile dropdown with link to player stats page and logout button
+  // Only appears if logged in
   const profileDropdown = (
     <NavigationMenuItem className="list-none md:mr-4">
       <NavigationMenuTrigger
@@ -62,6 +72,7 @@ const Navbar = ({
             currentPage === "stats" ? "active-outline" : "passive-outline"
           }`}
         >
+          {/*Username won't appear on mobile*/}
           {isMobileDevice ? "" : username}
         </button>
         <img
@@ -98,6 +109,7 @@ const Navbar = ({
     </NavigationMenuItem>
   );
 
+  // When logging in, update the navbar accordingly
   useEffect(() => {
     if (account) {
       setUsername(account.username);
@@ -109,11 +121,13 @@ const Navbar = ({
     }
   }, [account, username]);
 
+  // Safety precaution to ensure the navbar is up to date.
   useEffect(() => {
     if (account) setLoginNavbarItem(profileDropdown);
     else setLoginNavbarItem(loginButton);
   }, [currentPage]);
 
+  // On a wide screen, the central navbar buttons are laid out in a row
   const pcNavList = (
     <NavigationMenuList>
       <NavigationMenuItem>
@@ -249,6 +263,7 @@ const Navbar = ({
     </NavigationMenuList>
   );
 
+  // On mobile, the central navbar options are condensed into one dropdown
   const mobileNavList = (
     <>
       <NavigationMenuItem className="list-none">
@@ -322,6 +337,7 @@ const Navbar = ({
       viewport={false}
       className={`bebas bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}
     >
+      {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
         <NavigationMenuLink className={`max-w-14 ${navbarButton} md:ml-4`}>
           <button
@@ -339,7 +355,9 @@ const Navbar = ({
           </button>
         </NavigationMenuLink>
       </div>
+      {/*Center: Main navigation list. Depends on screen width.*/}
       {isMobileDevice ? mobileNavList : pcNavList}
+      {/*Right side: Login button or profile dropdown, depending on whether you're logged in.*/}
       { loginNavbarItem }
     </NavigationMenu>
   );

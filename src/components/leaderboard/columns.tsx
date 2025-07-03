@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { millisecondsToSeconds } from "framer-motion"
 import { useMediaQuery } from "react-responsive"
 
+// Formats time from a large millisecond value to show minutes, seconds and milliseconds
 const formatTime = (milliseconds: number): string => {
     let seconds = millisecondsToSeconds(milliseconds);
     let minutes = Math.floor(seconds / 60);
@@ -17,6 +18,7 @@ const formatTime = (milliseconds: number): string => {
     return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
 }
 
+// Adds a suffix to the index to indicate the placing
 const formatPlacing = (index: number): string => {
     if (index > 10 && index < 14) return index + "th";
     
