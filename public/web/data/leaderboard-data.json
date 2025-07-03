@@ -1,167 +1,77 @@
 [
     {
-        "id": "2388asdje",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 439000
-        },
-        "score": 23000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 439000
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 583922
-        },
-        "score": 64000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 563445
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 663453
-        },
-        "score": 22000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 123422
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 836543
-        },
-        "score": 29000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 200129
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 934928
-        },
-        "score": 36700
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 875223
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 934928
-        },
-        "score": 41100
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 32422
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 934928
-        },
-        "score": 26500
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 154323
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 111111
-        },
-        "score": 27200
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 12122
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 934928
-        },
-        "score": 74300
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 54321
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 934928
-        },
-        "score": 24300
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 14141
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 333333
-        },
-        "score": 56000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 10090
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 543221
-        },
-        "score": 56000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 66646
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 94022
-        },
-        "score": 56000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 61612
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 95958
-        },
-        "score": 56000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 45478
     },
     {
-        "id": "3098sjisf",
-        "profile": {
-            "pictureLink": "images/pfp-placeholder.png"
-        },
-        "player": {
-            "username": "username",
-            "raceTimeMilliseconds": 934928
-        },
-        "score": 46000
+        "pid": "2388asdje",
+        "username": "username",
+        "raceTime": 52899
     }
 ]
