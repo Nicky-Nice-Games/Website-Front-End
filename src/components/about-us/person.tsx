@@ -5,6 +5,7 @@ type PersonProps = {
   image: string;
 };
 
+// This component is the format for what each persons specific tab will look like
 export const Person = ({ name, position, email, image }: PersonProps) => {
   return (
     <div className="m-4 w-[200px] rounded-md bg-orange-100">

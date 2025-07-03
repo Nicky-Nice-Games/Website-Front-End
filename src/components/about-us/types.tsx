@@ -1,5 +1,6 @@
 export type TeamData = string[][];
 
+//List of Team names
 export type TeamName =
   | "GSP"
   | "RND"

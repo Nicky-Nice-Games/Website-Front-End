@@ -2,17 +2,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TeamTab } from "./team-tab";
 import type { TeamDataMap } from "./types";
 
+// Props type for the TeamTabs component
 type TeamTabsProps = {
-  teamData: TeamDataMap;
-  defaultTab?: string;
+  teamData: TeamDataMap; // Object containing data for all teams
+  defaultTab?: string; // Which tab to show first (default: "GSP")
 };
 
 export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
   return (
+    // Main tabs container with default value and styling
     <Tabs
       defaultValue={defaultTab}
       className="w-[400px] w-9/10 bg-[url(images/tab-bg.png)] m-auto"
     >
+      {/* List of tab buttons */}
       <TabsList className="w-full flex-wrap flex-column h-full">
         {Object.keys(teamData).map((team) => (
           <TabsTrigger key={team} value={team}>
@@ -21,6 +24,7 @@ export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
         ))}
       </TabsList>
 
+      {/* Content for each tab */}
       <TabsContent value="GSP">
         <TeamTab
           teamData={teamData.GSP}

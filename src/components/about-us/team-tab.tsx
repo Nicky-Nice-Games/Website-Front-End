@@ -7,6 +7,7 @@ type TeamTabProps = {
   customTitle?: string;
 };
 
+// This component holds all the tabs for a team
 export const TeamTab = ({ teamData, teamName, customTitle }: TeamTabProps) => {
   return (
     <div>
