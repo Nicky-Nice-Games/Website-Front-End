@@ -2,10 +2,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
-
-
 type ListItem = string | { text: string; children?: ListItem[] };
-
+// Content of the updates
 interface ContentBlock {
   type: "paragraph" | "list" | "heading" | "image";
   text?: string;
@@ -28,6 +26,7 @@ interface Update {
 }
 
 const updates: Update[] = [
+  // Update 1
   {
     id: 1,
     title: "Week 1",
@@ -213,6 +212,7 @@ const updates: Update[] = [
       }
     ]
   },
+  // Update 2
   {
     id: 2,
     title: "Week 2",
@@ -530,8 +530,8 @@ const NewsAndUpdatesPage = () => {
   const [active, setActive] = useState<Update | boolean | null>(null);
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
-
-  const [mostRecentUpdate, ...restUpdates] = sortedUpdates;
+  // Separtes the most recent update from the rest
+  const [mostRecentUpdate, ...restUpdates] = sortedUpdates; 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -577,7 +577,6 @@ const NewsAndUpdatesPage = () => {
     depth?: number;
   }> = ({ items, ordered, depth = 0 }) => {
     const bulletSymbols = ["•", "◦", "▪", "–", "»"];
-
     return (
       <ul className="pl-4 space-y-1">
         {items.map((item, i) => {
@@ -605,7 +604,6 @@ const NewsAndUpdatesPage = () => {
       </ul>
     );
   };
-
 
   return (
     <div className="min-h-screen bg-black p-6">
@@ -637,14 +635,14 @@ const NewsAndUpdatesPage = () => {
                 // Mobile layout
                 <>
                   <motion.div layoutId={`image-${active.title}-${id}`}>
-                    <img
+                    <img // Moblie image
                       src={active.image}
                       alt={active.title}
                       className="w-full object-cover object-top"
                     />
                   </motion.div>
                   <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
-                    <motion.h3
+                    <motion.h3 // Mobile title
                       layoutId={`title-${active.title}-${id}`}
                       className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
                     >
@@ -652,9 +650,10 @@ const NewsAndUpdatesPage = () => {
                     </motion.h3>
 
                     <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
+                      {/* Adds paragraphs to the expandable card*/}
                       {active.text.map((block, i) => {
                         if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
-
+                        {/* Adds headings to the expandable card*/}
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -666,7 +665,7 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-
+                        {/* Adds lists to the expandable card*/}
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
@@ -678,7 +677,7 @@ const NewsAndUpdatesPage = () => {
                             </ListTag>
                           );
                         }
-
+                        {/* Adds images to the expandable card*/}
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
@@ -703,14 +702,14 @@ const NewsAndUpdatesPage = () => {
                     layoutId={`image-${active.title}-${id}`}
                     className="min-w-4/10 md:h-auto"
                   >
-                    <img
+                    <img // Desktop image
                       src={active.image}
                       alt={active.title}
                       className="w-full h-full object-cover object-top rounded-xl"
                     />
                   </motion.div>
                   <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
-                    <motion.h3
+                    <motion.h3 // Desktop title
                       layoutId={`title-${active.title}-${id}`}
                       className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
                     >
@@ -719,8 +718,9 @@ const NewsAndUpdatesPage = () => {
 
                     <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
                       {active.text.map((block, i) => {
+                        {/* Adds paragraphs to the expandable card*/}
                         if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
-
+                        {/* Adds headings to the expandable card*/}
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -732,7 +732,7 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-
+                        {/* Adds lists to the expandable card*/}
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
@@ -744,7 +744,7 @@ const NewsAndUpdatesPage = () => {
                             </ListTag>
                           );
                         }
-
+                        {/* Adds images to the expandable card*/}
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
@@ -835,6 +835,7 @@ const NewsAndUpdatesPage = () => {
           );
         })}
       </div>
+      {/* Only shows these buttons if its the desktop version*/}
       {!isMobile && (
         <div className="flex justify-center gap-4 mt-6">
           <button
@@ -854,6 +855,7 @@ const NewsAndUpdatesPage = () => {
           </button>
         </div>
       )}
+      {/* Only shows this button if its the mobile version*/}
       {isMobile && (
         <div className="flex justify-center mt-4">
           <button
