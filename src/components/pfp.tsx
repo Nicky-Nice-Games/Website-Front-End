@@ -1,19 +1,11 @@
 import type { AccountSchema } from "@/App";
 import { useState } from "react";
 import PfpEditBtn from "../components/pfp-edit-btn";
-const avatarOptions = [
-  "images/bottom-card.png",
-  "images/github-logo.png",
-  "images/instagram-logo.png",
-  "images/instagram-logo.png",
-  "images/github-logo.png",
-  "images/bottom-card.png",
-];
-import type { Dispatch, SetStateAction } from "react";
+import { pfpList } from "@/utils";
 
 export interface PfpProps {
   account: AccountSchema | null;
-  setAccount: Dispatch<SetStateAction<AccountSchema | null>>;
+  setAccount: Function;
   /** show or hide the Edit button */
   showEdit?: boolean;
 }
@@ -48,7 +40,7 @@ export default function Pfp({
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm ">
             <h3 className="text-lg font-medium mb-4">Choose an avatar</h3>
             <div className="grid grid-cols-2 gap-4 place-items-center">
-              {avatarOptions.map((src) => (
+              {pfpList.map((src) => (
                 <img
                   key={src}
                   src={src}

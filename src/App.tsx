@@ -17,13 +17,10 @@ import LeaderboardPage from "./pages/Leaderboard";
 import NewsAndUpdatesPage from "./pages/NewsAndUpdates";
 import PlayerStatsPage from "./pages/PlayerStats";
 import NoPage from "./pages/NoPage";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import ForumPost from "./pages/ForumPost";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
-
-const [currentSrc, setCurrentSrc] = useState<string>("/images/placeholder.PNG");
-const [isEditing, setIsEditing] = useState(false);
 
 export interface AccountSchema {
   pid: string;
