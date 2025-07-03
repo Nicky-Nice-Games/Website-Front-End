@@ -124,7 +124,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
                 <button className="cursor-pointer absolute bottom-[4rem] md:right-[4rem] right-[10rem] w-[300px]
-                p-[1rem] text-white transform transition duration-300 hover:-translate-y-2 z-2"
+                p-[1rem] text-white transform transition duration-300 hover:translate-x-2 z-2"
                 onClick={() => {
                     window.scrollTo({ top: 0, behavior: "instant" });
                     navigate('/news');
