@@ -647,7 +647,7 @@ const TracksPage = () => {
             <h1 className="mt-5 md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
               {heading}
             </h1>
-            <p className="text-left text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[22%] 2xl:ml-[19%] md:mr-[22%] md:mb-18">
+            <p className="text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[22%] 2xl:ml-[19%] md:mr-[22%] md:mb-18">
               {description}
             </p>
           </div>

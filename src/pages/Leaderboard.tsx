@@ -83,8 +83,8 @@ const LeaderboardTable = ({ mapId }: {mapId: number}) => {
 
     useEffect(() => {
         const getLeaderboardData = async (): Promise<any> => {
-            const response: Response = await fetch("./data/leaderboard-data.json");
-            //const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=${mapId}`);
+            //const response: Response = await fetch("./data/leaderboard-data.json");
+            const response: Response = await fetch(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=${mapId}`);
             let data = await response.json();
             data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);  
             data.map((item: any) => {
