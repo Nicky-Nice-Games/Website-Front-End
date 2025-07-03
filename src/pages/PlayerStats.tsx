@@ -313,7 +313,7 @@ export const AchievementsPage = ({
 
   const firstPlaceFinishes = playerData.firstPlace;
   const top3Finishes = playerData.podium;
-  const totalRaces = 250 //Currently not in the backend
+  const totalRaces = playerData.totalRaces
   const itemsUsed = getTotalItemsUsed(playerData);
 
   const firstPlaceAchievements = checkAchievementProgress(firstPlaceFinishes, [1, 10, 25, 50, 100]);
