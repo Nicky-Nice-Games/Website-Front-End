@@ -17,7 +17,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
-  const photo: string = '/ggk/images/placeholder.PNG';
+  const photo: string = '/ggk/images/placeholder/pfp-placeholder.png';
   const arcadeMachine = '/ggk/images/arcade machine 2.png'
 
   const navigate = useNavigate();
@@ -51,34 +51,34 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const bannerImages1 = [
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/one.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/ten.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/three.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/nine.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/five.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/eight.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/seven.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/six.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/nine.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/two.png'
     },
     ];
 
@@ -119,7 +119,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         <>
             <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
                 <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col md:justify-center align-center p-4 z-3">
-                    <h1 className="h1-style">Brick City ????</h1>
+                    <h1 className="h1-style">Gizmo Go-Kartz</h1>
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
@@ -214,7 +214,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 </div>
                 <div
                     className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
-                    style={{ backgroundImage: "url('/web/images/black checker.png')" }}
+                    style={{ backgroundImage: "url('/ggk/images/black checker.png')" }}
                 >
                     <div id="topscores" className="relative flex flex-col justify-center items-center">
                     <img src={arcadeMachine} className="top-0 z-0 w-[60%] h-[900px] max-[700px]:w-[100%]"></img>
