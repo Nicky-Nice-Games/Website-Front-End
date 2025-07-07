@@ -34,7 +34,7 @@ export function DataTable<TData, TValue>({
     const [currentPageIndex, setCurrentPageIndex] = React.useState<number>(0);
     const [endingImageElement, setEndingImageElement] = React.useState(<img />);
 
-    const endOfTableImage = <img src="images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[29vh]"/>
+    const endOfTableImage = <img src="ggk/images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[29vh]"/>
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
 

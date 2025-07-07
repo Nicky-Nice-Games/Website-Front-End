@@ -27,8 +27,7 @@ const Navbar = ({
 }: NavbarParams) => {
   // Tailwind classes to set the button background for normal, hover and active states.
   const navbarButton: string =
-    "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)] relative active:top-[1px]";
-
+    "bg-size-[100%_100%] bg-[url(/ggk/images/navbar/button.png)] hover:bg-[url(/ggk/images/navbar/button-hover.png)] active:bg-[url(/ggk/images/navbar/button-active.png)] relative active:top-[1px]";
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
 
   // Assigned upon login
@@ -335,7 +334,7 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className="bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
+      className="bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
