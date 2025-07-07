@@ -32,7 +32,8 @@ export default function Pfp({
   account,
   showEdit = true,
 }: PfpProps) {
-  const [currentSrc, setCurrentSrc] = useState("/images/placeholder.PNG");
+  const startingPfp = account ? pfpList[account.pfp] : "images/placeholder/pfp-placeholder.png"
+  const [currentSrc, setCurrentSrc] = useState(startingPfp);
   const [isEditing, setIsEditing] = useState(false);
 
   return (
@@ -63,7 +64,8 @@ export default function Pfp({
                   src={src}
                   alt="Option"
                   className="cursor-pointer rounded-full h-16 w-16 object-cover border-2 hover:border-blue-500"
-                  onClick={() => {
+                  onClick={e => {
+                    e.preventDefault();
                     setCurrentSrc(src);
                     setIsEditing(false);
                     if (account) {
