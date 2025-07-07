@@ -28,7 +28,7 @@ const updates: Update[] = [
     date: "6/3/2025",
     subtitle: "At vero eos et accusamus et iusto odio dignissimos",
 
-    image: './images/OIP.jpg',
+    image: './images/placeholder/OIP.jpg',
     text: [
       { type: "heading", level: 2, text: "Content Team" },
       { type: "paragraph", text: "Dev textures" },

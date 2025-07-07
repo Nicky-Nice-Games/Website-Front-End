@@ -46,15 +46,15 @@ const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, s
         },
         {
             name: "Quarter Mile",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/placeholder/placeholder.PNG"
         },
         {
             name: "Golisano",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/placeholder/placeholder.PNG"
         },
         {
             name: "Brick Road",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/placeholder/placeholder.PNG"
         },
         {
             name: "RIT Dorm Room",
