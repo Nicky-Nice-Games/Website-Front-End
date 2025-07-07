@@ -25,7 +25,7 @@ import { useEffect, useState } from "react";
 export interface AccountSchema {
   pid: string;
   username: string;
-  pfpUrl: string;
+  pfp: number;
 }
 
 function App() {
@@ -35,16 +35,16 @@ function App() {
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
     const storedUsername: string | null = localStorage.getItem("username");
-    const storedPfpUrl: string | null = localStorage.getItem("imglink");
+    const storedPfpString: string | null = localStorage.getItem("pfpId");
 
-    if (!storedPID || !storedUsername || !storedPfpUrl) {
+    if (!storedPID || !storedUsername || !storedPfpString) {
       setAccount(null);
       return;
     }
     const storedAccount: AccountSchema = {
       pid: storedPID,
       username: storedUsername,
-      pfpUrl: storedPfpUrl,
+      pfp: +storedPfpString,    // + sign converts string to a number
     };
     setAccount(storedAccount);
   }, []);

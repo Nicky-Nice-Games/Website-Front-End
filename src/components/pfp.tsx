@@ -10,6 +10,23 @@ export interface PfpProps {
   showEdit?: boolean;
 }
 
+const editPfpIndex = (pid: string, pfpId: number) => {
+  const fetchData = async (): Promise<any> => {
+    const response: Response = await fetch("https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/changepfp",{
+      method: "PUT",
+      body: JSON.stringify({
+        pfp: pfpId,
+        pid: pid
+      })
+    });
+    if (response.status != 200) {
+      console.log(response.statusText);
+    }
+  };
+
+  fetchData();
+}
+
 export default function Pfp({
   setAccount,
   account,
@@ -53,9 +70,10 @@ export default function Pfp({
                       const storedAccount: AccountSchema = {
                         pid: account.pid,
                         username: account.username,
-                        pfpUrl: src,
+                        pfp: pfpList.indexOf(src),
                       };
                       setAccount(storedAccount);
+                      editPfpIndex(account.pid, pfpList.indexOf(src));
                     }
                   }}
                 />

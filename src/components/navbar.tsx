@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "../App";
+import { pfpList } from "@/utils";
 
 /// Parameters to be passed into the navbar component
 interface NavbarParams {
@@ -75,7 +76,7 @@ const Navbar = ({
           {isMobileDevice ? "" : username}
         </button>
         <img
-          src={account ? account.pfpUrl : "/src/assets/pfp-placeholder.png"}
+          src={account ? pfpList[account.pfp] : "images/placeholder/pfp-placeholder.png"}
           className="max-w-7 md:m-1 rounded-full"
         />
       </NavigationMenuTrigger>
@@ -348,7 +349,7 @@ const Navbar = ({
             }}
           >
             <img
-              src="./images/tempLogo.png"
+              src="./images/content-assets/tempLogo.png"
               className="max-w-9 relative bottom-1"
             />
           </button>

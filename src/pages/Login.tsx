@@ -21,8 +21,8 @@ const login = (successCallback: Function, failedCallback: Function) => {
     (info) => {
       localStorage.setItem("pid", info.pid);
       localStorage.setItem("username", info.username);
-      localStorage.setItem("imglink", "images/bottom-card.png");
-      successCallback({ pid: info.pid, username: info.username });
+      localStorage.setItem("pfpId", info.pfpLink);
+      successCallback({ pid: info.pid, username: info.username, pfp: info.pfpLink });
     },
     () => {
       failedCallback(username, password);

@@ -107,6 +107,7 @@ const PlayerStatsPage = ({
       <AchievementsPage
         playerData={playerData}
         setActiveTab={setActiveTab}
+        account={account}
         setAccount={setAccount}
       />
     );
@@ -213,7 +214,7 @@ const InfoPage = ({
                 <Pfp
                   account={account}
                   setAccount={setAccount} // React’s useState setter fits this
-                  showEdit={false}
+                  showEdit={true}
                 />
               </div>
               {/* <div className="flex justify-center md:justify-end mt-2">
@@ -302,15 +303,17 @@ const InfoPage = ({
 };
 
 type AchievementsPageProps = {
+  account: AccountSchema | null;
+  setAccount: Function;
   playerData: any;
   setActiveTab: (tab: "info" | "achievements") => void;
-  setAccount: Function;
 };
 
 export const AchievementsPage = ({
+  account,
+  setAccount,
   playerData,
   setActiveTab,
-  setAccount,
 }: AchievementsPageProps) => {
   // Medals shape (rotated 30 degrees)
   const hexagonClip =
@@ -455,10 +458,10 @@ export const AchievementsPage = ({
             <div className="flex justify-center md:justify-end items-center space-x-2">
               <h2 className="text-black text-sm md:text-base">Username</h2>
               <div className="relative -top-1">
-                <img
-                  src="images/placeholder.PNG"
-                  alt="Profile picture"
-                  className="rounded-full h-8 w-8 md:h-10 md:w-10 object-cover"
+                <Pfp
+                  account={account}
+                  setAccount={setAccount} // React’s useState setter fits this
+                  showEdit={true}
                 />
               </div>
             </div>
