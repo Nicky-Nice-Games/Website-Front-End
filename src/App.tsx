@@ -48,7 +48,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/web">
+    <Router basename="/ggk">
       <Navbar account={account} setAccount={setAccount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
 
       <div className='min-h-[80vh]'>

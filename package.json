@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "start_url": "/web/",
-  "homepage": "/web/",
+  "start_url": "/ggk/",
+  "homepage": "/ggk/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
