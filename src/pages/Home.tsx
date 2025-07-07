@@ -17,8 +17,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
-  const photo: string = '/web/images/placeholder.PNG';
-  const arcadeMachine = '/web/images/arcade machine 2.png'
+  const photo: string = '/ggk/images/placeholder.PNG';
+  const arcadeMachine = '/ggk/images/arcade machine 2.png'
 
   const navigate = useNavigate();
 
@@ -51,67 +51,67 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const bannerImages1 = [
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder.PNG'
     },
     ];
 
@@ -132,7 +132,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 }}
                 >
                     <h3 className=" relative z-3 font-medium text-white dark:text-neutral-200">See all news and updates!</h3>
-                    <img src='/web/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
+                    <img src='/ggk/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
                 </button>
                 
                 <Carousel
@@ -166,7 +166,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 
                 <div id="introdcution" className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
                     bg-repeat"
-                    style={{ backgroundImage: "url('/web/images/white checker.png')" }} >
+                    style={{ backgroundImage: "url('/ggk/images/white checker.png')" }} >
                     <h2 className="text-[26px] m-4">Game Overview</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -181,12 +181,12 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
                     <img className="ml-4"
-                        src="/web/images/placeholder.PNG"
+                        src="/ggk/images/placeholder.PNG"
                         alt="Photo of arcade machines"
                     />
                 </div>
                 <div className="mb-[12rem] bg-repeat"
-                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
+                    style={{ backgroundImage: "url('/ggk/images/white checker.png')" }}>
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
 
@@ -205,7 +205,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 </div>
                 <div
                 className="mt-[12rem] relative bg-center bg-no-repeat 2xl:bg-cover"
-                style={{ backgroundImage: "url('/web/images/black checker.png')" }}
+                style={{ backgroundImage: "url('/ggk/images/black checker.png')" }}
                 >
                 <div className="overflow-hidden -rotate-6 w-full h-[300px] m-0 origin-bottom-left flex">
                     <InfiniteMovingCards items={bannerImages2} direction="left" speed="verySlow" />
@@ -213,7 +213,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 </div>
                 <div
                     className="pt-[2rem] w-[100%] relative bg-center bg-no-repeat 2xl:bg-cover"
-                    style={{ backgroundImage: "url('/web/images/black checker.png')" }}
+                    style={{ backgroundImage: "url('/ggk/images/black checker.png')" }}
                 >
                     <div id="topscores" className="relative flex flex-col justify-center items-center">
                     <img src={arcadeMachine} className="top-0 z-0 w-[60%] h-[900px] max-[700px]:w-[100%]"></img>
@@ -267,7 +267,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                             See all scores!
                             </h3>
                             <img
-                            src="/web/images/arrow.png"
+                            src="/ggk/images/arrow.png"
                             className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
                             />
                         </button>
