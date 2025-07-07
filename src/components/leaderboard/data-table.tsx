@@ -34,7 +34,9 @@ export function DataTable<TData, TValue>({
     const [currentPageIndex, setCurrentPageIndex] = React.useState<number>(0);
     const [endingImageElement, setEndingImageElement] = React.useState(<img />);
 
-    const endOfTableImage = <img src="images/landscape-placeholder.svg" className="min-w-full object-fill max-h-[37vh]"/>
+    const endOfTableImage = <img src="ggk/images/placeholder/landscape-placeholder.svg" className="min-w-full object-fill max-h-[29vh]"/>
+
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
 
     const table = useReactTable({
         data,
@@ -54,7 +56,7 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
-            <div className="rounded-md border">
+            <div className="rounded-md border bg-[#FFF8]">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
@@ -99,13 +101,14 @@ export function DataTable<TData, TValue>({
                 </Table>    
             </div>
             { endingImageElement }
-            <div className="flex items-center justify-between space-x-2 py-4">
+            <div className="flex items-center justify-between space-x-2 py-4 px-3">
                 <Button
                     variant="outline"
                     size="sm"
                     onClick={() => { const pageNumberInput:HTMLInputElement | null = document.querySelector("#page-number-input");
                         if (pageNumberInput) pageNumberInput.value = "";
                         setCurrentPageIndex(currentPageIndex - 1);
+                        scrollToTop();
                         table.previousPage(); }}
                     disabled={!table.getCanPreviousPage()}
                 >
@@ -120,7 +123,7 @@ export function DataTable<TData, TValue>({
                         min={1} 
                         max={table.getPageCount()} 
                         placeholder={(table.getState().pagination.pageIndex + 1).toString()} 
-                        onKeyDown={(e:any) => {if (e.key === 'Enter') { setCurrentPageIndex(e.target.value - 1); table.setPageIndex(e.target.value - 1)}}} />
+                        onKeyDown={(e:any) => {if (e.key === 'Enter') { setCurrentPageIndex(e.target.value - 1); scrollToTop(); table.setPageIndex(e.target.value - 1)}}} />
                         of {table.getPageCount()}</p>
                 </div>
                 <Button
@@ -129,6 +132,7 @@ export function DataTable<TData, TValue>({
                     onClick={() => { const pageNumberInput:HTMLInputElement | null = document.querySelector("#page-number-input");
                         if (pageNumberInput) pageNumberInput.value = "";
                         setCurrentPageIndex(currentPageIndex + 1);
+                        scrollToTop();
                         table.nextPage(); }}
                     disabled={!table.getCanNextPage()}
                 >

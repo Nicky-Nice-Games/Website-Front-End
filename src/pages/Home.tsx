@@ -17,8 +17,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
-  const photo: string = '/web/images/placeholder.PNG';
-  const arcadeMachine = '/web/images/arcade machine 2.png'
+  const photo: string = '/ggk/images/placeholder.PNG';
+  const arcadeMachine = '/ggk/images/arcade machine 2.png'
 
   const navigate = useNavigate();
 
@@ -31,10 +31,10 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         color:string;
     };
 
-    const PlacementVariants = {
-        first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
-
-    }
+    // const PlacementVariants = {
+    //     first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
+    // }
+    
    function Score({ place, imgPath, name, time, score, color}:ScoreProps) {
     return (
         <div className="h-1/7 w-[100%] m-[1rem] flex gap-[2vw] md:gap-[4vw] items-center text-white">
@@ -51,67 +51,67 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const bannerImages1 = [
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     ];
 
@@ -124,7 +124,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
                 <button className="cursor-pointer absolute bottom-[4rem] md:right-[4rem] right-[10rem] w-[300px]
-                p-[1rem] text-white transform transition duration-300 hover:translate-x-4 z-2"
+                p-[1rem] text-white transform transition duration-300 hover:translate-x-3 z-2"
                 onClick={() => {
                     window.scrollTo({ top: 0, behavior: "instant" });
                     navigate('/news');
@@ -132,7 +132,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 }}
                 >
                     <h3 className=" relative z-3 font-medium text-white dark:text-neutral-200">See all news and updates!</h3>
-                    <img src='/web/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
+                    <img src='/ggk/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
                 </button>
                 
                 <Carousel
@@ -166,7 +166,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 
                 <div id="introdcution" className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
                     bg-repeat"
-                    style={{ backgroundImage: "url('/web/images/white checker.png')" }} >
+                    style={{ backgroundImage: "url('/ggk/images/white checker.png')" }} >
                     <h2 className="text-[26px] m-4">Game Overview</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -181,18 +181,19 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
                     <img className="ml-4"
-                        src="/web/images/placeholder.PNG"
+                        src="/ggk/images/placeholder/placeholder.PNG"
                         alt="Photo of arcade machines"
                     />
                 </div>
                 <div className="mb-[12rem] bg-repeat"
-                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
+                    style={{ backgroundImage: "url('/ggk/images/white checker.png')" }}>
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
 
                     </div>
                 </div>
-                <div id="lore" className="ml-[2rem] mr-[2rem] text-center m-[10%]">
+                <div id="lore" className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[12rem]"
+                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
                     <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
@@ -204,7 +205,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </p>
                 </div>
                 <div
-                className="mt-[12rem] relative bg-center bg-no-repeat 2xl:bg-cover"
+                className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
                 style={{ backgroundImage: "url('/web/images/black checker.png')" }}
                 >
                 <div className="overflow-hidden -rotate-6 w-full h-[300px] m-0 origin-bottom-left flex">
@@ -212,7 +213,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 </div>
                 </div>
                 <div
-                    className="pt-[2rem] w-[100%] relative bg-center bg-no-repeat 2xl:bg-cover"
+                    className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
                     style={{ backgroundImage: "url('/web/images/black checker.png')" }}
                 >
                     <div id="topscores" className="relative flex flex-col justify-center items-center">
@@ -256,7 +257,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-full p-4 text-white text-center">
                         <button
-                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:translate-x-4"
+                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:translate-x-3"
                             onClick={() => {
                             window.scrollTo({ top: 0, behavior: "instant" });
                             navigate('/leaderboard');
@@ -267,7 +268,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                             See all scores!
                             </h3>
                             <img
-                            src="/web/images/arrow.png"
+                            src="/ggk/images/arrow.png"
                             className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
                             />
                         </button>

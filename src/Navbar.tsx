@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "./App";
 
+/// Parameters to be passed into the navbar component
 interface NavbarParams {
   account: AccountSchema | null;
   setAccount: Function;
@@ -24,15 +25,21 @@ const Navbar = ({
   currentPage,
   setCurrentPage,
 }: NavbarParams) => {
+  // Tailwind classes to set the button background for normal, hover and active states.
   const navbarButton: string =
-    "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
-
+    "bg-size-[100%_100%] bg-[url(/ggk/images/navbar/button.png)] hover:bg-[url(/ggk/images/navbar/button-hover.png)] active:bg-[url(/ggk/images/navbar/button-active.png)] relative active:top-[1px]";
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
+
+  // Assigned upon login
   const [username, setUsername] = useState("");
+
+  // Login button
+  // Only appears when not logged in
   const loginButton = (
     <NavigationMenuLink className={`${navbarButton} mr-3`}>
       <button
         className={`cursor-pointer ${
+          // Highlight the text if user is on the same page as this button
           currentPage == "login" ? "active-outline" : "passive-outline"
         }`}
         onClick={() => {
@@ -50,6 +57,8 @@ const Navbar = ({
   const isMobileDevice = useMediaQuery({ maxWidth: 500 });
   const navigate = useNavigate();
 
+  // Profile dropdown with link to player stats page and logout button
+  // Only appears if logged in
   const profileDropdown = (
     <NavigationMenuItem className="list-none md:mr-4">
       <NavigationMenuTrigger
@@ -62,6 +71,7 @@ const Navbar = ({
             currentPage === "stats" ? "active-outline" : "passive-outline"
           }`}
         >
+          {/*Username won't appear on mobile*/}
           {isMobileDevice ? "" : username}
         </button>
         <img
@@ -69,7 +79,7 @@ const Navbar = ({
           className="max-w-7 md:m-1 rounded-full"
         />
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902] absolute">
+      <NavigationMenuContent className="md:min-w-30 *:hover:text-[#e7ee33] absolute">
         <NavigationMenuLink>
           <button
             onClick={() => {
@@ -98,6 +108,7 @@ const Navbar = ({
     </NavigationMenuItem>
   );
 
+  // When logging in, update the navbar accordingly
   useEffect(() => {
     if (account) {
       setUsername(account.username);
@@ -109,11 +120,13 @@ const Navbar = ({
     }
   }, [account, username]);
 
+  // Safety precaution to ensure the navbar is up to date.
   useEffect(() => {
     if (account) setLoginNavbarItem(profileDropdown);
     else setLoginNavbarItem(loginButton);
   }, [currentPage]);
 
+  // On a wide screen, the central navbar buttons are laid out in a row
   const pcNavList = (
     <NavigationMenuList>
       <NavigationMenuItem>
@@ -130,7 +143,7 @@ const Navbar = ({
             About
           </button>
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="absolute -left-3 *:hover:bg-[#F76902] min-w-30">
+        <NavigationMenuContent className="absolute -left-3 *:hover:text-[#e7ee33] min-w-30">
           <NavigationMenuLink>
             <button
               onClick={() => {
@@ -174,7 +187,7 @@ const Navbar = ({
             Content
           </button>
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="absolute -left-2 *:hover:bg-[#F76902]">
+        <NavigationMenuContent className="absolute -left-2 *:hover:text-[#e7ee33]">
           <NavigationMenuLink>
             <button
               onClick={() => {
@@ -249,6 +262,7 @@ const Navbar = ({
     </NavigationMenuList>
   );
 
+  // On mobile, the central navbar options are condensed into one dropdown
   const mobileNavList = (
     <>
       <NavigationMenuItem className="list-none">
@@ -257,7 +271,7 @@ const Navbar = ({
         </NavigationMenuTrigger>
         <NavigationMenuContent className="absolute -left-5 min-w-30">
           <NavigationMenuLink
-            className={`${currentPage === "about" ? "bg-white" : ""}`}
+            className={`${currentPage === "about" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -271,7 +285,7 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "content" ? "bg-white" : ""}`}
+            className={`${currentPage === "content" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -285,7 +299,7 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "news" ? "bg-white" : ""}`}
+            className={`${currentPage === "news" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -299,7 +313,7 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "leaderboard" ? "bg-white" : ""}`}
+            className={`${currentPage === "leaderboard" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -320,26 +334,29 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className={`bebas bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}
+      className="bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
     >
+      {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
-        <NavigationMenuLink className={`max-w-14 ${navbarButton} md:ml-4`}>
+        <NavigationMenuLink className={`max-w-13 h-12 ${navbarButton} md:ml-4`}>
           <button
             className="cursor-pointer"
             onClick={() => {
-                scrollToTop();
+              scrollToTop();
               navigate("/home");
               setCurrentPage("home");
             }}
           >
             <img
-              src="./images/content-assets/tempLogo.png"
-              className="max-w-10"
+              src="./images/tempLogo.png"
+              className="max-w-9 relative bottom-1"
             />
           </button>
         </NavigationMenuLink>
       </div>
+      {/*Center: Main navigation list. Depends on screen width.*/}
       {isMobileDevice ? mobileNavList : pcNavList}
+      {/*Right side: Login button or profile dropdown, depending on whether you're logged in.*/}
       { loginNavbarItem }
     </NavigationMenu>
   );

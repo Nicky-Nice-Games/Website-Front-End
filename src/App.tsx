@@ -7,7 +7,7 @@ import {
 
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
-import AboutUsPage from './pages/About';
+import AboutUsPage from './pages/AboutUs';
 import ProcessPage from './pages/Process';
 import {
   ContentPage,
@@ -48,7 +48,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/web">
+    <Router basename="/ggk">
       <Navbar account={account} setAccount={setAccount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
 
       <div className='min-h-[80vh]'>
@@ -62,7 +62,7 @@ function App() {
         <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage}/>} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/news" element={<NewsAndUpdatesPage />} />
-        <Route path="/stats" element={<PlayerStatsPage />} />
+        <Route path="/stats" element={<PlayerStatsPage account={account}/>} />
         <Route path="/forumPost" element={<ForumPost />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/tracks" element={<TracksPage />} />

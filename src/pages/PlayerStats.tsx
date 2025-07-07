@@ -1,50 +1,166 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import type { AccountSchema } from "@/App";
+import { millisecondsToSeconds } from "framer-motion";
 
-const PlayerStatsPage = () => {
+//#region Helper Functions
+
+const formatTime = (milliseconds: number): string => {
+  let seconds = millisecondsToSeconds(milliseconds);
+  let minutes = Math.floor(seconds / 60);
+  milliseconds %= 1000;
+  seconds %= 60;
+
+  const formattedMilliseconds = String(milliseconds).padStart(3, "0");
+  const formattedSeconds = String(Math.floor(seconds)).padStart(2, "0");
+  const formattedMinutes = String(minutes).padStart(2, "0");
+
+  return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
+};
+
+const getData = (url: string, callback: Function) => {
+  const fetchData = async (): Promise<any> => {
+    const response: Response = await fetch(url);
+    const playerData = await response.json();
+    return playerData;
+  };
+
+  const playerData = fetchData();
+  playerData.then((data) => {
+    callback(data);
+  });
+  playerData.catch((err) => {
+    console.log(err);
+    return false;
+  });
+};
+
+interface ItemsUsedObject {
+  [propName: string]: number;
+}
+
+const sumItemsUsed = (itemsUsedObject: ItemsUsedObject): number => {
+  let totalItemsUsed = 0;
+  Object.values(itemsUsedObject).forEach((i) => {
+    totalItemsUsed += i;
+  });
+  return totalItemsUsed;
+};
+
+const getTotalItemsUsed = (playerData: any): number => {
+  return (
+    sumItemsUsed(playerData.offenseUsage) +
+    sumItemsUsed(playerData.trapUsage) +
+    sumItemsUsed(playerData.boostUsage) +
+    sumItemsUsed(playerData.defenseUsage)
+  );
+};
+
+const checkAchievementProgress = (
+  stat: number,
+  milestones: number[]
+): boolean[] => {
+  let achievementStatus: boolean[] = [];
+  for (let i = 0; i < milestones.length; i++) {
+    achievementStatus.push(stat >= milestones[i]);
+  }
+  return achievementStatus;
+};
+//#endregion
+
+const PlayerStatsPage = ({ account }: { account: AccountSchema | null }) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
+  const [playerData, setPlayerData] = useState(null);
+  const [recentRaces, setRecentRaces] = useState(null);
+
+  useEffect(() => {
+    if (account) {
+      //Fetch player profile data
+      getData(
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getdetailinfo/${account.pid}`,
+        setPlayerData
+      );
+      //Fetch data for recent races
+      getData(
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`,
+        setRecentRaces
+      );
+    }
+  }, []);
+
+  if (!playerData || !account)
+    return (
+      <h1 className="bebas text-center font-black text-5xl mt-8">
+        No Data Found!
+      </h1>
+    );
 
   if (activeTab === "achievements") {
-    return <AchievementsPage setActiveTab={setActiveTab} />;
+    return (
+      <AchievementsPage playerData={playerData} setActiveTab={setActiveTab} />
+    );
   }
 
-  return <InfoPage setActiveTab={setActiveTab} />;
+  return (
+    <InfoPage
+      playerData={playerData}
+      recentRaces={recentRaces}
+      setActiveTab={setActiveTab}
+    />
+  );
 };
 
 const InfoPage = ({
+  playerData,
+  recentRaces,
   setActiveTab,
 }: {
+  playerData: any;
+  recentRaces: any;
   setActiveTab: (tab: "info" | "achievements") => void;
 }) => {
-  const stats = [
-    "Wins",
-    "Fastest Time",
-    "Podium Finishes",
-    "Races",
-    "Wall Crashes",
+  interface Stat {
+    name: string;
+    value: string | number;
+  }
+
+  const statsList1: Stat[] = [
+    { name: "Wins", value: playerData.firstPlace },
+    { name: "Fastest Time", value: formatTime(playerData.fastestTime) },
+    { name: "Podium Finishes", value: playerData.podium },
+    { name: "Races", value: playerData.totalRaces },
+    { name: "Wall Crashes", value: playerData.collisionWithWall },
   ];
 
-  const statsData = ["4", "3.006", "17", "83", "7"];
+  const offenseUsed = sumItemsUsed(playerData.offenseUsage);
+  const defenseUsed = sumItemsUsed(playerData.defenseUsage);
+  const trapsUsed = sumItemsUsed(playerData.trapUsage);
+  const boostsUsed = sumItemsUsed(playerData.boostUsage);
 
-  const stats2 = [
-    "Item-Based Hits",
-    "Offense Items Used",
-    "Traps Used",
-    "Boosts Used",
-    "Unique Boosts Used",
+  const statsList2: Stat[] = [
+    { name: "Item-Based Hits", value: offenseUsed + trapsUsed },
+    { name: "Offensive Items Used", value: offenseUsed },
+    { name: "Defensive Items Used", value: defenseUsed },
+    { name: "Traps Used", value: trapsUsed },
+    { name: "Boosts Used", value: boostsUsed },
   ];
 
-  const stats2Data = ["76", "13", "20", "43", "17", "4", "7"];
-
-  const stats3 = [
-    "Favorite Character",
-    "Favorite Kart",
-    "Favorite Kart Color",
-    "Favorite Race Track",
-    "Track Spin Outs",
+  const characters = ["Morgan", "Reese", "Emma", "Kai", "Jamster", "Gim"];
+  const tracks = [
+    "Outer Loop",
+    "Quarter Mile",
+    "Golisano",
+    "Brick Road",
+    "Dorm Room",
   ];
 
-  const stats3Data = ["Lebron", "Red", "The Shed", "4", "7"];
+  const statsList3: Stat[] = [
+    {
+      name: "Favorite Character",
+      value: characters[playerData.favoriteChara - 1],
+    },
+    { name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1] },
+  ];
 
   return (
     <div className="bg-black min-h-screen text-white p-4 md:p-8 ">
@@ -94,13 +210,13 @@ const InfoPage = ({
             {/* Section 1 */}
             <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 md:border-r border-black">
               <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
-                {stats.map((label, idx) => (
+                {statsList1.map((stat, idx) => (
                   <React.Fragment key={idx}>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                      {label}
+                      {stat.name}
                     </div>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                      {statsData[idx]}
+                      {stat.value}
                     </div>
                   </React.Fragment>
                 ))}
@@ -110,13 +226,13 @@ const InfoPage = ({
             {/* Section 2 */}
             <div className="flex items-center justify-center bg-gray-200 border-b md:border-b-0 lg:border-r border-black">
               <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full">
-                {stats2.map((label, idx) => (
+                {statsList2.map((stat, idx) => (
                   <React.Fragment key={idx}>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                      {label}
+                      {stat.name}
                     </div>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                      {stats2Data[idx]}
+                      {stat.value}
                     </div>
                   </React.Fragment>
                 ))}
@@ -126,13 +242,13 @@ const InfoPage = ({
             {/* Section 3 */}
             <div className="flex items-center justify-center bg-gray-200">
               <div className="bg-white grid grid-cols-[65%_35%] gap-y-1 w-full h-full md:border-r border-black">
-                {stats3.map((label, idx) => (
+                {statsList3.map((stat, idx) => (
                   <React.Fragment key={idx}>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                      {label}
+                      {stat.name}
                     </div>
                     <div className="px-4 py-1 text-left text-sm whitespace-nowrap">
-                      {stats3Data[idx]}
+                      {stat.value}
                     </div>
                   </React.Fragment>
                 ))}
@@ -145,82 +261,14 @@ const InfoPage = ({
         <Card className="mr-4 ml-4">
           <h2 className="ml-4 mb-2 text-lg font-semibold">Recent Races</h2>
           <div className="space-y-2 px-4">
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Rainbow Road</span>
-              <span>2:15.342</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Bowser's Castle</span>
-              <span>1:47.890</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Luigi Circuit</span>
-              <span>1:02.455</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>DK Jungle</span>
-              <span>2:03.120</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Toad's Turnpike</span>
-              <span>1:28.777</span>
-            </div>
-          </div>
-        </Card>
-
-        {/* Best Races Activity */}
-        <Card className="mr-4 ml-4">
-          <h2 className="ml-4 mb-2 text-lg font-semibold">Best Races </h2>
-          <div className="space-y-2 px-4">
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Rainbow Road</span>
-              <span>2:15.342</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Bowser's Castle</span>
-              <span>1:47.890</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Luigi Circuit</span>
-              <span>1:02.455</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>DK Jungle</span>
-              <span>2:03.120</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Toad's Turnpike</span>
-              <span>1:28.777</span>
-            </div>
-          </div>
-        </Card>
-
-        {/* Best Races Activity */}
-        <Card className="mr-4 ml-4">
-          <h2 className="ml-4 mb-2 text-lg font-semibold">
-            Best Races Per Track{" "}
-          </h2>
-          <div className="space-y-2 px-4">
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Rainbow Road</span>
-              <span>2:15.342</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Bowser's Castle</span>
-              <span>1:47.890</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Luigi Circuit</span>
-              <span>1:02.455</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>DK Jungle</span>
-              <span>2:03.120</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Toad's Turnpike</span>
-              <span>1:28.777</span>
-            </div>
+            {recentRaces.map((race: any) => {
+              return (
+                <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
+                  <span>{tracks[race.mapRaced - 1]}</span>
+                  <span>{formatTime(race.raceTime)}</span>
+                </div>
+              );
+            })}
           </div>
         </Card>
       </Card>
@@ -229,23 +277,45 @@ const InfoPage = ({
 };
 
 type AchievementsPageProps = {
+  playerData: any;
   setActiveTab: (tab: "info" | "achievements") => void;
-  achievementsStatus?: boolean[];
 };
 
 export const AchievementsPage = ({
+  playerData,
   setActiveTab,
-  achievementsStatus = [true, false, true, false, true], // Default with some unlocked medals (For Testing)
 }: AchievementsPageProps) => {
   // Medals shape (rotated 30 degrees)
   const hexagonClip =
     "polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)";
 
+  const firstPlaceFinishes = playerData.firstPlace;
+  const top3Finishes = playerData.podium;
+  const totalRaces = playerData.totalRaces;
+  const itemsUsed = getTotalItemsUsed(playerData);
+
+  const firstPlaceAchievements = checkAchievementProgress(
+    firstPlaceFinishes,
+    [1, 10, 25, 50, 100]
+  );
+  const top3Achievements = checkAchievementProgress(
+    top3Finishes,
+    [1, 25, 50, 100, 200]
+  );
+  const totalRaceAchievements = checkAchievementProgress(
+    totalRaces,
+    [1, 25, 50, 100, 250]
+  );
+  const itemsUsedAchievements = checkAchievementProgress(
+    itemsUsed,
+    [25, 75, 150, 200, 350]
+  );
+
   const achievementSections = [
-    "1st Place Finishes",
-    "Podium Finishes",
-    "Races",
-    "Items Collected",
+    { name: "1st Place Finishes", progress: firstPlaceAchievements },
+    { name: "Podium Finishes", progress: top3Achievements },
+    { name: "Races", progress: totalRaceAchievements },
+    { name: "Items Collected", progress: itemsUsedAchievements },
   ];
 
   // Achievement names and colors
@@ -367,20 +437,20 @@ export const AchievementsPage = ({
             </div>
           </CardContent>
         </Card>
-        {achievementSections.map((sectionTitle, sectionIndex) => {
+        {achievementSections.map((section, sectionIndex) => {
           const startIdx = sectionIndex * 5;
           const medals = achievementData.slice(startIdx, startIdx + 5);
 
           return (
             <div
-              key={sectionTitle}
+              key={section.name}
               className="p-4 md:p-6 mb-6 md:mb-8 mr-2 ml-2 md:mr-4 md:ml-4 border-2 border-white rounded-md"
             >
               <div className="mb-4 md:mb-8 font-semibold">
-                <h2 className="text-lg md:text-xl">{sectionTitle}</h2>
+                <h2 className="text-lg md:text-xl">{section.name}</h2>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 justify-items-center">
-                {achievementsStatus.map((unlocked, idx) => (
+                {section.progress.map((unlocked, idx) => (
                   <div
                     key={idx}
                     className="w-full flex flex-col items-center p-1 md:p-2"

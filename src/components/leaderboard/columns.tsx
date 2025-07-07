@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { millisecondsToSeconds } from "framer-motion"
 import { useMediaQuery } from "react-responsive"
 
+// Formats time from a large millisecond value to show minutes, seconds and milliseconds
 const formatTime = (milliseconds: number): string => {
     let seconds = millisecondsToSeconds(milliseconds);
     let minutes = Math.floor(seconds / 60);
@@ -17,6 +18,7 @@ const formatTime = (milliseconds: number): string => {
     return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
 }
 
+// Adds a suffix to the index to indicate the placing
 const formatPlacing = (index: number): string => {
     if (index > 10 && index < 14) return index + "th";
     
@@ -30,41 +32,42 @@ const formatPlacing = (index: number): string => {
     return index + suffix;
 }
 
-interface Profile {
-    index: number;
-    pictureLink: string;
-}
-
-interface Player {
-    username: string;
-    raceTimeMilliseconds: number;
-}
-
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Racer = {
-  id: string
-  profile: Profile
-  player: Player
+  pid: string
+  pfpID: number
+  raceID: number
+  username: string
+  getRaceStartTime: string
+  raceTime: number
   score: number
+  index: number
 }
 
 export const columns: ColumnDef<Racer>[] = [
   {
-    accessorKey: "profile",
-    header: () => <h1 className="max-w-1"></h1>,
+    accessorKey: "index",
+    header: () => <h1></h1>,
     cell: ({ row }) => {
-      if (!row.getValue("profile")) return;
+      if (!row.getValue("index")) return;
       const isMobileDevice = useMediaQuery({maxWidth: 600}); 
-        const data: Profile = row.getValue("profile");
+        const index: number = row.getValue("index");
         return <div className="flex flex-row items-center justify-center w-full">
-            <h1 className="font-bold text-base md:text-xl mr-3">{formatPlacing(data.index)}</h1>
-            {isMobileDevice ? "" : <img src={data.pictureLink} className="max-w-9"/>}
+            <h1 className="font-bold text-base md:text-xl mr-3">{formatPlacing(index)}</h1>
+            {isMobileDevice ? "" : <img src="images/placeholder/pfp-placeholder.png" className="max-w-9 rounded-full  "/>}
         </div>
     }
   },
   {
-    accessorKey: "player",
+    accessorKey: "username",
+    header: () => <h1 className="text-xs lg:text-base md:pl-2">Player</h1>,
+    cell: ({ row }) => {
+      return <h2 className="text-xs md:text-base text-left relative">{row.getValue("username")}</h2>
+    }
+  },
+  {
+    accessorKey: "raceTime",
     header: ({ column }) => { 
       const isSorted = column.getIsSorted();
       let arrowIcon;
@@ -80,21 +83,18 @@ export const columns: ColumnDef<Racer>[] = [
           break;
       }
       return (
-    <Button
+        <Button
           variant="ghost"
-          className="m-0 p-0"
+          className="text-xs md:text-base"
           onClick={() => column.toggleSorting(isSorted === "asc")}
         >
-          Player
+          Race Time
           {arrowIcon}
-        </Button>)},
+        </Button>
+    )},
     cell: ({ row }) => {
-      if (!row.getValue("player")) return;
-        const data: Player = row.getValue("player");
-        return <div className="md:min-w-50">
-            <h2 className="text-xs md:text-base text-left">{data.username}</h2>
-            <h2 className="text-sm md:text-lg text-right">{formatTime(data.raceTimeMilliseconds)}</h2>
-        </div>
+      if (!row.getValue("raceTime")) return;
+        return <h2 className="text-sm md:text-lg text-right">{formatTime(row.getValue("raceTime"))}</h2>
     }
    },
   {
@@ -117,14 +117,14 @@ export const columns: ColumnDef<Racer>[] = [
       
     <Button
           variant="ghost"
-          className="p-0 text-right"
+          className="text-right text-xs md:text-base"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Score
           {arrowIcon}
         </Button>)},
     cell: ({ row }) => {
-      if (!row.getValue("profile")) return <div className="min-h-[36px] md:min-h-[52px]"></div>;
+      if (!row.getValue("index")) return;
       return <h2 className={`text-right text-sm md:text-lg`}>{row.getValue("score")}</h2>}
   }
 ]
