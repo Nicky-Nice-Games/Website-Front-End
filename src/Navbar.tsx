@@ -342,7 +342,7 @@ const Navbar = ({
           <button
             className="cursor-pointer"
             onClick={() => {
-                scrollToTop();
+              scrollToTop();
               navigate("/home");
               setCurrentPage("home");
             }}
