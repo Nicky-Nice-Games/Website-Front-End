@@ -6,7 +6,7 @@ export const Footer = () => {
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
           <div>
             <img
-              src="./images/content-assets/tempLogo.png"
+              src="./images/tempLogo.png"
               className="w-24 h-24"
             ></img>
           </div>
