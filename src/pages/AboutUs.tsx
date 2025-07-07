@@ -89,20 +89,27 @@ const AboutUsPage = () => {
 
     function Person({ name, position, email, image }: PersonProps) {
         return (
-            <div className="m-4 w-[200px] rounded-md p-1 bg-[url(images/tabs-card.png)]">
-                <img src={image} alt={`Photo of ${name}`} className="h-[200px] p-2 rounded-md" />
-                <p className="person-name font-bold">{name}</p>
-                <p className="person-position px-2">{position}</p>
-                <p className="person-email">{email}</p>
+            // bg-[url(images/tabs-card.png)]
+            //rounded-full outline-[7px] outline-[#38bdf8]
+            <div className="m-4 w-[200px] rounded-md p-1">
+                <img src={image} alt={`Photo of ${name}`} 
+                className="h-[200px] mb-[1rem]" /> 
+                <p className="text-[20px] person-name font-bold">{name}</p>
+                <p className="text-[18px] person-position px-2">{position}</p>
+                <a className="text-[18px] font-bold text-[#d97706]" 
+                href={`mailto:${email}`}>{email}</a>
             </div>
         );
     }
 
     return (<>
-        <main className='m-8'>
-            <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1>
+        <main className="p-4 md:p-8 bg-[#18181b] bg-fixed bg-size-[90%] md:bg-size-[60%] bg-repeat"
+                style={{ backgroundImage: "url('/web/images/items-background.png')" }}>
+            {/* <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1> */}
+            <img src="/web/images/test-header-banner.png"
+            className='flex justify-self-center w-[100%] md:w-[50%] mb-[2rem]'></img>
             <div className='flex flex-column items-center w-full text-center'>
-                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-orange-100 m-auto">
+                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-white/70 m-auto">
 
                     <TabsList className='w-full flex-wrap flex-column h-full'>
                         <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
@@ -117,7 +124,9 @@ const AboutUsPage = () => {
                     </TabsList>
 
                     <TabsContent value="GSP">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas font-black'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
+                        <hr className="h-1 m-4 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {gspData.map((personData, index) => (
@@ -132,7 +141,7 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Production">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 font-black bebas'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {productionData.map((personData, index) => (

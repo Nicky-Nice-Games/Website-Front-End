@@ -124,7 +124,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
                 <button className="cursor-pointer absolute bottom-[4rem] md:right-[4rem] right-[10rem] w-[300px]
-                p-[1rem] text-white transform transition duration-300 hover:translate-x-2 z-2"
+                p-[1rem] text-white transform transition duration-300 hover:translate-x-3 z-2"
                 onClick={() => {
                     window.scrollTo({ top: 0, behavior: "instant" });
                     navigate('/news');
@@ -204,7 +204,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </p>
                 </div>
                 <div
-                className="mt-[12rem] relative bg-center bg-no-repeat 2xl:bg-cover"
+                className="mt-[12rem] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
                 style={{ backgroundImage: "url('/web/images/black checker.png')" }}
                 >
                 <div className="overflow-hidden -rotate-6 w-full h-[300px] m-0 origin-bottom-left flex">
@@ -212,7 +212,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 </div>
                 </div>
                 <div
-                    className="pt-[2rem] w-[100%] relative bg-center bg-no-repeat 2xl:bg-cover"
+                    className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
                     style={{ backgroundImage: "url('/web/images/black checker.png')" }}
                 >
                     <div id="topscores" className="relative flex flex-col justify-center items-center">
@@ -256,7 +256,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-full p-4 text-white text-center">
                         <button
-                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:-translate-y-2"
+                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:translate-x-3"
                             onClick={() => {
                             window.scrollTo({ top: 0, behavior: "instant" });
                             navigate('/leaderboard');
