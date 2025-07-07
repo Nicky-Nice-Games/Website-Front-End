@@ -192,7 +192,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
                     </div>
                 </div>
-                <div id="lore" className="ml-[2rem] mr-[2rem] text-center m-[10%]">
+                <div id="lore" className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[12rem]"
+                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
                     <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
@@ -204,7 +205,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </p>
                 </div>
                 <div
-                className="mt-[12rem] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
+                className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
                 style={{ backgroundImage: "url('/web/images/black checker.png')" }}
                 >
                 <div className="overflow-hidden -rotate-6 w-full h-[300px] m-0 origin-bottom-left flex">

@@ -89,9 +89,11 @@ const AboutUsPage = () => {
 
     function Person({ name, position, email, image }: PersonProps) {
         return (
-            // bg-[url(images/tabs-card.png)]
+            // 
             //rounded-full outline-[7px] outline-[#38bdf8]
-            <div className="m-4 w-[200px] rounded-md p-1">
+            <div className="m-4 w-[200px] drop-shadow-xl/50
+                rounded-md p-1 bg-[url(images/tabs-card.png)] 
+                bg-cover bg-no-repeat bg-center opacity-100">
                 <img src={image} alt={`Photo of ${name}`} 
                 className="h-[200px] mb-[1rem]" /> 
                 <p className="text-[20px] person-name font-bold">{name}</p>
@@ -109,7 +111,8 @@ const AboutUsPage = () => {
             <img src="/web/images/test-header-banner.png"
             className='flex justify-self-center w-[100%] md:w-[50%] mb-[2rem]'></img>
             <div className='flex flex-column items-center w-full text-center'>
-                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 bg-white/70 m-auto">
+                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 
+                bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover m-auto">
 
                     <TabsList className='w-full flex-wrap flex-column h-full'>
                         <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
@@ -120,12 +123,13 @@ const AboutUsPage = () => {
                         <TabsTrigger value="QA">Quality Assurance</TabsTrigger>
                         <TabsTrigger value="Support">Support</TabsTrigger>
                         <TabsTrigger value="Web">Web</TabsTrigger>
+                        <TabsTrigger value="Advisory">Advisory</TabsTrigger>
 
                     </TabsList>
 
                     <TabsContent value="GSP">
-                        <h2 className='text-4xl m-1 mx-0 bebas font-black'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
-                        <hr className="h-1 m-4 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
@@ -234,6 +238,22 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="RND">
+                        <h2 className='text-4xl m-1 mx-0 painterz'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+
+                        <div className="flex flex-row flex-wrap w-full justify-center">
+                            {rndData.map((personData, index) => (
+                                <Person
+                                    key={index}
+                                    name={personData[1]}       // e.g., "Jane Doe"
+                                    position={personData[2]}   // e.g., "Producer"
+                                    email={personData[3]}      // e.g., "jane@example.com"
+                                    image={personData[4]}
+
+                                />
+                            ))}
+                        </div>
+                    </TabsContent>
+                    <TabsContent value="Advisory">
                         <h2 className='text-4xl m-1 mx-0 painterz'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
