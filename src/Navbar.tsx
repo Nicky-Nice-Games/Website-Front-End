@@ -348,7 +348,7 @@ const Navbar = ({
             }}
           >
             <img
-              src="./images/content-assets/tempLogo.png"
+              src="./images/tempLogo.png"
               className="max-w-9 relative bottom-1"
             />
           </button>
