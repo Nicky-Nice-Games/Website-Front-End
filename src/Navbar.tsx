@@ -357,7 +357,7 @@ const Navbar = ({
       {/*Center: Main navigation list. Depends on screen width.*/}
       {isMobileDevice ? mobileNavList : pcNavList}
       {/*Right side: Login button or profile dropdown, depending on whether you're logged in.*/}
-      {profileDropdown}
+      { loginNavbarItem }
     </NavigationMenu>
   );
 };
