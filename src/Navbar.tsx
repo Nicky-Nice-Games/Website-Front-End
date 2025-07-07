@@ -27,7 +27,7 @@ const Navbar = ({
 }: NavbarParams) => {
   // Tailwind classes to set the button background for normal, hover and active states.
   const navbarButton: string =
-    "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)]";
+    "bg-size-[100%_100%] bg-[url(images/navbar/button.png)] hover:bg-[url(images/navbar/button-hover.png)] active:bg-[url(images/navbar/button-active.png)] relative active:top-[1px]";
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
 
@@ -80,7 +80,7 @@ const Navbar = ({
           className="max-w-7 md:m-1 rounded-full"
         />
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="md:min-w-30 *:hover:bg-[#F76902] absolute">
+      <NavigationMenuContent className="md:min-w-30 *:hover:text-[#e7ee33] absolute">
         <NavigationMenuLink>
           <button
             onClick={() => {
@@ -144,7 +144,7 @@ const Navbar = ({
             About
           </button>
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="absolute -left-3 *:hover:bg-[#F76902] min-w-30">
+        <NavigationMenuContent className="absolute -left-3 *:hover:text-[#e7ee33] min-w-30">
           <NavigationMenuLink>
             <button
               onClick={() => {
@@ -188,7 +188,7 @@ const Navbar = ({
             Content
           </button>
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="absolute -left-2 *:hover:bg-[#F76902]">
+        <NavigationMenuContent className="absolute -left-2 *:hover:text-[#e7ee33]">
           <NavigationMenuLink>
             <button
               onClick={() => {
@@ -272,7 +272,7 @@ const Navbar = ({
         </NavigationMenuTrigger>
         <NavigationMenuContent className="absolute -left-5 min-w-30">
           <NavigationMenuLink
-            className={`${currentPage === "about" ? "bg-white" : ""}`}
+            className={`${currentPage === "about" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -286,7 +286,7 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "content" ? "bg-white" : ""}`}
+            className={`${currentPage === "content" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -300,7 +300,7 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "news" ? "bg-white" : ""}`}
+            className={`${currentPage === "news" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -314,7 +314,7 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "leaderboard" ? "bg-white" : ""}`}
+            className={`${currentPage === "leaderboard" ? "active-outline" : "passive-outline"}`}
           >
             <button
               className="cursor-pointer"
@@ -335,7 +335,7 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className={`bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30`}
+      className="bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
