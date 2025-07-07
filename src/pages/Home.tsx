@@ -17,7 +17,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
-  const photo: string = '/ggk/images/placeholder.PNG';
+  const photo: string = '/ggk/images/placeholder/pfp-placeholder.png';
   const arcadeMachine = '/ggk/images/arcade machine 2.png'
 
   const navigate = useNavigate();
@@ -51,34 +51,34 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const bannerImages1 = [
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/one.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/ten.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/three.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/nine.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/five.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/eight.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/seven.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/six.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/nine.png'
     },
     {
-        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
+        imgSrc:'/ggk/images/in-game/two.png'
     },
     ];
 
@@ -119,12 +119,12 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         <>
             <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
                 <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col md:justify-center align-center p-4 z-3">
-                    <h1 className="h1-style">Brick City ????</h1>
+                    <h1 className="h1-style">Gizmo Go-Kartz</h1>
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
                 <button className="cursor-pointer absolute bottom-[4rem] md:right-[4rem] right-[10rem] w-[300px]
-                p-[1rem] text-white transform transition duration-300 hover:-translate-y-2 z-2"
+                p-[1rem] text-white transform transition duration-300 hover:translate-x-3 z-2"
                 onClick={() => {
                     window.scrollTo({ top: 0, behavior: "instant" });
                     navigate('/news');
@@ -192,7 +192,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
                     </div>
                 </div>
-                <div id="lore" className="ml-[2rem] mr-[2rem] text-center m-[10%]">
+                <div id="lore" className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[12rem]"
+                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
                     <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet consectetur. Congue sem auctor pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod tristique in facilisis. Vehicula porttitor iaculis risus tincidunt platea. Sed id platea phasellus vitae lacinia in lectus fames molestie. Eget nibh tellus scelerisque nunc ultrices. Pellentesque blandit amet elementum quam id. Mi consectetur sed adipiscing accumsan sit ut consectetur. 
@@ -204,15 +205,15 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </p>
                 </div>
                 <div
-                className="mt-[12rem] relative bg-center bg-no-repeat 2xl:bg-cover"
-                style={{ backgroundImage: "url('/ggk/images/black checker.png')" }}
+                className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
+                style={{ backgroundImage: "url('/web/images/black checker.png')" }}
                 >
                 <div className="overflow-hidden -rotate-6 w-full h-[300px] m-0 origin-bottom-left flex">
                     <InfiniteMovingCards items={bannerImages2} direction="left" speed="verySlow" />
                 </div>
                 </div>
                 <div
-                    className="pt-[2rem] w-[100%] relative bg-center bg-no-repeat 2xl:bg-cover"
+                    className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover"
                     style={{ backgroundImage: "url('/ggk/images/black checker.png')" }}
                 >
                     <div id="topscores" className="relative flex flex-col justify-center items-center">
@@ -256,7 +257,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                     </div>
                     <div id="link-container" className="bg-black/80 absolute z-3 bottom-0 w-full p-4 text-white text-center">
                         <button
-                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:-translate-y-2"
+                            className="m-4 cursor-pointer w-[300px] p-4 text-white transform transition-transform duration-300 relative hover:translate-x-3"
                             onClick={() => {
                             window.scrollTo({ top: 0, behavior: "instant" });
                             navigate('/leaderboard');
