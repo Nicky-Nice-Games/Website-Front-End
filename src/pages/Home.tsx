@@ -17,8 +17,8 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
     const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
-  const photo: string = '/web/images/placeholder.PNG';
-  const arcadeMachine = '/web/images/arcade machine 2.png'
+  const photo: string = '/ggk/images/placeholder.PNG';
+  const arcadeMachine = '/ggk/images/arcade machine 2.png'
 
   const navigate = useNavigate();
 
@@ -31,9 +31,9 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         color:string;
     };
 
-    const PlacementVariants = {
-        first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
-    }
+    // const PlacementVariants = {
+    //     first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
+    // }
     
    function Score({ place, imgPath, name, time, score, color}:ScoreProps) {
     return (
@@ -51,67 +51,67 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const bannerImages1 = [
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/web/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     ];
 
@@ -132,7 +132,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 }}
                 >
                     <h3 className=" relative z-3 font-medium text-white dark:text-neutral-200">See all news and updates!</h3>
-                    <img src='/web/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
+                    <img src='/ggk/images/arrow.png' className="absolute z-2 top-[0rem] left-[0rem] w-[100%] h-[100%]"></img>                
                 </button>
                 
                 <Carousel
@@ -166,7 +166,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                 
                 <div id="introdcution" className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
                     bg-repeat"
-                    style={{ backgroundImage: "url('/web/images/white checker.png')" }} >
+                    style={{ backgroundImage: "url('/ggk/images/white checker.png')" }} >
                     <h2 className="text-[26px] m-4">Game Overview</h2>
                     <p className="m-4">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -181,12 +181,12 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
                     <img className="ml-4"
-                        src="/web/images/placeholder.PNG"
+                        src="/ggk/images/placeholder/placeholder.PNG"
                         alt="Photo of arcade machines"
                     />
                 </div>
                 <div className="mb-[12rem] bg-repeat"
-                    style={{ backgroundImage: "url('/web/images/white checker.png')" }}>
+                    style={{ backgroundImage: "url('/ggk/images/white checker.png')" }}>
                     <div className="overflow-hidden rotate-6 w-[100%] h-[300px] m-[0rem] origin-top-left flex">
                         <InfiniteMovingCards items={bannerImages1} direction="right" speed="verySlow"></InfiniteMovingCards>
 
@@ -268,7 +268,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                             See all scores!
                             </h3>
                             <img
-                            src="/web/images/arrow.png"
+                            src="/ggk/images/arrow.png"
                             className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
                             />
                         </button>

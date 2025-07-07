@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 
 const ProcessPage = () => {
-  const photo: string = "images/placeholder.PNG";
+  const photo: string = "images/placeholder/placeholder.PNG";
 
   type Character = {
     imgUrl: string;
@@ -22,38 +22,38 @@ const ProcessPage = () => {
   const characters: Character[] = [
     {
       imgUrl: "images/content-assets/FrshSkater.PNG",
-      conceptImg: "images/placeholder.PNG",
+      conceptImg: "images/placeholder/placeholder.PNG",
       name: "Morgan - Skater Freshman",
       description: "blah blah blah...",
     },
     {
       imgUrl: "images/content-assets/SophDining.png",
-      conceptImg: "images/placeholder.PNG",
+      conceptImg: "images/placeholder/placeholder.PNG",
       name: "Reese - Dining Sophomore",
       description: "blah blah blah...",
     },
     {
       imgUrl: "images/content-assets/OLjr.png",
-      conceptImg: "images/placeholder.PNG",
+      conceptImg: "images/placeholder/placeholder.PNG",
       name: "Emma - OL Junior",
       description: "blah blah blah...",
     },
     {
       imgUrl: "images/content-assets/HkySr.png",
-      conceptImg: "images/placeholder.PNG",
+      conceptImg: "images/placeholder/placeholder.PNG",
       name: "Kai - Hockey Senior",
       description: "blah blah blah...",
     },
     {
       imgUrl: "images/content-assets/Jamster.png",
-      conceptImg: "images/placeholder.PNG",
+      conceptImg: "images/placeholder/placeholder.PNG",
       name: "Jamster",
       description: "JAMMMMSTER",
     },
     {
       imgUrl: "images/placeholder.PNG",
-      conceptImg: "images/placeholder.PNG",
-      name: "Gim",
+      conceptImg: "images/placeholder/placeholder.PNG",
+      name: "Gizmo",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
     },
@@ -100,8 +100,7 @@ const ProcessPage = () => {
             <img
               src={photo}
               alt="Picture of RIT"
-              className="mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end 
-                    md:w-[400px] w-1/4"
+              className="mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-1/4"
             />
             <p className="">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
@@ -121,7 +120,7 @@ const ProcessPage = () => {
             </p>
           </div>
           <div className="flex md:flex-row flex-col items-stretch">
-            <p className="">
+            <p className="mr-8">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
               donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu.
               Dui elementum neque lacus cursus lacus sem convallis enim.

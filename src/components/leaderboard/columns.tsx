@@ -55,7 +55,7 @@ export const columns: ColumnDef<Racer>[] = [
         const index: number = row.getValue("index");
         return <div className="flex flex-row items-center justify-center w-full">
             <h1 className="font-bold text-base md:text-xl mr-3">{formatPlacing(index)}</h1>
-            {isMobileDevice ? "" : <img src="images/pfp-placeholder.png" className="max-w-9 rounded-full  "/>}
+            {isMobileDevice ? "" : <img src="images/placeholder/pfp-placeholder.png" className="max-w-9 rounded-full  "/>}
         </div>
     }
   },
