@@ -1,40 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { AccountSchema } from "@/App";
-import { millisecondsToSeconds } from "framer-motion"
+import { millisecondsToSeconds } from "framer-motion";
 import Pfp from "@/components/pfp";
 
 //#region Helper Functions
 
 const formatTime = (milliseconds: number): string => {
-    let seconds = millisecondsToSeconds(milliseconds);
-    let minutes = Math.floor(seconds / 60);
-    milliseconds %= 1000;
-    seconds %= 60
+  let seconds = millisecondsToSeconds(milliseconds);
+  let minutes = Math.floor(seconds / 60);
+  milliseconds %= 1000;
+  seconds %= 60;
 
-    const formattedMilliseconds = String(milliseconds).padStart(3, '0');
-    const formattedSeconds = String(Math.floor(seconds)).padStart(2, '0');
-    const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedMilliseconds = String(milliseconds).padStart(3, "0");
+  const formattedSeconds = String(Math.floor(seconds)).padStart(2, "0");
+  const formattedMinutes = String(minutes).padStart(2, "0");
 
-    return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
-}
+  return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
+};
 
 const getData = (url: string, callback: Function) => {
   const fetchData = async (): Promise<any> => {
     const response: Response = await fetch(url);
     const playerData = await response.json();
     return playerData;
-  }
+  };
 
   const playerData = fetchData();
-  playerData.then(data => {
-    callback(data)
+  playerData.then((data) => {
+    callback(data);
   });
-  playerData.catch(err => {
+  playerData.catch((err) => {
     console.log(err);
     return false;
-  })
-}
+  });
+};
 
 interface ItemsUsedObject {
   [propName: string]: number;
@@ -42,9 +42,11 @@ interface ItemsUsedObject {
 
 const sumItemsUsed = (itemsUsedObject: ItemsUsedObject): number => {
   let totalItemsUsed = 0;
-  Object.values(itemsUsedObject).forEach(i => { totalItemsUsed += i;})
+  Object.values(itemsUsedObject).forEach((i) => {
+    totalItemsUsed += i;
+  });
   return totalItemsUsed;
-}
+};
 
 const getTotalItemsUsed = (playerData: any): number => {
   return (
@@ -53,18 +55,27 @@ const getTotalItemsUsed = (playerData: any): number => {
     sumItemsUsed(playerData.boostUsage) +
     sumItemsUsed(playerData.defenseUsage)
   );
-}
+};
 
-const checkAchievementProgress = (stat: number, milestones: number[]): boolean[] => {
-  let achievementStatus:boolean[] = [];
-  for (let i = 0; i < milestones.length; i++){
+const checkAchievementProgress = (
+  stat: number,
+  milestones: number[]
+): boolean[] => {
+  let achievementStatus: boolean[] = [];
+  for (let i = 0; i < milestones.length; i++) {
     achievementStatus.push(stat >= milestones[i]);
   }
   return achievementStatus;
-}
+};
 //#endregion
 
-const PlayerStatsPage = ({ account, setAccount }:{ account: AccountSchema | null, setAccount: Function }) => {
+const PlayerStatsPage = ({
+  account,
+  setAccount,
+}: {
+  account: AccountSchema | null;
+  setAccount: Function;
+}) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
   const [playerData, setPlayerData] = useState(null);
   const [recentRaces, setRecentRaces] = useState(null);
@@ -72,19 +83,44 @@ const PlayerStatsPage = ({ account, setAccount }:{ account: AccountSchema | null
   useEffect(() => {
     if (account) {
       //Fetch player profile data
-      getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getdetailinfo/${account.pid}`, setPlayerData);
+      getData(
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getdetailinfo/${account.pid}`,
+        setPlayerData
+      );
       //Fetch data for recent races
-      getData(`https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`, setRecentRaces);
+      getData(
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`,
+        setRecentRaces
+      );
     }
   }, []);
 
-  if (!playerData || !account) return <h1 className="bebas text-center font-black text-5xl mt-8">No Data Found!</h1>
+  if (!playerData || !account)
+    return (
+      <h1 className="bebas text-center font-black text-5xl mt-8">
+        No Data Found!
+      </h1>
+    );
 
   if (activeTab === "achievements") {
-    return <AchievementsPage playerData={playerData} setActiveTab={setActiveTab} setAccount={setAccount}/>;
+    return (
+      <AchievementsPage
+        playerData={playerData}
+        setActiveTab={setActiveTab}
+        setAccount={setAccount}
+      />
+    );
   }
 
-  return <InfoPage playerData={playerData} recentRaces={recentRaces} setActiveTab={setActiveTab} setAccount={setAccount} account={account}/>;
+  return (
+    <InfoPage
+      playerData={playerData}
+      recentRaces={recentRaces}
+      setActiveTab={setActiveTab}
+      setAccount={setAccount}
+      account={account}
+    />
+  );
 };
 
 const InfoPage = ({
@@ -94,23 +130,23 @@ const InfoPage = ({
   setAccount,
   account,
 }: {
-  playerData: any,
-  recentRaces: any,
+  playerData: any;
+  recentRaces: any;
   setActiveTab: (tab: "info" | "achievements") => void;
   setAccount: Function;
   account: AccountSchema | null;
 }) => {
   interface Stat {
-    name: string
-    value: string | number
+    name: string;
+    value: string | number;
   }
 
-  const statsList1: Stat[] = [ 
-    {name: "Wins", value: playerData.firstPlace},
-    {name: "Fastest Time", value: formatTime(playerData.fastestTime)},
-    {name: "Podium Finishes", value: playerData.podium},
-    {name: "Races", value: playerData.totalRaces},
-    {name: "Wall Crashes", value: playerData.collisionWithWall}
+  const statsList1: Stat[] = [
+    { name: "Wins", value: playerData.firstPlace },
+    { name: "Fastest Time", value: formatTime(playerData.fastestTime) },
+    { name: "Podium Finishes", value: playerData.podium },
+    { name: "Races", value: playerData.totalRaces },
+    { name: "Wall Crashes", value: playerData.collisionWithWall },
   ];
 
   const offenseUsed = sumItemsUsed(playerData.offenseUsage);
@@ -119,19 +155,28 @@ const InfoPage = ({
   const boostsUsed = sumItemsUsed(playerData.boostUsage);
 
   const statsList2: Stat[] = [
-    {name: "Item-Based Hits", value: offenseUsed + trapsUsed},
-    {name: "Offensive Items Used", value: offenseUsed},
-    {name: "Defensive Items Used", value: defenseUsed},
-    {name: "Traps Used", value: trapsUsed},
-    {name: "Boosts Used", value: boostsUsed}
+    { name: "Item-Based Hits", value: offenseUsed + trapsUsed },
+    { name: "Offensive Items Used", value: offenseUsed },
+    { name: "Defensive Items Used", value: defenseUsed },
+    { name: "Traps Used", value: trapsUsed },
+    { name: "Boosts Used", value: boostsUsed },
   ];
 
   const characters = ["Morgan", "Reese", "Emma", "Kai", "Jamster", "Gim"];
-  const tracks = ["Outer Loop", "Quarter Mile", "Golisano", "Brick Road", "Dorm Room"];
+  const tracks = [
+    "Outer Loop",
+    "Quarter Mile",
+    "Golisano",
+    "Brick Road",
+    "Dorm Room",
+  ];
 
   const statsList3: Stat[] = [
-    {name: "Favorite Character", value: characters[playerData.favoriteChara - 1]},
-    {name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1]},
+    {
+      name: "Favorite Character",
+      value: characters[playerData.favoriteChara - 1],
+    },
+    { name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1] },
   ];
 
   return (
@@ -242,76 +287,22 @@ const InfoPage = ({
           <h2 className="ml-4 mb-2 text-lg font-semibold">Recent Races</h2>
           <div className="space-y-2 px-4">
             {recentRaces.map((race: any) => {
-              return <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>{tracks[race.mapRaced - 1]}</span>
-              <span>{formatTime(race.raceTime)}</span>
-            </div>
+              return (
+                <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
+                  <span>{tracks[race.mapRaced - 1]}</span>
+                  <span>{formatTime(race.raceTime)}</span>
+                </div>
+              );
             })}
           </div>
         </Card>
-
-        {/* Best Races Activity */}
-        {/* <Card className="mr-4 ml-4">
-          <h2 className="ml-4 mb-2 text-lg font-semibold">Best Races</h2>
-          <div className="space-y-2 px-4">
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Rainbow Road</span>
-              <span>2:15.342</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Bowser's Castle</span>
-              <span>1:47.890</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Luigi Circuit</span>
-              <span>1:02.455</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>DK Jungle</span>
-              <span>2:03.120</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Toad's Turnpike</span>
-              <span>1:28.777</span>
-            </div>
-          </div>
-        </Card> */}
-
-        {/* Best Races Activity */}
-        {/* <Card className="mr-4 ml-4">
-          <h2 className="ml-4 mb-2 text-lg font-semibold">
-            Best Races Per Track{" "}
-          </h2>
-          <div className="space-y-2 px-4">
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Rainbow Road</span>
-              <span>2:15.342</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Bowser's Castle</span>
-              <span>1:47.890</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Luigi Circuit</span>
-              <span>1:02.455</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>DK Jungle</span>
-              <span>2:03.120</span>
-            </div>
-            <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-              <span>Toad's Turnpike</span>
-              <span>1:28.777</span>
-            </div>
-          </div>
-        </Card> */}
       </Card>
     </div>
   );
 };
 
 type AchievementsPageProps = {
-  playerData: any
+  playerData: any;
   setActiveTab: (tab: "info" | "achievements") => void;
   setAccount: Function;
 };
@@ -325,22 +316,33 @@ export const AchievementsPage = ({
   const hexagonClip =
     "polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)";
 
-
   const firstPlaceFinishes = playerData.firstPlace;
   const top3Finishes = playerData.podium;
-  const totalRaces = playerData.totalRaces
+  const totalRaces = playerData.totalRaces;
   const itemsUsed = getTotalItemsUsed(playerData);
 
-  const firstPlaceAchievements = checkAchievementProgress(firstPlaceFinishes, [1, 10, 25, 50, 100]);
-  const top3Achievements = checkAchievementProgress(top3Finishes, [1, 25, 50, 100, 200]);
-  const totalRaceAchievements = checkAchievementProgress(totalRaces, [1, 25, 50, 100, 250]);
-  const itemsUsedAchievements = checkAchievementProgress(itemsUsed, [25, 75, 150, 200, 350]);
-  
+  const firstPlaceAchievements = checkAchievementProgress(
+    firstPlaceFinishes,
+    [1, 10, 25, 50, 100]
+  );
+  const top3Achievements = checkAchievementProgress(
+    top3Finishes,
+    [1, 25, 50, 100, 200]
+  );
+  const totalRaceAchievements = checkAchievementProgress(
+    totalRaces,
+    [1, 25, 50, 100, 250]
+  );
+  const itemsUsedAchievements = checkAchievementProgress(
+    itemsUsed,
+    [25, 75, 150, 200, 350]
+  );
+
   const achievementSections = [
     { name: "1st Place Finishes", progress: firstPlaceAchievements },
     { name: "Podium Finishes", progress: top3Achievements },
     { name: "Races", progress: totalRaceAchievements },
-    { name: "Items Collected", progress: itemsUsedAchievements }
+    { name: "Items Collected", progress: itemsUsedAchievements },
   ];
 
   // Achievement names and colors

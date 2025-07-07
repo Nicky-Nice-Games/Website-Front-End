@@ -17,7 +17,7 @@ import LeaderboardPage from "./pages/Leaderboard";
 import NewsAndUpdatesPage from "./pages/NewsAndUpdates";
 import PlayerStatsPage from "./pages/PlayerStats";
 import NoPage from "./pages/NoPage";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import ForumPost from "./pages/ForumPost";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
