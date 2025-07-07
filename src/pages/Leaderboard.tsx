@@ -42,23 +42,23 @@ const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, s
     const tracks: Track[] = [
         {
             name: "RIT Outer Loop",
-            imgLink: "images/content-assets/OuterLoop.png"
+            imgLink: "images/tracks/OuterLoop.png"
         },
         {
             name: "Quarter Mile",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/placeholder/placeholder.PNG"
         },
         {
             name: "Golisano",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/placeholder/placeholder.PNG"
         },
         {
             name: "Brick Road",
-            imgLink: "images/placeholder.PNG"
+            imgLink: "images/placeholder/placeholder.PNG"
         },
         {
             name: "RIT Dorm Room",
-            imgLink: "images/content-assets/dorm.png"
+            imgLink: "images/tracks/dorm.png"
         }
     ]
 

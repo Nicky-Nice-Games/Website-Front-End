@@ -46,7 +46,7 @@ const ContentPage = () => {
         </div>
         <img
           className="rounded-lg w-[97%] m-auto"
-          src="images/content-assets/RIT.jpg"
+          src="images/tracks/RIT.jpg"
         ></img>
       </div>
     </>
@@ -159,94 +159,94 @@ const ItemsPage = () => {
   //list of items to display
   const items = [
     {
-      imgUrl: "images/content-assets/rocket_boost.png",
+      imgUrl: "images/items/boosts/rocket_boost.png",
       name: "Rocket Boost",
       description:
         "increase your speed by 100% for 3 seconds",
     },
     {
-      imgUrl: "images/content-assets/double_rocket_boost.png",
+      imgUrl: "images/items/boosts/double_rocket_boost.png",
       name: "Double Rocket Boost",
       description:
         "increase your speed by 200% for 3 seconds",
     },
     {
-      imgUrl: "images/content-assets/flying_rocket_boost.png",
+      imgUrl: "images/items/boosts/flying_rocket_boost.png",
       name: "Flying Rocket Boost",
       description:
         "increase your speed by 300% for 3 seconds, lifts character up in the air",
     },
     {
-      imgUrl: "images/content-assets/warp_boost.png",
+      imgUrl: "images/items/boosts/warp_boost.png",
       name: "Upgraded Boost",
       description:
         "jump through a warp portal and move your kart up 3 map checkpoints",
     },
     {
-      imgUrl: "images/content-assets/4_sec_shield.png",
+      imgUrl: "images/items/shields/level_one.png",
       name: "4 Second Shield",
       description:
         "Become invulnerable for 4 seconds",
     },
     {
-      imgUrl: "images/content-assets/6_sec_shield.png",
+      imgUrl: "images/items/shields/level_two.png",
       name: "6 Second Shield",
       description:
         "Become invulnerable for 6 seconds",
     },
     {
-      imgUrl: "images/content-assets/8_sec_shield.png",
+      imgUrl: "images/items/shields/level_three.png",
       name: "8 Second Shield",
       description:
         "Become invulnerable for 8 seconds",
     },
     {
-      imgUrl: "images/content-assets/10_sec_shield.png",
+      imgUrl: "images/items/shields/level_four.png",
       name: "10 Second Shield",
       description:
         "Become invulnerable for 10 seconds",
     },
     {
-      imgUrl: "images/content-assets/puck.png",
+      imgUrl: "images/items/pucks/puck.png",
       name: "Puck",
       description:
         "A tier one (base) level offensive projective, If player is hit with a puck, they are slowed down",
     },
     {
-      imgUrl: "images/content-assets/puck_upgraded.png",
+      imgUrl: "images/items/pucks/puck_upgraded.png",
       name: "Homing Spikey Puck",
       description:
         "A tier two level offensive projective, Will auto go to next player ahead and hit them",
     },
     {
-      imgUrl: "images/content-assets/triple_homing_puck.png",
+      imgUrl: "images/items/pucks/triple_homing_puck.png",
       name: "Triple Homing Pucks",
       description:
         "A tier three level offensive projective, will use three pucks with the same features of Homing Spikey Puck",
     },
     {
-      imgUrl: "images/content-assets/flying_puck.png",
+      imgUrl: "images/items/pucks/flying_puck.png",
       name: "Flying Puck",
       description:
         "A level four (Final/Max) offensive projective, will go attack the player in first",
     },
     {
-      imgUrl: "images/content-assets/spill.png",
+      imgUrl: "images/items/fake/spill.png",
       name: "Spill",
       description:
         "When Placed down if a player goes over it, slips on the oil and is slowed down",
     }, {
-      imgUrl: "images/content-assets/cracked_brick-wall.png",
+      imgUrl: "images/items/fake/cracked_brick-wall.png",
       name: "Cracked Brick Wall",
       description:
         "TBD",
     }, {
-      imgUrl: "images/content-assets/spill_upgraded.png",
+      imgUrl: "images/items/fake/spill_upgraded.png",
       name: "Confused Ritchie",
       description:
         "Reverses control if drove into",
     }, {
-      imgUrl: "images/content-assets/fake_item_box.png",
+      imgUrl: "images/items/fake/fake_item_box.png",
       name: "Fake Power Up Block",
       description:
         "Mimics a normal power up block but causes stun/slow down",
@@ -399,7 +399,7 @@ const CharactersPage = () => {
   // sample list of characters to display
   const characters = [
     {
-      imgUrl: "images/content-assets/FrshSkater.PNG",
+      imgUrl: "images/characters/FrshSkater.PNG",
       name: "Morgan",
       description: `Pronouns: She/They
       Year: Freshmen
@@ -410,7 +410,7 @@ const CharactersPage = () => {
       songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
     },
     {
-      imgUrl: "images/content-assets/SophDining.png",
+      imgUrl: "images/characters/SophDining.png",
       name: "Reese",
       description: `Pronouns: He/Him
       Year: Sophomore
@@ -421,7 +421,7 @@ const CharactersPage = () => {
       songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
     },
     {
-      imgUrl: "images/content-assets/OLjr.png",
+      imgUrl: "images/characters/OLjr.png",
       name: "Emma",
       description: `Pronouns: She/Her
       Year: Junior
@@ -433,7 +433,7 @@ const CharactersPage = () => {
       songLink: "https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1"
     },
     {
-      imgUrl: "images/content-assets/HkySr.png",
+      imgUrl: "images/characters/HkySr.png",
       name: "Kai",
       description: `Pronouns: They/Them
       Major: Business
@@ -444,7 +444,7 @@ const CharactersPage = () => {
       songLink: "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1"
     },
     {
-      imgUrl: "images/content-assets/Jamster.png",
+      imgUrl: "images/characters/Jamster.png",
       name: "Jamster",
       description: `Pronouns: They/Them
       Year: Primordior
@@ -453,6 +453,17 @@ const CharactersPage = () => {
       Dislikes: Not Getting Snacks`,
       songName: "Hamster Dance -  Hampton and the Hamsters",
       songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
+    },
+    {
+      imgUrl: "images/characters/gizmo.jpeg",
+      name: "Gizmo",
+      description: `Pronouns: He/Him
+      Year: Sophomore
+      Major: Packaging Science
+      Likes: Free Stuff, Creating Playlists For Events, Anime, Energy Drinks
+      Dislikes: Working 3 Jobs, Sleep`,
+      songName: "Feel Good Inc. - Gorillaz",
+      songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
     },
   ];
 
@@ -543,7 +554,7 @@ const CharactersPage = () => {
         <div
           className="
                     grid grid-cols-2 gap-4 items-center justify-center p-8 /* default on mobile */
-                    lg:grid-cols-5 /* default on computer screens */
+                    lg:grid-cols-6 /* default on computer screens */
                     "
         >
           {characters.map((character) => (
@@ -583,25 +594,25 @@ interface Track {
 
 const tracks: Array<Track> = [
   {
-    imgUrl: "images/content-assets/OuterLoop.png",
+    imgUrl: "images/tracks/OuterLoop.png",
     name: "Outer Loop",
     description:
       "This Outer Loop is around RIT campus, you may have driven around here as if you drive on campus this loops is used very often, if you are ready to finally be able to ignore the stop signs and be ready to rev your engine and speed.",
   },
   {
-    imgUrl: "images/content-assets/kingramses.jpg",
+    imgUrl: "images/tracks/kingramses.jpg",
     name: "Golisano Hall",
     description:
       "Have you ever wanted to go around golisano, well you can now. going past classrooms, up and down the floors.",
   },
   {
-    imgUrl: "images/content-assets/dorm.png",
+    imgUrl: "images/tracks/dorm.png",
     name: "Dorm",
     description:
       "Remember the days you used to live in the dorm? well if you wanna relive it with a better memory you can, speed around the dorm in tiny karts. if you still live in the dormside or will be living there be ready to live this experience and dont forget to clean your room otherwise little characters might drive around it.",
   },
   {
-    imgUrl: "images/content-assets/kingramses.jpg",
+    imgUrl: "images/tracks/kingramses.jpg",
     name: "Finals Brick Road",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",

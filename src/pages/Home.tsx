@@ -51,67 +51,67 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
 
     const bannerImages1 = [
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     ];
 
     const bannerImages2 = [
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     {
-        imgSrc:'/ggk/images/placeholder.PNG'
+        imgSrc:'/ggk/images/placeholder/placeholder.PNG'
     },
     ];
 
@@ -181,7 +181,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
                         mollis. Nam scelerisque tellus a dolor facilisis.
                     </p>
                     <img className="ml-4"
-                        src="/ggk/images/placeholder.PNG"
+                        src="/ggk/images/placeholder/placeholder.PNG"
                         alt="Photo of arcade machines"
                     />
                 </div>
