@@ -25,481 +25,6 @@ interface Update {
   text: ContentBlock[];
 }
 
-const updates: Update[] = [
-  // Update 1
-  {
-    id: 1,
-    title: "Week 1",
-    date: "5/25/2025",
-    subtitle: "Start of production",
-
-    image: './assets/OIP.jpg',
-    text: [
-      { type: "heading", level: 2, text: "Content Team" },
-      { type: "paragraph", text: "Dev textures" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          "Finished 32 PNG dev textures for level designers.",
-          "Finished dummy racer (rigged, weighted and textured)",
-          "This dummy helped us notice early on that textures don’t port from Maya to Unity through .FBX, you have to override the texture in Unity for it to apply. Knowing this now will make it so we don’t have questions with future models",
-          "Finished dummy kart",
-        ]
-      },
-      { type: "paragraph", text: "Concept art" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          "Over 40 total separate concept character designs",
-          "6 concepts for each year (freshman, sophomore, junior, senior)",
-          "2 IGM “mascot” concepts by each team member",
-          "6 sorta misc “themed” concepts",
-        ]
-      },
-      { type: "heading", level: 2, text: "Level Design Team " },
-      { type: "paragraph", text: "Sketching" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            text: "8 sketched race track concepts",
-            children: [
-              "The Quarter Mile (2 Variations)",
-              "Polisseni Loop (2 Variations)",
-              "RIT Woods",
-              "The SHED",
-              "The SAU",
-              "Global Village",
-              "Double Dorm Room",
-              "Finals Brick Road",
-            ]
-          },
-          {
-            text: "2 sketched battle mode track concepts",
-            children: [
-              "RITZ Dining Hall",
-              "Ice Rink"
-            ]
-          }
-        ]
-      },
-      { type: "paragraph", text: "Greyboxing (as of 11:10 AM 5/30/2025)" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            text: "3 rough track layouts in Blender",
-            children: [
-              "Quarter Mile A & B",
-              "Global Village"
-            ]
-          },
-          {
-            text: "1 detailed track layout in Unity",
-            children: ["RIT Woods"]
-          }
-        ]
-      },
-      { type: "paragraph", text: "Test Chambers in Unity" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "1 road and ramps room for testing basic physics" },
-          {
-            text: "2 terrain testing chambers",
-            children: [
-              "The Tube: a straight path through all of the dev textures",
-              "The Grid: a 5x6 grid of rooms each containing one dev texture"
-            ]
-          }
-        ]
-      },
-      { type: "heading", level: 2, text: "QA Team" },
-      { type: "paragraph", text: "Jonathan, Team lead worked with backend on Unity to backend & backend to Unity integration. Nathan worked with Gio, Bobby, and Zachary S, on the GitHub guides and setup. Lydia worked with the production team and assisted the frontend team with figma utilization. Ronnel made playtesting form questions for users to fill out." },
-      { type: "heading", level: 2, text: "Gameplay Team " },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Prototyped menu and game states" },
-          { text: "Prototyped AI pathing" },
-          {
-            text: "Prototyped HUD",
-            children: [
-              "Layout",
-              "Minimap",
-              "Other information"
-            ]
-          },
-          { text: "Prototyped multiplayer networking" },
-          {
-            text: "Prototyped item system",
-            children: [
-              "Picking up items",
-              "Using items"
-            ]
-          },
-          { text: "Prototyped kart functionalities and player controls" },
-        ]
-      },
-      { type: "heading", level: 2, text: "R&D Team" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Prototyped communication between Arduino and Unity" },
-          { text: "Research into components for the cabinet’s seat technology and design" }
-        ]
-      },
-      { type: "heading", level: 2, text: "Production Team" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Josh, the project lead, has been busy this week creating, rehearsing, and iterating a presentation that he’s giving to the whole team on Friday. Josh’s goal with his presentation is to unify our team’s vision and ensure we can all move forward confidently. We want everyone to have a solid understanding of the goals of our project and the direction we want to move in so that we can efficiently work together and create a cool project." },
-          {
-            text: "Further developed our social media marketing plans so that we can create a coherent brand identity",
-            children: [
-              "Created a social media usage survey for team members to fill out to gauge a better understanding of the most popular social media platforms amongst IGM students. After reviewing the responses, our plan is to use YouTube, Instagram, Reddit, TikTok, and X(Twitter) for our marketing purposes",
-              "Started to build out a content calendar of when we plan to post specific content, which will help us in the coming weeks when we are actually posting",
-              "Created a personal info survey to gather information on each team member to include in “Meet the Team” Instagram posts",
-              "Prototyping designs for social media posts"
-            ]
-          },
-          { text: "Created some quick mockup designs for posters/fliers that we would like to put around campus to market our game and communicated with team members outside our group who are helping to create finished designs" },
-          { text: "Met with team leads to answer questions and give guidance to keep the project moving forward and ensure we are all working toward creating the best project" }
-        ]
-      },
-      { type: "heading", level: 2, text: "Support Team" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            text: "Shadowed teams to get a sense of what they were working on and how progress was coming along, keeping notes on a shared document",
-            children: [
-              "This allows us to see what they have completed as well as what they are currently doing, making it easier for us to jump in if assistance is needed"
-            ]
-          },
-          { text: "Created a procedure document for cloning a GitHub repository" },
-          {
-            text: "Our build engineer, Giovanni Paulino, has also been very busy this week…",
-            children: [
-              "Created a Unity project and uploaded it to the main repository",
-              "Cloned this repository on another device an opened the Unity project successfully, with the help of our local Game Developer, Bobby Pellegrino",
-              "Troubleshooted issues with filename length, large files, and creating .gitignore and .gitattributes files with Nathan Arlauckas from the QA Team",
-              {
-                text: "In collaboration with several people, created a branch ruleset to:",
-                children: [
-                  "Prohibit pushing content directly to the main repository",
-                  "Require all merges with the main repository to be in the form of a pull request",
-                  "Require a member of specific teams (such as the QA team or Support team) to review and approve all pull requests",
-                  "Require all pull requests to run a workflow with a GitHub-hosted runner to test the code (not a part of the branch ruleset, but a part of the pull request process)"
-
-                ]
-              },
-              { text: "Gathered a list of tools used or that could be used in the development process" },
-              { text: "Created a branching/merging procedure w/ QA team" },
-              { text: "Worked with R&D to brainstorm different cabinet designs" }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  // Update 2
-  {
-    id: 2,
-    title: "Week 2",
-    date: "6/1/2025",
-    subtitle: "Continued production",
-    image: './assets/OIP.jpg',
-    text: [
-      { type: "heading", level: 2, text: "Production Team" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Narrowing down the name of the game" },
-          {
-            text: "Migrating Design Doc over to GitHub",
-            children: [
-              "Filled out more of the Lorem Ipsum in the design document"
-            ]
-          },
-          { text: "Met with teams, checking in on how they’re doing so far on the project" },
-          {
-            text: "Josh tasks:",
-            children: [
-              "Worked on pitch presentation",
-              "Did a lot of meetings"
-            ]
-          },
-        ]
-      },
-      {
-        type: "heading", level: 2, text: "R&D Team"
-      },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            text: "Cabinets design research finished",
-            children: [
-              "Design Inspiration",
-              "Best Practices",
-              "Seating options",
-              "Feedback hardware"
-            ]
-          },
-          { text: "Design sketches completed" },
-          { text: "World-scale 3D models finished" },
-        ]
-      },
-      { type: "image", src: './assets/blog-image-1.png' },
-      { type: "image", src: './assets/blog-image-2.png' },
-      { type: "heading", level: 2, text: "QA Team" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Ensured that everybody was added to the Nicky Nice Games Github Organization." },
-          { text: "Got the whole QA team briefed on how to review pull requests & started reviewing them." },
-          { text: "Implemented feature request issue templates and bug report issue templates in the github repositories." },
-          { text: "Began work on a poster design to advertise the game. (certainly not a final version)" },
-        ]
-      },
-      { type: "heading", level: 2, text: "Support Team" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            text: "Checked in with each team every day to ask what they’ve been working on and what they’ve completed, and communicated any information and updates to the rest of the support team in our Discord channel, making sure everyone is aware",
-            children: ["Again, this makes it easier for us to jump in if assistance is needed"]
-          },
-          {
-            text: "Assisted teams that requested support on a task(s) in getting them completed",
-            children: [
-              {
-                text: "Zach (Team Lead) assisted the Content Team by creating a test scene in Unity to see if you could programmatically animate the 3D rigged models",
-                children: [
-                  "Successfully done using a provided 3D rigged model with 3 animation states from Content Team, Unity’s Animator Branch Tree and AnimatorController, and a script which changed the animation state of the 3D rigged model with user input on the keyboard",
-                  "Also helps out the GSP Team for when they need to implement this in the future "
-
-                ]
-              },
-              { text: "Giovanni (Build Engineer) assisted in setting up the repositories for the teams",
-                children: [
-                  "Helped Logan create the repository and Unity project, as well as test it",
-                  "Set the branch rulesets for all three repositories",
-                  "Researched the GitHub Wiki feature and delivered a presentation on it",
-                  { text: "Aided the production team in creating a GitHub Wiki for the project’s design documentation",
-                    children: ["All of support team helped starting to migrate the documentation from the original design document to the GitHub Wiki, as well as reorganizing it in a better order and layout"]
-                  },
-                  "Researched automatic testing and building for Unity projects"
-                ]
-              },
-              { text: "Bobby (Game Developer) helped with various sound-related problems",
-                children: [
-                  { text: "Helped the GSP Team with some weird sound issues.",
-                    children: [
-                      "Clipped a sound effect to start sooner.",
-                      "Solved an issue where the newly clipped audio sounded a bit distorted in the Unity scene."
-                    ]
-                  },
-                  { text: "Helped make an extra sound effect for the Content Team.",
-                    children: [ "It was originally intended to be a sound for bumping into a wall, but it will likely be used elsewhere in the game, possibly as a speed boost sound."]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      { type: "heading", level: 2, text: "Gameplay Team"},
-      { type: "list",
-        ordered: false,
-        items: [
-          { text: "Improved Kart Functionality and Feel",
-            children: [
-              "Added Drift Hop Animation",
-              "Better Drifting",
-              "Better Camera Following",
-              "Better Collision"
-            ]
-          },
-          { text: "Prototyped Track",
-            children: [
-              "Placement and Lap Information",
-              "Checkpoints Requirement",
-              "Prototyped boost panel"
-            ]
-          },
-          { text: "Prototyped AI Driving",
-            children: [
-              "AI follow pathing",
-              "AI can use Items"
-            ]
-          },
-          { text: "Item System Expanded (Functional Items)",
-            children: [
-              "Spill Hazard",
-              "Boost",
-              "Shield",
-              "Hockey Puck (It Bounces!)",
-              "Fake Item Box",
-            ]
-          },
-          { text: "Audio Added",
-            children: [
-              "Music in Menus",
-              "Kart Sounds",
-              "Item Sounds"
-            ]
-          },
-          { text: "Player Select Menu Functionality Added",
-            children: [
-              "Choosing character will load character sprite for your kart in track scene"
-            ]
-          },
-          { text: "Prototyped Carousel HUD for Arcade Controls"},
-          { text: "Backend Communication can now communicate between client and server?"}
-        ]
-      },
-      { type: "heading", level: 2, text: "Content Team"},
-      { type: "list",
-        ordered: false,
-        items: [
-          { text: "We went over all the concepts we came up with during Week 2 and singled out 6 characters for our base game. We also sorted characters into what order we will approach them if we reach our stretch goal of a cast of 12",
-            children: ["(all our week2 concepts v)"]
-          }
-        ]
-      },
-      { type: "image",
-        src: "./assets/blog-image-3.png"
-      },
-      { type: "list",
-        ordered: false,
-        items: [ { text: "Here’s all the character spec sheets for base game"}]
-      },
-      { type: "image",
-        src: "./assets/blog-image-4.png"
-      },
-      { type: "image",
-        src: "./assets/blog-image-5.png"
-      },
-      { type: "image",
-        src: "./assets/blog-image-6.png"
-      },
-      { type: "image",
-        src: "./assets/blog-image-7.png"
-      },
-      { type: "image",
-        src: "./assets/blog-image-8.png"
-      },
-      { 
-        type: "list",
-        ordered: false,
-        items: [{ text: "Beginning to model characters/karts"}]
-      },
-      { type: "image", src: "./assets/blog-image-9.png"},
-      { type: "image", src: "./assets/blog-image-10.png"},
-      { type: "image", src: "./assets/blog-image-11.png"},
-      { 
-        type: "list",
-        ordered: false,
-        items: [{ text: "Menus (order of start menu, player select, backsplash)"}]
-      },
-      { type: "image", src: "./assets/blog-image-12.png"},
-      { type: "image", src: "./assets/blog-image-13.jpg"},
-      { type: "image", src: "./assets/blog-image-14.png"},
-      { type: "paragraph", text: "What else to include:"},
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Bug Fixes",
-            children: ["We learned that importing rigged models from Maya to Blender messes up the rig! So we’re just going to rig and animate models in Blender from now on."]
-          }
-        ]
-      },
-      { type: "image", src: "./assets/blog-image-15.png"},
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Possible additions related to the development process/timeline for your team",
-            children: ["We are deciding between two designs for the IGM mascot! They’ll be the 6th character"]
-          }
-        ]
-      },
-      { type: "image", src: "./assets/blog-image-16.png"},
-      { type: "image", src: "./assets/blog-image-17.png"},
-      { type: "heading", level: 2, text: "Level Design Team"},
-      { type: "paragraph", text: "Sketching"},
-      { type: "image", src: "./assets/blog-image-18.png"},
-      { type: "image", src: "./assets/blog-image-19.png"},
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Golisano Hall (3 floors)",}
-        ]
-      },
-      { type: "paragraph", text: "Greyboxing Progress (as of 3:16, 6/5/25)"},
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Finished prototypes for:",}
-        ]
-      },
-      { type: "image", src: "./assets/blog-image-20.png"},
-      { type: "paragraph", text: "Outer Loop"},
-      { type: "image", src: "./assets/blog-image-21.png"},
-      { type: "paragraph", text: "Quarter Mile"},
-      { type: "image", src: "./assets/blog-image-22.png"},
-      { type: "paragraph", text: "Golisano Hall"},
-      { type: "image", src: "./assets/blog-image-23.png"},
-      { type: "paragraph", text: "Finals Brick Road"},
-      { type: "image", src: "./assets/blog-image-24.png"},
-      { type: "paragraph", text: "SHED"},
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Detailed track layout in Unity for:",
-            children: [
-              "Outer Loop (see above)",
-              "SHED (see above)"
-            ]
-          }
-        ]
-      },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          { text: "Completed One Pagers for:",
-            children: [
-              "Finals Brick Road",
-              "Outer Loop",
-              "Golisano Hall"
-            ]
-          },
-          { text: "Met with Content and GSP teams to discuss levels and contents for the levels"}
-        ]
-      },
-    ]
-  }
-];
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
@@ -508,6 +33,26 @@ const toISO = (dateStr: string) => {
 };
 
 const NewsAndUpdatesPage = () => {
+  const [updates, setUpdates] = useState<Update[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadUpdates = async () => {
+      try {
+        const res = await fetch("./data/updates.json");
+        if (!res.ok) throw new Error("Failed to fetch updates");
+        const json = await res.json();
+        setUpdates(json);
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadUpdates();
+  }, []);
+
   const sortedUpdates = [...updates].sort((a, b) => {
     const dateA = Date.parse(toISO(a.date));
     const dateB = Date.parse(toISO(b.date));
@@ -531,7 +76,7 @@ const NewsAndUpdatesPage = () => {
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
   // Separtes the most recent update from the rest
-  const [mostRecentUpdate, ...restUpdates] = sortedUpdates; 
+  const [mostRecentUpdate, ...restUpdates] = sortedUpdates;
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -605,6 +150,8 @@ const NewsAndUpdatesPage = () => {
     );
   };
 
+  if (loading) return <div className="text-white p-6">Loading updates...</div>;
+  if (error) return <div className="text-red-500 p-6">Error: {error}</div>;
   return (
     <div className="min-h-screen bg-black p-6">
       {/* overlay behind pop up when active */}
@@ -653,7 +200,7 @@ const NewsAndUpdatesPage = () => {
                       {/* Adds paragraphs to the expandable card*/}
                       {active.text.map((block, i) => {
                         if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
-                        {/* Adds headings to the expandable card*/}
+                        {/* Adds headings to the expandable card*/ }
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -665,7 +212,7 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-                        {/* Adds lists to the expandable card*/}
+                        {/* Adds lists to the expandable card*/ }
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
@@ -677,7 +224,7 @@ const NewsAndUpdatesPage = () => {
                             </ListTag>
                           );
                         }
-                        {/* Adds images to the expandable card*/}
+                        {/* Adds images to the expandable card*/ }
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
@@ -718,9 +265,9 @@ const NewsAndUpdatesPage = () => {
 
                     <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
                       {active.text.map((block, i) => {
-                        {/* Adds paragraphs to the expandable card*/}
+                        {/* Adds paragraphs to the expandable card*/ }
                         if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
-                        {/* Adds headings to the expandable card*/}
+                        {/* Adds headings to the expandable card*/ }
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -732,7 +279,7 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-                        {/* Adds lists to the expandable card*/}
+                        {/* Adds lists to the expandable card*/ }
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
@@ -744,7 +291,7 @@ const NewsAndUpdatesPage = () => {
                             </ListTag>
                           );
                         }
-                        {/* Adds images to the expandable card*/}
+                        {/* Adds images to the expandable card*/ }
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
