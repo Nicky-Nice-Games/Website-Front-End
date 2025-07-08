@@ -8,10 +8,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 //Items Page - displays in-game items and their abilities in a grid list
 const ItemsPage = () => {
+  interface CategorizedItems {
+    category: string;
+    itemList: Item[];
+  }
+
   // state for tracking which item is active (expanded) or not
-  const [active, setActive] = useState<
-    { name: string; description: string; imgUrl: string } | boolean | null
-  >(null);
+  const [active, setActive] = useState<CategorizedItems | boolean | null>(null);
+  const [activeItem, setActiveItem] = useState<Item | null>(null);
 
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
@@ -38,26 +42,22 @@ const ItemsPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
-  interface TieredItems {
-    tier: number;
-    itemList: Item[];
-  }
-  const tieredItemList: TieredItems[] = [
+  const categorizedItemList: CategorizedItems[] = [
     {
-      tier: 1,
-      itemList: items.filter((i) => i.level === 1),
+      category: "boost",
+      itemList: items.filter((i) => i.category === "boost"),
     },
     {
-      tier: 2,
-      itemList: items.filter((i) => i.level === 2),
+      category: "defense",
+      itemList: items.filter((i) => i.category === "defense"),
     },
     {
-      tier: 3,
-      itemList: items.filter((i) => i.level === 3),
+      category: "offense",
+      itemList: items.filter((i) => i.category === "offense"),
     },
     {
-      tier: 4,
-      itemList: items.filter((i) => i.level === 4),
+      category: "trap",
+      itemList: items.filter((i) => i.category === "trap"),
     },
   ];
 
@@ -85,40 +85,53 @@ const ItemsPage = () => {
 
         {/* expanded item pop up */}
         <AnimatePresence>
-          {active && typeof active === "object" ? (
+          {active && typeof active === "object" && activeItem ? (
             <div className="fixed inset-0 grid place-items-center z-[100]">
               <motion.div
-                layoutId={`item-${active.name}-${id}`}
+                layoutId={`item-${active.category}-${id}`}
                 ref={ref}
                 className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
               >
                 {/*Shows Information used to create layout of item*/}
                 <motion.div
-                  layoutId={`image-${active.name}-${id}`}
-                  className="flex justify-center bg-[url(images/card-background.png)] p-8"
+                  layoutId={`image-${active.category}-${id}`}
+                  className="flex flex-col items-center bg-[url(images/card-background.png)] bg-size-[100%_100%] p-2"
                 >
-                  <div className="m-3"></div>
-
-                  {/*Image of character*/}
-                  <img
-                    width={200}
-                    height={200}
-                    src={active.imgUrl}
-                    alt={active.name}
-                    className="w-60 h-64 object-contain"
-                  />
-
                   <motion.button
-                    key={`button-${active.name}-${id}`}
+                    key={`button-${active.category}-${id}`}
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                    className="flex relative bottom-5 left-22 md:left-24 items-center justify-center rounded-full h-6 w-6"
+                    className="md:left-24 rounded-full h-6 w-6 self-end"
                     onClick={() => setActive(null)}
                   >
                     <CloseIcon /> {/* close icon pop up*/}
                   </motion.button>
+                  {/*Image of character*/}
+                  <img
+                    width={200}
+                    height={200}
+                    src={activeItem.imgUrl}
+                    alt={activeItem.name}
+                    className="w-72 h-72 object-contain"
+                  />
+
+                  <Tabs defaultValue="0">
+                    <TabsList className="bg-inherit">
+                      {active.itemList.map((item) => {
+                        return (
+                          <TabsTrigger
+                            onClick={() => setActiveItem(item)}
+                            value={item.level.toString()}
+                            className="outline-black pt-3"
+                          >
+                            Level {item.level}
+                          </TabsTrigger>
+                        );
+                      })}
+                    </TabsList>
+                  </Tabs>
                 </motion.div>
 
                 {/*Bottom half of the item card - has info and name of item*/}
@@ -126,16 +139,16 @@ const ItemsPage = () => {
                   <div className="flex justify-between items-start">
                     <div className="w-full">
                       <motion.h3
-                        layoutId={`title-${active.name}-${id}`}
+                        layoutId={`title-${active.category}-${id}`}
                         className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
                       >
-                        {active.name}
+                        {activeItem.name}
                       </motion.h3>
                       <motion.p
-                        layoutId={`description-${active.description}-${id}`}
+                        layoutId={`description-${active.category}-${id}`}
                         className="text-neutral-600 dark:text-neutral-400 text-base text-center"
                       >
-                        {active.description}
+                        {activeItem.description}
                       </motion.p>
                     </div>
                   </div>
@@ -144,9 +157,33 @@ const ItemsPage = () => {
             </div>
           ) : null}
         </AnimatePresence>
-
-        <Tabs defaultValue="1">
-          <TabsList className="m-auto">
+        <div className="flex flex-row w-full m-auto justify-center">
+          {categorizedItemList.map((ti) => {
+            return (
+              <motion.div
+                layoutId={`item-${ti.category}-${id}`}
+                key={ti.category}
+                onClick={() => {
+                  setActive(ti);
+                  setActiveItem(ti.itemList[0]);
+                }} // open item pop up
+                className="cursor-pointer"
+              >
+                <motion.div layoutId={`image-${ti.category}-${id}`}>
+                  <div className="rounded-xl h-80 w-80 flex items-center justify-center hover:scale-105">
+                    <img
+                      src={ti.itemList[0].imgUrl}
+                      alt={ti.itemList[0].name}
+                      className="h-70 w-70 object-contain"
+                    />
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+        {/* <Tabs defaultValue="1">
+          <TabsList className="m-auto w-200">
             {tieredItemList.map((ti) => {
               return (
                 <TabsTrigger value={ti.tier.toString()}>
@@ -161,31 +198,11 @@ const ItemsPage = () => {
                 <TabsContent
                   value={ti.tier.toString()}
                   className="flex flex-row"
-                >
-                  {ti.itemList.map((item) => (
-                    <motion.div
-                      layoutId={`item-${item.name}-${id}`}
-                      key={item.name}
-                      onClick={() => setActive(item)} // open item pop up
-                      className="cursor-pointer"
-                    >
-                      <motion.div layoutId={`image-${item.name}-${id}`}>
-                        <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
-                          <img
-                            src={item.imgUrl}
-                            alt={item.name}
-                            className="h-50 w-50 object-contain"
-                          />
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  ))}
-                </TabsContent>
+                ></TabsContent>
               );
             })}
           </div>
-        </Tabs>
-        {/* grid of items */}
+        </Tabs> */}
       </main>
     </>
   );
