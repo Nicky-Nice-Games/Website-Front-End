@@ -5,12 +5,10 @@ import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import AboutUsPage from "./pages/AboutUs";
 import ProcessPage from "./pages/Process";
-import {
-  ContentPage,
-  CharactersPage,
-  ItemsPage,
-  TracksPage,
-} from "./pages/Content";
+import { ContentPage } from "./pages/content/Content";
+import { TracksPage } from "./pages/content/TracksPage";
+import { CharactersPage } from "./pages/content/CharactersPage";
+import { ItemsPage } from "./pages/content/ItemsPage";
 import ForumPage from "./pages/Forum";
 import HomePage from "./pages/Home";
 import LeaderboardPage from "./pages/Leaderboard";

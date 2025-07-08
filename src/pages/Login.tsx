@@ -23,7 +23,11 @@ const login = (successCallback: Function, failedCallback: Function) => {
       localStorage.setItem("pid", info.pid);
       localStorage.setItem("username", info.username);
       localStorage.setItem("pfpId", info.pfpLink);
-      successCallback({ pid: info.pid, username: info.username, pfp: info.pfpLink });
+      successCallback({
+        pid: info.pid,
+        username: info.username,
+        pfp: info.pfpLink,
+      });
     },
     () => {
       failedCallback(username, password);
@@ -45,7 +49,7 @@ const LoginPage = ({ setAccount }: LoginParams) => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-6 p-6 md:p-20">
+      <div className="bg-black min-h-svh flex flex-col items-center justify-center gap-6 p-6 md:p-20">
         <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
           <Trophy className="size-8" />
         </div>
@@ -54,7 +58,7 @@ const LoginPage = ({ setAccount }: LoginParams) => {
             href="#"
             className="flex items-center gap-2 self-center font-medium"
           >
-            <h1 className=" text-4xl">Name TBD</h1>
+            <h1 className="text-white text-4xl">Name TBD</h1>
           </a>
           <LoginForm
             onSubmit={(e) => {
@@ -63,7 +67,7 @@ const LoginPage = ({ setAccount }: LoginParams) => {
               login(
                 (account: AccountSchema) => {
                   setAccount(account);
-                  navigate("/home");
+                  navigate('/home');
                 },
                 (
                   usernameElement: HTMLInputElement,
