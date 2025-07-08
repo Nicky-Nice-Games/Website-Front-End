@@ -1,5 +1,5 @@
 /*import { useState } from 'react';*/
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -60,6 +60,7 @@ function App() {
 
       <div className="min-h-[80vh]">
         <Routes>
+          <Route path="/" element={<Navigate to="/home" replace/>} />
           <Route
             path="/login"
             element={<LoginPage setAccount={setAccount} />}

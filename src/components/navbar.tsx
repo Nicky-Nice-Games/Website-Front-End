@@ -114,7 +114,6 @@ const Navbar = ({
     if (account) {
       setUsername(account.username);
       setLoginNavbarItem(profileDropdown);
-      navigate("/home");
     } else {
       setUsername("username");
       setLoginNavbarItem(loginButton);

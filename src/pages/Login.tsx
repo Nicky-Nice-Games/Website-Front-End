@@ -1,6 +1,7 @@
 import { LoginForm } from "@/components/login-form";
 import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
+import { useNavigate } from "react-router-dom";
 
 const login = (successCallback: Function, failedCallback: Function) => {
   const username: HTMLInputElement | null = document.querySelector("#username");
@@ -40,6 +41,8 @@ interface LoginParams {
 }
 
 const LoginPage = ({ setAccount }: LoginParams) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-6 p-6 md:p-20">
@@ -60,6 +63,7 @@ const LoginPage = ({ setAccount }: LoginParams) => {
               login(
                 (account: AccountSchema) => {
                   setAccount(account);
+                  navigate("/home");
                 },
                 (
                   usernameElement: HTMLInputElement,

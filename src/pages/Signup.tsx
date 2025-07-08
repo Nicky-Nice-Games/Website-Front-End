@@ -1,6 +1,7 @@
 import { SignupForm } from "@/components/signup-form";
 import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
+import { useNavigate } from "react-router-dom";
 
 const signup = (successCallback: Function, failedCallback: Function) => {
   const email: HTMLInputElement | null = document.querySelector("#email");
@@ -82,6 +83,8 @@ interface SignupParams {
 }
 
 const SignupPage = ({ setAccount }: SignupParams) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="bg-[#000000] flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
@@ -101,6 +104,7 @@ const SignupPage = ({ setAccount }: SignupParams) => {
               console.log(e);
               signup((account: AccountSchema) => {
                 setAccount(account);
+                navigate("/home");
               }, error);
             }}
           />
