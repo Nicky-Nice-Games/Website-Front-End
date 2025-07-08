@@ -1,6 +1,6 @@
 import type { AccountSchema } from "@/App";
 import PfpEditBtn from "./pfp-edit-btn";
-import { pfpList } from "@/utils";
+import { pfpList } from "@/data/pfps";
 import { Dialog, DialogClose, DialogContent, DialogTitle } from "../ui/dialog";
 
 export interface PfpProps {

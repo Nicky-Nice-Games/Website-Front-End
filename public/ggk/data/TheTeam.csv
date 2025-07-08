@@ -1,45 +1,45 @@
 Team,Name,Position,Email,Photo |
-GSP,Storm Rivera,Overall Programming Lead,sxr7411@rit.edu, /ggk/images/members/gsp/StormRivera.jpg|
-GSP,Minh Duy Bui,Local Lead Game Developer,mmb5049@g.rit.edu, /ggk/images/members/gsp/MinhDuyBui.jpeg |
-GSP,Logan Larrondo,Lead Remote Game Developer,lrl2777@rit.edu, /ggk/images/members/gsp/LoganLarrondo.jpg |
-GSP,Yusef Readi,Lead Remote Gameplay Engineer,yor7725@rit.edu, /ggk/images/members/gsp/YusefReadi.jpg |
-GSP,Phillip Brown,Local Lead Gameplay Engineer ,pkb5886@rit.edu, /ggk/images/members/gsp/PhillipBrown.jpg |
-GSP,Jake Shapiro,Junior Game Developer,jts3681@rit.edu, /ggk/images/members/gsp/JakeShapiro.jpg |
-GSP,Joshua Chisholm,Junior Game Developer,jcc4331@rit.edu, /ggk/images/members/gsp/JoshuaChisholm.jpg |
-GSP,Jaden Dancy,Junior Game Developer,jd6030@rit.edu, /ggk/images/members/gsp/JadenDancy.jpg |
-GSP,Gina Piccirilli,Junior Gameplay Engineer,gnp3602@rit.edu, /ggk/images/members/gsp/GinaPiccrilli.jpg |
-GSP,Justin Huang,Junior Gameplay Engineer,jh3730@rit.edu, /ggk/images/members/gsp/JustinHaung.jpg |
-GSP,Keelon Gilliam,Junior Gameplay Engineer,kkg2022@rit.edu, /ggk/images/members/gsp/KeelonGilliam.jpg |
-GSP,Elias Duke,Junior Gameplay Engineer,egd4546@rit.edu, /ggk/images/members/gsp/EliasDuke.jpg |
-RND,Jayson Packer,Junior Research and Development Engineer,jnp1380@rit.edu, /ggk/images/members/rnd/JaysonPacker.jpg |
-Level Design,Alex Gayne,Level Designer,atg5699@rit.edu, /ggk/images/members/level-design/AlexGayne.jpg|
-Level Design,Ben Nagel,Level Designer,ban8083@rit.edu, /ggk/images/members/level-design/BenNagel.jpg |
-Level Design,Emma Duprey,Level Designer,ead8357@rit.edu, /ggk/images/members/level-design/EmmaDuprey.jpg |
-Level Design,Evan Fankhauser,Level Designer,epf4946@rit.edu, /ggk/images/members/level-design/EvanFankhauser.jpg |
-Content,Yazmin Miller,Content Development Team Lead,ysm1812@rit.edu, /ggk/images/members/content/YazminMiller.png |
-Content,Machi Dimps,,mrd6635@rit.edu, /ggk/images/members/content/MachiDimps.jpg |
-Content,Jordan Serna,Content Developer (3D Modeler),jhs7989@rit.edu, /ggk/images/members/content/JordanSerna.jpg |
-Content,Xinjie Zhou,,xz6596@rit.edu, /ggk/images/members/content/XinjieZhou.png |
-Content,Lilly Radon,,lar9538@rit.edu, /ggk/images/members/content/LillyRadon.png |
-Content,Joshua Ward,Content Developer (2D Artist),jlw5291@rit.edu, /ggk/images/members/content/JoshuaWard.png |
-Content,Charlie Besgen,Lead Sound Designer,ceb9515@rit.edu, /ggk/images/members/content/CharlieBesgen.jpg |
-Content,Ethan Harris,Sound Designer,, /ggk/images/members/content/EthanHarris.jpg |
-QA,Jonathan S. Coyne,QA Team Lead,jsc5294@rit.edu, /ggk/images/members/qa/JonathanCoyne.jpg |
-QA,Nathan Arlauckas,QA Engineer,nma6539@rit.edu, /ggk/images/members/qa/NathanArlauckas.jpg |
-QA,Ronnel Dinglas,QA Engineer,rzd7325@rit.edu, /ggk/images/members/qa/RonnelDinglas.jpg |
-QA,Lydia Jin,QA Engineer,lj2733@rit.edu, /ggk/images/members/qa/LydiaJin.jpg |
-Support,Zachary Stulberg,Support Team Lead,zs3818@rit.edu, /ggk/images/members/support/ZacharyStulberg.jpg |
-Support,Giovanni Paulino,Build Engineer,gdp1388@rit.edu, /ggk/images/members/support/GiovanniPaulino.jpg |
-Support,Daniel Wright,Game Developer,dw8695@rit.edu, /ggk/images/members/support/DanielWright.jpg |
-Support,Bobby Pellegrino,Game Developer,bjp2987@rit.edu, /ggk/images/members/support/BobbyPellegrino.png |
-Web,Zachery Wampler,Web Team Lead,ztw4322@rit.edu, /ggk/images/members/web/ZacheryWampler.png |
-Web,Evi Schwartz,Front End Lead,eks2733@rit.edu, /ggk/images/members/web/EviSchwartz.jpg |
-Web,Aazeem Vaidya Shaikh,Junior Web Developer,av7304@rit.edu, /ggk/images/members/web/AazeemVaidyaShaikh.jpg |
-Web,Andrew S. Hernandez,Junior Web Developer,ash7811@rit.edu, /ggk/images/members/web/AndrewSHernandez.jpg |
-Web,Noah Idowu,Junior Web Developer,noi9260@rit.edu, /ggk/images/members/web/NoahIdowu.jpg |
-Web,Peter Dang,Back End Lead,ptd7904@rit.edu, /ggk/images/members/web/PeterDang.png |
-Web,Diego Velez,Junior Back End Engineer,dav6522@rit.edu, /ggk/images/members/web/DiegoVelez.png |
-Production,Nick Buonarota,Creative Director,nabigm@rit.edu, /ggk/images/members/production/NickBuonarota.png|
-Production,Joshua Smith,Project Lead,jes6450@rit.edu,/ggk/images/members/production/JoshSmith.jpg|
-Production,Jacob Jablon,Production Assistant,jrj8250@rit.edu, /ggk/images/members/production/JacobJablon.jpg|
-Production,Andrew Lang,Production Assistant,aml3976@rit.edu, /ggk/images/members/production/AndrewLang.jpg|
+GSP,Storm Rivera,Overall Programming Lead,sxr7411@rit.edu,  images/members/gsp/StormRivera.jpg|
+GSP,Minh Duy Bui,Local Lead Game Developer,mmb5049@g.rit.edu,  images/members/gsp/MinhDuyBui.jpeg |
+GSP,Logan Larrondo,Lead Remote Game Developer,lrl2777@rit.edu,  images/members/gsp/LoganLarrondo.jpg |
+GSP,Yusef Readi,Lead Remote Gameplay Engineer,yor7725@rit.edu,  images/members/gsp/YusefReadi.jpg |
+GSP,Phillip Brown,Local Lead Gameplay Engineer ,pkb5886@rit.edu,  images/members/gsp/PhillipBrown.jpg |
+GSP,Jake Shapiro,Junior Game Developer,jts3681@rit.edu,  images/members/gsp/JakeShapiro.jpg |
+GSP,Joshua Chisholm,Junior Game Developer,jcc4331@rit.edu,  images/members/gsp/JoshuaChisholm.jpg |
+GSP,Jaden Dancy,Junior Game Developer,jd6030@rit.edu,  images/members/gsp/JadenDancy.jpg |
+GSP,Gina Piccirilli,Junior Gameplay Engineer,gnp3602@rit.edu,  images/members/gsp/GinaPiccrilli.jpg |
+GSP,Justin Huang,Junior Gameplay Engineer,jh3730@rit.edu,  images/members/gsp/JustinHaung.jpg |
+GSP,Keelon Gilliam,Junior Gameplay Engineer,kkg2022@rit.edu,  images/members/gsp/KeelonGilliam.jpg |
+GSP,Elias Duke,Junior Gameplay Engineer,egd4546@rit.edu,  images/members/gsp/EliasDuke.jpg |
+RND,Jayson Packer,Junior Research and Development Engineer,jnp1380@rit.edu,  images/members/rnd/JaysonPacker.jpg |
+Level Design,Alex Gayne,Level Designer,atg5699@rit.edu,  images/members/level-design/AlexGayne.jpg|
+Level Design,Ben Nagel,Level Designer,ban8083@rit.edu,  images/members/level-design/BenNagel.jpg |
+Level Design,Emma Duprey,Level Designer,ead8357@rit.edu,  images/members/level-design/EmmaDuprey.jpg |
+Level Design,Evan Fankhauser,Level Designer,epf4946@rit.edu,  images/members/level-design/EvanFankhauser.jpg |
+Content,Yazmin Miller,Content Development Team Lead,ysm1812@rit.edu,  images/members/content/YazminMiller.png |
+Content,Machi Dimps,,mrd6635@rit.edu,  images/members/content/MachiDimps.jpg |
+Content,Jordan Serna,Content Developer (3D Modeler),jhs7989@rit.edu,  images/members/content/JordanSerna.jpg |
+Content,Xinjie Zhou,,xz6596@rit.edu,  images/members/content/XinjieZhou.png |
+Content,Lilly Radon,,lar9538@rit.edu,  images/members/content/LillyRadon.png |
+Content,Joshua Ward,Content Developer (2D Artist),jlw5291@rit.edu,  images/members/content/JoshuaWard.png |
+Content,Charlie Besgen,Lead Sound Designer,ceb9515@rit.edu,  images/members/content/CharlieBesgen.jpg |
+Content,Ethan Harris,Sound Designer,,  images/members/content/EthanHarris.jpg |
+QA,Jonathan S. Coyne,QA Team Lead,jsc5294@rit.edu,  images/members/qa/JonathanCoyne.jpg |
+QA,Nathan Arlauckas,QA Engineer,nma6539@rit.edu,  images/members/qa/NathanArlauckas.jpg |
+QA,Ronnel Dinglas,QA Engineer,rzd7325@rit.edu,  images/members/qa/RonnelDinglas.jpg |
+QA,Lydia Jin,QA Engineer,lj2733@rit.edu,  images/members/qa/LydiaJin.jpg |
+Support,Zachary Stulberg,Support Team Lead,zs3818@rit.edu,  images/members/support/ZacharyStulberg.jpg |
+Support,Giovanni Paulino,Build Engineer,gdp1388@rit.edu,  images/members/support/GiovanniPaulino.jpg |
+Support,Daniel Wright,Game Developer,dw8695@rit.edu,  images/members/support/DanielWright.jpg |
+Support,Bobby Pellegrino,Game Developer,bjp2987@rit.edu,  images/members/support/BobbyPellegrino.png |
+Web,Zachery Wampler,Web Team Lead,ztw4322@rit.edu,  images/members/web/ZacheryWampler.png |
+Web,Evi Schwartz,Front End Lead,eks2733@rit.edu,  images/members/web/EviSchwartz.jpg |
+Web,Aazeem Vaidya Shaikh,Junior Web Developer,av7304@rit.edu,  images/members/web/AazeemVaidyaShaikh.jpg |
+Web,Andrew S. Hernandez,Junior Web Developer,ash7811@rit.edu,  images/members/web/AndrewSHernandez.jpg |
+Web,Noah Idowu,Junior Web Developer,noi9260@rit.edu,  images/members/web/NoahIdowu.jpg |
+Web,Peter Dang,Back End Lead,ptd7904@rit.edu,  images/members/web/PeterDang.png |
+Web,Diego Velez,Junior Back End Engineer,dav6522@rit.edu,  images/members/web/DiegoVelez.png |
+Production,Nick Buonarota,Creative Director,nabigm@rit.edu,  images/members/production/NickBuonarota.png|
+Production,Joshua Smith,Project Lead,jes6450@rit.edu, images/members/production/JoshSmith.jpg|
+Production,Jacob Jablon,Production Assistant,jrj8250@rit.edu,  images/members/production/JacobJablon.jpg|
+Production,Andrew Lang,Production Assistant,aml3976@rit.edu,  images/members/production/AndrewLang.jpg|
