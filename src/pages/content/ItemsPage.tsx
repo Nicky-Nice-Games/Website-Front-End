@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ContentNavigator } from "@/components/content/content-navigator";
 import { CloseIcon } from "@/components/content/close-icon";
-import { items } from "@/data/items";
+import { items, type Item } from "@/data/items";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 //Items Page - displays in-game items and their abilities in a grid list
 const ItemsPage = () => {
@@ -36,6 +37,29 @@ const ItemsPage = () => {
 
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
+
+  interface TieredItems {
+    tier: number;
+    itemList: Item[];
+  }
+  const tieredItemList: TieredItems[] = [
+    {
+      tier: 1,
+      itemList: items.filter((i) => i.level === 1),
+    },
+    {
+      tier: 2,
+      itemList: items.filter((i) => i.level === 2),
+    },
+    {
+      tier: 3,
+      itemList: items.filter((i) => i.level === 3),
+    },
+    {
+      tier: 4,
+      itemList: items.filter((i) => i.level === 4),
+    },
+  ];
 
   return (
     <>
@@ -121,28 +145,47 @@ const ItemsPage = () => {
           ) : null}
         </AnimatePresence>
 
+        <Tabs defaultValue="1">
+          <TabsList className="m-auto">
+            {tieredItemList.map((ti) => {
+              return (
+                <TabsTrigger value={ti.tier.toString()}>
+                  Tier {ti.tier}
+                </TabsTrigger>
+              );
+            })}
+          </TabsList>
+          <div className="m-auto">
+            {tieredItemList.map((ti) => {
+              return (
+                <TabsContent
+                  value={ti.tier.toString()}
+                  className="flex flex-row"
+                >
+                  {ti.itemList.map((item) => (
+                    <motion.div
+                      layoutId={`item-${item.name}-${id}`}
+                      key={item.name}
+                      onClick={() => setActive(item)} // open item pop up
+                      className="cursor-pointer"
+                    >
+                      <motion.div layoutId={`image-${item.name}-${id}`}>
+                        <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
+                          <img
+                            src={item.imgUrl}
+                            alt={item.name}
+                            className="h-50 w-50 object-contain"
+                          />
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </TabsContent>
+              );
+            })}
+          </div>
+        </Tabs>
         {/* grid of items */}
-        <div className="grid place-items-center gap-4 p-4 mx-auto max-w-6xl lg:grid-cols-4 md:grid-cols-4 ">
-          {items.map((item) => (
-            <motion.div
-              layoutId={`item-${item.name}-${id}`}
-              key={item.name}
-              onClick={() => setActive(item)} // open item pop up
-              className="cursor-pointer"
-            >
-              {/*Sizes of items that are in the grid */}
-              <motion.div layoutId={`image-${item.name}-${id}`}>
-                <div className="rounded-xl h-50 w-50 flex items-center justify-center hover:scale-105">
-                  <img
-                    src={item.imgUrl}
-                    alt={item.name}
-                    className="h-50 w-50 object-contain"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
       </main>
     </>
   );
