@@ -4,7 +4,7 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ContentNavigator } from "@/components/content/content-navigator";
 import { CloseIcon } from "@/components/content/close-icon";
 import { items, type Item } from "@/data/items";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 //Items Page - displays in-game items and their abilities in a grid list
 const ItemsPage = () => {
