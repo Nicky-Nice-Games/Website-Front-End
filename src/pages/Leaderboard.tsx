@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { columns } from "@/components/leaderboard/columns"
 import { DataTable } from "@/components/leaderboard/data-table"
+import { tracks } from "@/data/tracks";
+import ArrowButton from "@/components/ui/arrow-button";
 
 const LeaderboardPage = () => {
     const [mapId, setMapId] = useState(0);
@@ -22,9 +24,12 @@ const LeaderboardPage = () => {
     // Renders when a map has been chosen
     return <div className={`${mapImage} pt-10 bg-gray-400 bg-cover bg-center bg-blend-soft-light`}>
         <div className="text-center max-w-8/10 m-auto bg-[#FFF4] rounded-lg">
-        <button onClick={() => setMapId(0)} className="absolute left-[11%] top-34 md:top-25 text-xl font-bold px-7 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] rotate-180 hover:-translate-x-3 transform transition duration-200">
-            <h5 className="rotate-180 text-white">Back</h5>
-        </button>
+        <ArrowButton 
+        caption="Back"
+        clickAction={() => setMapId(0)}
+        className="absolute left-[11%] top-34 md:top-25"
+        direction="left"
+        />
         <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
         <h2 className="text-xl mb-2 font-semibold">{mapName}</h2>
         <LeaderboardTable mapId={mapId} />
@@ -33,34 +38,6 @@ const LeaderboardPage = () => {
 }
 
 const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, setMapName: Function, setMapImage: Function}) => {
-    interface Track{
-        name: string;
-        imgLink: string;
-    }
-
-    // List of selectable tracks
-    const tracks: Track[] = [
-        {
-            name: "RIT Outer Loop",
-            imgLink: "images/tracks/OuterLoop.png"
-        },
-        {
-            name: "Quarter Mile",
-            imgLink: "images/placeholder/placeholder.PNG"
-        },
-        {
-            name: "Golisano",
-            imgLink: "images/placeholder/placeholder.PNG"
-        },
-        {
-            name: "Brick Road",
-            imgLink: "images/placeholder/placeholder.PNG"
-        },
-        {
-            name: "RIT Dorm Room",
-            imgLink: "images/tracks/dorm.png"
-        }
-    ]
 
     return <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center">
         {tracks.map(t => {
@@ -69,9 +46,9 @@ const MapSelect = ({ setMapId, setMapName, setMapImage }: {setMapId: Function, s
                 <button onClick={() => {
                     setMapId(tracks.indexOf(t) + 1);                    // Add to the index, as the map id starts with 1 in backend
                     setMapName(t.name);
-                    setMapImage(`bg-[url(${t.imgLink})]`)               // Tailwind property for the leaderboard background
+                    setMapImage(`bg-[url(${t.imgUrl})]`)               // Tailwind property for the leaderboard background
                 }} className="hover:brightness-125">
-                    <img src={t.imgLink} className="rounded-xl h-[30vh]"/>
+                    <img src={t.imgUrl} className="rounded-xl h-[30vh]"/>
                 </button>
             </div>
         })}

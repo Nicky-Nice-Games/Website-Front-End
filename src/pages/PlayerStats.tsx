@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { AccountSchema } from "@/App";
 import { millisecondsToSeconds } from "framer-motion";
-import Pfp from "@/components/pfp";
+import Pfp from "@/components/stats/pfp";
+import { characters } from "@/data/characters";
+import { tracks } from "@/data/tracks";
 
 //#region Helper Functions
 
@@ -163,21 +165,12 @@ const InfoPage = ({
     { name: "Boosts Used", value: boostsUsed },
   ];
 
-  const characters = ["Morgan", "Reese", "Emma", "Kai", "Jamster", "Gim"];
-  const tracks = [
-    "Outer Loop",
-    "Quarter Mile",
-    "Golisano",
-    "Brick Road",
-    "Dorm Room",
-  ];
-
   const statsList3: Stat[] = [
     {
       name: "Favorite Character",
-      value: characters[playerData.favoriteChara - 1],
+      value: characters[playerData.favoriteChara - 1].name,
     },
-    { name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1] },
+    { name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1].name },
   ];
 
   return (
@@ -291,7 +284,7 @@ const InfoPage = ({
             {recentRaces.map((race: any) => {
               return (
                 <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-                  <span>{tracks[race.mapRaced - 1]}</span>
+                  <span>{tracks[race.mapRaced - 1].name}</span>
                   <span>{formatTime(race.raceTime)}</span>
                 </div>
               );
