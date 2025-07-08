@@ -1,22 +1,10 @@
 import type { ColumnDef } from "@tanstack/react-table"
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { millisecondsToSeconds } from "framer-motion"
+import { formatTime } from "@/utils"
 import { useMediaQuery } from "react-responsive"
 
 // Formats time from a large millisecond value to show minutes, seconds and milliseconds
-const formatTime = (milliseconds: number): string => {
-    let seconds = millisecondsToSeconds(milliseconds);
-    let minutes = Math.floor(seconds / 60);
-    milliseconds %= 1000;
-    seconds %= 60
-
-    const formattedMilliseconds = String(milliseconds).padStart(3, '0');
-    const formattedSeconds = String(Math.floor(seconds)).padStart(2, '0');
-    const formattedMinutes = String(minutes).padStart(2, '0');
-
-    return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
-}
 
 // Adds a suffix to the index to indicate the placing
 const formatPlacing = (index: number): string => {
