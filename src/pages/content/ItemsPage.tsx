@@ -182,27 +182,6 @@ const ItemsPage = () => {
             );
           })}
         </div>
-        {/* <Tabs defaultValue="1">
-          <TabsList className="m-auto w-200">
-            {tieredItemList.map((ti) => {
-              return (
-                <TabsTrigger value={ti.tier.toString()}>
-                  Tier {ti.tier}
-                </TabsTrigger>
-              );
-            })}
-          </TabsList>
-          <div className="m-auto">
-            {tieredItemList.map((ti) => {
-              return (
-                <TabsContent
-                  value={ti.tier.toString()}
-                  className="flex flex-row"
-                ></TabsContent>
-              );
-            })}
-          </div>
-        </Tabs> */}
       </main>
     </>
   );
