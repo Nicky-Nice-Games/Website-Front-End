@@ -121,7 +121,7 @@
 
 @font-face {
   font-family: 'Bebas Neue';
-  src: url('/ggk/font/BebasNeue-Regular.ttf') format('truetype');
+  src: url('font/BebasNeue-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* Optional: improves loading behavior */
@@ -129,28 +129,28 @@
 
 @font-face {
   font-family: 'Graffiti Youth';
-  src: url('./font/GraffitiYouth-Regular.otf') format('opentype');
+  src: url('font/GraffitiYouth-Regular.otf') format('opentype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
 @font-face {
   font-family: 'Painterz';
-  src: url('./font/Painterz.ttf') format('truetype');
+  src: url('font/Painterz.ttf') format('truetype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
 @font-face {
   font-family: 'Aileron-Slight-Slant';
-  src: url('/ggk/font/Aileron-Slight-Slant.otf') format('opentype');
+  src: url('font/Aileron-Slight-Slant.otf') format('opentype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
 @font-face {
   font-family: 'Aileron-Heavy-Slant';
-  src: url('./font/Aileron-Heavy-Slant.otf') format('opentype');
+  src: url('font/Aileron-Heavy-Slant.otf') format('opentype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
