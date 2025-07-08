@@ -12,6 +12,8 @@ const AboutUsPage = () => {
     const [qaData, setQaData] = useState<string[][]>([]);
     const [webData, setWebData] = useState<string[][]>([]);
     const [productionData, setProductionData] = useState<string[][]>([]);
+    const [advisoryData, setAdvData] = useState<string[][]>([]);
+
 
     useEffect(() => {
         const setTeamData = (data:string) => {
@@ -25,6 +27,7 @@ const AboutUsPage = () => {
             const tempQAData: string[][] = [];
             const tempSupportData: string[][] = [];
             const tempWebData: string[][] = [];
+            const tempAdvData: string[][] = [];
 
             //Add data from the team array 
             for (let index = 0; index < tempTeamData.length; index++) {
@@ -32,6 +35,9 @@ const AboutUsPage = () => {
 
                 if (dataLine[0].trim() === "GSP") {
                     tempGSPData.push(dataLine);
+                }
+                  if (dataLine[0].trim() === "Advisory") {
+                    tempAdvData.push(dataLine);
                 }
                 if (dataLine[0].trim() === "RND") {
                     tempRNDData.push(dataLine);
@@ -65,6 +71,7 @@ const AboutUsPage = () => {
             setRndData(tempRNDData);
             setSupportData(tempSupportData);
             setWebData(tempWebData);
+            setAdvData(tempAdvData);
         }
 
         fetchData('GET', './data/TheTeam.csv', "text", setTeamData)
@@ -124,7 +131,7 @@ const AboutUsPage = () => {
                     </TabsList>
 
                     <TabsContent value="GSP">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {gspData.length > 0 ? ("Gameplay & Systems Programming") : ("Loading...")}</h2>
                         <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
 
@@ -141,7 +148,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Production">
-                        <h2 className='text-4xl m-1 mx-0 font-black bebas'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {productionData.map((personData, index) => (
@@ -156,8 +164,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Level Design">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
-
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {levelData.map((personData, index) => (
                                 <Person
@@ -172,7 +180,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Content">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {contentData.map((personData, index) => (
@@ -187,7 +196,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="QA">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {qaData.map((personData, index) => (
@@ -202,7 +212,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Support">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {supportData.map((personData, index) => (
@@ -218,7 +229,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Web">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {webData.map((personData, index) => (
@@ -234,7 +246,8 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="RND">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {rndData.map((personData, index) => (
@@ -250,10 +263,11 @@ const AboutUsPage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="Advisory">
-                        <h2 className='text-4xl m-1 mx-0 painterz'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {advisoryData.length > 0 ? advisoryData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
-                            {rndData.map((personData, index) => (
+                            {advisoryData.map((personData, index) => (
                                 <Person
                                     key={index}
                                     name={personData[1]}       // e.g., "Jane Doe"
