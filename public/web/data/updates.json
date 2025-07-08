@@ -721,5 +721,107 @@
                 ]
             }
         ]
+    },
+    {
+        "id": 3,
+        "title": "Week 3",
+        "date": "6/9/2025",
+        "subtitle": "Continued production",
+        "image": "./assets/OIP.jpg",
+        "text": [
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Production Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Met with each team at the beginning of the week to give out tasks and ensure each team had plans and goals for the week"
+                    },
+                    {
+                        "text": "Continued setup of the GitHub repo’s issue tracker",
+                        "children": [
+                            "Tested issues",
+                            "Created labels for each team",
+                            "Created milestones for each week of production (first 8 weeks)"
+                        ]
+                    },
+                    {
+                        "text": "Began design for a “coming soon” poster that could be hung around campus to advertise our game and spread awareness"
+                    },
+                    {
+                        "text": "Started designing a “Coming Soon” grid-style post for the Instagram account and worked through multiple iterations"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Week 4",
+        "date": "6/16/2025",
+        "subtitle": "Continued production",
+        "image": "./assets/OIP.jpg",
+        "text": [
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Production Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Met with each team to ensure we all knew what we needed to work on and what tasks were most important to be successful this week",
+                        "children": [
+                            "Ensured each team worked to refine the game and project procedures"
+                        ]
+                    },
+                    {
+                        "text":"Worked closely with the content team to finalize a mascot for our game and the name of the mascot"
+                    },
+                    {
+                        "text":"Brainstormed, pitched, and decided on a name for our game that was relevant to the mascot we selected"
+                    },
+                    {
+                        "text":"Refined the design of the “Coming Soon” grid-style social media post to incorporate the typeface used by the content and web teams"
+                    },
+                    {
+                        "type":"image"
+                        
+                    },
+                    {
+                        "text":"Refined the design for the “Coming Soon” vertical video Instagram story, changing the typeface to match the one used by the content and web teams"
+                        
+                    },
+                    {
+                        "type":"image"
+
+                    },
+                    {
+                        "text":"Refined the design of the “Meet the Team” social media posts to incorporate the typefaces used by the content and web teams and to better match the design of the UI for the game. Also went through and created the sections for each person, copying in their information and images. Lastly, I met with each person and got everyone’s approval on their individual posts"
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "type":"image"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Week 5",
+        "date": "6/23/2025",
+        "subtitle": "Continued production",
+        "image": "./assets/OIP.jpg",
+        "text": [
+        ]
     }
 ]
