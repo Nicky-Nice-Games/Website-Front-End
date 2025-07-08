@@ -18,7 +18,7 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="bg-[#DDDDDD] border-black">
+      <Card className="bg-[#1a1a1a]">
         <CardHeader className="text-center">
           <CardTitle className="text-xl text-white">Welcome Back, Racers</CardTitle>
         </CardHeader>
@@ -27,18 +27,18 @@ export function LoginForm({
             <div className="grid gap-6">
               <div className="grid gap-6">
                 <p id="error-message" className="text-red-600 text-center"></p>
-                <div className="grid gap-3 text-[#111111]">
+                <div className="grid gap-3 text-[#D0D3D4]">
                   <Label htmlFor="username">Username</Label>
                   <Input
                     id="username"
                     type="username"
-                    className="border-[#111111]"
+                    className="border-[#D0D3D4]"
                     placeholder="username..."
                     required
                   />
                 </div>
                 <div className="grid gap-3">
-                  <div className="flex items-center text-[#111111]">
+                  <div className="flex items-center text-[#D0D3D4]">
                     <Label htmlFor="password">Password</Label>
                     <a
                       href="#"
@@ -47,14 +47,14 @@ export function LoginForm({
                       Forgot your password?
                     </a>
                   </div>
-                  <Input id="password" type="password" className="border-[#111111]" required />
+                  <Input id="password" type="password" required/>
                 </div>
-                <Button type="submit" className="w-full border border-1 border-black bg-[#F76902]" //onSubmit={() => login()}
+                <Button type="submit" className="w-full border border-1 text-white bg-[#F76902]" //onSubmit={() => login()}
                 >
                   Start Racing
                 </Button>
               </div>
-              <div className="text-center text-sm">
+              <div className="text-center text-sm text-[#D0D3D4]">
                 Don&apos;t have an account?{" "}
                 <button onClick={() => navigate("/signup")} className="underline underline-offset-4 text-[#F76902]">
                   Sign up
