@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "../App";
-import { pfpList } from "@/utils";
+import { pfpList } from "@/data/pfps";
 
 /// Parameters to be passed into the navbar component
 interface NavbarParams {
