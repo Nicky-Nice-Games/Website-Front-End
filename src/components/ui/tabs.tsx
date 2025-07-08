@@ -1,7 +1,7 @@
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Tabs({
   className,
@@ -13,7 +13,7 @@ function Tabs({
       className={cn("flex flex-col", className)}
       {...props}
     />
-  )
+  );
 }
 
 function TabsList({
@@ -29,7 +29,7 @@ function TabsList({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TabsTrigger({
@@ -40,22 +40,18 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-      `bg-[url(images/tab-standard.png)] bg-center
-      data-[state=active]:bg-[url(images/tab-active.png)]
-      hover:bg-[url(images/tab-standard.png)]
-      outline outline-3 outline-[#7c2d12] rounded-t-md ml-[2px]
-      focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring 
-      dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground
-      inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 px-2 py-1
-      text-sm font-medium whitespace-nowrap  
-      focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm
-      [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 
-      md:text-[22px] bebas font-bold passive-outline p-[10px] translate-y-[0px]`,
-      className
+        `bg-[url(images/test-btn.png)] data-[state=active]:text-gray-800 data-[state=hover]:bg-yellow-500 drop-shadow-[0_0_1px_#facc15]
+       outline outline-2 outline-[#a0032] focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring 
+       dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground
+        inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 px-2 py-1
+         text-sm font-medium whitespace-nowrap transition-[color,box-shadow,background-color] focus-visible:ring-[3px] 
+         focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm
+          [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 md:text-2xl bebas font-bold passive-outline p-[10px]`,
+        className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TabsContent({
@@ -68,7 +64,7 @@ function TabsContent({
       className={cn("flex-1 outline-none", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export { Tabs, TabsList, TabsTrigger, TabsContent };
