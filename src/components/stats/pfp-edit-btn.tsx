@@ -1,4 +1,4 @@
-import { DialogTrigger } from "./ui/dialog";
+import { DialogTrigger } from "../ui/dialog";
 
 interface EditBtnProps {
   className?: string;

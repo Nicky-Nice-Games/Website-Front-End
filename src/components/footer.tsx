@@ -1,8 +1,7 @@
 export const Footer = () => {
   return (
     <>
-      <footer className="bg-repeat bg-size-[50%] text-white py-6"
-          style={{ backgroundImage: "url('/ggk/images/black checker.png')" }}>
+      <footer className="bg-repeat bg-size-[50%] text-white py-6 bg-[url('images/black-checker.png')]">
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
           <div>
             <img
