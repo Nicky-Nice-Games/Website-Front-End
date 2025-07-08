@@ -1,9 +1,9 @@
 Team,Name,Position,Email,Photo |
 GSP,Storm Rivera,Overall Programming Lead,sxr7411@rit.edu,  images/members/gsp/StormRivera.jpg|
 GSP,Minh Duy Bui,Local Lead Game Developer,mmb5049@g.rit.edu,  images/members/gsp/MinhDuyBui.jpeg |
+GSP,Phillip Brown,Local Lead Gameplay Engineer ,pkb5886@rit.edu,  images/members/gsp/PhillipBrown.jpg |
 GSP,Logan Larrondo,Lead Remote Game Developer,lrl2777@rit.edu,  images/members/gsp/LoganLarrondo.jpg |
 GSP,Yusef Readi,Lead Remote Gameplay Engineer,yor7725@rit.edu,  images/members/gsp/YusefReadi.jpg |
-GSP,Phillip Brown,Local Lead Gameplay Engineer ,pkb5886@rit.edu,  images/members/gsp/PhillipBrown.jpg |
 GSP,Jake Shapiro,Junior Game Developer,jts3681@rit.edu,  images/members/gsp/JakeShapiro.jpg |
 GSP,Joshua Chisholm,Junior Game Developer,jcc4331@rit.edu,  images/members/gsp/JoshuaChisholm.jpg |
 GSP,Jaden Dancy,Junior Game Developer,jd6030@rit.edu,  images/members/gsp/JadenDancy.jpg |
@@ -39,7 +39,7 @@ Web,Andrew S. Hernandez,Junior Web Developer,ash7811@rit.edu,  images/members/we
 Web,Noah Idowu,Junior Web Developer,noi9260@rit.edu,  images/members/web/NoahIdowu.jpg |
 Web,Peter Dang,Back End Lead,ptd7904@rit.edu,  images/members/web/PeterDang.png |
 Web,Diego Velez,Junior Back End Engineer,dav6522@rit.edu,  images/members/web/DiegoVelez.png |
-Production,Nick Buonarota,Creative Director,nabigm@rit.edu,  images/members/production/NickBuonarota.png|
+Advisory,Nick Buonarota,Creative Director,nabigm@rit.edu,  images/members/production/NickBuonarota.png|
 Production,Joshua Smith,Project Lead,jes6450@rit.edu, images/members/production/JoshSmith.jpg|
 Production,Jacob Jablon,Production Assistant,jrj8250@rit.edu,  images/members/production/JacobJablon.jpg|
 Production,Andrew Lang,Production Assistant,aml3976@rit.edu,  images/members/production/AndrewLang.jpg|

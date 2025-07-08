@@ -6,8 +6,8 @@ const ContentPage = () => {
       <ContentNavigator currentPage="content" />
       <div className="flex flex-col-reverse md:grid md:grid-cols-2">
         <div>
-          <h3 className="text-center text-4xl m-2 font-black">
-            About the Location
+          <h3 className="text-center text-4xl m-2 font-black poppins">
+            Gizmo the Ghost
           </h3>
           <p className="m-3">
             RIT was born of an unlikely institutional marriage of an influential
@@ -24,8 +24,8 @@ const ContentPage = () => {
           </p>
         </div>
         <img
-          className="rounded-lg w-[97%] m-auto"
-          src="images/tracks/RIT.jpg"
+          className="rounded-lg w-[54%] h-auto m-auto"
+          src="images/overview-gizmo.jpg"
         ></img>
       </div>
     </>

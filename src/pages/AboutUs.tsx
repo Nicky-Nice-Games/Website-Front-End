@@ -12,6 +12,8 @@ const AboutUsPage = () => {
     const [qaData, setQaData] = useState<string[][]>([]);
     const [webData, setWebData] = useState<string[][]>([]);
     const [productionData, setProductionData] = useState<string[][]>([]);
+    const [advisoryData, setAdvData] = useState<string[][]>([]);
+
 
     useEffect(() => {
         const setTeamData = (data:string) => {
@@ -25,6 +27,7 @@ const AboutUsPage = () => {
             const tempQAData: string[][] = [];
             const tempSupportData: string[][] = [];
             const tempWebData: string[][] = [];
+            const tempAdvData: string[][] = [];
 
             //Add data from the team array 
             for (let index = 0; index < tempTeamData.length; index++) {
@@ -32,6 +35,9 @@ const AboutUsPage = () => {
 
                 if (dataLine[0].trim() === "GSP") {
                     tempGSPData.push(dataLine);
+                }
+                  if (dataLine[0].trim() === "Advisory") {
+                    tempAdvData.push(dataLine);
                 }
                 if (dataLine[0].trim() === "RND") {
                     tempRNDData.push(dataLine);
@@ -65,6 +71,7 @@ const AboutUsPage = () => {
             setRndData(tempRNDData);
             setSupportData(tempSupportData);
             setWebData(tempWebData);
+            setAdvData(tempAdvData);
         }
 
         fetchData('GET', './data/TheTeam.csv', "text", setTeamData)
@@ -270,7 +277,7 @@ const AboutUsPage = () => {
                         <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
-                            {rndData.map((personData, index) => (
+                            {advisoryData.map((personData, index) => (
                                 <Person
                                     key={index}
                                     name={personData[1]}       // e.g., "Jane Doe"

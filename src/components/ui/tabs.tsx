@@ -1,7 +1,7 @@
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Tabs({
   className,
@@ -13,7 +13,7 @@ function Tabs({
       className={cn("flex flex-col", className)}
       {...props}
     />
-  )
+  );
 }
 
 function TabsList({
@@ -29,7 +29,7 @@ function TabsList({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TabsTrigger({
@@ -40,7 +40,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-      `bg-[url(images/tab-standard.png)] bg-center
+        `bg-[url(images/tab-standard.png)] bg-center
       data-[state=active]:bg-[url(images/tab-active.png)]
       hover:bg-[url(images/tab-standard.png)]
       outline outline-3 outline-[#7c2d12] rounded-t-md ml-[2px]
@@ -51,11 +51,11 @@ function TabsTrigger({
       focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm
       [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 
       md:text-[22px] bebas font-bold passive-outline p-[10px] translate-y-[0px]`,
-      className
+        className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TabsContent({
@@ -68,7 +68,7 @@ function TabsContent({
       className={cn("flex-1 outline-none", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export { Tabs, TabsList, TabsTrigger, TabsContent };

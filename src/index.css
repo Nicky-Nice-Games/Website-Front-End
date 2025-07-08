@@ -155,6 +155,18 @@
   font-display: swap; /* Optional: improves loading behavior */
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url('font/Poppins-SemiBold.ttf') format('opentype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
+.poppins
+{
+  font-family: "Poppins", sans-serif;
+}
+
 .bebas {
   font-family: 'Bebas Neue', sans-serif;
 }

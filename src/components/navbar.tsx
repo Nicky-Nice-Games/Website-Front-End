@@ -334,7 +334,7 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className="bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
+      className="bebas tracking-wider h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
@@ -348,7 +348,7 @@ const Navbar = ({
             }}
           >
             <img
-              src="/images/temp-logo.png"
+              src="images/temp-logo.png"
               className="max-w-9 relative bottom-1"
             />
           </button>
