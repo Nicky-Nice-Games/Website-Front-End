@@ -56,7 +56,7 @@ const CharactersPage = () => {
                 lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 /* default on desktop */
                 "
         >
-          Characters Page
+          Characters
         </h2>
         {/* overlay behind pop up when active */}
         <AnimatePresence>
@@ -119,7 +119,7 @@ const CharactersPage = () => {
                   >
                     {active.description} <motion.br />
                     Favorite Song:{" "}
-                    <motion.a href={active.songLink}>
+                    <motion.a className = "text-[#d97706]" href={active.songLink}>
                       {active.songName}
                     </motion.a>
                   </motion.p>
