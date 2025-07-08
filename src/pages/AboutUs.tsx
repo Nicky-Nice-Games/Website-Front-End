@@ -94,46 +94,47 @@ const AboutUsPage = () => {
         return (
             // 
             //rounded-full outline-[7px] outline-[#38bdf8]
-            <div className="m-4 w-[200px] drop-shadow-xl/50
+            <div className="m-4 p-4 w-[200px] drop-shadow-xl/50
                 rounded-md p-1 bg-[url(images/tabs-card.png)] 
                 bg-cover bg-no-repeat bg-center opacity-100">
                 <img src={image} alt={`Photo of ${name}`} 
-                className="h-[200px] mb-[1rem]" /> 
-                <p className="text-[20px] person-name font-bold">{name}</p>
-                <p className="text-[18px] person-position px-2">{position}</p>
-                <a className="text-[18px] font-bold text-[#d97706]" 
+                className="h-[160px] mb-[1rem] text-center flex justify-self-center"/> 
+                <p className="text-[18px] person-name font-bold">{name}</p>
+                <p className="text-[16px] person-position px-2">{position}</p>
+                <a className="text-[16px] font-bold text-[#d97706]" 
                 href={`mailto:${email}`}>{email}</a>
             </div>
         );
     }
 
     return (<>
-        <main className="p-4 md:p-8 bg-[#18181b] bg-fixed bg-size-[90%] md:bg-size-[60%] bg-repeat"
-                style={{ backgroundImage: "url(' images/items-background.png')" }}>
+        <main className="p-4 md:p-8 md:pl-3 md:pr-3 md:pb-[4rem] bg-[#18181b] 
+                bg-fixed bg-size-[90%] md:bg-size-[60%] bg-repeat"
+                style={{ backgroundImage: "url('/ggk/images/items-background.png')" }}>
             {/* <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1> */}
             <img src=" images/test-header-banner.png"
             className='flex justify-self-center w-[100%] md:w-[50%] mb-[2rem]'></img>
             <div className='flex flex-column items-center w-full text-center'>
-                <Tabs defaultValue="GSP" className="w-[400px] w-9/10 
-                bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover m-auto">
+                <Tabs defaultValue="Content" className="w-[400px] w-9/10 pb-[2rem] m-auto">
 
-                    <TabsList className='w-full flex-wrap flex-column h-full'>
-                        <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
-                        <TabsTrigger value="Production">Production</TabsTrigger>
-                        <TabsTrigger value="Level Design">Level Design</TabsTrigger>
+                    <TabsList className='w-full flex-wrap flex-column h-full text-[14px]'>
                         <TabsTrigger value="Content">Content</TabsTrigger>
+                        <TabsTrigger value="GSP">Game Systems Programing</TabsTrigger>
+                        <TabsTrigger value="Level Design">Level Design</TabsTrigger>
                         <TabsTrigger value="RND">Research Development</TabsTrigger>
+                        <TabsTrigger value="Advisory">Advisory</TabsTrigger>
+                        <TabsTrigger value="Production">Production</TabsTrigger>
                         <TabsTrigger value="QA">Quality Assurance</TabsTrigger>
                         <TabsTrigger value="Support">Support</TabsTrigger>
                         <TabsTrigger value="Web">Web</TabsTrigger>
-                        <TabsTrigger value="Advisory">Advisory</TabsTrigger>
 
                     </TabsList>
 
-                    <TabsContent value="GSP">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {gspData.length > 0 ? ("Gameplay & Systems Programming") : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-
+                    <TabsContent value="GSP" 
+                    className='bg-[url(images/card-background-transparent.png)] 
+                    bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {gspData.length > 0 ? ("Gameplay and Systems Programming") : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {gspData.map((personData, index) => (
@@ -147,9 +148,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="Production">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="Production"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {productionData.length > 0 ? productionData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {productionData.map((personData, index) => (
@@ -163,9 +165,11 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="Level Design">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="Level Design"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {levelData.length > 0 ? levelData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
+
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {levelData.map((personData, index) => (
                                 <Person
@@ -179,9 +183,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="Content">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="Content"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {contentData.length > 0 ? contentData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {contentData.map((personData, index) => (
@@ -195,9 +200,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="QA">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="QA"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {qaData.length > 0 ? qaData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {qaData.map((personData, index) => (
@@ -211,9 +217,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="Support">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="Support"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {supportData.length > 0 ? supportData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {supportData.map((personData, index) => (
@@ -228,9 +235,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="Web">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="Web"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {webData.length > 0 ? webData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {webData.map((personData, index) => (
@@ -245,9 +253,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="RND">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="RND"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {rndData.map((personData, index) => (
@@ -262,9 +271,10 @@ const AboutUsPage = () => {
                             ))}
                         </div>
                     </TabsContent>
-                    <TabsContent value="Advisory">
-                        <h2 className='text-4xl m-1 mx-0 bebas text-[#e5e7eb] mt-2'> {advisoryData.length > 0 ? advisoryData[0][0] : ("Loading...")}</h2>
-                        <hr className="h-1 m-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                    <TabsContent value="Advisory"
+                    className='bg-[url(images/card-background-transparent.png)] bg-no-repeat bg-cover pb-[2rem]'>
+                        <h2 className='text-4xl m-1 mx-0 bebas text-[#fed7aa] mt-4'> {rndData.length > 0 ? rndData[0][0] : ("Loading...")}</h2>
+                        <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
 
                         <div className="flex flex-row flex-wrap w-full justify-center">
                             {advisoryData.map((personData, index) => (

@@ -244,7 +244,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover "
         >
-          <div className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex">
+          <div className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
+          bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
             <InfiniteMovingCards
               items={bannerImages2}
               direction="left"
