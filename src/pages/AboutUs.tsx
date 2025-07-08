@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { fetchData } from '@/utils';
 
 const AboutUsPage = () => {
     //String arrays to hold each team's data
@@ -13,11 +14,7 @@ const AboutUsPage = () => {
     const [productionData, setProductionData] = useState<string[][]>([]);
 
     useEffect(() => {
-        const getTeamData = async (): Promise<any> => {
-            //Read in the team data from the file
-            const repsonse: Response = await fetch("./data/TheTeam.csv");
-            const data = await repsonse.text();
-
+        const setTeamData = (data:string) => {
             //Create temporary arrays
             const tempTeamData = data.split("|");
             const tempGSPData: string[][] = [];
@@ -70,7 +67,7 @@ const AboutUsPage = () => {
             setWebData(tempWebData);
         }
 
-        getTeamData();
+        fetchData('GET', './data/TheTeam.csv', "text", setTeamData)
 
     }, [])
 
@@ -108,7 +105,7 @@ const AboutUsPage = () => {
                 bg-fixed bg-size-[90%] md:bg-size-[60%] bg-repeat"
                 style={{ backgroundImage: "url('/ggk/images/items-background.png')" }}>
             {/* <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1> */}
-            <img src="/ggk/images/test-header-banner.png"
+            <img src=" images/test-header-banner.png"
             className='flex justify-self-center w-[100%] md:w-[50%] mb-[2rem]'></img>
             <div className='flex flex-column items-center w-full text-center'>
                 <Tabs defaultValue="Content" className="w-[400px] w-9/10 pb-[2rem] m-auto">
