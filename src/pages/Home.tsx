@@ -18,8 +18,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   )
-  const photo: string = '/ggk/images/placeholder/pfp-placeholder.png';
-  const arcadeMachine = '/ggk/images/arcade-machine.png'
+  const photo: string = 'images/placeholder/pfp-placeholder.png';
+  const arcadeMachine = 'images/arcade-machine.png'
 
   const navigate = useNavigate();
 
