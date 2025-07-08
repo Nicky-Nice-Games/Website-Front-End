@@ -8,7 +8,7 @@ type TeamTabProps = {
 };
 
 // This component holds all the tabs for a team
-export const TeamTab = ({ teamData, teamName, customTitle }: TeamTabProps) => {
+export const TeamTab = ({ teamData, customTitle }: TeamTabProps) => {
   return (
     <div>
       <h2 className="text-4xl m-1 mx-0 painterz">

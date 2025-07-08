@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { AccountSchema } from "@/App";
 import { millisecondsToSeconds } from "framer-motion";
+import Pfp from "@/components/pfp";
 
 //#region Helper Functions
 
@@ -68,7 +69,13 @@ const checkAchievementProgress = (
 };
 //#endregion
 
-const PlayerStatsPage = ({ account }: { account: AccountSchema | null }) => {
+const PlayerStatsPage = ({
+  account,
+  setAccount,
+}: {
+  account: AccountSchema | null;
+  setAccount: Function;
+}) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
   const [playerData, setPlayerData] = useState(null);
   const [recentRaces, setRecentRaces] = useState(null);
@@ -88,7 +95,7 @@ const PlayerStatsPage = ({ account }: { account: AccountSchema | null }) => {
     }
   }, []);
 
-  if (!playerData || !account)
+  if (!playerData || !account || !recentRaces)
     return (
       <h1 className="bebas text-center font-black text-5xl mt-8">
         No Data Found!
@@ -97,7 +104,12 @@ const PlayerStatsPage = ({ account }: { account: AccountSchema | null }) => {
 
   if (activeTab === "achievements") {
     return (
-      <AchievementsPage playerData={playerData} setActiveTab={setActiveTab} />
+      <AchievementsPage
+        playerData={playerData}
+        setActiveTab={setActiveTab}
+        account={account}
+        setAccount={setAccount}
+      />
     );
   }
 
@@ -106,6 +118,8 @@ const PlayerStatsPage = ({ account }: { account: AccountSchema | null }) => {
       playerData={playerData}
       recentRaces={recentRaces}
       setActiveTab={setActiveTab}
+      setAccount={setAccount}
+      account={account}
     />
   );
 };
@@ -114,10 +128,14 @@ const InfoPage = ({
   playerData,
   recentRaces,
   setActiveTab,
+  setAccount,
+  account,
 }: {
   playerData: any;
   recentRaces: any;
   setActiveTab: (tab: "info" | "achievements") => void;
+  setAccount: Function;
+  account: AccountSchema;
 }) => {
   interface Stat {
     name: string;
@@ -188,15 +206,24 @@ const InfoPage = ({
             </div>
 
             {/* Right side/Profile */}
-            <div className="flex justify-center md:justify-end items-center space-x-2">
-              <h2 className="text-black text-sm md:text-base">Username</h2>
-              <div className="relative -top-1">
-                <img
-                  src="images/placeholder.PNG"
-                  alt="Profile picture"
-                  className="rounded-full h-8 w-8 md:h-10 md:w-10 object-cover"
+            <div className="w-full">
+              <div className="flex justify-center md:justify-end items-center space-x-4">
+                <h2 className="text-black text-sm md:text-base font-medium">
+                  {account.username}
+                </h2>
+                <Pfp
+                  account={account}
+                  setAccount={setAccount} // React’s useState setter fits this
+                  showEdit={true}
+                  className="relative z-50"
                 />
               </div>
+              {/* <div className="flex justify-center md:justify-end mt-2">
+                <button className="px-2 py-1 text-xs md:text-sm border rounded"
+                onClick={}>
+                  Edit
+                </button>
+              </div> */}
             </div>
           </CardContent>
         </Card>
@@ -277,11 +304,15 @@ const InfoPage = ({
 };
 
 type AchievementsPageProps = {
+  account: AccountSchema;
+  setAccount: Function;
   playerData: any;
   setActiveTab: (tab: "info" | "achievements") => void;
 };
 
 export const AchievementsPage = ({
+  account,
+  setAccount,
   playerData,
   setActiveTab,
 }: AchievementsPageProps) => {
@@ -425,15 +456,16 @@ export const AchievementsPage = ({
             </div>
 
             {/* Right side/Profile */}
-            <div className="flex justify-center md:justify-end items-center space-x-2">
-              <h2 className="text-black text-sm md:text-base">Username</h2>
-              <div className="relative -top-1">
-                <img
-                  src="images/placeholder.PNG"
-                  alt="Profile picture"
-                  className="rounded-full h-8 w-8 md:h-10 md:w-10 object-cover"
-                />
-              </div>
+            <div className="flex justify-center md:justify-end items-center space-x-4">
+              <h2 className="text-black text-sm md:text-base font-medium">
+                {account.username}
+              </h2>
+              <Pfp
+                account={account}
+                setAccount={setAccount} // React’s useState setter fits this
+                showEdit={true}
+                className="relative z-50"
+              />
             </div>
           </CardContent>
         </Card>

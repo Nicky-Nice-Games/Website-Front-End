@@ -5,11 +5,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "./components/ui/navigation-menu";
+} from "./ui/navigation-menu";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import type { AccountSchema } from "./App";
+import type { AccountSchema } from "../App";
+import { pfpList } from "@/utils";
 
 /// Parameters to be passed into the navbar component
 interface NavbarParams {
@@ -75,7 +76,7 @@ const Navbar = ({
           {isMobileDevice ? "" : username}
         </button>
         <img
-          src="/src/assets/pfp-placeholder.png"
+          src={account ? pfpList[account.pfp] : "images/placeholder/pfp-placeholder.png"}
           className="max-w-7 md:m-1 rounded-full"
         />
       </NavigationMenuTrigger>
@@ -113,7 +114,6 @@ const Navbar = ({
     if (account) {
       setUsername(account.username);
       setLoginNavbarItem(profileDropdown);
-      navigate("/home");
     } else {
       setUsername("username");
       setLoginNavbarItem(loginButton);
@@ -348,7 +348,7 @@ const Navbar = ({
             }}
           >
             <img
-              src="/ggk/images/temp-logo.png"
+              src="/images/temp-logo.png"
               className="max-w-9 relative bottom-1"
             />
           </button>

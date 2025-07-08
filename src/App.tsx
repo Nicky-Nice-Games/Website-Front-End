@@ -1,5 +1,5 @@
 /*import { useState } from 'react';*/
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -15,7 +15,7 @@ import LeaderboardPage from "./pages/Leaderboard";
 import NewsAndUpdatesPage from "./pages/NewsAndUpdates";
 import PlayerStatsPage from "./pages/PlayerStats";
 import NoPage from "./pages/NoPage";
-import Navbar from "./Navbar";
+import Navbar from "./components/navbar";
 import ForumPost from "./pages/ForumPost";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 export interface AccountSchema {
   pid: string;
   username: string;
+  pfp: number;
 }
 
 function App() {
@@ -32,13 +33,16 @@ function App() {
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
     const storedUsername: string | null = localStorage.getItem("username");
-    if (!storedPID || !storedUsername) {
+    const storedPfpString: string | null = localStorage.getItem("pfpId");
+
+    if (!storedPID || !storedUsername || !storedPfpString) {
       setAccount(null);
       return;
     }
     const storedAccount: AccountSchema = {
       pid: storedPID,
       username: storedUsername,
+      pfp: +storedPfpString,    // + sign converts string to a number
     };
     setAccount(storedAccount);
   }, []);
@@ -54,6 +58,7 @@ function App() {
 
       <div className="min-h-[80vh]">
         <Routes>
+          <Route path="/" element={<Navigate to="/home" replace/>} />
           <Route
             path="/login"
             element={<LoginPage setAccount={setAccount} />}
@@ -74,7 +79,9 @@ function App() {
           <Route path="/news" element={<NewsAndUpdatesPage />} />
           <Route
             path="/stats"
-            element={<PlayerStatsPage account={account} />}
+            element={
+              <PlayerStatsPage account={account} setAccount={setAccount} />
+            }
           />
           <Route path="/forumPost" element={<ForumPost />} />
           <Route path="/characters" element={<CharactersPage />} />
