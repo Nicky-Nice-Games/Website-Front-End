@@ -88,7 +88,7 @@ const CharactersPage = () => {
                 {/* left side: character image */}
                 <motion.div
                   layoutId={`image-${active.name}-${id}`}
-                  className="w-1/3"
+                  className="w-1/2"
                 >
                   <img
                     src={active.imgUrl}
