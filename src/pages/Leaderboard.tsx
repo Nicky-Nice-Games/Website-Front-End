@@ -16,13 +16,21 @@ const LeaderboardPage = () => {
   // Renders if there hasn't been a chosen map
   if (mapId < 1)
     return (
-      <div className="text-center">
-        <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
-          Leaderboard
-        </h1>
-        <h2 className="text-xl mb-8 font-semibold">
-          Click a map to view its leaderboard
+      <div className="text-center bg-size-[80%] md:bg-size-[60%] bg-cover"
+        style={{ backgroundImage: "url('/ggk/images/white-checker-fade.png')" }}>
+        
+        <div className=" mb-8">
+          <img src=" images/leaderboard-header-3.png"
+          className='flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]'>
+          </img>
+          <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
+          Click a map to view its leaderboard!
         </h2>
+        </div>
+        {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
+          Leaderboard
+        </h1> */}
+
         <MapSelect
           setMapId={setMapId}
           setMapName={setMapName}
@@ -75,7 +83,7 @@ const MapSelect = ({
                 setMapName(t.name);
                 setMapImage(`bg-[url(${t.imgUrl})]`); // Tailwind property for the leaderboard background
               }}
-              className="hover:brightness-125 cursor-pointer"
+              className="hover:brightness-125 cursor-pointer drop-shadow-xl/50"
             >
               <img src={t.imgUrl} className="rounded-xl h-[30vh]" />
             </button>
