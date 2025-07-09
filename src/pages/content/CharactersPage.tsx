@@ -49,19 +49,20 @@ const CharactersPage = () => {
       <ContentNavigator currentPage={"characters"} />
 
       <img src=" images/characters-banner.png"
-          className='flex justify-self-left w-[100%] md:w-[40%] mb-[2rem] mt-[1rem]'>
-      </img>
+          className='flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]'>
+      </img> 
 
       {/*Header of characters page*/}
        <div className="px-8">
-        {/*
-        <h2
+        
+        {/* <h2
           className=" 
-                 text-black text-2xl sm:text-3xl  
-                 md:text-4xl 
-                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 
+          text-black text-2xl sm:text-3xl  
+          md:text-4xl 
+          lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 
+          md:w-[100%] mb-[2rem] mt-[1rem] font-black text-black"
         >
-          Characters
+          Meet the Characters!
         </h2> */}
         
         {/* overlay behind pop up when active */}
@@ -83,7 +84,7 @@ const CharactersPage = () => {
               <motion.div
                 layoutId={`character-${active.name}-${id}`}
                 ref={ref} // ref used for outside click detection
-                className="flex bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-4xl"
+                className="flex bg-white rounded-lg drop-shadow-xl/50 overflow-hidden w-full max-w-4xl"
               >
                 {/* left side: character image */}
                 <motion.div
