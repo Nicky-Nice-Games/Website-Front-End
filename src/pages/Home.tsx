@@ -142,7 +142,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             navigate("/news");
             setCurrentPage("news");
           }}
-          className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-30 px-10 py-3"
+          className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-10 px-10 py-3"
           />
 
         <Carousel
