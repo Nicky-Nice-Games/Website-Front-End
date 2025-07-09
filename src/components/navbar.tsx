@@ -348,7 +348,7 @@ const Navbar = ({
             }}
           >
             <img
-              src="images/temp-logo.png"
+              src="images/gizmo_favicon.svg"
               className="max-w-9 relative bottom-1"
             />
           </button>
