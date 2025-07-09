@@ -811,6 +811,111 @@
                     {
                         "type":"image"
                     },
+                    {
+                        "text": "Continued working on the design for the “coming soon” poster that will be hung around campus"
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "text":"Josh, our project lead, continued to iterate and practice his pitch presentation, and presented it as part of our onboarding process to welcome a new team member"
+                    }
+                ]
+            },
+            {
+                "type":"heading",
+                "level": 2,
+                "text":"Content Team"
+            },
+            {
+                "type":"list",
+                "ordered":false,
+                "items": [
+                    {
+                        "text": "All modeled characters have now been UV unwrapped to prepare for texturing"
+                    },
+                    {
+                        "text":"Majority of the item icons have been completed",
+                        "children": [
+                            "Some of the item concepts have changed since they were drawn so they will be redone next week"
+                        ]
+                    },
+                    {
+                        "text":"We onboarded Ethan, a new team member to work alongside Charlie on the game’s music and sound"
+                    },
+                    {
+                        "text":"Josh became a temporary team lead for the week to cover for Yazmin",
+                        "children": [
+                            "It was a lot to manage, including setting milestone goals, taking notes on progress throughout the week, communicating with other teams, and talking with Yaz to keep her updated",
+                            "The biggest challenge was keeping up with progress and filling out the Trello board accordingly, especially when you can’t always be with your team the whole time",
+                            "One solution we developed is sending screenshots before lunch and before the end of the day to show visible progress and hold everyone accountable for their assigned tasks"
+                        ]
+                    },
+                    {
+                        "text":"Josh met with several teams throughout the week to finalize certain design decisions",
+                        "children": [
+                            "Level Design: we were given a simplified list of 3D assets to begin modeling while they iterate on more track designs",
+                            "GSP: we received a finalized list of items to develop, as well as a consensus on features for prototyping such as facial expressions and UI elements",
+                            "Production: the character Gizmo was chosen to represent IGM as part of the game’s branding and marketing"
+                        ]
+                    },
+                    {
+                        "type":"image"
+                    }
+                    
+                ]
+                
+            },
+            {
+                "type":"heading",
+                "level": 2,
+                "text":"Level Design Team"
+            },
+            {
+                "type":"list",
+                "ordered":false,
+                "items": [
+                    {
+                        "text":"Continued greyboxing the tracks",
+                        "children":[
+                            "Outer Loop entirely updated",
+                            "Loop fully remodelled based on feedback from Nick to make the track more beginner friendly, edges are now sloped instead of a direct fall off, and there’s a bumper modelled and textured into the view so that the players know where to stay",
+                            "Academic, apartments, and other landmarks added in",
+                            "New obstacles added",
+                            "Experimenting with road signs to offer player tips"
+                            
+                        ]
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "text": "Dorm Room now has dev textures"
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "text":"Quarter Mile is scaled down"
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "text":"Golisano is scaled down, requires more greyboxing"
+                    },
+                    {
+                        "type":"image"
+                    },
+                    {
+                        "text":"Finals Brick Road is scaled down and has dev textures"
+                    },
+                    {
+                        "type":"image"
+                    }
                 ]
             }
         ]
