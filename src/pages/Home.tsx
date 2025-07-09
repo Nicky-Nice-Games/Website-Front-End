@@ -167,7 +167,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </Carousel>
       </div>
 
-      <main className="overflow-hidden">
+      <main className="overflow-hidden bg-[url('images/white-checker.png')] background-fixed">
         <div className=" mt-[4rem]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
