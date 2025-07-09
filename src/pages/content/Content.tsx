@@ -6,7 +6,7 @@ const ContentPage = () => {
       <ContentNavigator currentPage="content" />
       <div className="flex flex-col-reverse md:grid md:grid-cols-2">
         <div>
-          <h3 className="text-center text-4xl m-2 font-black poppins">
+          <h3 className="text-center text-4xl m-2 font-black">
             Gizmo the Ghost
           </h3>
           <p className="m-3">
