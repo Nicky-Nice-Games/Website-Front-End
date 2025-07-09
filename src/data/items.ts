@@ -10,21 +10,21 @@ export interface Item {
 
 export const items: Item[] = [
   {
-    imgUrl: "images/items/boosts/rocket_boost.png",
+    imgUrl: "images/items/boosts/level_one.png",
     name: "Rocket Boost",
     level: 1,
     category: "boost",
     description: "increase your speed by 100% for 3 seconds",
   },
   {
-    imgUrl: "images/items/boosts/double_rocket_boost.png",
+    imgUrl: "images/items/boosts/level_two.png",
     name: "Double Rocket Boost",
     level: 2,
     category: "boost",
     description: "increase your speed by 200% for 3 seconds",
   },
   {
-    imgUrl: "images/items/boosts/flying_rocket_boost.png",
+    imgUrl: "images/items/boosts/level_three.png",
     name: "Flying Rocket Boost",
     level: 3,
     category: "boost",
@@ -32,7 +32,7 @@ export const items: Item[] = [
       "increase your speed by 300% for 3 seconds, lifts character up in the air",
   },
   {
-    imgUrl: "images/items/boosts/warp_boost.png",
+    imgUrl: "images/items/boosts/level_four.png",
     name: "Upgraded Boost",
     level: 4,
     category: "boost",

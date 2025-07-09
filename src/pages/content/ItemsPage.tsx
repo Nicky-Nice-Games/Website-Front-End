@@ -11,7 +11,10 @@ const ItemsPage = () => {
   interface CategorizedItems {
     category: string;
     itemList: Item[];
+    background: string;
   }
+const [imageUrl, setImageUrl] = useState("images/card/offense.png");
+
 
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<CategorizedItems | boolean | null>(null);
@@ -46,18 +49,22 @@ const ItemsPage = () => {
     {
       category: "boost",
       itemList: items.filter((i) => i.category === "boost"),
+      background:"images/card/speed.png"
     },
     {
       category: "defense",
       itemList: items.filter((i) => i.category === "defense"),
+      background:"images/card/defense.png"
     },
     {
       category: "offense",
       itemList: items.filter((i) => i.category === "offense"),
+      background:"images/card/offense.png"
     },
     {
       category: "trap",
       itemList: items.filter((i) => i.category === "trap"),
+      background:"images/card/trap.png"
     },
   ];
 
@@ -95,7 +102,8 @@ const ItemsPage = () => {
                 {/*Shows Information used to create layout of item*/}
                 <motion.div
                   layoutId={`image-${active.category}-${id}`}
-                  className="flex flex-col items-center bg-[url(images/card-background.png)] bg-size-[100%_100%] p-2"
+                  className="flex flex-col items-center bg-size-[100%_100%] p-2"
+                  style={{backgroundImage: `url(${imageUrl})`}}
                 >
                   <motion.button
                     key={`button-${active.category}-${id}`}
@@ -166,6 +174,7 @@ const ItemsPage = () => {
                 onClick={() => {
                   setActive(ti);
                   setActiveItem(ti.itemList[0]);
+                  setImageUrl(ti.background);
                 }} // open item pop up
                 className="cursor-pointer"
               >
