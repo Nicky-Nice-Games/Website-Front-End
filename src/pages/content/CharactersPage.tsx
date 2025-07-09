@@ -44,20 +44,26 @@ const CharactersPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <>
+    <main className="bg-no-repeat bg-cover 
+    bg-fixed bg-center bg-[url('images/light-items-background.png')]">
       <ContentNavigator currentPage={"characters"} />
 
+      <img src=" images/characters-banner.png"
+          className='flex justify-self-left w-[100%] md:w-[40%] mb-[2rem] mt-[1rem]'>
+      </img>
+
       {/*Header of characters page*/}
-      <div className="px-8">
+       <div className="px-8">
+        {/*
         <h2
           className=" 
-                 text-black text-2xl sm:text-3xl  /* default on mobile */
-                 md:text-4xl /* default on small screens */
-                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 /* default on desktop */
-                "
+                 text-black text-2xl sm:text-3xl  
+                 md:text-4xl 
+                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 
         >
           Characters
-        </h2>
+        </h2> */}
+        
         {/* overlay behind pop up when active */}
         <AnimatePresence>
           {active && typeof active === "object" && (
@@ -160,7 +166,7 @@ const CharactersPage = () => {
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 
