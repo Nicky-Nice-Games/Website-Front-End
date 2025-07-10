@@ -97,7 +97,7 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
               <motion.div
                 layoutId={`item-${active.category}-${id}`}
                 ref={ref}
-                className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                className="w-full max-w-[600px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
               >
                 {/*Shows Information used to create layout of item*/}
                 <motion.div
@@ -183,7 +183,7 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                     <img
                       src={ti.itemList[0].imgUrl}
                       alt={ti.itemList[0].name}
-                      className="h-72 w-72 object-contain"
+                      className="h-80 w-80 object-contain"
                     />
                   </div>
                 </motion.div>
