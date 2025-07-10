@@ -14,24 +14,24 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
 
   const characterButtonColor =
     props.currentPage === "characters"
-      ? "bg-[#F76902] hover:bg-white"
-      : "hover:bg-[#F76902]";
+      ? "bg-[#F76902] text-white"
+      : "hover:text-[#F76902] text-white";
   const itemButtonColor =
     props.currentPage === "items"
-      ? "bg-[#F76902] hover:bg-white"
-      : "hover:bg-[#F76902]";
+      ? "bg-[#F76902] text-white"
+      : "hover:text-[#F76902] text-white";
   const trackButtonColor =
     props.currentPage === "tracks"
-      ? "bg-[#F76902] hover:bg-white"
-      : "hover:bg-[#F76902]";
+      ? "bg-[#F76902] text-white"
+      : "hover:text-[#F76902] text-white";
 
   return (
     <>
-      <NavigationMenu>
+      <NavigationMenu className="p-[10px] bg-size-[30%] bg-[url('images/black-checker.png')]">
         <NavigationMenuList>
           <NavigationMenuItem>
             <button
-              className={`p-1 m-1 font-bold ${characterButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${characterButtonColor} poppins tracking-wide rounded-sm text-lg`}
               onClick={() => {
                 const navigateRoute: string =
                   props.currentPage === "characters"
@@ -45,7 +45,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-1 m-1 font-bold ${itemButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${itemButtonColor} poppins tracking-wide rounded-sm text-lg`}
               onClick={() => {
                 const navigateRoute: string =
                   props.currentPage === "items" ? "/content" : "/items";
@@ -57,7 +57,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-1 m-1 font-bold ${trackButtonColor} tracking-wide poppins rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${trackButtonColor} tracking-wide poppins rounded-sm text-lg`}
               onClick={() => {
                 const navigateRoute: string =
                   props.currentPage === "tracks" ? "/content" : "/tracks";
