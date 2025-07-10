@@ -255,7 +255,17 @@ const NewsAndUpdatesPage = () => {
                       className="w-full h-full object-cover object-top rounded-xl"
                     />
                   </motion.div>
+
                   <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                  {/* x button */}
+                    <button
+                      onClick={() => setActive(null)}
+                      className="absolute top-4 right-4 z-50 bg-white dark:bg-neutral-900 p-1 rounded-full shadow hover:scale-105"
+                      aria-label="Close"
+                    >
+                      <CloseIcon />
+                    </button>
+
                     <motion.h3 // Desktop title
                       layoutId={`title-${active.title}-${id}`}
                       className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"

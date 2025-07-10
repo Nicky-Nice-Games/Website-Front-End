@@ -756,6 +756,246 @@
                         "text": "Started designing a “Coming Soon” grid-style post for the Instagram account and worked through multiple iterations"
                     }
                 ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-25.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-26.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-27.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Turned the coming soon grid into a short (10s) vertical video to be used as an Instagram story"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-28.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Started designing “Meet the Team” posts using the new color palette"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-29.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-30.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-31.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-32.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-33.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-34.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Created Instagram and Twitter accounts for future use, but haven't posted anything or added bios yet"
+                    },
+                    {
+                        "text": "Josh, our project lead, had some tasks that were specific to him",
+                        "children": [
+                            "Took part in interviewing a new team member",
+                            "Further iterated his pitch presentation"
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Content Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "We started modeling all the characters' heads and finished some!!!!"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-35.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-36.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-37.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-38.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-39.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-40.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Also made a progress pipeline for character creation!"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-41.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Item concepts!"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-42.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Start screen rough and lobby menus!"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-43.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-44.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Track textures and rough concepts of track models!"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-45.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-46.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-47.png"
+            },
+            {
+                "type": "paragraph",
+                "text": "Fun update:"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Almost all people on Content are familiar with Blender in some capacity whereas only 3 people were experienced with 3D modeling before!"
+                    }
+                ]
+            },
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Support Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "We have continued to check in with other teams like we’ve done for previous weeks"
+                    },
+                    {
+                        "text": "We have also been keeping track of support tickets as they pop up",
+                        "children": [
+                            "Zach (Team Lead) personally requested that people provide information about themselves and an image/avatar of themselves, and started adding them to the Home page of the GitHub Wiki",
+                            {
+                                "text": "Giovanni (Build Engineer) has been working on improving the GitHub and solving issues",
+                                "children": [
+                                    "Monday: Demoed a workflow for the Unity Project",
+                                    "Tuesday: Implemented the workflow for the Unity Project, helped solve a build issue (improper imports)",
+                                    "Wednesday: Reviewed and approved a pr for the Unity Project, created a presentation on the Unity Project workflow, researched different versioning systems, talked with Johnathan C. about versioning",
+                                    {
+                                        "text": "Thursday: Helped handle a merge conflict with a level-design team member, helped handle several conflicts with audio branch, Had a conversation with Peter Dang about versioning",
+                                        "children": [
+                                            "Settled on Semantic Versioning or SemVer (vMajor.Minor.Patch), Starting with v0.1.0 and continuing until we get a stable version of the game (v1.0.0)"
+                                        ]
+                                    },
+                                    {
+                                        "text": "Released the first version of the game (v0.1.0)"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "Bobby (Game Developer) helped with various aspects of the project",
+                                "children": [
+                                    "Helped Charlie from Content Team implement audio into the Unity Project with Wwise and code.",
+                                    "Helped the Level Design Team resolve a weird Unity error",
+                                    "Gave feedback on the backend team’s scoring algorithm"
+                                ]
+                            },
+                            {
+                                "text": "Daniel (Game Developer) helped with R&D",
+                                "children": [
+                                    "Specifically helped R&D develop and structure some the login UI screens for the GSP team"
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -782,69 +1022,99 @@
                         ]
                     },
                     {
-                        "text":"Worked closely with the content team to finalize a mascot for our game and the name of the mascot"
+                        "text": "Worked closely with the content team to finalize a mascot for our game and the name of the mascot"
                     },
                     {
-                        "text":"Brainstormed, pitched, and decided on a name for our game that was relevant to the mascot we selected"
+                        "text": "Brainstormed, pitched, and decided on a name for our game that was relevant to the mascot we selected"
                     },
                     {
-                        "text":"Refined the design of the “Coming Soon” grid-style social media post to incorporate the typeface used by the content and web teams"
-                    },
-                    {
-                        "type":"image"
-                        
-                    },
-                    {
-                        "text":"Refined the design for the “Coming Soon” vertical video Instagram story, changing the typeface to match the one used by the content and web teams"
-                        
-                    },
-                    {
-                        "type":"image"
-
-                    },
-                    {
-                        "text":"Refined the design of the “Meet the Team” social media posts to incorporate the typefaces used by the content and web teams and to better match the design of the UI for the game. Also went through and created the sections for each person, copying in their information and images. Lastly, I met with each person and got everyone’s approval on their individual posts"
-                    },
-                    {
-                        "type":"image"
-                    },
-                    {
-                        "type":"image"
-                    },
-                    {
-                        "text": "Continued working on the design for the “coming soon” poster that will be hung around campus"
-                    },
-                    {
-                        "type":"image"
-                    },
-                    {
-                        "text":"Josh, our project lead, continued to iterate and practice his pitch presentation, and presented it as part of our onboarding process to welcome a new team member"
+                        "text": "Refined the design of the “Coming Soon” grid-style social media post to incorporate the typeface used by the content and web teams"
                     }
                 ]
             },
             {
-                "type":"heading",
-                "level": 2,
-                "text":"Content Team"
+                "type": "image",
+                "src": "./assets/blog-image-48.png"
             },
             {
-                "type":"list",
-                "ordered":false,
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Refined the design for the “Coming Soon” vertical video Instagram story, changing the typeface to match the one used by the content and web teams"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-49.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Refined the design of the “Meet the Team” social media posts to incorporate the typefaces used by the content and web teams and to better match the design of the UI for the game. Also went through and created the sections for each person, copying in their information and images. Lastly, I met with each person and got everyone’s approval on their individual posts"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-50.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-51.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-52.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Continued working on the design for the “coming soon” poster that will be hung around campus"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-53.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Josh, our project lead, continued to iterate and practice his pitch presentation, and presented it as part of our onboarding process to welcome a new team member"
+                    }
+                ]
+            },
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Content Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
                 "items": [
                     {
                         "text": "All modeled characters have now been UV unwrapped to prepare for texturing"
                     },
                     {
-                        "text":"Majority of the item icons have been completed",
+                        "text": "Majority of the item icons have been completed",
                         "children": [
                             "Some of the item concepts have changed since they were drawn so they will be redone next week"
                         ]
                     },
                     {
-                        "text":"We onboarded Ethan, a new team member to work alongside Charlie on the game’s music and sound"
+                        "text": "We onboarded Ethan, a new team member to work alongside Charlie on the game’s music and sound"
                     },
                     {
-                        "text":"Josh became a temporary team lead for the week to cover for Yazmin",
+                        "text": "Josh became a temporary team lead for the week to cover for Yazmin",
                         "children": [
                             "It was a lot to manage, including setting milestone goals, taking notes on progress throughout the week, communicating with other teams, and talking with Yaz to keep her updated",
                             "The biggest challenge was keeping up with progress and filling out the Trello board accordingly, especially when you can’t always be with your team the whole time",
@@ -852,69 +1122,161 @@
                         ]
                     },
                     {
-                        "text":"Josh met with several teams throughout the week to finalize certain design decisions",
+                        "text": "Josh met with several teams throughout the week to finalize certain design decisions",
                         "children": [
                             "Level Design: we were given a simplified list of 3D assets to begin modeling while they iterate on more track designs",
                             "GSP: we received a finalized list of items to develop, as well as a consensus on features for prototyping such as facial expressions and UI elements",
                             "Production: the character Gizmo was chosen to represent IGM as part of the game’s branding and marketing"
                         ]
-                    },
-                    {
-                        "type":"image"
                     }
-                    
                 ]
-                
             },
             {
-                "type":"heading",
+                "type": "image",
+                "src": "./assets/blog-image-54.jpg"
+            },
+            {
+                "type": "heading",
                 "level": 2,
-                "text":"Level Design Team"
+                "text": "Level Design Team"
             },
             {
-                "type":"list",
-                "ordered":false,
+                "type": "list",
+                "ordered": false,
                 "items": [
                     {
-                        "text":"Continued greyboxing the tracks",
-                        "children":[
+                        "text": "Continued greyboxing the tracks",
+                        "children": [
                             "Outer Loop entirely updated",
                             "Loop fully remodelled based on feedback from Nick to make the track more beginner friendly, edges are now sloped instead of a direct fall off, and there’s a bumper modelled and textured into the view so that the players know where to stay",
                             "Academic, apartments, and other landmarks added in",
                             "New obstacles added",
                             "Experimenting with road signs to offer player tips"
-                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-55.png"
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-56.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Dorm Room now has dev textures"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-57.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Quarter Mile is scaled down"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-58.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Golisano is scaled down, requires more greyboxing"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-59.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Finals Brick Road is scaled down and has dev textures"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-60.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "We began writing some rough documentation about our level design process",
+                        "children": [
+                            "We start with track standards, items such as track size and difficulty levels",
+                            "Next, we are working to detail all of the major steps of the process: starting with core track ideas, making sketches and design documents, as well as building the track in Blender and exporting it to Unity",
+                            "The document is in very early stages. In the future, the steps to making tracks will be organized into different levels of completion"
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Support Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "As usual, met with each team to ensure we all knew what we needed to work on and what tasks were most important to be successful this week",
+                        "children": [
+                            "Ensured each team worked to refine the game and project procedures"
                         ]
                     },
                     {
-                        "type":"image"
+                        "text": "Zach (Team Lead) continued to work on the GitHub Wiki, with help from our Creative Director, Nick, to get it better organized and adding information to some of the Lorem ipsum sections",
+                        "children": [
+                            "Reorganized all of the pages to include a 'Contents' section with anchor links to headers on the page",
+                            {
+                                "text": "Created appendices with information such as brainstorming notes and wiki guidelines, as well as moving the Team Information that was previously on the Home page to its own appendix",
+                                "children": [
+                                    "Finished adding all team members’ information and photo/avatar of themselves"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-61.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Additionally, Zach helped to onboard Ethan, our new sound designer on the Content Team"
                     },
                     {
-                        "type":"image"
-                    },
-                    {
-                        "text": "Dorm Room now has dev textures"
-                    },
-                    {
-                        "type":"image"
-                    },
-                    {
-                        "text":"Quarter Mile is scaled down"
-                    },
-                    {
-                        "type":"image"
-                    },
-                    {
-                        "text":"Golisano is scaled down, requires more greyboxing"
-                    },
-                    {
-                        "type":"image"
-                    },
-                    {
-                        "text":"Finals Brick Road is scaled down and has dev textures"
-                    },
-                    {
-                        "type":"image"
+                        "text": "Bobby Pellegrino (Game Developer) helped with various aspects of the project",
+                        "children": [
+                            "Attempted to work in the audio-implementation branch of the Unity Project, but things went south in more ways than one. Standing by on this until the GitHub problems are fixed.",
+                            "Helped Production with his Meet the Team post, including making a new render of his avatar without a background",
+                            "Critiqued the website in its current state so that the Frontend team can get valuable feedback"
+                        ]
                     }
                 ]
             }
@@ -927,6 +1289,162 @@
         "subtitle": "Continued production",
         "image": "./assets/OIP.jpg",
         "text": [
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Level Design Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Updated our tracks to a drivable state. The biggest additions are guardrails and lines along the track to note where the normal track ends and rough terrain begins."
+                    },
+                    {
+                        "text": "Outer Loop"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-62.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Quarter Mile"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-58.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Dorm Room"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-63.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Golisano College"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-64.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Finals Brick Road"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-65.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Hosted a small and optional internal playtest focused on the scale and layout of the tracks. We received a lot of actionable feedback about where our tracks are excelling and where they struggle.",
+                        "children": [
+                            "Big thank you to Jonathan and Giovanni for helping us to make a build on short notice!"
+                        ]
+                    },
+                    {
+                        "text": "Ported our documentation from a Google Doc into the GitHub Wiki."
+                    }
+                ]
+            },
+            {
+                "type": "heading",
+                "level": 2,
+                "text": "Support Team"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "As usual, met with each team to ensure we all knew what we needed to work on and what tasks were most important to be successful this week",
+                        "children": [
+                            "Ensured each team worked to refine the game and project procedures"
+                        ]
+                    },
+                    {
+                        "text": "Zach (Team Lead) made some minor adjustments to the GitHub Wiki, reformatting and reorganizing some sections to look neater and easier to view. Additionally, he met with Nick, our Creative Director, for a Team Lead Mid Project Check-In to discuss how he (Zach) has been handling the project and leading the Support Team"
+                    },
+                    {
+                        "text": "Bobby (Game Developer) has been working on various things",
+                        "children": [
+                            "Did research on Wwise integration in Unity, including the “Wwise Adventure Game”, which has both its Unity and Wwise projects open source.",
+                            "Auditioned for the voice of Jamster",
+                            "Tested out a build made by Level Design to try out their courses, and gave them feedback on it",
+                            "Met with Nick for his mid project check in",
+                            "Played the first official build for integration testing and gave feedback on it",
+                            "Invited my brother to playtest the build. Worked with Jonathan from QA to write down his feedback as he played."
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-66.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Giovanni (Build Engineer)",
+                        "children": [
+                            "Created daily releases for the game",
+                            "Bug tested the game and kept in contact with GSP, QA, and Level Design for significant bugs",
+                            "Created a “read me” file for our project",
+                            "Worked on creating unit tests"
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "src": "./assets/blog-image-67.png"
+            },
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Daniel(Game Developer)",
+                        "children": [
+                            "Looked over the GitHub wiki and took note of outdated information",
+                            "Met with or messaged teams to determine what information they wanted added/updated",
+                            "Playtested the current build of the game"
+                        ]
+                    }
+                ]
+            }
         ]
     }
 ]
