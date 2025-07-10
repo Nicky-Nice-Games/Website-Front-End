@@ -97,17 +97,18 @@ const AboutUsPage = () => {
   return (
     <>
       <main
-        className="p-4 md:p-8 md:pl-3 md:pr-3 md:pb-[4rem] bg-[#18181b] 
-                bg-fixed bg-size-[90%] md:bg-size-[60%] bg-repeat"
+        className="min-h-screen p-4 md:p-8 md:px-3 pb-[4rem] bg-[#18181b] bg-fixed bg-cover bg-repeat"
         style={{ backgroundImage: "url('/ggk/images/items-background.png')" }}
       >
-        {/* <h1 className='text-center text-4xl m-4 mx-0'>Meet the team!</h1> */}
-        <img
-          src=" images/test-header-banner.png"
-          className="flex justify-self-center w-[100%] md:w-[50%] mb-[2rem]"
-        ></img>
-        <div className="flex flex-column items-center w-full text-center">
-          <TeamTabs teamData={teamData} defaultTab="GSP" />
+        <div className="max-w-7xl mx-auto">
+          <img
+            src="images/test-header-banner.png"
+            className="mx-auto w-full md:w-1/2 mb-8"
+            alt="Team banner"
+          />
+          <div className="w-full text-center">
+            <TeamTabs teamData={teamData} defaultTab="GSP" />
+          </div>
         </div>
       </main>
     </>
