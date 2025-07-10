@@ -4,6 +4,14 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ContentNavigator } from "@/components/content/content-navigator";
 import { CloseIcon } from "@/components/content/close-icon";
 import { characters } from "@/data/characters";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
@@ -43,18 +51,34 @@ const CharactersPage = () => {
   // close pop up when clicking outside of it
   useOutsideClick(ref, () => setActive(null));
 
+  const [api, setApi] = useState<CarouselApi>();
+  const [center, setCenter] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+    setCenter(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCenter(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
-    <main className="bg-fixed bg-size-[90%] md:bg-size-[80%]
-     bg-[url('images/blue-items-background.png')]">
+    <main
+      className="bg-fixed bg-size-[90%] md:bg-size-[80%]
+     bg-[url('images/blue-items-background.png')]"
+    >
       <ContentNavigator currentPage={"characters"} />
 
-      <img src=" images/characters-banner.png"
-          className='flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]'>
-      </img> 
+      <img
+        src=" images/characters-banner.png"
+        className="flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]"
+      ></img>
 
       {/*Header of characters page*/}
-       <div className="px-8">
-        
+      <div className="px-8">
         {/* <h2
           className=" 
           text-black text-2xl sm:text-3xl  
@@ -64,7 +88,7 @@ const CharactersPage = () => {
         >
           Meet the Characters!
         </h2> */}
-        
+
         {/* overlay behind pop up when active */}
         <AnimatePresence>
           {active && typeof active === "object" && (
@@ -126,7 +150,7 @@ const CharactersPage = () => {
                   >
                     {active.description} <motion.br />
                     Favorite Song:{" "}
-                    <motion.a className = "text-[#d97706]" href={active.songLink}>
+                    <motion.a className="text-[#d97706]" href={active.songLink}>
                       {active.songName}
                     </motion.a>
                   </motion.p>
@@ -137,34 +161,43 @@ const CharactersPage = () => {
         </AnimatePresence>
 
         {/* grid of character pop ups */}
-        <div
-          className="
-                    grid grid-cols-2 gap-4 items-center justify-center p-8 /* default on mobile */
-                    lg:grid-cols-6 /* default on computer screens */
-                    "
-        >
-          {characters.map((character) => (
-            <motion.div
-              layoutId={`character-${character.name}-${id}`}
-              key={character.name}
-              onClick={() => setActive(character)}
-              className="cursor-pointer hover:scale-105"
-            >
-              <motion.div layoutId={`image-${character.name}-${id}`}>
-                <img
-                  src={character.imgUrl}
-                  alt={character.name}
-                  className="
-                            h-40 w-40         /* default on mobile */
-                            sm:h-56 sm:w-56   /* a bit bigger on small screens */
-                            lg:h-90 lg:w-90   /* default on computer screens */
+        <div>
+          <Carousel
+            setApi={setApi}
+            className="flex flex-row w-full items-center"
+          >
+            <CarouselPrevious className="w-8" />
+            <CarouselContent className="m-auto py-10">
+              {characters.map((character, index) => (
+                <CarouselItem className="basis-1/3 m-auto">
+                  <motion.div
+                    layoutId={`character-${character.name}-${id}`}
+                    key={character.name}
+                    onClick={() => setActive(character)}
+                    className="cursor-pointer hover:scale-105"
+                  >
+                    <motion.div layoutId={`image-${character.name}-${id}`}>
+                      <img
+                        src={character.imgUrl}
+                        alt={character.name}
+                        className={`
                             rounded-md
                             object-cover
-                            "
-                />
-              </motion.div>
-            </motion.div>
-          ))}
+                            m-auto
+                            ${
+                              index === center - 1
+                                ? "h-43 w-43 sm:h-60 sm:w-60 lg:h-95 lg:w-95 xl:h-116 xl:w-116"
+                                : "h-36 w-36 sm:h-50 sm:w-50 lg:h-80 lg:w-80 xl:h-100 xl:w-100"
+                            }`}
+                      />
+                    </motion.div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            <CarouselNext className="w-8" />
+          </Carousel>
         </div>
       </div>
     </main>
