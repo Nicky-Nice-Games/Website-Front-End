@@ -44,8 +44,8 @@ const CharactersPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <main className="bg-no-repeat bg-cover 
-    bg-fixed bg-center bg-[url('images/light-items-background.png')]">
+    <main className="bg-fixed bg-size-[90%] md:bg-size-[80%]
+     bg-[url('images/blue-items-background.png')]">
       <ContentNavigator currentPage={"characters"} />
 
       <img src=" images/characters-banner.png"
