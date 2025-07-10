@@ -179,11 +179,11 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                 className="cursor-pointer"
               >
                 <motion.div layoutId={`image-${ti.category}-${id}`}>
-                  <div className="rounded-xl h-80 w-80 flex items-center justify-center hover:scale-105">
+                  <div className="rounded-xl h-80 w-80 flex  hover:scale-105">
                     <img
                       src={ti.itemList[0].imgUrl}
                       alt={ti.itemList[0].name}
-                      className="h-70 w-70 object-contain"
+                      className="h-72 w-72 object-contain"
                     />
                   </div>
                 </motion.div>
