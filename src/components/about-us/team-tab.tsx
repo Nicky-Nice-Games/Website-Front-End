@@ -14,6 +14,7 @@ export const TeamTab = ({ teamData, customTitle }: TeamTabProps) => {
       <h2 className="text-4xl m-1 mx-0 painterz">
         {teamData.length > 0 ? customTitle || teamData[0][0] : "Loading..."}
       </h2>
+      <hr className="h-1 m-2 bg-[#f97316] border-0 dark:bg-gray-700"></hr>
       <div className="flex flex-row flex-wrap w-full justify-center">
         {teamData.map((personData, index) => (
           <Person
