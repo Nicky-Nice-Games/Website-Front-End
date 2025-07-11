@@ -16,26 +16,27 @@ const LeaderboardPage = () => {
   // Renders if there hasn't been a chosen map
   if (mapId < 1)
     return (
-      <div className="text-center bg-size-[80%] md:bg-size-[60%] bg-cover"
-        style={{ backgroundImage: "url('/ggk/images/white-checker-fade.png')" }}>
-        
-        <div className=" mb-8">
-          <img src=" images/leaderboard-header-3.png"
-          className='flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]'>
-          </img>
-          <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
-          Click a map to view its leaderboard!
-        </h2>
-        </div>
-        {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
+      <div className="text-center bg-[url(images/white-checker.png)] bg-size-[80%] md:bg-size-[60%] bg-cover">
+        <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99%">
+          <div className=" mb-8">
+            <img
+              src=" images/leaderboard-header-3.png"
+              className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
+            ></img>
+            <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
+              Click a map to view its leaderboard!
+            </h2>
+          </div>
+          {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
           Leaderboard
         </h1> */}
 
-        <MapSelect
-          setMapId={setMapId}
-          setMapName={setMapName}
-          setMapImage={setMapImage}
-        />
+          <MapSelect
+            setMapId={setMapId}
+            setMapName={setMapName}
+            setMapImage={setMapImage}
+          />
+        </div>
       </div>
     );
 
@@ -74,7 +75,7 @@ const MapSelect = ({
       {tracks.map((t) => {
         return (
           <div className="md:w-[45%] md:mx-4 mb-10">
-            <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto mb-2 px-3 py-1 rounded-lg">
+            <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto mb-2 px-3 py-1 rounded-lg g">
               {t.name}
             </h1>
             <button
@@ -83,9 +84,12 @@ const MapSelect = ({
                 setMapName(t.name);
                 setMapImage(`bg-[url(${t.imgUrl})]`); // Tailwind property for the leaderboard background
               }}
-              className="hover:brightness-125 cursor-pointer drop-shadow-xl/50"
+              className="cursor-pointer drop-shadow-xl/50"
             >
-              <img src={t.imgUrl} className="rounded-xl h-[30vh]" />
+              <img
+                src={t.imgUrl}
+                className="rounded-xl h-[30vh] hover:scale-105"
+              />
             </button>
           </div>
         );
