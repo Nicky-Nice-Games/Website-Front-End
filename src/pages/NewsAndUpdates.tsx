@@ -26,6 +26,7 @@ interface Update {
 }
 
 
+
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
   const [month, day, year] = dateStr.split("/");
@@ -434,37 +435,37 @@ const NewsAndUpdatesPage = () => {
   );
 };
 
-const CloseIcon = () => {
-  return (
-    <motion.svg
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{
-        opacity: 0,
-        transition: {
-          duration: 0.02,
-        },
-      }}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-6 w-6 text-black"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M18 6l-12 12" />
-      <path d="M6 6l12 12" />
-    </motion.svg>
-  );
-};
+// const CloseIcon = () => {
+//   return (
+//     <motion.svg
+//       initial={{
+//         opacity: 0,
+//       }}
+//       animate={{
+//         opacity: 1,
+//       }}
+//       exit={{
+//         opacity: 0,
+//         transition: {
+//           duration: 0.02,
+//         },
+//       }}
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       className="h-6 w-6 text-black"
+//     >
+//       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+//       <path d="M18 6l-12 12" />
+//       <path d="M6 6l12 12" />
+//     </motion.svg>
+//   );
+// };
 
 export default NewsAndUpdatesPage;
