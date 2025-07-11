@@ -11,8 +11,8 @@ function Person({ name, position, email, image }: PersonProps) {
     //rounded-full outline-[7px] outline-[#38bdf8]
     <div
       className="m-4 p-4 w-[200px] drop-shadow-xl/50
-                rounded-md p-1 bg-[url(images/tabs-card.png)] 
-                bg-cover bg-no-repeat bg-center opacity-100"
+                rounded-md bg-[url(images/tabs-card.png)] 
+                bg-cover bg-no-repeat opacity-100"
     >
       <img
         src={image}

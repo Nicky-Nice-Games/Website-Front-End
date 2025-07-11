@@ -1,10 +1,10 @@
 const pfpList = [
-  "images/pfps/bottom-card.png",
-  "images/pfps/arcade-machine.png",
-  "images/pfps/RITLogo.png",
-  "images/pfps/RITLogo.png",
-  "images/pfps/arcade-machine.png",
-  "images/pfps/bottom-card.png",
+  "images/pfps/gizmo.png",
+  "images/pfps/jamster.png",
+  "images/pfps/morgan.png",
+  "images/pfps/reese.png",
+  "images/pfps/emma.png",
+  "images/pfps/kai.png",
 ];
 
 export { pfpList };
