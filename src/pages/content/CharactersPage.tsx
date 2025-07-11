@@ -90,7 +90,7 @@ const CharactersPage = () => {
         {/* Character carousel */}
         <Carousel setApi={setApi} className="flex flex-row w-full items-center">
           <CarouselPrevious className="w-8" />
-          <CarouselContent className="m-auto py-10">
+          <CarouselContent className="m-auto py-10 flex flex-row items-center justify-between">
             {characters.map((character, index) => (
               <CarouselItem className="basis-1/3 p-auto">
                 <Dialog>
@@ -100,7 +100,7 @@ const CharactersPage = () => {
                       className={`${
                         index === center - 1
                           ? "h-43 w-43 sm:h-60 sm:w-60 lg:h-95 lg:w-95 xl:h-116 xl:w-116"
-                          : "h-36 w-36 sm:h-50 sm:w-50 lg:h-80 lg:w-80 xl:h-100 xl:w-100"
+                          : "h-32 w-32 sm:h-45 sm:w-45 lg:h-70 lg:w-70 xl:h-90 xl:w-90"
                       } m-auto`}
                     >
                       <img
