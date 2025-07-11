@@ -189,13 +189,20 @@ const NewsAndUpdatesPage = () => {
                     />
                   </motion.div>
                   <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                    {/* x button */}
+                    <button
+                      onClick={() => setActive(null)}
+                      className="absolute top-4 right-4 z-50 bg-white dark:bg-neutral-900 p-1 rounded-full shadow hover:scale-105"
+                      aria-label="Close"
+                    >
+                      <CloseIcon />
+                    </button>
                     <motion.h3 // Mobile title
                       layoutId={`title-${active.title}-${id}`}
                       className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
                     >
                       {active.title}
                     </motion.h3>
-
                     <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
                       {/* Adds paragraphs to the expandable card*/}
                       {active.text.map((block, i) => {
@@ -257,7 +264,7 @@ const NewsAndUpdatesPage = () => {
                   </motion.div>
 
                   <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
-                  {/* x button */}
+                    {/* x button */}
                     <button
                       onClick={() => setActive(null)}
                       className="absolute top-4 right-4 z-50 bg-white dark:bg-neutral-900 p-1 rounded-full shadow hover:scale-105"
