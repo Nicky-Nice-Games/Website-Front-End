@@ -4,7 +4,7 @@
         "title": "Week 1",
         "date": "5/25/2025",
         "subtitle": "Start of production",
-        "image": "./assets/OIP.jpg",
+        "image": "./assets/blog-image-3.png",
         "text": [
             {
                 "type": "heading",
@@ -262,8 +262,8 @@
         "id": 2,
         "title": "Week 2",
         "date": "6/1/2025",
-        "subtitle": "Continued production",
-        "image": "./assets/OIP.jpg",
+        "subtitle": "We have characters now!",
+        "image": "./assets/blog-image-13.jpg",
         "text": [
             {
                 "type": "heading",
@@ -726,8 +726,8 @@
         "id": 3,
         "title": "Week 3",
         "date": "6/9/2025",
-        "subtitle": "Continued production",
-        "image": "./assets/OIP.jpg",
+        "subtitle": "We've come up with a new branding for our game",
+        "image": "./assets/blog-image-30.png",
         "text": [
             {
                 "type": "heading",
@@ -1003,8 +1003,8 @@
         "id": 4,
         "title": "Week 4",
         "date": "6/16/2025",
-        "subtitle": "Continued production",
-        "image": "./assets/OIP.jpg",
+        "subtitle": "A new mascot has been chosen",
+        "image": "./assets/blog-image-54.jpg",
         "text": [
             {
                 "type": "heading",
@@ -1286,8 +1286,8 @@
         "id": 5,
         "title": "Week 5",
         "date": "6/23/2025",
-        "subtitle": "Continued production",
-        "image": "./assets/OIP.jpg",
+        "subtitle": "Our first build of the game",
+        "image": "./assets/blog-image-67.png",
         "text": [
             {
                 "type": "heading",
