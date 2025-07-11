@@ -165,7 +165,7 @@ const ItemsPage = () => {
             </div>
           ) : null}
         </AnimatePresence>
-        <div className="flex flex-row w-full m-auto justify-center">
+        <div className="flex flex-col xl:flex-row w-full m-auto items-center xl:items-start justify-center">
           {categorizedItemList.map((ti) => {
             return (
               <motion.div
