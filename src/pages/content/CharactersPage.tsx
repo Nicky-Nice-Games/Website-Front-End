@@ -44,20 +44,27 @@ const CharactersPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <>
+    <main className="bg-fixed bg-size-[90%] md:bg-size-[80%]
+     bg-[url('images/blue-items-background.png')]">
       <ContentNavigator currentPage={"characters"} />
 
+      <img src=" images/characters-banner.png"
+          className='flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]'>
+      </img> 
+
       {/*Header of characters page*/}
-      <div className="px-8">
-        <h2
+       <div className="px-8">
+        
+        {/* <h2
           className=" 
-                 text-black text-2xl sm:text-3xl  /* default on mobile */
-                 md:text-4xl /* default on small screens */
-                lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 /* default on desktop */
-                "
+          text-black text-2xl sm:text-3xl  
+          md:text-4xl 
+          lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 
+          md:w-[100%] mb-[2rem] mt-[1rem] font-black text-black"
         >
-          Characters Page
-        </h2>
+          Meet the Characters!
+        </h2> */}
+        
         {/* overlay behind pop up when active */}
         <AnimatePresence>
           {active && typeof active === "object" && (
@@ -77,12 +84,12 @@ const CharactersPage = () => {
               <motion.div
                 layoutId={`character-${active.name}-${id}`}
                 ref={ref} // ref used for outside click detection
-                className="flex bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-4xl"
+                className="flex bg-white rounded-lg drop-shadow-xl/50 overflow-hidden w-full max-w-4xl"
               >
                 {/* left side: character image */}
                 <motion.div
                   layoutId={`image-${active.name}-${id}`}
-                  className="w-1/3"
+                  className="w-1/2"
                 >
                   <img
                     src={active.imgUrl}
@@ -119,7 +126,7 @@ const CharactersPage = () => {
                   >
                     {active.description} <motion.br />
                     Favorite Song:{" "}
-                    <motion.a href={active.songLink}>
+                    <motion.a className = "text-[#d97706]" href={active.songLink}>
                       {active.songName}
                     </motion.a>
                   </motion.p>
@@ -160,7 +167,7 @@ const CharactersPage = () => {
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 

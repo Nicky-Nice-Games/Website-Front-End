@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import type { AccountSchema } from "../App";
-import { pfpList } from "@/utils";
+import { pfpList } from "@/data/pfps";
 
 /// Parameters to be passed into the navbar component
 interface NavbarParams {
@@ -334,11 +334,11 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className="bebas h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
+      className="z-40 bebas tracking-wider h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
-        <NavigationMenuLink className={`max-w-13 h-12 ${navbarButton} md:ml-4`}>
+        <NavigationMenuLink className={`max-w-12 h-12 md:ml-4 bg-[url(images/logo/gizmo-icon.svg)] hover:bg-[url(images/logo/gizmo-icon-hover.svg)]`}>
           <button
             className="cursor-pointer"
             onClick={() => {
@@ -348,9 +348,9 @@ const Navbar = ({
             }}
           >
             <img
-              src="/images/temp-logo.png"
-              className="max-w-9 relative bottom-1"
-            />
+              src="images/logo/gizmo-icon.svg "
+              className="opacity-0 bottom-2 right-2 max-w-12 h-12 relative"
+            /> 
           </button>
         </NavigationMenuLink>
       </div>

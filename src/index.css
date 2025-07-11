@@ -121,7 +121,7 @@
 
 @font-face {
   font-family: 'Bebas Neue';
-  src: url('/ggk/font/BebasNeue-Regular.ttf') format('truetype');
+  src: url('font/BebasNeue-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* Optional: improves loading behavior */
@@ -129,7 +129,7 @@
 
 @font-face {
   font-family: 'Graffiti Youth';
-  src: url('./font/GraffitiYouth-Regular.otf') format('opentype');
+  src: url('font/GraffitiYouth-Regular.otf') format('opentype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
@@ -153,6 +153,18 @@
   src: url('font/Aileron-Heavy-Slant.otf') format('opentype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url('font/Poppins-SemiBold.ttf') format('opentype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
+.poppins
+{
+  font-family: "Poppins", sans-serif;
 }
 
 .bebas {

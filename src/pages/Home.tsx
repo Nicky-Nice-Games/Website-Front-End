@@ -17,9 +17,9 @@ interface HomePageParams {
 const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
-  );
-  const photo: string = "images/placeholder/pfp-placeholder.png";
-  const arcadeMachine = "images/arcade-machine.png";
+  )
+  const photo: string = 'images/placeholder/pfp-placeholder.png';
+  const arcadeMachine = 'images/arcade-machine.png'
 
   const navigate = useNavigate();
 
@@ -142,7 +142,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             navigate("/news");
             setCurrentPage("news");
           }}
-          className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-30 px-10 py-3"
+          className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-10 px-10 py-3"
           />
 
         <Carousel
@@ -167,7 +167,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </Carousel>
       </div>
 
-      <main className="overflow-hidden">
+      <main className="overflow-hidden bg-[url('images/white-checker.png')] background-fixed">
         <div className=" mt-[4rem]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
@@ -181,7 +181,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           id="introdcution"
           className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-[url('images/white-checker.png')]"
+                    bg-repeat bg-fixed bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
           <p className="m-4">
@@ -202,7 +202,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           />
         </div>
         <div
-          className="mb-[12rem] bg-repeat bg-[url('images/white-checker.png')]"
+          className="mb-[12rem] bg-fixed bg-repeat bg-[url('images/white-checker.png')]"
         >
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
@@ -244,7 +244,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover "
         >
-          <div className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex">
+          <div className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
+          bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
             <InfiniteMovingCards
               items={bannerImages2}
               direction="left"

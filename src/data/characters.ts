@@ -11,6 +11,19 @@ export interface Character {
 
 // sample list of characters to display
 export const characters: Character[] = [
+    {
+    imgUrl: "images/characters/gizmo.jpeg",
+    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    name: "Gizmo",
+    description: `Nickname: Giz
+    Pronouns: any/all
+    Likes: Doohickeys, Creativity, Being helpful
+    Dislikes: Scaring people`,
+    devDescription:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+    songName: "Lofi Hip Hop Beats To Relax/Study To",
+    songLink: "https://www.youtube.com/watch?v=CFGLoQIhmow",
+  },
   {
     imgUrl: "images/characters/FrshSkater.PNG",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
@@ -74,26 +87,12 @@ export const characters: Character[] = [
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Jamster",
     description: `Pronouns: They/Them
-      Year: Primordior
+      Year: Unknown
       Major: All
-      Likes: Gaming, Jamming, Running Around, GameJams
+      Likes: Games, Jams, GameJams
       Dislikes: Not Getting Snacks`,
     devDescription: "JAMMMMSTER",
     songName: "Hamster Dance -  Hampton and the Hamsters",
     songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
-  },
-  {
-    imgUrl: "images/characters/gizmo.jpeg",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
-    name: "Gizmo",
-    description: `Pronouns: He/Him
-      Year: Sophomore
-      Major: Packaging Science
-      Likes: Free Stuff, Creating Playlists For Events, Anime, Energy Drinks
-      Dislikes: Working 3 Jobs, Sleep`,
-    devDescription:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    songName: "Feel Good Inc. - Gorillaz",
-    songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
-  },
+  }
 ];
