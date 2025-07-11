@@ -16,25 +16,27 @@ const LeaderboardPage = () => {
   // Renders if there hasn't been a chosen map
   if (mapId < 1)
     return (
-      <div className="text-center bg-[url(images/white-checker.png)] mask-linear-from-[#0000] mask-linear-to-[#FFF] bg-size-[80%] md:bg-size-[60%] bg-cover">
-        <div className=" mb-8">
-          <img
-            src=" images/leaderboard-header-3.png"
-            className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
-          ></img>
-          <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
-            Click a map to view its leaderboard!
-          </h2>
-        </div>
-        {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
+      <div className="text-center bg-[url(images/white-checker.png)] bg-size-[80%] md:bg-size-[60%] bg-cover">
+        <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99%">
+          <div className=" mb-8">
+            <img
+              src=" images/leaderboard-header-3.png"
+              className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
+            ></img>
+            <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
+              Click a map to view its leaderboard!
+            </h2>
+          </div>
+          {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
           Leaderboard
         </h1> */}
 
-        <MapSelect
-          setMapId={setMapId}
-          setMapName={setMapName}
-          setMapImage={setMapImage}
-        />
+          <MapSelect
+            setMapId={setMapId}
+            setMapName={setMapName}
+            setMapImage={setMapImage}
+          />
+        </div>
       </div>
     );
 
