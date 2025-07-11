@@ -1,14 +1,20 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { fetchData } from "@/utils";
+import { CloseIcon } from "@/components/content/close-icon";
 
-
+type ListItem = string | { text: string; children?: ListItem[] };
+// Content of the updates
 interface ContentBlock {
-  type: "paragraph" | "list" | "heading";
+  type: "paragraph" | "list" | "heading" | "image";
   text?: string;
-  items?: string[];
+  items?: ListItem[];
   ordered?: boolean;
   level?: number; // for headings
+  src?: string;
+  alt?: string;
+  caption?: string;
 }
 
 // Array of updates
@@ -21,50 +27,7 @@ interface Update {
   text: ContentBlock[];
 }
 
-const updates: Update[] = [
-  {
-    id: 1,
-    title: "Update 1",
-    date: "6/3/2025",
-    subtitle: "At vero eos et accusamus et iusto odio dignissimos",
 
-    image: './images/placeholder/OIP.jpg',
-    text: [
-      { type: "heading", level: 2, text: "Content Team" },
-      { type: "paragraph", text: "Dev textures" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          "Finished 32 PNG dev textures for level designers.",
-          "Finished dummy racer (rigged, weighted and textured)",
-          "This dummy helped us notice early on that textures don’t port from Maya to Unity through .FBX, you have to override the texture in Unity for it to apply. Knowing this now will make it so we don’t have questions with future models",
-          "Finished dummy kart",
-        ]
-      },
-      { type: "paragraph", text: "Concept art" },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          "Over 40 total separate concept character designs",
-          "6 concepts for each year (freshman, sophomore, junior, senior)",
-          "2 IGM “mascot” concepts by each team member",
-          "6 sorta misc “themed” concepts",
-        ]
-      },
-      { type: "heading", level: 2, text: "Level Design Team " },
-      { type: "paragraph", text: "Sketching"},
-      { type: "list", 
-        ordered: false,
-        items: [
-          "8 sketched race track concepts",
-        ]
-      }
-    ]
-
-  },
-];
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
@@ -73,6 +36,27 @@ const toISO = (dateStr: string) => {
 };
 
 const NewsAndUpdatesPage = () => {
+  const [updates, setUpdates] = useState<Update[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    //const loadUpdates = async () => {
+    //  try {
+    //    const res = await fetch("./data/updates.json");
+    //    if (!res.ok) throw new Error("Failed to fetch updates");
+    //    const json = await res.json();
+    //    setUpdates(json);
+    //  } catch (err: any) {
+    //    setError(err.message || "Unknown error");
+    //  } finally {
+    //    setLoading(false);
+    //  }
+    //};
+    //loadUpdates();
+    fetchData("GET", "data/updates.json", "json", (data: any) => { setUpdates(data); setLoading(false); } ) 
+  }, []);
+
   const sortedUpdates = [...updates].sort((a, b) => {
     const dateA = Date.parse(toISO(a.date));
     const dateB = Date.parse(toISO(b.date));
@@ -95,7 +79,7 @@ const NewsAndUpdatesPage = () => {
   const [active, setActive] = useState<Update | boolean | null>(null);
   const id = useId(); // unique ID for layout animations
   const ref = useRef<HTMLDivElement>(null); // ref for detecting outside clicks
-
+  // Separtes the most recent update from the rest
   const [mostRecentUpdate, ...restUpdates] = sortedUpdates;
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -105,9 +89,9 @@ const NewsAndUpdatesPage = () => {
   const paginatedUpdates = isMobile
     ? restUpdates
     : restUpdates.slice(
-        (currentPage - 1) * itemsPerPage,
-        currentPage * itemsPerPage
-      );
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    );
   // Handlers
   const nextPage = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
@@ -135,6 +119,43 @@ const NewsAndUpdatesPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
+  // Nests unordered lists with custom bullet symbols based on depth
+  const RecursiveList: React.FC<{
+    items: ListItem[];
+    ordered?: boolean;
+    depth?: number;
+  }> = ({ items, ordered, depth = 0 }) => {
+    const bulletSymbols = ["•", "◦", "▪", "–", "»"];
+    return (
+      <ul className="pl-4 space-y-1">
+        {items.map((item, i) => {
+          const symbol = ordered ? "" : bulletSymbols[Math.min(depth, bulletSymbols.length - 1)];
+
+          if (typeof item === "string") {
+            return (
+              <li key={i}>
+                {!ordered && <span className="mr-1">{symbol}</span>}
+                {item}
+              </li>
+            );
+          }
+
+          return (
+            <li key={i}>
+              {!ordered && <span className="mr-1">{symbol}</span>}
+              {item.text}
+              {item.children && (
+                <RecursiveList items={item.children} ordered={ordered} depth={depth + 1} />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  if (loading) return <div className="text-white p-6">Loading updates...</div>;
+  if (error) return <div className="text-red-500 p-6">Error: {error}</div>;
   return (
     <div className="min-h-screen bg-black p-6">
       {/* overlay behind pop up when active */}
@@ -156,37 +177,41 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
-                isMobile
-                  ? "flex flex-col overflow-y-auto"
-                  : "flex flex-col md:flex-row"
-              }`}
+              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile
+                ? "flex flex-col overflow-y-auto"
+                : "flex flex-col md:flex-row"
+                }`}
             >
               {isMobile ? (
                 // Mobile layout
                 <>
                   <motion.div layoutId={`image-${active.title}-${id}`}>
-                    <img
+                    <img // Moblie image
                       src={active.image}
                       alt={active.title}
                       className="w-full object-cover object-top"
                     />
                   </motion.div>
-                  <div className="p-6">
-                    <div className="flex flex-row justify-between">
-                      <motion.h3
+                  <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                    {/* x button */}
+                    <button
+                      onClick={() => setActive(null)}
+                      className="absolute top-4 right-4 z-50 bg-white dark:bg-neutral-900 p-1 rounded-full shadow hover:scale-105"
+                      aria-label="Close"
+                    >
+                      <CloseIcon />
+                    </button>
+                    <motion.h3 // Mobile title
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
+                      className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
                     >
                       {active.title}
                     </motion.h3>
-
-                    <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
+                    <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
+                      {/* Adds paragraphs to the expandable card*/}
                       {active.text.map((block, i) => {
-                        if (block.type === "paragraph") {
-                          return <p key={i}>{block.text}</p>;
-                        }
-
+                        if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
+                        {/* Adds headings to the expandable card*/ }
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -198,24 +223,34 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-
+                        {/* Adds lists to the expandable card*/ }
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
                             <ListTag
                               key={i}
-                              className={`${block.ordered ? "list-decimal" : "list-disc"
-                                } list-inside pl-4 space-y-1`}
+                              className={`${block.ordered ? "list-decimal" : "list-disc"} list-inside pl-4 space-y-1`}
                             >
-                              {block.items?.map((item, j) => <li key={j}>{item}</li>)}
+                              <RecursiveList items={block.items ?? []} ordered={block.ordered} />
                             </ListTag>
                           );
                         }
-
+                        {/* Adds images to the expandable card*/ }
+                        if (block.type === "image") {
+                          return (
+                            <div key={i} className="my-4">
+                              <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                              {block.caption && (
+                                <p className="text-sm text-center text-neutral-500 mt-1 italic">
+                                  {block.caption}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        }
                         return null;
                       })}
                     </div>
-                  </div>
                   </div>
                 </>
               ) : (
@@ -225,62 +260,75 @@ const NewsAndUpdatesPage = () => {
                     layoutId={`image-${active.title}-${id}`}
                     className="min-w-4/10 md:h-auto"
                   >
-                    <img
+                    <img // Desktop image
                       src={active.image}
                       alt={active.title}
                       className="w-full h-full object-cover object-top rounded-xl"
                     />
                   </motion.div>
-                  <div className="p-6 h-fit">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="flex flex-row justify-between">
-                          <motion.h3
-                          layoutId={`title-${active.title}-${id}`}
-                          className="font-medium text-neutral-700 dark:text-neutral-200 text-2xl mb-4"
-                        >
-                          {active.title}
-                        </motion.h3>
 
-                        <div className="space-y-4 text-neutral-600 dark:text-neutral-400 text-base max-h-90 overflow-y-scroll">
-                          {active.text.map((block, i) => {
-                            if (block.type === "paragraph") {
-                              return <p key={i}>{block.text}</p>;
-                            }
+                  <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                    {/* x button */}
+                    <button
+                      onClick={() => setActive(null)}
+                      className="absolute top-4 right-4 z-50 bg-white dark:bg-neutral-900 p-1 rounded-full shadow hover:scale-105"
+                      aria-label="Close"
+                    >
+                      <CloseIcon />
+                    </button>
 
-                            if (block.type === "heading") {
-                              const HeadingTag = `h${block.level || 2}` as any;
-                              return (
-                                <HeadingTag
-                                  key={i}
-                                  className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                                >
-                                  {block.text}
-                                </HeadingTag>
-                              );
-                            }
+                    <motion.h3 // Desktop title
+                      layoutId={`title-${active.title}-${id}`}
+                      className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
+                    >
+                      {active.title}
+                    </motion.h3>
 
-                            if (block.type === "list") {
-                              const ListTag = block.ordered ? "ol" : "ul";
-                              return (
-                                <ListTag
-                                  key={i}
-                                  className={`${block.ordered ? "list-decimal" : "list-disc"
-                                    } list-inside pl-4 space-y-1`}
-                                >
-                                  {block.items?.map((item, j) => <li key={j}>{item}</li>)}
-                                </ListTag>
-                              );
-                            }
-
-                            return null;
-                          })}
-                        </div>
-                      </div>
+                    <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
+                      {active.text.map((block, i) => {
+                        {/* Adds paragraphs to the expandable card*/ }
+                        if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
+                        {/* Adds headings to the expandable card*/ }
+                        if (block.type === "heading") {
+                          const HeadingTag = `h${block.level || 2}` as any;
+                          return (
+                            <HeadingTag
+                              key={i}
+                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
+                            >
+                              {block.text}
+                            </HeadingTag>
+                          );
+                        }
+                        {/* Adds lists to the expandable card*/ }
+                        if (block.type === "list") {
+                          const ListTag = block.ordered ? "ol" : "ul";
+                          return (
+                            <ListTag
+                              key={i}
+                              className={`${block.ordered ? "list-decimal" : "list-disc"} list-inside pl-4 space-y-1`}
+                            >
+                              <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                            </ListTag>
+                          );
+                        }
+                        {/* Adds images to the expandable card*/ }
+                        if (block.type === "image") {
+                          return (
+                            <div key={i} className="my-4">
+                              <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                              {block.caption && (
+                                <p className="text-sm text-center text-neutral-500 mt-1 italic">
+                                  {block.caption}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
                     </div>
                   </div>
-                  </div>
-
                 </>
               )}
             </motion.div>
@@ -329,18 +377,16 @@ const NewsAndUpdatesPage = () => {
               key={update.id} // Unique key for each item
               onClick={() => setActive(update)}
               // Full width for all images, but height depends on if it's full-width or not
-              className={`${
-                isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
-              } bg-white text-black rounded-xl shadow overflow-hidden 
+              className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
+                } bg-white text-black rounded-xl shadow overflow-hidden 
         cursor-pointer hover:scale-105 m-4`}
             >
               {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full ${
-                  isFullWidth ? "h-96" : "h-72"
-                } object-cover`}
+                className={`w-full ${isFullWidth ? "h-96" : "h-72"
+                  } object-cover`}
               />
               {/* Text content of the update */}
               <div className="p-4">
@@ -357,6 +403,7 @@ const NewsAndUpdatesPage = () => {
           );
         })}
       </div>
+      {/* Only shows these buttons if its the desktop version*/}
       {!isMobile && (
         <div className="flex justify-center gap-4 mt-6">
           <button
@@ -376,6 +423,7 @@ const NewsAndUpdatesPage = () => {
           </button>
         </div>
       )}
+      {/* Only shows this button if its the mobile version*/}
       {isMobile && (
         <div className="flex justify-center mt-4">
           <button
@@ -390,37 +438,6 @@ const NewsAndUpdatesPage = () => {
   );
 };
 
-// const CloseIcon = () => {
-//   return (
-//     <motion.svg
-//       initial={{
-//         opacity: 0,
-//       }}
-//       animate={{
-//         opacity: 1,
-//       }}
-//       exit={{
-//         opacity: 0,
-//         transition: {
-//           duration: 0.02,
-//         },
-//       }}
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//       className="h-6 w-6 text-black"
-//     >
-//       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-//       <path d="M18 6l-12 12" />
-//       <path d="M6 6l12 12" />
-//     </motion.svg>
-//   );
-// };
+ 
 
 export default NewsAndUpdatesPage;
