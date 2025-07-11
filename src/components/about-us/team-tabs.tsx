@@ -13,7 +13,7 @@ export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
     // Main tabs container with default value and styling
     <Tabs
       defaultValue={defaultTab}
-      className="w-[400px] w-9/10 bg-[url(images/tab-bg.png)] m-auto"
+      className="w-[400px] w-9/10 bg-[url(images/tab-bg.png)] m-auto flex-wrap flex-column h-full text-[14px]"
     >
       {/* List of tab buttons */}
       <TabsList className="w-full flex-wrap flex-column h-full">
@@ -52,6 +52,9 @@ export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
       </TabsContent>
       <TabsContent value="RND">
         <TeamTab teamData={teamData.RND} teamName="RND" />
+      </TabsContent>
+      <TabsContent value="Advisory">
+        <TeamTab teamData={teamData.Advisory} teamName="RND" />
       </TabsContent>
     </Tabs>
   );
