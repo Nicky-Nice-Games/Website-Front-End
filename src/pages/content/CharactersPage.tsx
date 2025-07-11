@@ -20,6 +20,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useMediaQuery } from "react-responsive";
 
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
@@ -58,6 +59,7 @@ const CharactersPage = () => {
 
   // close pop up when clicking outside of it
   useOutsideClick(ref, () => setActive(null));
+  const isMobile = useMediaQuery({ maxWidth: 700 });
 
   const [api, setApi] = useState<CarouselApi>();
   const [center, setCenter] = useState(0);
@@ -90,17 +92,15 @@ const CharactersPage = () => {
         {/* Character carousel */}
         <Carousel setApi={setApi} className="flex flex-row w-full items-center">
           <CarouselPrevious className="w-8" />
-          <CarouselContent className="m-auto py-10 flex flex-row items-center justify-between">
+          <CarouselContent className="m-auto py-15 xl:py-22 flex flex-row content-center items-center justify-between">
             {characters.map((character, index) => (
-              <CarouselItem className="basis-1/3 p-auto">
+              <CarouselItem className="md:basis-1/3 p-auto">
                 <Dialog>
                   {/* Clickable carousel picture*/}
                   <DialogTrigger className="cursor-pointer hover:scale-105 w-full">
                     <div
-                      className={`${
-                        index === center - 1
-                          ? "h-43 w-43 sm:h-60 sm:w-60 lg:h-95 lg:w-95 xl:h-116 xl:w-116"
-                          : "h-32 w-32 sm:h-45 sm:w-45 lg:h-70 lg:w-70 xl:h-90 xl:w-90"
+                      className={`h-35 w-35 lg:h-55 lg:w-55 xl:h-75 xl:w-75 ${
+                        index === center - 1 ? "scale-150" : ""
                       } m-auto`}
                     >
                       <img
