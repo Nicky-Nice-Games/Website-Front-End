@@ -11,10 +11,9 @@ const ItemsPage = () => {
   interface CategorizedItems {
     category: string;
     itemList: Item[];
-    background: string;
+    bgGradient: string;
   }
-const [imageUrl, setImageUrl] = useState("images/card/offense.png");
-
+  const [imageUrl, setImageUrl] = useState("images/card/offense.png");
 
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<CategorizedItems | boolean | null>(null);
@@ -49,22 +48,22 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
     {
       category: "boost",
       itemList: items.filter((i) => i.category === "boost"),
-      background:"images/card/speed.png"
+      bgGradient: "from-[#39DC2B] to-[#35FF7A]",
     },
     {
       category: "defense",
       itemList: items.filter((i) => i.category === "defense"),
-      background:"images/card/defense.png"
+      bgGradient: "from-[#342BDC] to-[#35C8FF]",
     },
     {
       category: "offense",
       itemList: items.filter((i) => i.category === "offense"),
-      background:"images/card/offense.png"
+      bgGradient: "from-[#DC2B2B] to-[#FF5F35]",
     },
     {
       category: "trap",
       itemList: items.filter((i) => i.category === "trap"),
-      background:"images/card/trap.png"
+      bgGradient: "from-[#FFB000] to-[#F4D55D]",
     },
   ];
 
@@ -102,8 +101,7 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                 {/*Shows Information used to create layout of item*/}
                 <motion.div
                   layoutId={`image-${active.category}-${id}`}
-                  className="flex flex-col items-center bg-size-[100%_100%] p-2"
-                  style={{backgroundImage: `url(${imageUrl})`}}
+                  className={`flex flex-col items-center bg-size-[100%_100%] p-2 bg-gradient-to-b ${active.bgGradient}`}
                 >
                   <motion.button
                     key={`button-${active.category}-${id}`}
@@ -116,7 +114,7 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                   >
                     <CloseIcon /> {/* close icon pop up*/}
                   </motion.button>
-                  {/*Image of character*/}
+                  {/*Image of item*/}
                   <img
                     width={200}
                     height={200}
@@ -125,6 +123,7 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                     className="w-72 h-72 object-contain"
                   />
 
+                  {/*Level select tabs*/}
                   <Tabs defaultValue="0">
                     <TabsList className="bg-inherit">
                       {active.itemList.map((item) => {
@@ -143,12 +142,13 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                 </motion.div>
 
                 {/*Bottom half of the item card - has info and name of item*/}
-                <div className="p-4 bg-[url(images/bottom-card.png)]">
+                <div className="p-4">
                   <div className="flex justify-between items-start">
                     <div className="w-full">
                       <motion.h3
                         layoutId={`title-${active.category}-${id}`}
-                        className="font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
+                        className="bg-[url(images/arrow.png)] bg-size-[70%_100%] bg-center bg-no-repeat py-2
+                        font-medium text-white dark:text-neutral-200 text-2xl mb-4 text-center"
                       >
                         {activeItem.name}
                       </motion.h3>
@@ -174,7 +174,7 @@ const [imageUrl, setImageUrl] = useState("images/card/offense.png");
                 onClick={() => {
                   setActive(ti);
                   setActiveItem(ti.itemList[0]);
-                  setImageUrl(ti.background);
+                  setImageUrl(ti.bgGradient);
                 }} // open item pop up
                 className="cursor-pointer"
               >
