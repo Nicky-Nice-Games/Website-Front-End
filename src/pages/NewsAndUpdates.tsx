@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { fetchData } from "@/utils";
+import { CloseIcon } from "@/components/content/close-icon";
 
 type ListItem = string | { text: string; children?: ListItem[] };
 // Content of the updates
@@ -39,19 +41,20 @@ const NewsAndUpdatesPage = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const loadUpdates = async () => {
-      try {
-        const res = await fetch("./data/updates.json");
-        if (!res.ok) throw new Error("Failed to fetch updates");
-        const json = await res.json();
-        setUpdates(json);
-      } catch (err: any) {
-        setError(err.message || "Unknown error");
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadUpdates();
+    //const loadUpdates = async () => {
+    //  try {
+    //    const res = await fetch("./data/updates.json");
+    //    if (!res.ok) throw new Error("Failed to fetch updates");
+    //    const json = await res.json();
+    //    setUpdates(json);
+    //  } catch (err: any) {
+    //    setError(err.message || "Unknown error");
+    //  } finally {
+    //    setLoading(false);
+    //  }
+    //};
+    //loadUpdates();
+    fetchData("GET", "data/updates.json", "json", (data: any) => { setUpdates(data); setLoading(false); } ) 
   }, []);
 
   const sortedUpdates = [...updates].sort((a, b) => {
@@ -435,37 +438,6 @@ const NewsAndUpdatesPage = () => {
   );
 };
 
- const CloseIcon = () => {
-   return (
-     <motion.svg
-       initial={{
-         opacity: 0,
-       }}
-       animate={{
-         opacity: 1,
-       }}
-       exit={{
-         opacity: 0,
-         transition: {
-           duration: 0.02,
-         },
-       }}
-       xmlns="http://www.w3.org/2000/svg"
-       width="24"
-       height="24"
-       viewBox="0 0 24 24"
-       fill="none"
-       stroke="currentColor"
-       strokeWidth="2"
-       strokeLinecap="round"
-       strokeLinejoin="round"
-       className="h-6 w-6 text-black"
-     >
-       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-       <path d="M18 6l-12 12" />
-       <path d="M6 6l12 12" />
-     </motion.svg>
-   );
- };
+ 
 
 export default NewsAndUpdatesPage;
