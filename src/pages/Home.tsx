@@ -167,7 +167,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </Carousel>
       </div>
 
-      <main className="overflow-hidden bg-[url('images/white-checker.png')] background-fixed">
+      <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
         <div className=" mt-[4rem]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
@@ -181,7 +181,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           id="introdcution"
           className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-fixed bg-[url('images/white-checker.png')]"
+                    bg-repeat bg-fixed bg-[url('images/items-background.png')]
+                    text-white"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
           <p className="m-4">
@@ -202,7 +203,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           />
         </div>
         <div
-          className="mb-[12rem] bg-fixed bg-repeat bg-[url('images/white-checker.png')]"
+          className="mb-[12rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]"
         >
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
@@ -242,7 +243,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           </p>
         </div>
         <div
-          className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover "
+          className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
         >
           <div className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
           bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
