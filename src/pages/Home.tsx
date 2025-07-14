@@ -124,47 +124,45 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     },
   ];
 
-  return (
-    <>
-      <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
-        <div
-          id="header-text"
-          className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col md:justify-center align-center p-4 z-3"
-        >
-          <h1 className="h1-style">Gizmo Go-Kartz</h1>
+    return(
+        <>
+        <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
+          <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col align-center p-4 z-3">
+              <img className="w-[300px] md:w-[500px]"src="/ggk/images/Game-Logo.png"></img>
+              <h3 className="text-xl text-black md:text-[#f3f4f6] mt-[1rem]">
+                Your favorite no-credit courses
+              </h3>
+          </div>
+          <ArrowButton 
+          caption="See all news and updates!" 
+          clickAction={() => {
+              window.scrollTo({ top: 0, behavior: "instant" });
+              navigate("/news");
+              setCurrentPage("news");
+            }}
+            className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-10 px-10 py-3"
+            />
 
-          <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
-        </div>
-        <ArrowButton 
-        caption="See all news and updates!" 
-        clickAction={() => {
-            window.scrollTo({ top: 0, behavior: "instant" });
-            navigate("/news");
-            setCurrentPage("news");
-          }}
-          className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-10 px-10 py-3"
-          />
-
-        <Carousel
-          plugins={[plugin.current]}
-          className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
-        >
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <div className="">
-                  <Card className="h-[90vh]">
-                    <CardContent className="flex items-center justify-center h-[90vh]">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
+          >
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index}>
+                  <div className="">
+                    <Card className="h-[90vh]">
+                      <CardContent className="flex items-center justify-center h-[90vh]">
+                        <span className="text-4xl font-semibold">
+                          {index + 1}
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
