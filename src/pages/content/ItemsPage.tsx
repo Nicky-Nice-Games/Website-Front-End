@@ -109,9 +109,7 @@ const ItemsPage = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.05 } }}
-
-                    className="flex relative bottom-5 left-22 md:left-24 items-center justify-center rounded-full h-6"
-
+                    className="self-end rounded-full h-6"
                     onClick={() => setActive(null)}
                   >
                     <CloseIcon /> {/* close icon pop up*/}
@@ -167,7 +165,7 @@ const ItemsPage = () => {
             </div>
           ) : null}
         </AnimatePresence>
-        <div className="flex flex-row w-full m-auto justify-center">
+        <div className="flex flex-col xl:flex-row w-full m-auto items-center xl:items-start justify-center">
           {categorizedItemList.map((ti) => {
             return (
               <motion.div
