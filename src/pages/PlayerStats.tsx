@@ -12,19 +12,25 @@ const PlayerStatsPage = ({
   setAccount: Function;
 }) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
+  // Store fetched player statistics
   const [playerData, setPlayerData] = useState(null);
+  // Store a list of the player's most recent races
   const [recentRaces, setRecentRaces] = useState(null);
 
   useEffect(() => {
     if (account) {
       //Fetch player profile data
-      fetchData('GET',
-        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getdetailinfo/${account.pid}`, 'json',
+      fetchData(
+        "GET",
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getdetailinfo/${account.pid}`,
+        "json",
         setPlayerData
       );
       //Fetch data for recent races
-      fetchData('GET',
-        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`, 'json',
+      fetchData(
+        "GET",
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getrecentstats/${account.pid}`,
+        "json",
         setRecentRaces
       );
     }
