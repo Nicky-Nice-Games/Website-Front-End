@@ -65,9 +65,6 @@ const ItemsPage = () => {
     },
   ];
 
-  for (let ci of categorizedItemList) {
-  }
-
   return (
     <>
       <ContentNavigator currentPage={"items"} />
@@ -171,7 +168,7 @@ const ItemsPage = () => {
             return (
               <motion.div
                 layoutId={`item-${ti.category}-${id}`}
-                key={ti.category}
+                key={`item-${ti.category}-${id}`}
                 onClick={() => {
                   setActive(ti);
                   setActiveItem(ti.itemList[0]);

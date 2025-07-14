@@ -36,7 +36,7 @@ const PlayerStatsPage = ({
     }
   }, []);
 
-  if (!playerData || !account || !recentRaces)
+  if (!playerData || !account)
     return (
       <h1 className="bebas text-center font-black text-5xl mt-8">
         No Data Found!
