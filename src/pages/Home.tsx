@@ -128,8 +128,10 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <>
         <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
           <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col align-center p-4 z-3">
-              <img className="w-[500px]"src="/ggk/images/Game-Logo.png"></img>
-              <h3 className="text-xl text-muted-foreground">Your favorite no-credit courses</h3>
+              <img className="w-[300px] md:w-[500px]"src="/ggk/images/Game-Logo.png"></img>
+              <h3 className="text-xl text-black md:text-[#f3f4f6] mt-[1rem]">
+                Your favorite no-credit courses
+              </h3>
           </div>
           <ArrowButton 
           caption="See all news and updates!" 
