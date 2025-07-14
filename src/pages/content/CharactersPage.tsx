@@ -1,5 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ContentNavigator } from "@/components/content/content-navigator";
 import { CloseIcon } from "@/components/content/close-icon";
@@ -20,7 +19,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useMediaQuery } from "react-responsive";
 
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
@@ -35,7 +33,6 @@ const CharactersPage = () => {
     | boolean
     | null
   >(null);
-  const id = useId();
   const ref = useRef<HTMLDivElement>(null); // ref to detect clicks outside pop up
 
   useEffect(() => {
@@ -59,8 +56,6 @@ const CharactersPage = () => {
 
   // close pop up when clicking outside of it
   useOutsideClick(ref, () => setActive(null));
-  const isMobile = useMediaQuery({ maxWidth: 700 });
-
   const [api, setApi] = useState<CarouselApi>();
   const [center, setCenter] = useState(0);
 
@@ -130,7 +125,7 @@ const CharactersPage = () => {
                         className="max-h-[70vh]"
                       />
                     </div>
-                    <div className="absolute lg:-top-10 lg:right-5 w-full lg:w-4/5 flex bg-white justify-end rounded-lg drop-shadow-xl/50 overflow-hidden min-w-1/4 max-w-4xl sm:h-[30vh]">
+                    <div className="absolute lg:-top-10 lg:right-5 w-full lg:w-4/5 flex bg-white justify-end rounded-lg drop-shadow-xl/50 overflow-hidden min-w-1/4 max-w-4xl sm:h-65git ">
                       {/* right side: character name and description */}
                       <DialogDescription className="p-4 w-full lg:min-h-80 flex flex-col justify-top text-left">
                         <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto">

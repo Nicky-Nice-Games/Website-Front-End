@@ -76,7 +76,11 @@ const Navbar = ({
           {isMobileDevice ? "" : username}
         </button>
         <img
-          src={account ? pfpList[account.pfp] : "images/placeholder/pfp-placeholder.png"}
+          src={
+            account
+              ? pfpList[account.pfp]
+              : "images/placeholder/pfp-placeholder.png"
+          }
           className="max-w-7 md:m-1 rounded-full"
         />
       </NavigationMenuTrigger>
@@ -139,6 +143,11 @@ const Navbar = ({
             className={`cursor-pointer ${
               currentPage === "about" ? "active-outline" : "passive-outline"
             }`}
+            onClick={() => {
+              scrollToTop();
+              navigate("/process");
+              setCurrentPage("about");
+            }}
           >
             About
           </button>
@@ -271,7 +280,9 @@ const Navbar = ({
         </NavigationMenuTrigger>
         <NavigationMenuContent className="absolute -left-5 min-w-30">
           <NavigationMenuLink
-            className={`${currentPage === "about" ? "active-outline" : "passive-outline"}`}
+            className={`${
+              currentPage === "about" ? "active-outline" : "passive-outline"
+            }`}
           >
             <button
               className="cursor-pointer"
@@ -285,7 +296,9 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "content" ? "active-outline" : "passive-outline"}`}
+            className={`${
+              currentPage === "content" ? "active-outline" : "passive-outline"
+            }`}
           >
             <button
               className="cursor-pointer"
@@ -299,7 +312,9 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "news" ? "active-outline" : "passive-outline"}`}
+            className={`${
+              currentPage === "news" ? "active-outline" : "passive-outline"
+            }`}
           >
             <button
               className="cursor-pointer"
@@ -313,7 +328,11 @@ const Navbar = ({
             </button>
           </NavigationMenuLink>
           <NavigationMenuLink
-            className={`${currentPage === "leaderboard" ? "active-outline" : "passive-outline"}`}
+            className={`${
+              currentPage === "leaderboard"
+                ? "active-outline"
+                : "passive-outline"
+            }`}
           >
             <button
               className="cursor-pointer"
@@ -338,7 +357,9 @@ const Navbar = ({
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
-        <NavigationMenuLink className={`max-w-12 h-12 md:ml-4 bg-[url(images/logo/gizmo-icon.svg)] hover:bg-[url(images/logo/gizmo-icon-hover.svg)]`}>
+        <NavigationMenuLink
+          className={`max-w-12 h-12 md:ml-4 bg-[url(images/logo/gizmo-icon.svg)] hover:bg-[url(images/logo/gizmo-icon-hover.svg)]`}
+        >
           <button
             className="cursor-pointer"
             onClick={() => {
@@ -350,14 +371,14 @@ const Navbar = ({
             <img
               src="images/logo/gizmo-icon.svg "
               className="opacity-0 bottom-2 right-2 max-w-12 h-12 relative"
-            /> 
+            />
           </button>
         </NavigationMenuLink>
       </div>
       {/*Center: Main navigation list. Depends on screen width.*/}
       {isMobileDevice ? mobileNavList : pcNavList}
       {/*Right side: Login button or profile dropdown, depending on whether you're logged in.*/}
-      { loginNavbarItem }
+      {loginNavbarItem}
     </NavigationMenu>
   );
 };
