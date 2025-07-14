@@ -181,7 +181,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           id="introdcution"
           className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-fixed bg-[url('images/items-background.png')]"
+                    bg-repeat bg-fixed bg-[url('images/items-background.png')]
+                    text-white"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
           <p className="m-4">
