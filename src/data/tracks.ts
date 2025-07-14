@@ -8,7 +8,7 @@ export interface Track {
 
 export const tracks: Track[] = [
   {
-    imgUrl: "images/tracks/outerloop.png",
+    imgUrl: "images/tracks/OuterLoop.png",
     name: "Campus Circuit",
     description:
       "This Outer Loop is around RIT campus, you may have driven around here as if you drive on campus this loops is used very often, if you are ready to finally be able to ignore the stop signs and be ready to rev your engine and speed.",

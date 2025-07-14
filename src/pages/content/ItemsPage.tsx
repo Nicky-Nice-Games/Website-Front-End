@@ -13,8 +13,6 @@ const ItemsPage = () => {
     itemList: Item[];
     bgGradient: string;
   }
-  const [imageUrl, setImageUrl] = useState("images/card/offense.png");
-
   // state for tracking which item is active (expanded) or not
   const [active, setActive] = useState<CategorizedItems | boolean | null>(null);
   const [activeItem, setActiveItem] = useState<Item | null>(null);
@@ -66,6 +64,9 @@ const ItemsPage = () => {
       bgGradient: "from-[#FFB000] to-[#F4D55D]",
     },
   ];
+
+  for (let ci of categorizedItemList) {
+  }
 
   return (
     <>
@@ -174,7 +175,6 @@ const ItemsPage = () => {
                 onClick={() => {
                   setActive(ti);
                   setActiveItem(ti.itemList[0]);
-                  setImageUrl(ti.bgGradient);
                 }} // open item pop up
                 className="cursor-pointer"
               >
