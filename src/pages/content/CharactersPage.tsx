@@ -4,6 +4,23 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ContentNavigator } from "@/components/content/content-navigator";
 import { CloseIcon } from "@/components/content/close-icon";
 import { characters } from "@/data/characters";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useMediaQuery } from "react-responsive";
 
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
@@ -42,130 +59,110 @@ const CharactersPage = () => {
 
   // close pop up when clicking outside of it
   useOutsideClick(ref, () => setActive(null));
+  const isMobile = useMediaQuery({ maxWidth: 700 });
+
+  const [api, setApi] = useState<CarouselApi>();
+  const [center, setCenter] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+    setCenter(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCenter(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
-    <main className="bg-fixed bg-size-[90%] md:bg-size-[80%]
-     bg-[url('images/blue-items-background.png')]">
+    <main
+      className="bg-fixed bg-size-[90%] md:bg-size-[80%]
+     bg-[url('images/blue-items-background.png')]"
+    >
       <ContentNavigator currentPage={"characters"} />
 
-      <img src=" images/characters-banner.png"
-          className='flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]'>
-      </img> 
+      <img
+        src=" images/characters-banner.png"
+        className="flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]"
+      ></img>
 
       {/*Header of characters page*/}
-       <div className="px-8">
-        
-        {/* <h2
-          className=" 
-          text-black text-2xl sm:text-3xl  
-          md:text-4xl 
-          lg:text-5xl xl:text-6xl text-center sm:text-left px-4 sm:px-8 md:px-12 
-          md:w-[100%] mb-[2rem] mt-[1rem] font-black text-black"
-        >
-          Meet the Characters!
-        </h2> */}
-        
-        {/* overlay behind pop up when active */}
-        <AnimatePresence>
-          {active && typeof active === "object" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 h-full w-full z-41"
-            />
-          )}
-        </AnimatePresence>
-
-        {/* expanded character pop up */}
-        <AnimatePresence>
-          {active && typeof active === "object" ? (
-            <div className="fixed inset-0 grid place-items-center z-[100] p-4">
-              <motion.div
-                layoutId={`character-${active.name}-${id}`}
-                ref={ref} // ref used for outside click detection
-                className="flex bg-white rounded-lg drop-shadow-xl/50 overflow-hidden w-full max-w-4xl"
-              >
-                {/* left side: character image */}
-                <motion.div
-                  layoutId={`image-${active.name}-${id}`}
-                  className="w-1/2"
-                >
-                  <img
-                    src={active.imgUrl}
-                    alt={active.name}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                {/* right side: character name and description */}
-                <div className="p-8 w-9/10 lg:min-h-70 flex flex-col justify-top text-left">
-                  <div className="flex flex-row justify-between">
-                    <motion.h3
-                      layoutId={`title-${active.name}-${id}`} // pop up animation name
-                      className="text-4xl font-bold mb-4"
+      <div className="px-8">
+        {/* Character carousel */}
+        <Carousel setApi={setApi} className="flex flex-row w-full items-center">
+          <CarouselPrevious className="w-8" />
+          <CarouselContent className="m-auto py-15 xl:py-22 flex flex-row content-center items-center justify-between">
+            {characters.map((character, index) => (
+              <CarouselItem className="md:basis-1/3 p-auto">
+                <Dialog>
+                  {/* Clickable carousel picture*/}
+                  <DialogTrigger className="cursor-pointer hover:scale-105 w-full">
+                    <div
+                      className={`h-35 w-35 lg:h-55 lg:w-55 xl:h-75 xl:w-75 ${
+                        index === center - 1 ? "scale-150" : ""
+                      } m-auto`}
                     >
-                      {active.name}
-                    </motion.h3>
-                    <motion.button
-                      key={`button-${active.name}-${id}`}
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                      className="flex relative bottom-4 left-4 items-center justify-center bg-white rounded-full h-8 w-8"
-                      onClick={() => setActive(null)} // close pop up
-                    >
-                      <CloseIcon /> {/* close icon */}
-                    </motion.button>
-                  </div>
-
-                  <motion.p
-                    layoutId={`description-${active.description}-${id}`} // pop up animation description
-                    className="text-gray-600 text-lg whitespace-pre-line"
-                  >
-                    {active.description} <motion.br />
-                    Favorite Song:{" "}
-                    <motion.a className = "text-[#d97706]" href={active.songLink}>
-                      {active.songName}
-                    </motion.a>
-                  </motion.p>
-                </div>
-              </motion.div>
-            </div>
-          ) : null}
-        </AnimatePresence>
-
-        {/* grid of character pop ups */}
-        <div
-          className="
-                    grid grid-cols-2 gap-4 items-center justify-center p-8 /* default on mobile */
-                    lg:grid-cols-6 /* default on computer screens */
-                    "
-        >
-          {characters.map((character) => (
-            <motion.div
-              layoutId={`character-${character.name}-${id}`}
-              key={character.name}
-              onClick={() => setActive(character)}
-              className="cursor-pointer hover:scale-105"
-            >
-              <motion.div layoutId={`image-${character.name}-${id}`}>
-                <img
-                  src={character.imgUrl}
-                  alt={character.name}
-                  className="
-                            h-40 w-40         /* default on mobile */
-                            sm:h-56 sm:w-56   /* a bit bigger on small screens */
-                            lg:h-90 lg:w-90   /* default on computer screens */
+                      <img
+                        src={character.imgUrl}
+                        alt={character.name}
+                        className={`
                             rounded-md
                             object-cover
-                            "
-                />
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+                            m-auto
+                            h-full
+                            `}
+                      />
+                    </div>
+                  </DialogTrigger>
+                  {/* Fullscreen content popup*/}
+                  <DialogContent
+                    showCloseButton={false}
+                    className="lg:max-w-240 bg-[#0000] border-none shadow-none"
+                  >
+                    <div
+                      className="absolute -top-100 left-0 sm:left-25 
+                    lg:-top-60 lg:left-0 w-70 lg:w-100 z-10"
+                    >
+                      <img
+                        src={character.imgUrl}
+                        alt={character.name}
+                        className="max-h-[70vh]"
+                      />
+                    </div>
+                    <div className="absolute lg:-top-10 lg:right-5 w-full lg:w-4/5 flex bg-white justify-end rounded-lg drop-shadow-xl/50 overflow-hidden min-w-1/4 max-w-4xl sm:h-[30vh]">
+                      {/* right side: character name and description */}
+                      <DialogDescription className="p-4 w-full lg:min-h-80 flex flex-col justify-top text-left">
+                        <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto">
+                          <div className="flex flex-row justify-between mb-2">
+                            <DialogTitle className="text-black font-bold text-3xl justify-self-center lg:justify-self-start">
+                              {character.name}
+                            </DialogTitle>
+                            <DialogClose>
+                              <CloseIcon />
+                            </DialogClose>
+                          </div>
+                          <p className="text-gray-600 text-lg whitespace-pre-line">
+                            {character.description} <br />
+                            Favorite Song:{" "}
+                            <a
+                              className="text-[#d97706]"
+                              href={character.songLink}
+                            >
+                              {character.songName}
+                            </a>
+                          </p>
+                        </div>
+                      </DialogDescription>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselNext className="w-8" />
+        </Carousel>
       </div>
     </main>
   );
