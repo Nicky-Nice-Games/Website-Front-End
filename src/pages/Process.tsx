@@ -18,9 +18,10 @@ const ProcessPage = () => {
 
   return (
     <>
-      <main className="ml-[2rem] mr-[2rem]">
-        <div>
-          <h1 className="text-[60px] painterz m-4 mx-0 mb-[2rem]">
+      <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-fixed bg-repeat">
+        {/* About Project Section */}
+        <div className="**:text-white">
+          <h1 className="text-[60px] painterz pt-4 mx-0 mb-[2rem]">
             {" "}
             About the Project
           </h1>
@@ -45,18 +46,19 @@ const ProcessPage = () => {
               <img
                 src={photo}
                 alt="Photo of the team"
-                className="md:ml-[2rem] md:mt-0 self-center md:self-end md:pr-4 w-[100%] h-[300px]"
+                className="md:ml-[2rem] md:mt-0 self-center md:self-end md:pr-4 w-[100%] h-[300px] mb-2"
               />
               <ArrowButton
                 caption="Meet the team!"
                 clickAction={() => navigate("/aboutUs")}
-                className="absolute right-5 font-semibold"
+                className="absolute right-5 md:right-8 font-semibold"
               />
             </div>
           </div>
         </div>
 
-        <div>
+        {/* Designing Game Section */}
+        <div className="**:text-white">
           <h1 className="text-[60px] painterz m-4 mx-0 mb-[2rem]">
             Designing the Game
           </h1>
@@ -107,7 +109,9 @@ const ProcessPage = () => {
             />
           </div>
         </div>
-        <div>
+
+        {/* Character Dev Info Section */}
+        <div className="**:text-white">
           <h1 className="text-[60px] mx-0 m-4 mt-[2rem] painterz mb-[2rem]">
             Designing our characters
           </h1>
@@ -131,7 +135,7 @@ const ProcessPage = () => {
                   <DialogTrigger className="relative w-full sm:w-1/2 lg:w-1/3 m-auto">
                     <div className="absolute w-[84.5%] h-[84.5%] m-2 md:m-10 bg-[#0007] opacity-0 hover:opacity-100 rounded-lg">
                       <h3 className="text-white text-2xl absolute top-[50%] text-center w-full">
-                        Learn about {c.name}'s development
+                        Learn about <br /> {c.name}'s development
                       </h3>
                     </div>
                     <img
@@ -164,10 +168,10 @@ const ProcessPage = () => {
           </div>
         </div>
 
-        <h1 className="text-[60px] m-4 mx-0 mt-[2rem] painterz mb-[2rem]">
+        {/* Track Dev Info Section */}
+        <h1 className="text-[60px] m-4 mx-0 mt-[2rem] painterz mb-[2rem] text-white">
           Building our Tracks
         </h1>
-
         <div className="flex flex-row flex-wrap w-full justify-center">
           <Tabs defaultValue="0">
             <TabsList>
@@ -181,7 +185,10 @@ const ProcessPage = () => {
             </TabsList>
             {tracks.map((t) => {
               return (
-                <TabsContent value={tracks.indexOf(t).toString()}>
+                <TabsContent
+                  value={tracks.indexOf(t).toString()}
+                  className="text-white"
+                >
                   {t.devDescription}
                 </TabsContent>
               );
