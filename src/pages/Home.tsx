@@ -119,7 +119,7 @@ const HomePage = ({setCurrentPage}:HomePageParams) => {
         <>
             <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
                 <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col md:justify-center align-center p-4 z-3">
-                    <h1 className="h1-style">Gizmo Go-Kartz</h1>
+                    <img src="/ggk/images/Game-Logo.png"></img>
 
                     <h3 className="text-xl text-muted-foreground">Game coming soon!</h3>
                 </div>
