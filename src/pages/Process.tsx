@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
+import { characters } from "@/data/characters";
+import { tracks } from "@/data/tracks";
 import {
   Dialog,
   DialogContent,
@@ -8,62 +9,19 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import ArrowButton from "@/components/ui/arrow-button";
+import { useNavigate } from "react-router-dom";
 
 const ProcessPage = () => {
   const photo: string = "images/placeholder/placeholder.PNG";
-
-  type Character = {
-    imgUrl: string;
-    conceptImg: string;
-    name: string;
-    description: string;
-  };
-
-  const characters: Character[] = [
-    {
-      imgUrl: "images/content-assets/FrshSkater.PNG",
-      conceptImg: "images/placeholder/placeholder.PNG",
-      name: "Morgan - Skater Freshman",
-      description: "blah blah blah...",
-    },
-    {
-      imgUrl: "images/content-assets/SophDining.png",
-      conceptImg: "images/placeholder/placeholder.PNG",
-      name: "Reese - Dining Sophomore",
-      description: "blah blah blah...",
-    },
-    {
-      imgUrl: "images/content-assets/OLjr.png",
-      conceptImg: "images/placeholder/placeholder.PNG",
-      name: "Emma - OL Junior",
-      description: "blah blah blah...",
-    },
-    {
-      imgUrl: "images/content-assets/HkySr.png",
-      conceptImg: "images/placeholder/placeholder.PNG",
-      name: "Kai - Hockey Senior",
-      description: "blah blah blah...",
-    },
-    {
-      imgUrl: "images/content-assets/Jamster.png",
-      conceptImg: "images/placeholder/placeholder.PNG",
-      name: "Jamster",
-      description: "JAMMMMSTER",
-    },
-    {
-      imgUrl: "images/placeholder.PNG",
-      conceptImg: "images/placeholder/placeholder.PNG",
-      name: "Gizmo",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    },
-  ];
+  const navigate = useNavigate();
 
   return (
     <>
-      <main className="ml-[2rem] mr-[2rem]">
+      <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-fixed bg-repeat *:text-white">
+        {/* About Project Section */}
         <div>
-          <h1 className="text-[60px] painterz m-4 mx-0 mb-[2rem]">
+          <h1 className="text-[60px] painterz pt-4 mx-0 mb-[2rem]">
             {" "}
             About the Project
           </h1>
@@ -84,14 +42,22 @@ const ProcessPage = () => {
               ipsum. Mattis sodales iaculis faucibus nam est quam. Vitae morbi
               tempus lectus elit odio. Justo varius nisi.
             </p>
-            <img
-              src={photo}
-              alt="Photo of the team"
-              className="ml-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-[100%] h-[300px]"
-            />
+            <div className="md:min-w-[400px] md:w-550">
+              <img
+                src={photo}
+                alt="Photo of the team"
+                className="md:ml-[2rem] md:mt-0 self-center md:self-end md:pr-4 w-[100%] h-[300px] mb-2"
+              />
+              <ArrowButton
+                caption="Meet the team!"
+                clickAction={() => navigate("/aboutUs")}
+                className="absolute right-5 md:right-8 font-semibold"
+              />
+            </div>
           </div>
         </div>
 
+        {/* Designing Game Section */}
         <div>
           <h1 className="text-[60px] painterz m-4 mx-0 mb-[2rem]">
             Designing the Game
@@ -100,7 +66,7 @@ const ProcessPage = () => {
             <img
               src={photo}
               alt="Picture of RIT"
-              className="mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-1/4"
+              className="md:mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-full md:w-1/4 max-h-[300px]"
             />
             <p className="">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
@@ -139,10 +105,12 @@ const ProcessPage = () => {
             <img
               src={photo}
               alt="Picture of RIT"
-              className="md:mt-0 self-center md:self-end md:w-[400px] w-1/4"
+              className="md:mt-0 self-center md:self-end md:w-[400px] w-full md:w-1/4 max-h-[300px]"
             />
           </div>
         </div>
+
+        {/* Character Dev Info Section */}
         <div>
           <h1 className="text-[60px] mx-0 m-4 mt-[2rem] painterz mb-[2rem]">
             Designing our characters
@@ -160,31 +128,37 @@ const ProcessPage = () => {
             malesuada pretium vulputate faucibus leo pellentesque. Curabitur
             commodo nibh egestas pretium adipiscing rhoncus.
           </p>
-          <div className="mt-[2rem] flex flex-row flex-wrap w-full justify-center">
+          <div className="mt-2 flex flex-row flex-wrap w-[85%] m-auto justify-center">
             {characters.map((c) => {
               return (
                 <Dialog>
-                  <DialogTrigger>
+                  <DialogTrigger className="relative w-full sm:w-1/2 lg:w-1/3 m-auto">
+                    <div className="absolute w-[84.5%] h-[84.5%] m-2 md:m-10 bg-[#0007] opacity-0 hover:opacity-100 rounded-lg">
+                      <h3 className="text-white text-2xl absolute top-[50%] text-center w-full">
+                        Learn about <br /> {c.name}'s development
+                      </h3>
+                    </div>
                     <img
                       src={c.imgUrl}
                       alt={c.name}
-                      className="w-60 h-40 lg:w-110 lg:h-90 m-5"
+                      className="w-full p-2 md:p-10 rounded-[10%]"
                     />
                   </DialogTrigger>
                   <DialogContent className="lg:max-w-[60%]">
                     <DialogHeader className="text-left">
                       <DialogTitle className="text-4xl painterz mb-4">
                         {c.name}
+                        {c.occupation ? ` - ${c.occupation}` : ""}
                       </DialogTitle>
                     </DialogHeader>
                     <div className="max-h-[70vh] overflow-auto flex flex-col items-center text-center">
                       <img
-                        src={c.conceptImg}
+                        src={c.conceptImgUrl}
                         alt={`${c.name} concept`}
                         className="mb-2"
                       />
                       <DialogDescription className="text-lg">
-                        {c.description}
+                        {c.devDescription}
                       </DialogDescription>
                     </div>
                   </DialogContent>
@@ -194,22 +168,31 @@ const ProcessPage = () => {
           </div>
         </div>
 
+        {/* Track Dev Info Section */}
         <h1 className="text-[60px] m-4 mx-0 mt-[2rem] painterz mb-[2rem]">
           Building our Tracks
         </h1>
-
         <div className="flex flex-row flex-wrap w-full justify-center">
-          <Tabs defaultValue="track1">
-            <TabsList>
-              <TabsTrigger value="track1">Track 1</TabsTrigger>
-              <TabsTrigger value="track2">Track 2</TabsTrigger>
-              <TabsTrigger value="track3">Track 3</TabsTrigger>
-              <TabsTrigger value="track4">Track 4</TabsTrigger>
+          <Tabs defaultValue="0">
+            <TabsList className="">
+              {tracks.map((t) => {
+                return (
+                  <TabsTrigger value={tracks.indexOf(t).toString()}>
+                    {t.name}
+                  </TabsTrigger>
+                );
+              })}
             </TabsList>
-            <TabsContent value="track1">Info about Track 1.</TabsContent>
-            <TabsContent value="track2">Info about Track 2.</TabsContent>
-            <TabsContent value="track3">Info about Track 3.</TabsContent>
-            <TabsContent value="track4">Info about Track 4.</TabsContent>
+            {tracks.map((t) => {
+              return (
+                <TabsContent
+                  value={tracks.indexOf(t).toString()}
+                  className="text-white"
+                >
+                  {t.devDescription}
+                </TabsContent>
+              );
+            })}
           </Tabs>
         </div>
       </main>
