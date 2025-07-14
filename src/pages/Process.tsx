@@ -18,9 +18,9 @@ const ProcessPage = () => {
 
   return (
     <>
-      <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-fixed bg-repeat">
+      <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-fixed bg-repeat *:text-white">
         {/* About Project Section */}
-        <div className="**:text-white">
+        <div>
           <h1 className="text-[60px] painterz pt-4 mx-0 mb-[2rem]">
             {" "}
             About the Project
@@ -58,7 +58,7 @@ const ProcessPage = () => {
         </div>
 
         {/* Designing Game Section */}
-        <div className="**:text-white">
+        <div>
           <h1 className="text-[60px] painterz m-4 mx-0 mb-[2rem]">
             Designing the Game
           </h1>
@@ -111,7 +111,7 @@ const ProcessPage = () => {
         </div>
 
         {/* Character Dev Info Section */}
-        <div className="**:text-white">
+        <div>
           <h1 className="text-[60px] mx-0 m-4 mt-[2rem] painterz mb-[2rem]">
             Designing our characters
           </h1>
@@ -169,12 +169,12 @@ const ProcessPage = () => {
         </div>
 
         {/* Track Dev Info Section */}
-        <h1 className="text-[60px] m-4 mx-0 mt-[2rem] painterz mb-[2rem] text-white">
+        <h1 className="text-[60px] m-4 mx-0 mt-[2rem] painterz mb-[2rem]">
           Building our Tracks
         </h1>
         <div className="flex flex-row flex-wrap w-full justify-center">
           <Tabs defaultValue="0">
-            <TabsList>
+            <TabsList className="">
               {tracks.map((t) => {
                 return (
                   <TabsTrigger value={tracks.indexOf(t).toString()}>
