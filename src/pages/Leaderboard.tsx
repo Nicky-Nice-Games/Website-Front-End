@@ -18,7 +18,7 @@ const LeaderboardPage = () => {
     return (
       <div className="text-center bg-[url(images/white-checker.png)] bg-size-[80%] md:bg-size-[60%] bg-cover">
         <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99%">
-          <div className=" mb-8">
+          <div className=" mb-4">
             <img
               src=" images/leaderboard-header-3.png"
               className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
@@ -74,8 +74,8 @@ const MapSelect = ({
     <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center">
       {tracks.map((t) => {
         return (
-          <div className="md:w-[45%] md:mx-4 mb-10">
-            <h1 className="text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] w-[40%] m-auto mb-2 px-3 py-1 rounded-lg g">
+          <div className="md:mx-[8rem] mb-10">
+            <h1 className="w-fit text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] m-auto p-[5px] mb-2 px-3 py-1 rounded-lg g">
               {t.name}
             </h1>
             <button
@@ -84,12 +84,14 @@ const MapSelect = ({
                 setMapName(t.name);
                 setMapImage(`bg-[url(${t.imgUrl})]`); // Tailwind property for the leaderboard background
               }}
-              className="cursor-pointer drop-shadow-xl/50"
+              className="cursor-pointer drop-shadow-xl/50 w-[80%] md:w-[350px]"
             >
-              <img
-                src={t.imgUrl}
-                className="rounded-xl h-[30vh] hover:scale-105"
-              />
+              <div className="rounded-xl overflow-hidden w-full">
+                <img
+                  src={t.imgUrl}
+                  className="w-full transition-transform duration-300 hover:scale-120 object-fill"
+                />
+              </div>
             </button>
           </div>
         );
