@@ -1,33 +1,11 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { formatTime } from "@/utils";
+import { formatTime, formatPlacing } from "@/utils";
 import { useMediaQuery } from "react-responsive";
 import { pfpList } from "@/data/pfps";
 
 // Formats time from a large millisecond value to show minutes, seconds and milliseconds
-
-// Adds a suffix to the index to indicate the placing
-const formatPlacing = (index: number): string => {
-  if (index > 10 && index < 14) return index + "th";
-
-  let suffix;
-  switch (index % 10) {
-    case 1:
-      suffix = "st";
-      break;
-    case 2:
-      suffix = "nd";
-      break;
-    case 3:
-      suffix = "rd";
-      break;
-    default:
-      suffix = "th";
-      break;
-  }
-  return index + suffix;
-};
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
