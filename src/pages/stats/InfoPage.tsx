@@ -168,7 +168,7 @@ const InfoPage = ({
               {recentRaces.map((race: any) => {
                 return (
                   <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-                    <span>{tracks[race.mapRaced - 1].name}</span>
+                    <span>{tracks[race.mapRaced].name}</span>
                     <span>{formatTime(race.raceTime)}</span>
                   </div>
                 );
