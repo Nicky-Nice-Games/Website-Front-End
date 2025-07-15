@@ -127,9 +127,11 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     return(
         <>
         <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
-          <div id="header-text" className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col align-center p-4 z-3">
-              <img className="w-[300px] md:w-[500px]"src="/ggk/images/Game-Logo.png"></img>
-              <h3 className="text-xl text-black md:text-[#f3f4f6] mt-[1rem]">
+          <div id="header-text" 
+          className=" md:h-[90vh] bg-black relative md:absolute w-[100%] 
+          md:w-[50%] flex flex-col items-center text-center md:text-left p-4 z-3">
+              <img className="w-[200px] md:w-[500px]"src="/ggk/images/Game-Logo.png"></img>
+              <h3 className="text-xl text-[#f3f4f6] mt-[1rem] w-[100%]">
                 Your favorite no-credit courses
               </h3>
           </div>
@@ -140,19 +142,19 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
               navigate("/news");
               setCurrentPage("news");
             }}
-            className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-10 px-10 py-3"
+            className="absolute bottom-[0rem] md:bottom-[4rem] md:right-[4rem] right-[1rem] z-10 px-10 py-3"
             />
 
           <Carousel
             plugins={[plugin.current]}
-            className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
+            className="w-full md:w-[60%] overflow-hidden md:absolute md:top-0 md:right-0"
           >
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem key={index}>
                   <div className="">
-                    <Card className="h-[90vh]">
-                      <CardContent className="flex items-center justify-center h-[90vh]">
+                    <Card className="md:h-[90vh] h-[100%]">
+                      <CardContent className="flex items-center justify-center md:h-[100vh] h-[70vh]">
                         <span className="text-4xl font-semibold">
                           {index + 1}
                         </span>
@@ -201,7 +203,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           />
         </div>
         <div
-          className="mb-[12rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]"
+          className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]"
         >
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
@@ -213,7 +215,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div
           id="lore"
-          className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[12rem] bg-[url('images/white-checker.png')]"
+          className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[6rem] md:pb-[8rem] bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
           <p className="m-4">
