@@ -15,6 +15,8 @@ interface ContentBlock {
   src?: string;
   alt?: string;
   caption?: string;
+  width?: string;
+  height?: string;
 }
 
 // Array of updates
@@ -41,20 +43,7 @@ const NewsAndUpdatesPage = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    //const loadUpdates = async () => {
-    //  try {
-    //    const res = await fetch("./data/updates.json");
-    //    if (!res.ok) throw new Error("Failed to fetch updates");
-    //    const json = await res.json();
-    //    setUpdates(json);
-    //  } catch (err: any) {
-    //    setError(err.message || "Unknown error");
-    //  } finally {
-    //    setLoading(false);
-    //  }
-    //};
-    //loadUpdates();
-    fetchData("GET", "data/updates.json", "json", (data: any) => { setUpdates(data); setLoading(false); } ) 
+    fetchData("GET", "data/updates.json", "json", (data: any) => { setUpdates(data); setLoading(false); })
   }, []);
 
   const sortedUpdates = [...updates].sort((a, b) => {
@@ -263,7 +252,7 @@ const NewsAndUpdatesPage = () => {
                     <img // Desktop image
                       src={active.image}
                       alt={active.title}
-                      className="w-full h-full object-cover object-top rounded-xl"
+                      className="w-full h-full  object-top rounded-xl"
                     />
                   </motion.div>
 
@@ -316,7 +305,12 @@ const NewsAndUpdatesPage = () => {
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
-                              <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                              <img
+                                src={block.src}
+                                alt={block.alt || ""}
+                                style={{ width: block.width || "100%", height: block.height || "auto" }}
+                                className="rounded-md"
+                              />
                               {block.caption && (
                                 <p className="text-sm text-center text-neutral-500 mt-1 italic">
                                   {block.caption}
@@ -386,7 +380,7 @@ const NewsAndUpdatesPage = () => {
                 src={update.image}
                 alt={update.title}
                 className={`w-full ${isFullWidth ? "h-96" : "h-72"
-                  } object-cover`}
+                  } `}
               />
               {/* Text content of the update */}
               <div className="p-4">
@@ -438,6 +432,6 @@ const NewsAndUpdatesPage = () => {
   );
 };
 
- 
+
 
 export default NewsAndUpdatesPage;

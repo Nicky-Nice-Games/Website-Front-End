@@ -323,7 +323,9 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-1.png"
+                "src": "./assets/blog-image-1.png",
+                "width": "500px",
+                "height": "300px"
             },
             {
                 "type": "image",
