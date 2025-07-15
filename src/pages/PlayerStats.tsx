@@ -77,7 +77,7 @@ const PlayerStatsPage = ({
         totalRaces: 0,
       });
     }
-  }, []);
+  }, [account]);
 
   if (!playerData || !account)
     return (

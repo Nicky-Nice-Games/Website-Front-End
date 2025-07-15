@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     const storedPID: string | null = localStorage.getItem("pid");
     const storedUsername: string | null = localStorage.getItem("username");
-    const storedPfpString: string | null = localStorage.getItem("pfpId");
+    const storedPfpString: string | null = localStorage.getItem("pfp");
 
     if (!storedPID || !storedUsername || !storedPfpString) {
       setAccount(null);
