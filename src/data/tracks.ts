@@ -15,21 +15,21 @@ export const tracks: Track[] = [
     devDescription: "Outer Loop Dev Stuff",
   },
   {
-    imgUrl: "images/tracks/dorm.png",
+    imgUrl: "images/tracks/dorm-derby.png",
     name: "Dorm Room Derby",
     description:
       "Remember the days you used to live in the dorm? well if you wanna relive it with a better memory you can, speed around the dorm in tiny karts. if you still live in the dormside or will be living there be ready to live this experience and dont forget to clean your room otherwise little characters might drive around it.",
     devDescription: "Dorm Dev Stuff",
   },
     {
-    imgUrl: "images/tracks/golisano.png",
+    imgUrl: "images/tracks/tech-house.png",
     name: "Tech House Turnpike",
     description:
       "Have you ever wanted to go around golisano, well you can now. going past classrooms, up and down the floors.",
     devDescription: "Golisano Dev Stuff",
   },
   {
-    imgUrl: "images/tracks/final.png",
+    imgUrl: "images/tracks/all-nighter.png",
     name: "All-Nighter Expressway",
     description:
       `With finals coming up, and you havent studied yet.
