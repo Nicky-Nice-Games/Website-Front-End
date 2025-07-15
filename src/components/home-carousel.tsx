@@ -12,6 +12,61 @@ export const HomeCarousel = () => {
         Autoplay({ delay: 2000, stopOnInteraction: false })
     )
 
+    type NewsUpdateProps = {
+        header: string;
+        image: string;
+        description: string;
+    };
+
+    function NewsUpdateSlide({header, image, description}:NewsUpdateProps){
+        return(
+            <div className="text-left md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
+                <div className="h-[25vh] md:h-[50vh] w-[100%] object-contain">
+                    <img className="h-[100%]" src={image}></img>
+                </div>
+                <div>
+                <h2 
+                    className="text-[40px] md:text-[60px] bebas">
+                    {header}
+                </h2>
+                <p 
+                    className="text-[18px]">
+                    {description}
+                </p>
+                </div>
+                
+
+            </div>
+        );
+    }
+
+    const slides = [
+            <div key="1">
+                Splash Image
+                </div>,
+            <div key="2">
+                <NewsUpdateSlide 
+                image="images/placeholder/pfp-placeholder.png"
+                header="#1 News"
+                description="This is the most recent News/Update">
+                </NewsUpdateSlide>
+            </div>,
+            <div key="3">
+                <NewsUpdateSlide 
+                image="images/tracks/dorm.png"
+                header="#2 News"
+                description="This is the second most recent News/Update">
+                </NewsUpdateSlide>
+            </div>,
+            <div key="4">
+                <NewsUpdateSlide 
+                image="images/placeholder/pfp-placeholder.png"
+                header="#3 News"
+                description="This is the third most recent News/Update">
+                </NewsUpdateSlide>
+            </div>
+    ]
+    
     return (
         <>
             <Carousel
@@ -19,19 +74,17 @@ export const HomeCarousel = () => {
                 className="w-full md:w-[60%] overflow-hidden md:absolute md:top-0 md:right-0"
             >
                 <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                    <CarouselItem key={index}>
+                {slides.map((slide, index) => {
+                    return <CarouselItem key={index}>
                     <div className="">
                         <Card className="md:h-[90vh] h-[100%]">
-                        <CardContent className="flex items-center justify-center md:h-[100vh] h-[70vh]">
-                            <span className="text-4xl font-semibold">
-                            {index + 1}
-                            </span>
+                        <CardContent className=" w-[100%] md:h-[100vh] h-[70vh]">
+                            {slide}
                         </CardContent>
                         </Card>
                     </div>
                     </CarouselItem>
-                ))}
+                })}
                 </CarouselContent>
             </Carousel>
         </>

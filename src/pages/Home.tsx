@@ -9,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
+import { HomeCarousel } from "@/components/home-carousel";
 
 interface HomePageParams {
   setCurrentPage: Function;
@@ -142,29 +143,9 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
               navigate("/news");
               setCurrentPage("news");
             }}
-            className="absolute bottom-[0rem] md:bottom-[4rem] md:right-[4rem] right-[1rem] z-10 px-10 py-3"
+            className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
             />
-
-          <Carousel
-            plugins={[plugin.current]}
-            className="w-full md:w-[60%] overflow-hidden md:absolute md:top-0 md:right-0"
-          >
-            <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index}>
-                  <div className="">
-                    <Card className="md:h-[90vh] h-[100%]">
-                      <CardContent className="flex items-center justify-center md:h-[100vh] h-[70vh]">
-                        <span className="text-4xl font-semibold">
-                          {index + 1}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+          <HomeCarousel></HomeCarousel>
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
