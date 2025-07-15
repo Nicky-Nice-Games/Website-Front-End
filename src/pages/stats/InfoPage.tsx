@@ -48,11 +48,11 @@ const InfoPage = ({
   const statsList3: Stat[] = [
     {
       name: "Favorite Character",
-      value: characters[playerData.favoriteChara - 1].name,
+      value: characters[playerData.favoriteChara].name,
     },
     {
       name: "Favorite Track",
-      value: tracks[playerData.favoriteTrack - 1].name,
+      value: tracks[playerData.favoriteTrack].name,
     },
   ];
 
