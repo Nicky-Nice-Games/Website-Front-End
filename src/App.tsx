@@ -1,5 +1,10 @@
 /*import { useState } from 'react';*/
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -37,12 +42,20 @@ function App() {
 
     if (!storedPID || !storedUsername || !storedPfpString) {
       setAccount(null);
+
+      // Set account to dummy data for testing purposes.
+      // COMMENT THIS OUT BEFORE YOU BUILD.
+      // setAccount({
+      //   pid: "string",
+      //   username: "string",
+      //   pfp: 0,
+      // });
       return;
     }
     const storedAccount: AccountSchema = {
       pid: storedPID,
       username: storedUsername,
-      pfp: +storedPfpString,    // + sign converts string to a number
+      pfp: +storedPfpString, // + sign converts string to a number
     };
     setAccount(storedAccount);
   }, []);
@@ -58,7 +71,7 @@ function App() {
 
       <div className="min-h-[80vh]">
         <Routes>
-          <Route path="/" element={<Navigate to="/home" replace/>} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route
             path="/login"
             element={<LoginPage setAccount={setAccount} />}

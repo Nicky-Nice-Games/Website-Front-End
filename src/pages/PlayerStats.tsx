@@ -13,7 +13,7 @@ const PlayerStatsPage = ({
 }) => {
   const [activeTab, setActiveTab] = useState<"info" | "achievements">("info");
   // Store fetched player statistics
-  const [playerData, setPlayerData] = useState(null);
+  const [playerData, setPlayerData] = useState<any>(null);
   // Store a list of the player's most recent races
   const [recentRaces, setRecentRaces] = useState(null);
 
@@ -33,6 +33,49 @@ const PlayerStatsPage = ({
         "json",
         setRecentRaces
       );
+    } else {
+      // Sets player data to a dummy object with 0 in all fields for testing.
+      setPlayerData({
+        pid: "string",
+        email: "string",
+        pw: "string",
+        uid: 0,
+        username: "string",
+        pfpLink: 0,
+        collisionWithPlayer: 0,
+        collisionWithWall: 0,
+        felloffmap: 0,
+        fastestTime: 0,
+        favoriteChara: 0,
+        favoriteTrack: 0,
+        offenseUsage: {
+          puck1: 0,
+          puck2: 0,
+          puck3: 0,
+          puck4: 0,
+        },
+        trapUsage: {
+          oilSpill1: 0,
+          brickwall: 0,
+          confuseritchie: 0,
+          fakepowerupbrick: 0,
+        },
+        boostUsage: {
+          speedBoost1: 0,
+          speedBoost2: 0,
+          speedBoost3: 0,
+          speedBoost4: 0,
+        },
+        defenseUsage: {
+          defense1: 0,
+          defense2: 0,
+          defense3: 0,
+          defense4: 0,
+        },
+        podium: 0,
+        firstPlace: 0,
+        totalRaces: 0,
+      });
     }
   }, []);
 
