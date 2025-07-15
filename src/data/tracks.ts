@@ -15,24 +15,26 @@ export const tracks: Track[] = [
     devDescription: "Outer Loop Dev Stuff",
   },
   {
-    imgUrl: "images/tracks/tech-house.png",
+    imgUrl: "images/tracks/dorm.png",
+    name: "Dorm Room Derby",
+    description:
+      "Remember the days you used to live in the dorm? well if you wanna relive it with a better memory you can, speed around the dorm in tiny karts. if you still live in the dormside or will be living there be ready to live this experience and dont forget to clean your room otherwise little characters might drive around it.",
+    devDescription: "Dorm Dev Stuff",
+  },
+    {
+    imgUrl: "images/tracks/golisano.png",
     name: "Tech House Turnpike",
     description:
       "Have you ever wanted to go around golisano, well you can now. going past classrooms, up and down the floors.",
     devDescription: "Golisano Dev Stuff",
   },
   {
-    imgUrl: "images/tracks/dorm-derby.png",
-    name: "Dorm Room Derby",
-    description:
-      "Remember the days you used to live in the dorm? well if you wanna relive it with a better memory you can, speed around the dorm in tiny karts. if you still live in the dormside or will be living there be ready to live this experience and dont forget to clean your room otherwise little characters might drive around it.",
-    devDescription: "Dorm Dev Stuff",
-  },
-  {
-    imgUrl: "images/tracks/all-nighter.png",
+    imgUrl: "images/tracks/final.png",
     name: "All-Nighter Expressway",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati atque aperiam quo, consectetur architecto officia aliquid ea corrupti asperiores, ut quos. Excepturi atque quae minima. Possimus nemo eaque similique fugiat.",
+      `With finals coming up, and you havent studied yet.
+      What can you do? Go over to academic side at 2 am and 
+      do an average rit student event known as an all nighter.`,
     devDescription: "Finals Brick Road Dev Stuff",
   },
 ];
