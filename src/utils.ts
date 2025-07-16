@@ -14,6 +14,28 @@ const formatTime = (milliseconds: number): string => {
   return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
 };
 
+// Adds a suffix to the index to indicate the placing
+const formatPlacing = (index: number): string => {
+  if (index > 10 && index < 14) return index + "th";
+
+  let suffix;
+  switch (index % 10) {
+    case 1:
+      suffix = "st";
+      break;
+    case 2:
+      suffix = "nd";
+      break;
+    case 3:
+      suffix = "rd";
+      break;
+    default:
+      suffix = "th";
+      break;
+  }
+  return index + suffix;
+};
+
 // Performs a fetch request of any method from the given url
 // Callback depends on whether the request succeeds or fails
 const fetchData = (
@@ -25,9 +47,10 @@ const fetchData = (
   failedCallback?: Function
 ) => {
   const fetchRequest = async (): Promise<any> => {
-    const requestParams = { method, body: requestBody}
+    const requestParams = { method, body: requestBody };
     const response: Response = await fetch(url, requestParams);
-    const playerData = returnType === "json" ? await response.json() : await response.text();
+    const playerData =
+      returnType === "json" ? await response.json() : await response.text();
     return playerData;
   };
 
@@ -47,7 +70,9 @@ const fetchData = (
 };
 
 // Takes all numbers in an object (which is a list of numbers) and returns the sum
-const sumNumberListObject = (numberListObject: { [propName: string]: number}): number => {
+const sumNumberListObject = (numberListObject: {
+  [propName: string]: number;
+}): number => {
   let totalItemsUsed = 0;
   Object.values(numberListObject).forEach((i) => {
     totalItemsUsed += i;
@@ -55,4 +80,4 @@ const sumNumberListObject = (numberListObject: { [propName: string]: number}): n
   return totalItemsUsed;
 };
 
-export { formatTime, fetchData, sumNumberListObject};
+export { formatTime, formatPlacing, fetchData, sumNumberListObject };

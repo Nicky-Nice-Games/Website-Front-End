@@ -64,6 +64,10 @@ export default function Pfp({ setAccount, account }: PfpProps) {
                       };
                       setAccount(storedAccount);
                       editPfpIndex(account.pid, pfpList.indexOf(src));
+                      localStorage.setItem(
+                        "pfp",
+                        pfpList.indexOf(src).toString()
+                      );
                     }
                   }}
                 />
