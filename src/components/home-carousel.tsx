@@ -8,86 +8,82 @@ import {
 } from "@/components/ui/carousel";
 
 export const HomeCarousel = () => {
-    const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: false })
-    )
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: false })
+  );
 
-    type NewsUpdateProps = {
-        header: string;
-        image: string;
-        description: string;
-    };
+  type NewsUpdateProps = {
+    header: string;
+    image: string;
+    description: string;
+  };
 
-    function NewsUpdateSlide({header, image, description}:NewsUpdateProps){
-        return(
-            <div className="text-right items-end text-white md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
-                <div className="h-[25vh] md:h-[50vh] object-contain">
-                    <img className="h-[100%]" src={image}></img>
-                </div>
-                <div>
-                <h2 
-                    className="text-[40px] md:text-[60px] bebas">
-                    {header}
-                </h2>
-                <p 
-                    className="text-[18px]">
-                    {description}
-                </p>
-                </div>
-                
-
-            </div>
-        );
-    }
-
-    const slides = [
-            <div key="1">
-                <img src="images/tracks/golisano.png"
-                className="md:w-[100%] sm:h-[100%]"></img>
-            </div>,
-            <div key="2">
-                <NewsUpdateSlide 
-                image="images/characters/HkySr.png"
-                header="#1 News"
-                description="This is the most recent News/Update">
-                </NewsUpdateSlide>
-            </div>,
-            <div key="3">
-                <NewsUpdateSlide 
-                image="images/tracks/dorm.png"
-                header="#2 News"
-                description="This is the second most recent News/Update">
-                </NewsUpdateSlide>
-            </div>,
-            <div key="4">
-                <NewsUpdateSlide 
-                image="images/placeholder/pfp-placeholder.png"
-                header="#3 News"
-                description="This is the third most recent News/Update">
-                </NewsUpdateSlide>
-            </div>
-    ]
-    
+  function NewsUpdateSlide({ header, image, description }: NewsUpdateProps) {
     return (
-        <>
-            <Carousel
-                plugins={[plugin.current]}
-                className="w-full overflow-hidden md:absolute md:top-0 md:right-0"
-            >
-                <CarouselContent>
-                {slides.map((slide, index) => {
-                    return <CarouselItem key={index}>
-                    <div className="">
-                        <Card className="md:h-[90vh] h-[100%] bg-black border-0">
-                        <CardContent className=" w-[100%] md:h-[100vh] h-[70vh]">
-                            {slide}
-                        </CardContent>
-                        </Card>
-                    </div>
-                    </CarouselItem>
-                })}
-                </CarouselContent>
-            </Carousel>
-        </>
+      <div className="text-right items-end text-white md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
+        <div className="h-[25vh] md:h-[50vh] object-contain">
+          <img className="h-[100%]" src={image}></img>
+        </div>
+        <div>
+          <h2 className="text-[40px] md:text-[60px] bebas">{header}</h2>
+          <p className="text-[18px]">{description}</p>
+        </div>
+      </div>
     );
+  }
+
+  const slides = [
+    <div key="1" className="flex flex-row justify-end">
+      <img
+        src="images/tracks/golisano.png"
+        className="md:w-1/2 sm:h-[100%]"
+      ></img>
+    </div>,
+    <div key="2">
+      <NewsUpdateSlide
+        image="images/characters/HkySr.png"
+        header="#1 News"
+        description="This is the most recent News/Update"
+      ></NewsUpdateSlide>
+    </div>,
+    <div key="3">
+      <NewsUpdateSlide
+        image="images/tracks/dorm.png"
+        header="#2 News"
+        description="This is the second most recent News/Update"
+      ></NewsUpdateSlide>
+    </div>,
+    <div key="4">
+      <NewsUpdateSlide
+        image="images/placeholder/pfp-placeholder.png"
+        header="#3 News"
+        description="This is the third most recent News/Update"
+      ></NewsUpdateSlide>
+    </div>,
+  ];
+
+  return (
+    <>
+      <Carousel
+        plugins={[plugin.current]}
+        className="w-full overflow-hidden md:absolute md:top-0 md:right-0"
+      >
+        <CarouselContent className="">
+          {slides.map((slide, index) => {
+            return (
+              <CarouselItem key={index}>
+                <div className="">
+                  <Card className="md:h-[90vh] h-[100%] bg-black border-0">
+                    <CardContent className=" w-[100%] md:h-[100vh] h-[70vh]">
+                      {slide}
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+      </Carousel>
+    </>
+  );
 };

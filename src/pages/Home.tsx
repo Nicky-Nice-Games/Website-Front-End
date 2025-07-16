@@ -12,9 +12,9 @@ interface HomePageParams {
 const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
-  )
-  const photo: string = 'images/placeholder/pfp-placeholder.png';
-  const arcadeMachine = 'images/arcade-machine.png'
+  );
+  const photo: string = "images/placeholder/pfp-placeholder.png";
+  const arcadeMachine = "images/arcade-machine.png";
 
   const navigate = useNavigate();
 
@@ -119,27 +119,32 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     },
   ];
 
-    return(
-        <>
-        <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
-          <div id="header-text" 
+  return (
+    <>
+      <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
+        <div
+          id="header-text"
           className="md:h-[90vh] relative md:absolute w-[100%] 
-                    md:w-[50%] flex flex-col md:items-start md:text-left text-center items-center p-4 z-3">
-              <img className="w-[200px] md:w-[80%]"src="/ggk/images/Game-Logo.png"></img>
-              <h3 className="text-xl text-[#f3f4f6] mt-[1rem] w-[100%]">
-                Your favorite no-credit courses
-              </h3>
-          </div>
-          <ArrowButton 
-          caption="See all news and updates!" 
+                    md:w-[50%] flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
+        >
+          <img
+            className="w-[200px] md:w-[80%]"
+            src="/ggk/images/Game-Logo.png"
+          ></img>
+          <h3 className="text-xl md:text-4xl text-[#f3f4f6] mt-[1rem] w-[100%]">
+            Your favorite no-credit courses
+          </h3>
+        </div>
+        <ArrowButton
+          caption="See all news and updates!"
           clickAction={() => {
-              window.scrollTo({ top: 0, behavior: "instant" });
-              navigate("/news");
-              setCurrentPage("news");
-            }}
-            className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
-            />
-          <HomeCarousel></HomeCarousel>
+            window.scrollTo({ top: 0, behavior: "instant" });
+            navigate("/news");
+            setCurrentPage("news");
+          }}
+          className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
+        />
+        <HomeCarousel></HomeCarousel>
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
@@ -177,9 +182,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             alt="Photo of arcade machines"
           />
         </div>
-        <div
-          className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]"
-        >
+        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
@@ -217,11 +220,11 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
           </p>
         </div>
-        <div
-          className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
-        >
-          <div className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
-          bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
+        <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
+          <div
+            className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
+          bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
+          >
             <InfiniteMovingCards
               items={bannerImages2}
               direction="left"
@@ -229,9 +232,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             />
           </div>
         </div>
-        <div
-          className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
-        >
+        <div className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"
@@ -283,7 +284,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
               id="link-container"
               className="bg-black/80 absolute z-3 bottom-0 w-full p-4 text-white text-center"
             >
-                <ArrowButton 
+              <ArrowButton
                 caption="See all scores!"
                 clickAction={() => {
                   window.scrollTo({ top: 0, behavior: "instant" });
@@ -291,7 +292,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
                   setCurrentPage("leaderboard");
                 }}
                 className="px-8 py-3"
-                />
+              />
             </div>
           </div>
         </div>
