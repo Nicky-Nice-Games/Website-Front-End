@@ -105,7 +105,7 @@ export const items: Item[] = [
     level: 1,
     category: "trap",
     description:
-      "When Placed down if a player goes over it, slips on the oil and is slowed down",
+      "When placed down if a player goes over it, slips on the oil and is slowed down",
   },
   {
     imgUrl: "images/items/fake/level_two.png",

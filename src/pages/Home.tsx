@@ -4,18 +4,20 @@ import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
 import { HomeCarousel } from "@/components/home-carousel";
+import { fetchData, formatPlacing, formatTime } from "@/utils";
+import { pfpList } from "@/data/pfps";
 
 interface HomePageParams {
   setCurrentPage: Function;
 }
 
 const HomePage = ({ setCurrentPage }: HomePageParams) => {
+  const [previewLeaderboardData, setPreviewData] = React.useState([]);
+
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   );
-  const photo: string = "images/placeholder/pfp-placeholder.png";
-  const arcadeMachine = "images/arcade-machine.png";
-
+  
   const navigate = useNavigate();
 
   type ScoreProps = {
@@ -27,25 +29,50 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     color: string;
   };
 
-  // const PlacementVariants = {
-  //     first: 'text-#facc15 graffiti text-[40px] md:text-[60px] text-white',
-  // }
+  // Takes the placement number and turns it into the appropriate color.
+  const getPlacementColor = (index: number): string => {
+    switch (index) {
+      case 0:
+        return "text-[#facc15]";
+      case 1:
+        return "text-[#cbd5e1]";
+      case 2:
+        return "text-[#fdba74]";
+      case 3:
+        return "text-[#f59e0b]";
+      default:
+        return "text-white";
+    }
+  };
+
+  React.useEffect(() => {
+    fetchData(
+      "GET",
+      "data/leaderboard-data.json",
+      //"https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=4",
+      "json",
+      (data: any) => {
+        data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);
+        setPreviewData(data.slice(0, 4));
+      }
+    );
+  }, []);
 
   function Score({ place, imgPath, name, time, score, color }: ScoreProps) {
     return (
-      <div className="h-1/7 w-[100%] m-[1rem] flex gap-[2vw] md:gap-[4vw] items-center text-white">
-        <h3 className={`graffiti text-[40px] md:text-[60px] ${color}`}>
+      <div className="h-1/7 w-[100%] m-[1rem] flex gap-[2vw] md:gap-[4vw] items-center justify-start text-white">
+        <h3 className={`graffiti text-[40px] md:text-[60px] ${color} w-13`}>
           {place}
         </h3>
         <img
           src={imgPath}
           alt={`Photo of ${name}`}
-          className="hidden md:block w-[60px] outline-[5px] outline-[#38bdf8] h-[60px] rounded-full ml-auto"
+          className="hidden lg:block w-[60px] outline-[5px] outline-[#38bdf8] h-[60px] rounded-full"
         />
-        <p className="ml-auto md:m-2 bebas text-[30px] md:text-[40px]">
+        <p className="ml-auto md:m-2 bebas text-[30px] md:text-3xl xl:text-4xl">
           {name}
         </p>
-        <div className="ml-auto flex-wrap md:gap-4 gap-1">
+        <div className="ml-0 xl:ml-auto flex-wrap md:gap-4 gap-1">
           <p className="m-0 bebas text-[20px]">time: {time}</p>
           <p className="m-0 bebas text-[20px]">score: {score}</p>
         </div>
@@ -145,6 +172,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
         />
         <HomeCarousel></HomeCarousel>
+
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
@@ -238,7 +266,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             className="relative flex flex-col justify-center items-center"
           >
             <img
-              src={arcadeMachine}
+              src="images/arcade-machine.png"
               className="top-0 z-0 w-[60%] h-[900px] max-[700px]:w-[100%]"
             ></img>
             <div
@@ -247,38 +275,18 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
                     w-[37%] max-[700px]:w-[60%] h-[500px] 
                     flex flex-col items-center m-[2rem] z-10"
             >
-              <Score
-                place="1st"
-                imgPath={photo}
-                name="name"
-                time="0"
-                score="0"
-                color="text-[#facc15]"
-              ></Score>
-              <Score
-                place="2nd"
-                imgPath={photo}
-                name="name"
-                time="0"
-                score="0"
-                color="text-[#cbd5e1]"
-              ></Score>
-              <Score
-                place="3rd"
-                imgPath={photo}
-                name="name"
-                time="0"
-                score="0"
-                color="text-[#fdba74]"
-              ></Score>
-              <Score
-                place="4th"
-                imgPath={photo}
-                name="name"
-                time="0"
-                score="0"
-                color="text-[#f59e0b]"
-              ></Score>
+              {previewLeaderboardData.map((player: any, index: number) => {
+                return (
+                  <Score
+                    place={formatPlacing(index + 1)}
+                    imgPath={pfpList[player.pfp]}
+                    name={player.username}
+                    time={formatTime(player.raceTime)}
+                    score={player.score}
+                    color={getPlacementColor(index)}
+                  />
+                );
+              })}
             </div>
             <div
               id="link-container"
