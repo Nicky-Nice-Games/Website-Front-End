@@ -323,9 +323,7 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-1.png",
-                "width": "500px",
-                "height": "300px"
+                "src": "./assets/blog-image-1.png"
             },
             {
                 "type": "image",
@@ -782,7 +780,9 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-28.png"
+                "src": "./assets/blog-image-28.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "list",
@@ -795,27 +795,39 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-29.png"
+                "src": "./assets/blog-image-29.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-30.png"
+                "src": "./assets/blog-image-30.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-31.png"
+                "src": "./assets/blog-image-31.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-32.png"
+                "src": "./assets/blog-image-32.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-33.png"
+                "src": "./assets/blog-image-33.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-34.png"
+                "src": "./assets/blog-image-34.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "list",

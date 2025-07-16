@@ -228,7 +228,12 @@ const NewsAndUpdatesPage = () => {
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
-                              <img src={block.src} alt={block.alt || ""} className="w-full rounded-md" />
+                              <img
+                                src={block.src}
+                                alt={block.alt || ""}
+                                style={{ width: block.width || "100%", height: block.height || "auto" }}
+                                className="rounded-md"
+                              />
                               {block.caption && (
                                 <p className="text-sm text-center text-neutral-500 mt-1 italic">
                                   {block.caption}
@@ -306,11 +311,16 @@ const NewsAndUpdatesPage = () => {
                           return (
                             <div key={i} className="my-4">
                               <img
-                                src={block.src}
-                                alt={block.alt || ""}
-                                style={{ width: block.width || "100%", height: block.height || "auto" }}
-                                className="rounded-md"
-                              />
+  src={block.src}
+  alt={block.alt || ""}
+  className="rounded-md max-w-full h-auto"
+  style={{
+    width: block.width || "auto",
+    maxHeight: block.height || "none",
+    height: block.height ? "auto" : undefined,
+  }}
+/>
+
                               {block.caption && (
                                 <p className="text-sm text-center text-neutral-500 mt-1 italic">
                                   {block.caption}
