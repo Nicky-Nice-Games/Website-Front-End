@@ -122,12 +122,12 @@ const CharactersPage = () => {
                       <img
                         src={character.imgUrl}
                         alt={character.name}
-                        className="max-h-[70vh]"
+                        className="lg:max-h-180"
                       />
                     </div>
                     <div className="absolute lg:-top-10 lg:right-5 w-full lg:w-4/5 flex bg-white justify-end rounded-lg drop-shadow-xl/50 overflow-hidden min-w-1/4 max-w-4xl sm:h-65git ">
                       {/* right side: character name and description */}
-                      <DialogDescription className="p-4 w-full lg:min-h-80 flex flex-col justify-top text-left">
+                      <DialogDescription className="p-4 w-full lg:min-h-70 flex flex-col justify-top text-left">
                         <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto">
                           <div className="flex flex-row justify-between mb-2">
                             <DialogTitle className="text-black font-bold text-3xl justify-self-center lg:justify-self-start">
