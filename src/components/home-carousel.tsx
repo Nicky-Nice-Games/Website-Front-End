@@ -20,8 +20,8 @@ export const HomeCarousel = () => {
 
     function NewsUpdateSlide({header, image, description}:NewsUpdateProps){
         return(
-            <div className="text-left text-white md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
-                <div className="h-[25vh] md:h-[50vh] w-[100%] object-contain">
+            <div className="text-right items-end text-white md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
+                <div className="h-[25vh] md:h-[50vh] object-contain">
                     <img className="h-[100%]" src={image}></img>
                 </div>
                 <div>
@@ -42,12 +42,12 @@ export const HomeCarousel = () => {
 
     const slides = [
             <div key="1">
-                <img src="images/placeholder/pfp-placeholder.png"
+                <img src="images/tracks/golisano.png"
                 className="md:w-[100%] sm:h-[100%]"></img>
             </div>,
             <div key="2">
                 <NewsUpdateSlide 
-                image="images/placeholder/pfp-placeholder.png"
+                image="images/characters/HkySr.png"
                 header="#1 News"
                 description="This is the most recent News/Update">
                 </NewsUpdateSlide>
@@ -72,7 +72,7 @@ export const HomeCarousel = () => {
         <>
             <Carousel
                 plugins={[plugin.current]}
-                className="w-full md:w-[60%] overflow-hidden md:absolute md:top-0 md:right-0"
+                className="w-full overflow-hidden md:absolute md:top-0 md:right-0"
             >
                 <CarouselContent>
                 {slides.map((slide, index) => {
