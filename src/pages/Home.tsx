@@ -1,5 +1,4 @@
 import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
 import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
@@ -14,10 +13,6 @@ interface HomePageParams {
 const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const [previewLeaderboardData, setPreviewData] = React.useState([]);
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
-  );
-  
   const navigate = useNavigate();
 
   type ScoreProps = {
@@ -156,7 +151,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         >
           <img
             className="w-[200px] md:w-[80%]"
-            src="/ggk/images/Game-Logo.png"
+            src="images/Game-Logo.png"
           ></img>
           <h3 className="text-xl md:text-4xl text-[#f3f4f6] mt-[1rem] w-[100%]">
             Your favorite no-credit courses
@@ -172,7 +167,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
         />
         <HomeCarousel></HomeCarousel>
-
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
