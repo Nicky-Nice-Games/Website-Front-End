@@ -5,8 +5,8 @@ export const Footer = () => {
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
           <div>
             <img
-              src="images/logo/gizmo-icon-hover.svg"
-              className="w-24 h-24"
+              src="images/Game-Logo.png"
+              className="w-40 h-32"
             ></img>
           </div>
 
