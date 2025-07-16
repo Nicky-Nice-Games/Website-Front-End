@@ -1061,7 +1061,9 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-49.png"
+                "src": "./assets/blog-image-49.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "list",
@@ -1074,11 +1076,15 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-50.png"
+                "src": "./assets/blog-image-50.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-51.png"
+                "src": "./assets/blog-image-51.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "image",
@@ -1095,7 +1101,9 @@
             },
             {
                 "type": "image",
-                "src": "./assets/blog-image-53.png"
+                "src": "./assets/blog-image-53.png",
+                "width": "450px",
+                "height": "500px"
             },
             {
                 "type": "list",
