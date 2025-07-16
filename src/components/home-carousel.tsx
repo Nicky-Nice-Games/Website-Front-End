@@ -20,7 +20,7 @@ export const HomeCarousel = () => {
 
     function NewsUpdateSlide({header, image, description}:NewsUpdateProps){
         return(
-            <div className="text-left md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
+            <div className="text-left text-white md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
                 <div className="h-[25vh] md:h-[50vh] w-[100%] object-contain">
                     <img className="h-[100%]" src={image}></img>
                 </div>
@@ -42,8 +42,9 @@ export const HomeCarousel = () => {
 
     const slides = [
             <div key="1">
-                Splash Image
-                </div>,
+                <img src="images/placeholder/pfp-placeholder.png"
+                className="w-[100%] object-cover"></img>
+            </div>,
             <div key="2">
                 <NewsUpdateSlide 
                 image="images/placeholder/pfp-placeholder.png"
@@ -77,7 +78,7 @@ export const HomeCarousel = () => {
                 {slides.map((slide, index) => {
                     return <CarouselItem key={index}>
                     <div className="">
-                        <Card className="md:h-[90vh] h-[100%]">
+                        <Card className="md:h-[90vh] h-[100%] bg-black border-0">
                         <CardContent className=" w-[100%] md:h-[100vh] h-[70vh]">
                             {slide}
                         </CardContent>

@@ -127,7 +127,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
 
     return(
         <>
-        <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
+        <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
           <div id="header-text" 
           className=" md:h-[90vh] bg-black relative md:absolute w-[100%] 
           md:w-[50%] flex flex-col items-center text-center md:text-left p-4 z-3">
@@ -149,7 +149,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
-        <div className=" mt-[4rem]">
+        <div className="bg-black">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
