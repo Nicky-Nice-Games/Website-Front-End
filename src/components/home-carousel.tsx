@@ -21,7 +21,7 @@ export const HomeCarousel = () => {
   function NewsUpdateSlide({ header, image, description }: NewsUpdateProps) {
     return (
       <div className="text-right items-end text-white md:ml-[8rem] mb-[4rem] flex flex-col-reverse md:flex-col">
-        <div className="h-[25vh] md:h-[50vh] object-contain">
+        <div className="h-[40vh] md:h-[50vh] object-contain">
           <img className="h-[100%]" src={image}></img>
         </div>
         <div>
@@ -34,10 +34,12 @@ export const HomeCarousel = () => {
 
   const slides = [
     <div key="1" className="flex flex-row justify-end">
-      <img
+        <div className="md:w-1/2 md:h-[100%] h-[50vh]">
+        <img
         src="images/tracks/golisano.png"
-        className="md:w-1/2 sm:h-[100%]"
-      ></img>
+        className="h-[100%] object-cover"
+        ></img>
+        </div>
     </div>,
     <div key="2">
       <NewsUpdateSlide
