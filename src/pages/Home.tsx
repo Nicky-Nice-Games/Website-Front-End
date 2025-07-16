@@ -129,9 +129,9 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <>
         <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
           <div id="header-text" 
-          className=" md:h-[90vh] bg-black relative md:absolute w-[100%] 
-          md:w-[50%] flex flex-col items-center text-center md:text-left p-4 z-3">
-              <img className="w-[200px] md:w-[500px]"src="/ggk/images/Game-Logo.png"></img>
+          className="md:h-[90vh] bg-black relative md:absolute w-[100%] 
+                    md:w-[50%] flex flex-col md:items-start md:text-left text-center items-center p-4 z-3">
+              <img className="w-[200px] md:w-[80%]"src="/ggk/images/Game-Logo.png"></img>
               <h3 className="text-xl text-[#f3f4f6] mt-[1rem] w-[100%]">
                 Your favorite no-credit courses
               </h3>

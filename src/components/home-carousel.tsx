@@ -43,7 +43,7 @@ export const HomeCarousel = () => {
     const slides = [
             <div key="1">
                 <img src="images/placeholder/pfp-placeholder.png"
-                className="w-[100%] object-cover"></img>
+                className="md:w-[100%] sm:h-[100%]"></img>
             </div>,
             <div key="2">
                 <NewsUpdateSlide 
