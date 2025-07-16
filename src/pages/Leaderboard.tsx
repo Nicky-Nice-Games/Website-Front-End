@@ -3,6 +3,7 @@ import { columns } from "@/components/leaderboard/columns";
 import { DataTable } from "@/components/leaderboard/data-table";
 import { tracks } from "@/data/tracks";
 import ArrowButton from "@/components/ui/arrow-button";
+import { fetchData } from "@/utils";
 
 const LeaderboardPage = () => {
   const [mapId, setMapId] = useState(0);
@@ -104,21 +105,16 @@ const LeaderboardTable = ({ mapId }: { mapId: number }) => {
   const [leaderboardData, setLeaderboardData] = useState([]);
 
   useEffect(() => {
-    const getLeaderboardData = async (): Promise<any> => {
-      //const response: Response = await fetch("./data/leaderboard-data.json");
-      const response: Response = await fetch(
-        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=${mapId}`
-      );
-      let data = await response.json();
+    //const link = "./data/leaderboard-data.json";
+    const link = `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/leaderboard/%7Bmapid%7D?mapid=${mapId}`;
+
+    fetchData("GET", link, "json", (data: any) => {
       data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);
       data.map((item: any) => {
         item.index = data.indexOf(item) + 1; //Set index for display purposes
-        item.score = Math.floor(Math.random() * 100000); //Randomly determined until score is obtainable from backend
       });
       setLeaderboardData(data);
-    };
-
-    getLeaderboardData();
+    });
   }, []);
 
   if (leaderboardData.length == 0) return <p>No data found!</p>;

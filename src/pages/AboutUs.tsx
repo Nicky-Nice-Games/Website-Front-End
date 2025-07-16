@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { fetchData } from "@/utils";
-import { Person } from "@/components/about-us/person";
 import { TeamTabs } from "@/components/about-us/team-tabs";
 import type { TeamDataMap } from "@/components/about-us/types";
 const AboutUsPage = () => {
