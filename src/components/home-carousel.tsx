@@ -34,12 +34,12 @@ export const HomeCarousel = () => {
 
   const slides = [
     <div key="1" className="flex flex-row justify-end">
-        <div className="md:w-1/2 md:h-[100%] h-[50vh]">
+      <div className="md:w-1/2 md:h-[100%] h-[50vh]">
         <img
-        src="images/tracks/golisano.png"
-        className="h-[100%] object-cover"
+          src="images/tracks/tech-house.png"
+          className="h-[100%] object-cover"
         ></img>
-        </div>
+      </div>
     </div>,
     <div key="2">
       <NewsUpdateSlide
@@ -50,7 +50,7 @@ export const HomeCarousel = () => {
     </div>,
     <div key="3">
       <NewsUpdateSlide
-        image="images/tracks/dorm.png"
+        image="images/tracks/dorm-derby.png"
         header="#2 News"
         description="This is the second most recent News/Update"
       ></NewsUpdateSlide>

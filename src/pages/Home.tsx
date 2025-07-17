@@ -1,5 +1,4 @@
 import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
 import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
@@ -14,10 +13,6 @@ interface HomePageParams {
 const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const [previewLeaderboardData, setPreviewData] = React.useState([]);
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
-  );
-  
   const navigate = useNavigate();
 
   type ScoreProps = {
@@ -156,7 +151,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         >
           <img
             className="w-[200px] md:w-[80%]"
-            src="/ggk/images/Game-Logo.png"
+            src="images/Game-Logo.png"
           ></img>
           <h3 className="text-xl md:text-4xl text-[#f3f4f6] mt-[1rem] w-[100%]">
             Your favorite no-credit courses
@@ -172,7 +167,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
         />
         <HomeCarousel></HomeCarousel>
-
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
@@ -189,7 +183,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           id="introdcution"
           className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-fixed bg-[url('images/items-background.png')]
+                    bg-repeat bg-fixed  bg-[url('images/black-checker.png')]
                     text-white"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
@@ -210,7 +204,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             alt="Photo of arcade machines"
           />
         </div>
-        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]">
+        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
@@ -248,7 +242,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
           </p>
         </div>
-        <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
+        <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
           <div
             className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
           bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
@@ -260,7 +254,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             />
           </div>
         </div>
-        <div className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
+        <div className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"

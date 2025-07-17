@@ -28,9 +28,6 @@ const LeaderboardPage = () => {
               Click a map to view its leaderboard!
             </h2>
           </div>
-          {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
-          Leaderboard
-        </h1> */}
 
           <MapSelect
             setMapId={setMapId}

@@ -72,15 +72,21 @@ const CharactersPage = () => {
 
   return (
     <main
-      className="bg-fixed bg-size-[90%] md:bg-size-[80%]
-     bg-[url('images/blue-items-background.png')]"
+      className="min-h-[80vh] bg-fixed bg-size-[90%] md:bg-size-[80%]
+     bg-blend-multiply"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgb(60, 193, 87), rgb(57, 172, 153)), url('images/items-background-darkoutline.png')",
+      }}
     >
       <ContentNavigator currentPage={"characters"} />
 
-      <img
-        src=" images/characters-banner.png"
-        className="flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]"
-      ></img>
+      <h1
+        className="w-full md:w-180 text-white text-3xl md:text-5xl text-center poppins relative top-3 md:rounded-r-lg py-5 md:pl-40 md:pr-3 mb-7
+        bg-gradient-to-b from-[#F66624] to-[#D84B3A]"
+      >
+        Meet The Characters!
+      </h1>
 
       {/*Header of characters page*/}
       <div className="px-8">
@@ -122,12 +128,12 @@ const CharactersPage = () => {
                       <img
                         src={character.imgUrl}
                         alt={character.name}
-                        className="max-h-[70vh]"
+                        className="lg:max-h-180"
                       />
                     </div>
                     <div className="absolute lg:-top-10 lg:right-5 w-full lg:w-4/5 flex bg-white justify-end rounded-lg drop-shadow-xl/50 overflow-hidden min-w-1/4 max-w-4xl sm:h-65git ">
                       {/* right side: character name and description */}
-                      <DialogDescription className="p-4 w-full lg:min-h-80 flex flex-col justify-top text-left">
+                      <DialogDescription className="p-4 w-full lg:min-h-70 flex flex-col justify-top text-left">
                         <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto">
                           <div className="flex flex-row justify-between mb-2">
                             <DialogTitle className="text-black font-bold text-3xl justify-self-center lg:justify-self-start">

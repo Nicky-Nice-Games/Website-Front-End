@@ -18,7 +18,7 @@ const ProcessPage = () => {
 
   return (
     <>
-      <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-fixed bg-repeat *:text-white">
+      <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-[#BBB] bg-fixed bg-repeat bg-blend-difference *:text-white">
         {/* About Project Section */}
         <div>
           <h1 className="text-[60px] painterz pt-4 mx-0 mb-[2rem]">
