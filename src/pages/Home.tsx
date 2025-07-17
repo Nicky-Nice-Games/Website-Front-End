@@ -1,14 +1,9 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
+import { HomeCarousel } from "@/components/home-carousel";
 import { fetchData, formatPlacing, formatTime } from "@/utils";
 import { pfpList } from "@/data/pfps";
 
@@ -22,7 +17,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   );
-
+  
   const navigate = useNavigate();
 
   type ScoreProps = {
@@ -153,16 +148,17 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
 
   return (
     <>
-      <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem]">
+      <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
         <div
           id="header-text"
-          className=" md:h-[90vh] bg-black absolute md:relative h-[20%] w-[100%] md:w-[50%] flex flex-col align-center p-4 z-3"
+          className="md:h-[90vh] relative md:absolute w-[100%] 
+                    md:w-[50%] flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
         >
           <img
-            className="w-[300px] md:w-[500px]"
+            className="w-[200px] md:w-[80%]"
             src="/ggk/images/Game-Logo.png"
           ></img>
-          <h3 className="text-xl text-black md:text-[#f3f4f6] mt-[1rem]">
+          <h3 className="text-xl md:text-4xl text-[#f3f4f6] mt-[1rem] w-[100%]">
             Your favorite no-credit courses
           </h3>
         </div>
@@ -173,33 +169,14 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             navigate("/news");
             setCurrentPage("news");
           }}
-          className="absolute bottom-[4rem] md:right-[4rem] right-[10rem] z-10 px-10 py-3"
+          className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
         />
+        <HomeCarousel></HomeCarousel>
 
-        <Carousel
-          plugins={[plugin.current]}
-          className="w-full md:w-[60%] overflow-hidden absolute top-0 right-0"
-        >
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <div className="">
-                  <Card className="h-[90vh]">
-                    <CardContent className="flex items-center justify-center h-[90vh]">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
-        <div className=" mt-[4rem]">
+        <div className="bg-black">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
@@ -233,7 +210,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             alt="Photo of arcade machines"
           />
         </div>
-        <div className="mb-[12rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]">
+        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
@@ -244,7 +221,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div
           id="lore"
-          className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[12rem] bg-[url('images/white-checker.png')]"
+          className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[6rem] md:pb-[8rem] bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
           <p className="m-4">
