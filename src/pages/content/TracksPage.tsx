@@ -18,7 +18,7 @@ const TracksPage = () => {
   const [count, setCount] = useState(0);
   const [heading, setHeading] = useState("Tracks");
   const [description, setDescription] = useState("...");
-  
+
   useEffect(() => {
     if (!api) {
       return;
@@ -39,13 +39,19 @@ const TracksPage = () => {
 
   //information of heading and track carasoul
   return (
-    <>
+    <div
+      className="min-h-[80vh] bg-size-[110%] bg-blend-multiply"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgb(101, 216, 255), rgb(77, 137, 215)), url('images/items-background-darkoutline.png')",
+      }}
+    >
       {/*This is the header and description of each item*/}
       <ContentNavigator currentPage="tracks" />
       <div className="flex flex-col-reverse md:flex-row md:w-[98%] m-auto">
-        <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
+        <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] mt-3 md:mt-0 md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
           <div className="text-white">
-            <h1 className="mt-5 md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-5xl">
+            <h1 className="mt-5 md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-3xl md:text-5xl">
               {heading}
             </h1>
             <p className="text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[22%] 2xl:ml-[19%] md:mr-[22%] md:mb-18">
@@ -54,7 +60,7 @@ const TracksPage = () => {
           </div>
         </div>
         <div className="md:w-2/5">
-          <h2 className="text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-3 z-10 w-50 m-auto">
+          <h2 className="poppins text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-3 z-10 w-50 m-auto">
             Tracks
           </h2>
           <Carousel
@@ -71,7 +77,7 @@ const TracksPage = () => {
                         height={200}
                         src={track.imgUrl}
                         alt={track.name}
-                        className="h-full w-full rounded-lg object-cover object-top"
+                        className="h-full w-full rounded-lg object-cover object-top border border-5 border-[#FF7938] shadow-lg"
                       />
                     </div>
                   </CarouselItem>
@@ -80,7 +86,7 @@ const TracksPage = () => {
             </CarouselContent>
 
             {/*This shows how many tracks you are on and what track is the current one*/}
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-row justify-center mt-2">
               <CarouselPrevious />
               <div className="text-center text-xl px-4">
                 Track {current} of {count}
@@ -90,7 +96,7 @@ const TracksPage = () => {
           </Carousel>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -68,7 +68,7 @@ export const items: Item[] = [
     description: "Become invulnerable for 10 seconds",
   },
   {
-    imgUrl: "images/items/pucks/puck.png",
+    imgUrl: "images/items/pucks/level_one.png",
     name: "Puck",
     level: 1,
     category: "offense",
@@ -76,7 +76,7 @@ export const items: Item[] = [
       "A tier one (base) level offensive projective, If player is hit with a puck, they are slowed down",
   },
   {
-    imgUrl: "images/items/pucks/puck_upgraded.png",
+    imgUrl: "images/items/pucks/level_two.png",
     name: "Homing Spikey Puck",
     level: 2,
     category: "offense",
@@ -84,7 +84,7 @@ export const items: Item[] = [
       "A tier two level offensive projective, Will auto go to next player ahead and hit them",
   },
   {
-    imgUrl: "images/items/pucks/triple_homing_puck.png",
+    imgUrl: "images/items/pucks/level_three.png",
     name: "Triple Homing Pucks",
     level: 3,
     category: "offense",
@@ -92,7 +92,7 @@ export const items: Item[] = [
       "A tier three level offensive projective, will use three pucks with the same features of Homing Spikey Puck",
   },
   {
-    imgUrl: "images/items/pucks/flying_puck.png",
+    imgUrl: "images/items/pucks/level_four.png",
     name: "Flying Puck",
     level: 4,
     category: "offense",
@@ -100,29 +100,29 @@ export const items: Item[] = [
       "A level four (Final/Max) offensive projective, will go attack the player in first",
   },
   {
-    imgUrl: "images/items/fake/spill.png",
+    imgUrl: "images/items/fake/level_one.png",
     name: "Spill",
     level: 1,
     category: "trap",
     description:
-      "When Placed down if a player goes over it, slips on the oil and is slowed down",
+      "When placed down if a player goes over it, slips on the oil and is slowed down",
   },
   {
-    imgUrl: "images/items/fake/cracked_brick-wall.png",
+    imgUrl: "images/items/fake/level_two.png",
     name: "Cracked Brick Wall",
     level: 2,
     category: "trap",
     description: "TBD",
   },
   {
-    imgUrl: "images/items/fake/spill_upgraded.png",
+    imgUrl: "images/items/fake/level_three.png",
     name: "Confused Ritchie",
     level: 3,
     category: "trap",
     description: "Reverses control if drove into",
   },
   {
-    imgUrl: "images/items/fake/fake_item_box.png",
+    imgUrl: "images/items/fake/level_four.png",
     name: "Fake Power Up Block",
     level: 4,
     category: "trap",

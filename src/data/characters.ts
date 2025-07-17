@@ -11,7 +11,7 @@ export interface Character {
 
 // sample list of characters to display
 export const characters: Character[] = [
-    {
+  {
     imgUrl: "images/characters/gizmo.jpeg",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Gizmo",
@@ -83,7 +83,7 @@ export const characters: Character[] = [
       "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1",
   },
   {
-    imgUrl: "images/characters/Jamster.png",
+    imgUrl: "images/characters/spare-jamster.png",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Jamster",
     description: `Pronouns: They/Them
@@ -94,5 +94,5 @@ export const characters: Character[] = [
     devDescription: "JAMMMMSTER",
     songName: "Hamster Dance -  Hampton and the Hamsters",
     songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
-  }
+  },
 ];

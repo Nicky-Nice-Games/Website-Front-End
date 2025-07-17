@@ -2,6 +2,7 @@ import { SignupForm } from "@/components/signup-form";
 import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
 import { useNavigate } from "react-router-dom";
+import { fetchData } from "@/utils";
 
 const signup = (successCallback: Function, failedCallback: Function) => {
   const email: HTMLInputElement | null = document.querySelector("#email");
@@ -12,47 +13,59 @@ const signup = (successCallback: Function, failedCallback: Function) => {
 
   if (!email || !username || !password || !password2) return false;
   if (password.value != password2.value) {
-    failedCallback(username, password, password2, "password");
+    failedCallback(email, username, password, password2, "password");
     return false;
   }
-
-  const accountInfoCheck = async (): Promise<any> => {
-    const requestBody = {
-      email: email.value,
-      username: username.value,
-      password: password.value,
-    };
-
-    const response: Response = await fetch(
-      `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/create`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
+  // Check if the given username is already used by an account
+  fetchData(
+    "GET",
+    `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/verifyusername?username=${username.value}`,
+    "json",
+    (usernameExists: boolean) => {
+      if (usernameExists) {
+        failedCallback(email, username, password, password2, "usernameExists");
+        return false;
       }
-    );
-    const accountInfo = await response.json();
-    return accountInfo;
-  };
 
-  const accountInfo = accountInfoCheck();
-  accountInfo.then(
-    (info) => {
-      localStorage.setItem("pid", info.pid);
-      localStorage.setItem("username", info.username);
-      successCallback({ pid: info.pid, username: info.username });
-    },
-    () => {
-      failedCallback(username, password);
-      return false;
+      // Check if the given email is already used by an account
+      fetchData(
+        "GET",
+        `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/verifyemail?email=${email.value}`,
+        "json",
+        (emailExists: boolean) => {
+          if (emailExists) {
+            failedCallback(email, username, password, password2, "emailExists");
+            return false;
+          }
+
+          fetchData(
+            "POST",
+            `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/create`,
+            "json",
+            (info: any) => {
+              localStorage.setItem("pid", info.pid);
+              localStorage.setItem("username", info.username);
+              localStorage.setItem("pfp", info.pfp);
+              successCallback({
+                pid: info.pid,
+                username: info.username,
+                pfp: info.pfp,
+              });
+            },
+            {
+              email: email.value,
+              username: username.value,
+              password: password.value,
+            },
+            () => {
+              failedCallback(username, password);
+              return false;
+            }
+          );
+        }
+      );
     }
   );
-  accountInfo.catch((error) => {
-    console.log(error);
-    return false;
-  });
 };
 
 const error = (
@@ -69,6 +82,12 @@ const error = (
       passwordElement.className += " border-red-800";
       retypePasswordElement.className += " border-red-800";
       errorMessage.innerHTML = "Passwords don't match.";
+    } else if (errorType === "usernameExists") {
+      usernameElement.className += " border-red-800";
+      errorMessage.innerHTML = "An account already exists with this username.";
+    } else if (errorType === "emailExists") {
+      emailElement.className += " border-red-800";
+      errorMessage.innerHTML = "An account already exists with this email.";
     } else {
       emailElement.className += " border-red-800";
       usernameElement.className += " border-red-800";
@@ -87,7 +106,7 @@ const SignupPage = ({ setAccount }: SignupParams) => {
 
   return (
     <>
-      <div className="bg-[#000000] flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+      <div className="bg-[url('images/items-background.png')] bg-[#BBB] bg-fixed bg-size-[130%] bg-blend-difference flex min-h-[98vh] flex-col items-center justify-center gap-6 p-6 md:p-10">
         <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
           <Trophy className="size-8" />
         </div>

@@ -29,8 +29,6 @@ interface Update {
   text: ContentBlock[];
 }
 
-
-
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
   const [month, day, year] = dateStr.split("/");
@@ -40,7 +38,6 @@ const toISO = (dateStr: string) => {
 const NewsAndUpdatesPage = () => {
   const [updates, setUpdates] = useState<Update[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchData("GET", "data/updates.json", "json", (data: any) => { setUpdates(data); setLoading(false); })
@@ -78,9 +75,9 @@ const NewsAndUpdatesPage = () => {
   const paginatedUpdates = isMobile
     ? restUpdates
     : restUpdates.slice(
-      (currentPage - 1) * itemsPerPage,
-      currentPage * itemsPerPage
-    );
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+      );
   // Handlers
   const nextPage = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
@@ -119,7 +116,9 @@ const NewsAndUpdatesPage = () => {
     return (
       <ul className="pl-4 space-y-1">
         {items.map((item, i) => {
-          const symbol = ordered ? "" : bulletSymbols[Math.min(depth, bulletSymbols.length - 1)];
+          const symbol = ordered
+            ? ""
+            : bulletSymbols[Math.min(depth, bulletSymbols.length - 1)];
 
           if (typeof item === "string") {
             return (
@@ -161,9 +160,8 @@ const NewsAndUpdatesPage = () => {
   };
 
   if (loading) return <div className="text-white p-6">Loading updates...</div>;
-  if (error) return <div className="text-red-500 p-6">Error: {error}</div>;
   return (
-    <div className="min-h-screen bg-black p-6">
+    <div className="min-h-screen bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference p-6">
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (
@@ -183,10 +181,11 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile
-                ? "flex flex-col overflow-y-auto"
-                : "flex flex-col md:flex-row"
-                }`}
+              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
+                isMobile
+                  ? "flex flex-col overflow-y-auto"
+                  : "flex flex-col md:flex-row"
+              }`}
             >
               {isMobile ? (
                 // Mobile layout
@@ -216,8 +215,11 @@ const NewsAndUpdatesPage = () => {
                     <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
                       {/* Adds paragraphs to the expandable card*/}
                       {active.text.map((block, i) => {
-                        if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
-                        {/* Adds headings to the expandable card*/ }
+                        if (block.type === "paragraph")
+                          return <p key={i}>{block.text}</p>;
+                        {
+                          /* Adds headings to the expandable card*/
+                        }
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -229,19 +231,28 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-                        {/* Adds lists to the expandable card*/ }
+                        {
+                          /* Adds lists to the expandable card*/
+                        }
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
                             <ListTag
                               key={i}
-                              className={`${block.ordered ? "list-decimal" : "list-disc"} list-inside pl-4 space-y-1`}
+                              className={`${
+                                block.ordered ? "list-decimal" : "list-disc"
+                              } list-inside pl-4 space-y-1`}
                             >
-                              <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                              <RecursiveList
+                                items={block.items ?? []}
+                                ordered={block.ordered}
+                              />
                             </ListTag>
                           );
                         }
-                        {/* Adds images to the expandable card*/ }
+                        {
+                          /* Adds images to the expandable card*/
+                        }
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
@@ -297,9 +308,14 @@ const NewsAndUpdatesPage = () => {
 
                     <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
                       {active.text.map((block, i) => {
-                        {/* Adds paragraphs to the expandable card*/ }
-                        if (block.type === "paragraph") return <p key={i}>{block.text}</p>;
-                        {/* Adds headings to the expandable card*/ }
+                        {
+                          /* Adds paragraphs to the expandable card*/
+                        }
+                        if (block.type === "paragraph")
+                          return <p key={i}>{block.text}</p>;
+                        {
+                          /* Adds headings to the expandable card*/
+                        }
                         if (block.type === "heading") {
                           const HeadingTag = `h${block.level || 2}` as any;
                           return (
@@ -311,19 +327,28 @@ const NewsAndUpdatesPage = () => {
                             </HeadingTag>
                           );
                         }
-                        {/* Adds lists to the expandable card*/ }
+                        {
+                          /* Adds lists to the expandable card*/
+                        }
                         if (block.type === "list") {
                           const ListTag = block.ordered ? "ol" : "ul";
                           return (
                             <ListTag
                               key={i}
-                              className={`${block.ordered ? "list-decimal" : "list-disc"} list-inside pl-4 space-y-1`}
+                              className={`${
+                                block.ordered ? "list-decimal" : "list-disc"
+                              } list-inside pl-4 space-y-1`}
                             >
-                              <RecursiveList items={block.items ?? []} ordered={block.ordered} />
+                              <RecursiveList
+                                items={block.items ?? []}
+                                ordered={block.ordered}
+                              />
                             </ListTag>
                           );
                         }
-                        {/* Adds images to the expandable card*/ }
+                        {
+                          /* Adds images to the expandable card*/
+                        }
                         if (block.type === "image") {
                           return (
                             <div key={i} className="my-4">
@@ -398,8 +423,9 @@ const NewsAndUpdatesPage = () => {
               key={update.id} // Unique key for each item
               onClick={() => setActive(update)}
               // Full width for all images, but height depends on if it's full-width or not
-              className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
-                } bg-white text-black rounded-xl shadow overflow-hidden 
+              className={`${
+                isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
+              } bg-white text-black rounded-xl shadow overflow-hidden 
         cursor-pointer hover:scale-105 m-4`}
             >
               {/* Image */}

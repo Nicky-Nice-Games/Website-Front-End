@@ -48,9 +48,12 @@ const InfoPage = ({
   const statsList3: Stat[] = [
     {
       name: "Favorite Character",
-      value: characters[playerData.favoriteChara - 1].name,
+      value: characters[playerData.favoriteChara].name,
     },
-    { name: "Favorite Track", value: tracks[playerData.favoriteTrack - 1].name },
+    {
+      name: "Favorite Track",
+      value: tracks[playerData.favoriteTrack].name,
+    },
   ];
 
   return (
@@ -158,19 +161,21 @@ const InfoPage = ({
         </Card>
 
         {/* Recent Races Activity */}
-        <Card className="mr-4 ml-4">
-          <h2 className="ml-4 mb-2 text-lg font-semibold">Recent Races</h2>
-          <div className="space-y-2 px-4">
-            {recentRaces.map((race: any) => {
-              return (
-                <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
-                  <span>{tracks[race.mapRaced - 1].name}</span>
-                  <span>{formatTime(race.raceTime)}</span>
-                </div>
-              );
-            })}
-          </div>
-        </Card>
+        {recentRaces ? (
+          <Card className="mr-4 ml-4">
+            <h2 className="ml-4 mb-2 text-lg font-semibold">Recent Races</h2>
+            <div className="space-y-2 px-4">
+              {recentRaces.map((race: any) => {
+                return (
+                  <div className="bg-gray-800 rounded-md p-2 flex justify-between text-white">
+                    <span>{tracks[race.mapRaced].name}</span>
+                    <span>{formatTime(race.raceTime)}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        ) : null}
       </Card>
     </div>
   );
