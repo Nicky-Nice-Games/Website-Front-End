@@ -17,8 +17,8 @@ const LeaderboardPage = () => {
   // Renders if there hasn't been a chosen map
   if (mapId < 1)
     return (
-      <div className="text-center bg-[url(images/white-checker.png)] bg-size-[80%] md:bg-size-[60%] bg-cover">
-        <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99%">
+      <div className="text-center bg-[url(images/white-checker.png)] bg-size-[80%] md:bg-size-[60%] bg-cover bg-repeat min-h-[80vh]">
+        <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99% min-h-[80vh]">
           <div className=" pb-4">
             <img
               src=" images/leaderboard-header-3.png"
