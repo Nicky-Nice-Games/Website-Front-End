@@ -17,12 +17,12 @@ const LeaderboardPage = () => {
   // Renders if there hasn't been a chosen map
   if (mapId < 1)
     return (
-      <div className="text-center bg-[url(images/white-checker.png)] min-h-[85vh] bg-size-[80%] md:bg-size-[60%] bg-cover">
+      <div className="text-center bg-[url(images/white-checker.png)] bg-size-[80%] md:bg-size-[60%] bg-cover">
         <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99%">
           <div className=" pb-4">
             <img
               src=" images/leaderboard-header-3.png"
-              className="flex justify-self-center w-[100%] md:w-[45%] lg:w-[35%] pt-8 mb-[1rem]"
+              className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
             ></img>
             <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
               Click a map to view its leaderboard!
