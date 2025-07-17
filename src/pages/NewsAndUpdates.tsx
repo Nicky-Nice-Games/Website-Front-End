@@ -115,6 +115,7 @@ const NewsAndUpdatesPage = () => {
     depth?: number;
   }> = ({ items, ordered, depth = 0 }) => {
     const bulletSymbols = ["•", "◦", "▪", "–", "»"];
+
     return (
       <ul className="pl-4 space-y-1">
         {items.map((item, i) => {
@@ -122,19 +123,35 @@ const NewsAndUpdatesPage = () => {
 
           if (typeof item === "string") {
             return (
-              <li key={i}>
-                {!ordered && <span className="mr-1">{symbol}</span>}
-                {item}
+              <li key={i} className="flex">
+                {!ordered && (
+                  <span className="flex-shrink-0 mr-2 mt-0 leading-[1.5]">
+                    {symbol}
+                  </span>
+                )}
+                <span className="flex-1 leading-[1.5]">
+                  {item}
+                </span>
               </li>
             );
           }
 
           return (
-            <li key={i}>
-              {!ordered && <span className="mr-1">{symbol}</span>}
-              {item.text}
+            <li key={i} className="flex flex-col">
+              <div className="flex">
+                {!ordered && (
+                  <span className="flex-shrink-0 mr-2 mt-0 leading-[1.5]">
+                    {symbol}
+                  </span>
+                )}
+                <span className="flex-1 leading-[1.5]">
+                  {item.text}
+                </span>
+              </div>
               {item.children && (
-                <RecursiveList items={item.children} ordered={ordered} depth={depth + 1} />
+                <div className="ml-4 mt-1">
+                  <RecursiveList items={item.children} ordered={ordered} depth={depth + 1} />
+                </div>
               )}
             </li>
           );
@@ -178,7 +195,7 @@ const NewsAndUpdatesPage = () => {
                     <img // Moblie image
                       src={active.image}
                       alt={active.title}
-                      className="w-full object-cover object-top"
+                      className="w-full max-h-72 object-top"
                     />
                   </motion.div>
                   <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
@@ -311,15 +328,15 @@ const NewsAndUpdatesPage = () => {
                           return (
                             <div key={i} className="my-4">
                               <img
-  src={block.src}
-  alt={block.alt || ""}
-  className="rounded-md max-w-full h-auto"
-  style={{
-    width: block.width || "auto",
-    maxHeight: block.height || "none",
-    height: block.height ? "auto" : undefined,
-  }}
-/>
+                                src={block.src}
+                                alt={block.alt || ""}
+                                className="rounded-md max-w-full h-auto"
+                                style={{
+                                  width: block.width || "auto",
+                                  maxHeight: block.height || "none",
+                                  height: block.height ? "auto" : undefined,
+                                }}
+                              />
 
                               {block.caption && (
                                 <p className="text-sm text-center text-neutral-500 mt-1 italic">
@@ -413,7 +430,7 @@ const NewsAndUpdatesPage = () => {
           <button
             onClick={prevPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
           >
             Previous
           </button>
@@ -421,7 +438,7 @@ const NewsAndUpdatesPage = () => {
           <button
             onClick={nextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
           >
             Next
           </button>
@@ -432,7 +449,7 @@ const NewsAndUpdatesPage = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
           >
             ↑ Back to top
           </button>
