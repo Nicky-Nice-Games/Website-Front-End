@@ -55,20 +55,17 @@ export const ItemCard = memo(function ItemCard({
     <>
       {/* Grid Card - Only show when not active */}
       {!isActive && (
-        <motion.div
-          layoutId={`item-${category}-${id}`}
-          onClick={() => {
-            setIsActive(true);
-            setActiveItem(items[0]);
-          }}
-          className="cursor-pointer"
-        >
+        <motion.div layoutId={`item-${category}-${id}`}>
           <motion.div layoutId={`image-${category}-${id}`}>
-            <div className="rounded-xl h-60 w-60 xl:h-80 xl:w-80 flex hover:scale-105 transition-transform duration-200">
+            <div className="h-60 w-60 xl:h-80 xl:w-80 ">
               <img
                 src={items[0].imgUrl}
                 alt={items[0].name}
-                className="h-60 w-60 xl:h-80 xl:w-80 object-contain"
+                className="h-60 w-60 xl:h-80 xl:w-80 object-contain hover:scale-105 transition-transform flex duration-200 rounded-full cursor-pointer"
+                onClick={() => {
+                  setIsActive(true);
+                  setActiveItem(items[0]);
+                }}
               />
             </div>
           </motion.div>
