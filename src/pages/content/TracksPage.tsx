@@ -60,9 +60,10 @@ const TracksPage = () => {
           </div>
         </div>
         <div className="md:w-2/5">
-          <h2 className="poppins text-white text-center text-xl rounded-lg bg-gradient-to-r from-[#F66624] to-[#D84B3A] relative top-3 z-10 w-50 m-auto">
-            Tracks
-          </h2>
+        <img
+        src=" images/tracks-header.png"
+        className="flex justify-self-center w-[80%] md:w-[60%] "
+      ></img>
           <Carousel
             setApi={setApi}
             className="text-center rounded-3xl w-full m-auto"
@@ -71,7 +72,7 @@ const TracksPage = () => {
               {tracks.map((track) => {
                 return (
                   <CarouselItem>
-                    <div className="flex gap-4 flex-col w-[95%] h-[95%] my-4 mx-auto">
+                    <div className="flex gap-4 flex-col w-[95%] h-[95%] mx-auto">
                       <img
                         width={100}
                         height={200}
@@ -86,7 +87,7 @@ const TracksPage = () => {
             </CarouselContent>
 
             {/*This shows how many tracks you are on and what track is the current one*/}
-            <div className="flex flex-row justify-center mt-2">
+            <div className="flex flex-row justify-center mb-2">
               <CarouselPrevious />
               <div className="text-center text-xl px-4">
                 Track {current} of {count}
