@@ -61,7 +61,7 @@ export const ItemCard = memo(function ItemCard({
             setIsActive(true);
             setActiveItem(items[0]);
           }}
-          className="cursor-pointer rounded-[8rem] h-60 w-60 xl:h-80 xl:w-80 overflow-hidden"
+          className="cursor-pointer rounded-full h-50 w-50 xl:h-80 xl:w-80 overflow-hidden"
         >
           <motion.div layoutId={`image-${category}-${id}`}>
             <div className="h-full w-full flex p-[1rem] hover:scale-105 transition-transform duration-200">
@@ -118,7 +118,7 @@ export const ItemCard = memo(function ItemCard({
                   height={200}
                   src={activeItem.imgUrl}
                   alt={activeItem.name}
-                  className="w-72 h-72 object-contain"
+                  className="w-60 h-60 object-contain"
                 />
 
                 {/* Level Tabs */}
