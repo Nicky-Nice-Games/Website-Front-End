@@ -21,7 +21,7 @@ const LeaderboardPage = () => {
         <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99% min-h-[80vh]">
           <div className=" pb-4">
             <img
-              src=" images/leaderboard-header-3.png"
+              src=" images/leaderboard-header.png"
               className="flex justify-self-center w-[100%] md:w-[45%] lg:w-[35%] pt-8 mb-[1rem]"
             ></img>
             <h2 className="text-black text-[18px] pb-[2rem] font-semibold">

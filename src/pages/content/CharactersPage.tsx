@@ -81,12 +81,10 @@ const CharactersPage = () => {
     >
       <ContentNavigator currentPage={"characters"} />
 
-      <h1
-        className="w-full md:w-180 text-white text-3xl md:text-5xl text-center poppins relative top-3 md:rounded-r-lg py-5 md:pl-40 md:pr-3 mb-7
-        bg-gradient-to-b from-[#F66624] to-[#D84B3A]"
-      >
-        Meet The Characters!
-      </h1>
+      <img
+        src=" images/characters-banner.png"
+        className="flex justify-self-left w-[60%] md:w-[60%] mb-[2rem] mt-[1rem]"
+      ></img>
 
       {/*Header of characters page*/}
       <div className="px-8">

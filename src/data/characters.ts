@@ -12,11 +12,10 @@ export interface Character {
 // sample list of characters to display
 export const characters: Character[] = [
   {
-    imgUrl: "images/characters/gizmo.jpeg",
+    imgUrl: "images/characters/gizmo.png",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Gizmo",
-    description: `Nickname: Giz
-    Pronouns: any/all
+    description: `Pronouns: any/all
     Likes: Doohickeys, Creativity, Being helpful
     Dislikes: Scaring people`,
     devDescription:
