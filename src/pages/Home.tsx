@@ -76,85 +76,42 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
   }
 
   const bannerImages1 = [
-    {
-      imgSrc: "images/in-game/one.png",
-    },
-    {
-      imgSrc: "images/in-game/ten.png",
-    },
-    {
-      imgSrc: "images/in-game/three.png",
-    },
-    {
-      imgSrc: "images/in-game/nine.png",
-    },
-    {
-      imgSrc: "images/in-game/five.png",
-    },
-    {
-      imgSrc: "images/in-game/eight.png",
-    },
-    {
-      imgSrc: "images/in-game/seven.png",
-    },
-    {
-      imgSrc: "images/in-game/six.png",
-    },
-    {
-      imgSrc: "images/in-game/nine.png",
-    },
-    {
-      imgSrc: "images/in-game/two.png",
-    },
+    "images/in-game/one.png",
+    "images/in-game/ten.png",
+    "images/in-game/three.png",
+    "images/in-game/nine.png",
+    "images/in-game/five.png",
+    "images/in-game/eight.png",
+    "images/in-game/seven.png",
+    "images/in-game/six.png",
+    "images/in-game/nine.png",
+    "images/in-game/two.png",
   ];
 
   const bannerImages2 = [
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
   ];
 
   return (
     <>
-      <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
+      <div className="relative h-[110vh] md:h-[90vh] w-full text-white pb-8 pt-0 pr-0 pb-16 bg-black">
         <div
           id="header-text"
-          className="md:h-[90vh] relative md:absolute w-[100%] 
+          className="md:h-[90vh] relative md:absolute w-full 
                     md:w-[50%] flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
         >
-          <img
-            className="w-[200px] md:w-[80%]"
-            src="images/Game-Logo.png"
-          ></img>
-          <h3 className="text-xl md:text-4xl text-[#f3f4f6] mt-[1rem] w-[100%]">
-            Your favorite no-credit courses
+          <img className="w-120 md:w-[80%]" src="images/Game-Logo.png"></img>
+          <h3 className="text-xl md:text-4xl poppins text-[#f3f4f6] mt-[1rem] w-[100%]">
+            Your Favorite No-Credit Courses!
           </h3>
         </div>
         <ArrowButton
@@ -164,7 +121,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             navigate("/news");
             setCurrentPage("news");
           }}
-          className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
+          className="absolute bottom-0 md:bottom-12 md:right-12 right-4 z-10 px-10 py-3"
         />
         <HomeCarousel></HomeCarousel>
       </div>
@@ -182,8 +139,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
 
         <div
           id="introdcution"
-          className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-fixed  bg-[url('images/black-checker.png')]
+          className="pt-8 md:pt-32 w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
+                    bg-repeat bg-fixed bg-[url('images/black-checker.png')]
                     text-white"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
