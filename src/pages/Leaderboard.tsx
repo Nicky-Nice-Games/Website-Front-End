@@ -22,7 +22,7 @@ const LeaderboardPage = () => {
           <div className=" pb-4">
             <img
               src=" images/leaderboard-header-3.png"
-              className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
+              className="flex justify-self-center w-[100%] md:w-[45%] lg:w-[35%] pt-8 mb-[1rem]"
             ></img>
             <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
               Click a map to view its leaderboard!
