@@ -149,13 +149,7 @@ const NewsAndUpdatesPage = () => {
 
   if (loading) return <div className="text-white p-6">Loading updates...</div>;
   return (
-    <div
-      className="min-h-screen bg-blend-multiply p-6"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgb(81, 176, 235), rgb(57, 117, 195)), url('images/items-background-darkoutline.png')",
-      }}
-    >
+    <div className="min-h-screen bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference p-6">
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (
