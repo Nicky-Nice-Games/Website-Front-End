@@ -183,7 +183,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div
           id="introdcution"
           className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-fixed bg-[url('images/items-background.png')]
+                    bg-repeat bg-fixed  bg-[url('images/black-checker.png')]
                     text-white"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
@@ -204,7 +204,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             alt="Photo of arcade machines"
           />
         </div>
-        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/items-background.png')]">
+        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
@@ -242,7 +242,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
           </p>
         </div>
-        <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
+        <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
           <div
             className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
           bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
@@ -254,7 +254,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             />
           </div>
         </div>
-        <div className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]">
+        <div className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"

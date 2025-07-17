@@ -21,16 +21,13 @@ const LeaderboardPage = () => {
         <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99%">
           <div className=" mb-8">
             <img
-              src=" images/leaderboard-header-3.png"
+              src="images/leaderboard-header.png"
               className="flex justify-self-center w-[100%] md:w-[45%] pt-8 mb-[1rem]"
             ></img>
             <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
               Click a map to view its leaderboard!
             </h2>
           </div>
-          {/* <h1 className="bebas text-black italic mx-10 mt-8 text-5xl">
-          Leaderboard
-        </h1> */}
 
           <MapSelect
             setMapId={setMapId}

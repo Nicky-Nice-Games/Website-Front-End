@@ -72,15 +72,21 @@ const CharactersPage = () => {
 
   return (
     <main
-      className="bg-fixed bg-size-[90%] md:bg-size-[80%]
-     bg-[url('images/blue-items-background.png')]"
+      className="min-h-[80vh] bg-fixed bg-size-[90%] md:bg-size-[80%]
+     bg-blend-multiply"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgb(60, 193, 87), rgb(57, 172, 153)), url('images/items-background-darkoutline.png')",
+      }}
     >
       <ContentNavigator currentPage={"characters"} />
 
-      <img
-        src=" images/characters-banner.png"
-        className="flex justify-self-left w-[100%] md:w-[60%] mb-[2rem] mt-[1rem]"
-      ></img>
+      <h1
+        className="w-full md:w-180 text-white text-3xl md:text-5xl text-center poppins relative top-3 md:rounded-r-lg py-5 md:pl-40 md:pr-3 mb-7
+        bg-gradient-to-b from-[#F66624] to-[#D84B3A]"
+      >
+        Meet The Characters!
+      </h1>
 
       {/*Header of characters page*/}
       <div className="px-8">

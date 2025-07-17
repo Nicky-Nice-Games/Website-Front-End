@@ -64,11 +64,11 @@ export const ItemCard = memo(function ItemCard({
           className="cursor-pointer"
         >
           <motion.div layoutId={`image-${category}-${id}`}>
-            <div className="rounded-xl h-80 w-80 flex hover:scale-105 transition-transform duration-200">
+            <div className="rounded-xl h-60 w-60 xl:h-80 xl:w-80 flex hover:scale-105 transition-transform duration-200">
               <img
                 src={items[0].imgUrl}
                 alt={items[0].name}
-                className="h-80 w-80 object-contain"
+                className="h-60 w-60 xl:h-80 xl:w-80 object-contain"
               />
             </div>
           </motion.div>
