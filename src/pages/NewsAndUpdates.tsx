@@ -149,7 +149,7 @@ const NewsAndUpdatesPage = () => {
 
   if (loading) return <div className="text-white p-6">Loading updates...</div>;
   return (
-    <div className="min-h-screen bg-black p-6">
+    <div className="min-h-screen bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference p-6">
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (

@@ -41,7 +41,13 @@ const LoginPage = ({ setAccount }: LoginParams) => {
 
   return (
     <>
-      <div className="bg-black min-h-svh flex flex-col items-center justify-center gap-6 p-6 md:p-20">
+      <div
+        className="bg-size-[90%] bg-blend-multiply min-h-[80vh] flex flex-col items-center justify-center gap-6 p-6"
+        style={{
+          backgroundImage:
+            "linear-gradient(#FFA962, #F76902), url('images/items-background-darkoutline.png')",
+        }}
+      >
         <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
           <Trophy className="size-8" />
         </div>
@@ -50,7 +56,9 @@ const LoginPage = ({ setAccount }: LoginParams) => {
             href="#"
             className="flex items-center gap-2 self-center font-medium"
           >
-            <h1 className="text-white text-4xl">Name TBD</h1>
+            <h1 className="poppins font-bold text-white text-4xl">
+              Gizmo Go-Kartz
+            </h1>
           </a>
           <LoginForm
             onSubmit={(e) => {

@@ -19,7 +19,11 @@ export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
       <TabsList className="w-full flex-wrap flex-column h-full">
         {Object.keys(teamData).map((team) => (
           <TabsTrigger key={team} value={team}>
-            {team === "GSP" ? "Game Systems Programming" : team}
+            {team === "GSP"
+              ? "Game Systems Programming"
+              : team === "RND"
+              ? "R&D"
+              : team}
           </TabsTrigger>
         ))}
       </TabsList>
@@ -42,7 +46,11 @@ export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
         <TeamTab teamData={teamData.Content} teamName="Content" />
       </TabsContent>
       <TabsContent value="QA">
-        <TeamTab teamData={teamData.QA} teamName="QA" />
+        <TeamTab
+          teamData={teamData.QA}
+          teamName="QA"
+          customTitle="Quality Assurance"
+        />
       </TabsContent>
       <TabsContent value="Support">
         <TeamTab teamData={teamData.Support} teamName="Support" />
@@ -51,10 +59,14 @@ export const TeamTabs = ({ teamData, defaultTab = "GSP" }: TeamTabsProps) => {
         <TeamTab teamData={teamData.Web} teamName="Web" />
       </TabsContent>
       <TabsContent value="RND">
-        <TeamTab teamData={teamData.RND} teamName="RND" />
+        <TeamTab
+          teamData={teamData.RND}
+          teamName="RND"
+          customTitle="Research and Development"
+        />
       </TabsContent>
       <TabsContent value="Advisory">
-        <TeamTab teamData={teamData.Advisory} teamName="RND" />
+        <TeamTab teamData={teamData.Advisory} teamName="Advisory" />
       </TabsContent>
     </Tabs>
   );

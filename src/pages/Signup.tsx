@@ -106,7 +106,7 @@ const SignupPage = ({ setAccount }: SignupParams) => {
 
   return (
     <>
-      <div className="bg-[#000000] flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+      <div className="bg-[url('images/items-background.png')] bg-[#BBB] bg-fixed bg-size-[130%] bg-blend-difference flex min-h-[98vh] flex-col items-center justify-center gap-6 p-6 md:p-10">
         <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
           <Trophy className="size-8" />
         </div>
