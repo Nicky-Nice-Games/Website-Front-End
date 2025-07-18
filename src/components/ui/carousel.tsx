@@ -184,7 +184,10 @@ function CarouselPrevious({
       data-slot="carousel-previous"
       variant={variant}
       size={size}
-      className={cn("size-8 rounded-full w-20", className)}
+      className={cn(
+        "size-8 rounded-full w-20 cursor-pointer hover:bg-[#BBB] hover:border-[#888]",
+        className
+      )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
@@ -208,7 +211,10 @@ function CarouselNext({
       data-slot="carousel-next"
       variant={variant}
       size={size}
-      className={cn("size-8 rounded-full w-20", className)}
+      className={cn(
+        "size-8 rounded-full w-20 cursor-pointer hover:bg-[#BBB] hover:border-[#888]",
+        className
+      )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}

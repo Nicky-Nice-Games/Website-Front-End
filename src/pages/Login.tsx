@@ -2,6 +2,7 @@ import { LoginForm } from "@/components/login-form";
 import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
 import { useNavigate } from "react-router-dom";
+import { fetchData } from "@/utils";
 
 const login = (successCallback: Function, failedCallback: Function) => {
   const username: HTMLInputElement | null = document.querySelector("#username");
@@ -9,35 +10,26 @@ const login = (successCallback: Function, failedCallback: Function) => {
 
   if (!username || !password) return false;
 
-  const accountInfoCheck = async (): Promise<any> => {
-    const response: Response = await fetch(
-      `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${username.value}/${password.value}`
-    );
-    const accountInfo = await response.json();
-    return accountInfo;
-  };
-
-  const accountInfo = accountInfoCheck();
-  accountInfo.then(
-    (info) => {
+  fetchData(
+    "GET",
+    `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/getinfo/${username.value}/${password.value}`,
+    "json",
+    (info: any) => {
       localStorage.setItem("pid", info.pid);
       localStorage.setItem("username", info.username);
-      localStorage.setItem("pfpId", info.pfpLink);
+      localStorage.setItem("pfp", info.pfpLink);
       successCallback({
         pid: info.pid,
         username: info.username,
         pfp: info.pfpLink,
       });
     },
+    null,
     () => {
       failedCallback(username, password);
       return false;
     }
   );
-  accountInfo.catch((error) => {
-    console.log(error);
-    return false;
-  });
 };
 
 interface LoginParams {
@@ -49,7 +41,13 @@ const LoginPage = ({ setAccount }: LoginParams) => {
 
   return (
     <>
-      <div className="bg-black min-h-svh flex flex-col items-center justify-center gap-6 p-6 md:p-20">
+      <div
+        className="bg-size-[90%] bg-blend-multiply min-h-[80vh] flex flex-col items-center justify-center gap-6 p-6"
+        style={{
+          backgroundImage:
+            "linear-gradient(#FFA962, #F76902), url('images/items-background-darkoutline.png')",
+        }}
+      >
         <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
           <Trophy className="size-8" />
         </div>
@@ -58,7 +56,9 @@ const LoginPage = ({ setAccount }: LoginParams) => {
             href="#"
             className="flex items-center gap-2 self-center font-medium"
           >
-            <h1 className="text-white text-4xl">Name TBD</h1>
+            <h1 className="poppins font-bold text-white text-4xl">
+              Gizmo Go-Kartz
+            </h1>
           </a>
           <LoginForm
             onSubmit={(e) => {
@@ -67,7 +67,7 @@ const LoginPage = ({ setAccount }: LoginParams) => {
               login(
                 (account: AccountSchema) => {
                   setAccount(account);
-                  navigate('/home');
+                  navigate("/home");
                 },
                 (
                   usernameElement: HTMLInputElement,

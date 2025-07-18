@@ -9,6 +9,7 @@ export type TeamName =
   | "Support"
   | "QA"
   | "Web"
+  | "Advisory"
   | "Production";
 
 export type TeamDataMap = Record<TeamName, TeamData>;

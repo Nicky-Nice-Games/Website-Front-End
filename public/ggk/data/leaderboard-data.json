@@ -1,77 +1,97 @@
 [
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 439000
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 563445
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 123422
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 200129
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 875223
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 32422
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 154323
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 12122
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 54321
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 14141
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 10090
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 66646
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 61612
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 45478
-    },
-    {
-        "pid": "2388asdje",
-        "username": "username",
-        "raceTime": 52899
-    }
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 439000,
+    "pfp": 0
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 563445,
+    "pfp": 0
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 123422,
+    "pfp": 2,
+    "score": 99444
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 200129,
+    "pfp": 0,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 875223,
+    "pfp": 1,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 32422,
+    "pfp": 4,
+    "score": 99933.44
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 154323,
+    "pfp": 3,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 12122,
+    "pfp": 3,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 54321,
+    "pfp": 1,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 14141,
+    "pfp": 1,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 10090,
+    "pfp": 1,
+    "score": 99999
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 66646
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 61612
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 45478
+  },
+  {
+    "pid": "2388asdje",
+    "username": "username",
+    "raceTime": 52899
+  }
 ]

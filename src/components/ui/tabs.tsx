@@ -50,7 +50,7 @@ function TabsTrigger({
       text-sm font-medium whitespace-nowrap  
       focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm
       [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 
-      md:text-[22px] bebas font-bold passive-outline p-[10px] translate-y-[0px]`,
+      md:text-[22px] bebas font-bold passive-outline p-[10px] translate-y-[0px] cursor-pointer`,
         className
       )}
       {...props}
