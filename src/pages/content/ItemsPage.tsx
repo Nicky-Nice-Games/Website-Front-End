@@ -9,7 +9,7 @@ const ItemsPage = () => {
     <>
       <ContentNavigator currentPage={"items"} />
       <main
-        className="min-h-[73vh] bg-size-[110%] bg-blend-multiply"
+        className="min-h-[73vh] bg-size-[110%] bg-blend-multiply w-[100%]"
         style={{
           backgroundImage:
             "linear-gradient(rgb(255, 233, 0), rgb(255, 193, 0)), url('images/items-background-darkoutline.png')",
@@ -23,7 +23,7 @@ const ItemsPage = () => {
         </h1>
 
         <div className="flex flex-col lg:flex-row w-full m-auto items-center xl:items-start justify-center">
-          <BoostCard />
+          <BoostCard/>
           <DefenseCard />
           <OffenseCard />
           <TrapCard />
