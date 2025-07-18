@@ -21,8 +21,8 @@ const LeaderboardPage = () => {
         <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99% min-h-[80vh]">
           <div className=" pb-4">
             <img
-              src="images/leaderboard-header.png"
-              className="flex justify-self-center w-[100%] md:w-[45%] lg:w-[35%] pt-8 mb-[1rem]"
+              src=" images/leaderboard-header.png"
+              className="flex justify-self-center w-[100%] md:w-[45%] 2xl:w-[35%] pt-8 mb-[1rem]"
             ></img>
             <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
               Click a map to view its leaderboard!
@@ -72,7 +72,7 @@ const MapSelect = ({
     <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center">
       {tracks.map((t) => {
         return (
-          <div className="md:mx-[8rem] lg:mx-[2rem] mb-10">
+          <div className="2xl:mx-[2rem] md:mx-[8rem] mb-10">
             <h1 className="w-fit text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] m-auto p-[5px] mb-2 px-3 py-1 rounded-lg g">
               {t.name}
             </h1>
