@@ -91,7 +91,7 @@ const CharactersPage = () => {
         {/* Character carousel */}
         <Carousel setApi={setApi} className="flex flex-row w-full items-center">
           <CarouselPrevious className="w-8" />
-          <CarouselContent className="m-auto py-15 xl:py-22 flex flex-row content-center items-center justify-between">
+          <CarouselContent className="m-auto py-15 xl:py-22 flex flex-row content-center items-center justify-between drop-shadow-xl/50">
             {characters.map((character, index) => (
               <CarouselItem className="md:basis-1/3 p-auto">
                 <Dialog>
