@@ -7,7 +7,7 @@ export const TrapCard = () => {
   return (
     <ItemCard
       items={trapItems}
-      bgGradient="from-[#FFB000] to-[#F4D55D]"
+      bgGradient="from-fuchsia-800 to-fuchsia-500"
       category="trap"
     />
   );
