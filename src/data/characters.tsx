@@ -39,7 +39,7 @@ export const characters: Character[] = [
     description: (
       <div>
         <b>Pronouns:</b> She/They <br />
-        <b>Height:</b> She/They <br />
+        <b>Height:</b> Average <br />
         <b>Year:</b> Freshmen <br />
         <b>Major:</b> Photography <br />
         <b>Likes:</b> Skating, Thrifting Clothes, Going Fast
@@ -63,7 +63,7 @@ export const characters: Character[] = [
         <b>Year:</b> Sophomore <br />
         <b>Major:</b> Packaging Science <br />
         <b>Likes:</b> Free Stuff, Making Mixtapes, Anime, Energy Drinks <br />
-        <b>Dislikes:</b>Angry customers, Waking up<br />
+        <b>Dislikes:</b> Angry customers, Waking up<br />
       </div>
     ),
     devDescription: "blah blah blah...",
