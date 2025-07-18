@@ -426,17 +426,17 @@ const NewsAndUpdatesPage = () => {
               className={`${
                 isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
               } bg-white text-black rounded-xl shadow overflow-hidden 
-        cursor-pointer hover:scale-105 m-4`}
+              cursor-pointer m-4`}
             >
               {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full ${isFullWidth ? "h-96" : "h-72"
+                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${isFullWidth ? "h-96" : "h-72"
                   } `}
               />
               {/* Text content of the update */}
-              <div className="p-4">
+              <div className="p-4 relative bg-white z-2">
                 {/* Date */}
                 <p className="text-xs text-[#F76902] font-semibold mb-1">
                   {update.date}
