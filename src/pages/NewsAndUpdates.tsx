@@ -1,33 +1,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { fetchData } from "@/utils";
 import { CloseIcon } from "@/components/content/close-icon";
-
-type ListItem = string | { text: string; children?: ListItem[] };
-// Content of the updates
-interface ContentBlock {
-  type: "paragraph" | "list" | "heading" | "image";
-  text?: string;
-  items?: ListItem[];
-  ordered?: boolean;
-  level?: number; // for headings
-  src?: string;
-  alt?: string;
-  caption?: string;
-  width?: string;
-  height?: string;
-}
-
-// Array of updates
-interface Update {
-  id: number;
-  title: string;
-  date: string;
-  subtitle: string;
-  image: string;
-  text: ContentBlock[];
-}
+import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
+import { type Update, updates } from "@/data/updates";
+import "@react-pdf-viewer/core/lib/styles/index.css";
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
@@ -36,13 +13,6 @@ const toISO = (dateStr: string) => {
 };
 
 const NewsAndUpdatesPage = () => {
-  const [updates, setUpdates] = useState<Update[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchData("GET", "data/updates.json", "json", (data: any) => { setUpdates(data); setLoading(false); })
-  }, []);
-
   const sortedUpdates = [...updates].sort((a, b) => {
     const dateA = Date.parse(toISO(a.date));
     const dateB = Date.parse(toISO(b.date));
@@ -105,61 +75,6 @@ const NewsAndUpdatesPage = () => {
   // close pop up when clicking outside
   useOutsideClick(ref, () => setActive(null));
 
-  // Nests unordered lists with custom bullet symbols based on depth
-  const RecursiveList: React.FC<{
-    items: ListItem[];
-    ordered?: boolean;
-    depth?: number;
-  }> = ({ items, ordered, depth = 0 }) => {
-    const bulletSymbols = ["•", "◦", "▪", "–", "»"];
-
-    return (
-      <ul className="pl-4 space-y-1">
-        {items.map((item, i) => {
-          const symbol = ordered
-            ? ""
-            : bulletSymbols[Math.min(depth, bulletSymbols.length - 1)];
-
-          if (typeof item === "string") {
-            return (
-              <li key={i} className="flex">
-                {!ordered && (
-                  <span className="flex-shrink-0 mr-2 mt-0 leading-[1.5]">
-                    {symbol}
-                  </span>
-                )}
-                <span className="flex-1 leading-[1.5]">
-                  {item}
-                </span>
-              </li>
-            );
-          }
-
-          return (
-            <li key={i} className="flex flex-col">
-              <div className="flex">
-                {!ordered && (
-                  <span className="flex-shrink-0 mr-2 mt-0 leading-[1.5]">
-                    {symbol}
-                  </span>
-                )}
-                <span className="flex-1 leading-[1.5]">
-                  {item.text}
-                </span>
-              </div>
-              {item.children && (
-                <div className="ml-4 mt-1">
-                  <RecursiveList items={item.children} ordered={ordered} depth={depth + 1} />
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    );
-  };
-
-  if (loading) return <div className="text-white p-6">Loading updates...</div>;
   return (
     <div className="min-h-screen bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference p-6">
       {/* overlay behind pop up when active */}
@@ -181,7 +96,7 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-130 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
+              className={`w-19/20 h-[90%] md:h-150 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
                 isMobile
                   ? "flex flex-col overflow-y-auto"
                   : "flex flex-col md:flex-row"
@@ -212,67 +127,12 @@ const NewsAndUpdatesPage = () => {
                     >
                       {active.title}
                     </motion.h3>
-                    <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
-                      {/* Adds paragraphs to the expandable card*/}
-                      {active.text.map((block, i) => {
-                        if (block.type === "paragraph")
-                          return <p key={i}>{block.text}</p>;
-                        {
-                          /* Adds headings to the expandable card*/
-                        }
-                        if (block.type === "heading") {
-                          const HeadingTag = `h${block.level || 2}` as any;
-                          return (
-                            <HeadingTag
-                              key={i}
-                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                            >
-                              {block.text}
-                            </HeadingTag>
-                          );
-                        }
-                        {
-                          /* Adds lists to the expandable card*/
-                        }
-                        if (block.type === "list") {
-                          const ListTag = block.ordered ? "ol" : "ul";
-                          return (
-                            <ListTag
-                              key={i}
-                              className={`${
-                                block.ordered ? "list-decimal" : "list-disc"
-                              } list-inside pl-4 space-y-1`}
-                            >
-                              <RecursiveList
-                                items={block.items ?? []}
-                                ordered={block.ordered}
-                              />
-                            </ListTag>
-                          );
-                        }
-                        {
-                          /* Adds images to the expandable card*/
-                        }
-                        if (block.type === "image") {
-                          return (
-                            <div key={i} className="my-4">
-                              <img
-                                src={block.src}
-                                alt={block.alt || ""}
-                                style={{ width: block.width || "100%", height: block.height || "auto" }}
-                                className="rounded-md"
-                              />
-                              {block.caption && (
-                                <p className="text-sm text-center text-neutral-500 mt-1 italic">
-                                  {block.caption}
-                                </p>
-                              )}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                      <Viewer
+                        fileUrl={active.contentLink}
+                        defaultScale={SpecialZoomLevel.PageWidth}
+                      />
+                    </Worker>
                   </div>
                 </>
               ) : (
@@ -280,16 +140,16 @@ const NewsAndUpdatesPage = () => {
                 <>
                   <motion.div
                     layoutId={`image-${active.title}-${id}`}
-                    className="min-w-4/10 md:h-auto"
+                    className="min-w-3/10 xl:min-w-1/2 md:h-auto"
                   >
                     <img // Desktop image
                       src={active.image}
                       alt={active.title}
-                      className="w-full h-full  object-top rounded-xl"
+                      className="w-full h-full object-top rounded-xl"
                     />
                   </motion.div>
 
-                  <div className="relative w-full flex flex-col p-6 h-full overflow-hidden">
+                  <div className="relative w-full flex flex-col p-6 min-w-3/5 xl:min-w-2/5 h-full overflow-hidden">
                     {/* x button */}
                     <button
                       onClick={() => setActive(null)}
@@ -306,74 +166,12 @@ const NewsAndUpdatesPage = () => {
                       {active.title}
                     </motion.h3>
 
-                    <div className="flex-1 overflow-y-auto pr-2 text-neutral-600 dark:text-neutral-400 space-y-4">
-                      {active.text.map((block, i) => {
-                        {
-                          /* Adds paragraphs to the expandable card*/
-                        }
-                        if (block.type === "paragraph")
-                          return <p key={i}>{block.text}</p>;
-                        {
-                          /* Adds headings to the expandable card*/
-                        }
-                        if (block.type === "heading") {
-                          const HeadingTag = `h${block.level || 2}` as any;
-                          return (
-                            <HeadingTag
-                              key={i}
-                              className="font-bold text-neutral-800 dark:text-neutral-100 mt-4 text-xl"
-                            >
-                              {block.text}
-                            </HeadingTag>
-                          );
-                        }
-                        {
-                          /* Adds lists to the expandable card*/
-                        }
-                        if (block.type === "list") {
-                          const ListTag = block.ordered ? "ol" : "ul";
-                          return (
-                            <ListTag
-                              key={i}
-                              className={`${
-                                block.ordered ? "list-decimal" : "list-disc"
-                              } list-inside pl-4 space-y-1`}
-                            >
-                              <RecursiveList
-                                items={block.items ?? []}
-                                ordered={block.ordered}
-                              />
-                            </ListTag>
-                          );
-                        }
-                        {
-                          /* Adds images to the expandable card*/
-                        }
-                        if (block.type === "image") {
-                          return (
-                            <div key={i} className="my-4">
-                              <img
-                                src={block.src}
-                                alt={block.alt || ""}
-                                className="rounded-md max-w-full h-auto"
-                                style={{
-                                  width: block.width || "auto",
-                                  maxHeight: block.height || "none",
-                                  height: block.height ? "auto" : undefined,
-                                }}
-                              />
-
-                              {block.caption && (
-                                <p className="text-sm text-center text-neutral-500 mt-1 italic">
-                                  {block.caption}
-                                </p>
-                              )}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                      <Viewer
+                        fileUrl={active.contentLink}
+                        defaultScale={SpecialZoomLevel.PageWidth}
+                      />
+                    </Worker>
                   </div>
                 </>
               )}
@@ -432,8 +230,7 @@ const NewsAndUpdatesPage = () => {
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full ${isFullWidth ? "h-96" : "h-72"
-                  } `}
+                className={`w-full ${isFullWidth ? "h-96" : "h-72"} `}
               />
               {/* Text content of the update */}
               <div className="p-4">
@@ -484,7 +281,5 @@ const NewsAndUpdatesPage = () => {
     </div>
   );
 };
-
-
 
 export default NewsAndUpdatesPage;
