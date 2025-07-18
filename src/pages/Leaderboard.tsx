@@ -48,7 +48,7 @@ const LeaderboardPage = () => {
         <ArrowButton
           caption="Back"
           clickAction={() => setMapId(0)}
-          className="absolute left-[11%] top-34 md:top-25"
+          className="absolute left-[11%] top-34 md:top-25 px-4 sm:px-7"
           direction="left"
         />
         <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
@@ -109,6 +109,7 @@ const LeaderboardTable = ({ mapId }: { mapId: number }) => {
       data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);
       data.map((item: any) => {
         item.index = data.indexOf(item) + 1; //Set index for display purposes
+        item.score = Math.floor(item.score);
       });
       setLeaderboardData(data);
     });
