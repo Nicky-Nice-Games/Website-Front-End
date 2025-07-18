@@ -48,8 +48,8 @@ const TracksPage = () => {
     >
       {/*This is the header and description of each item*/}
       <ContentNavigator currentPage="tracks" />
-      <div className="flex flex-col-reverse md:flex-row md:w-[98%] m-auto">
-        <div className="text-center md:w-3/5 mt-3 md:mt-11 relative md:right-5">
+      <div className="flex flex-col-reverse md:flex-row md:w-[98%] m-auto md:py-3">
+        <div className="text-center md:w-3/5 relative md:right-5">
           <div className="text-white h-full">
             <div
               className="flex flex-col justify-center
@@ -58,7 +58,7 @@ const TracksPage = () => {
             >
               <h1 className="font-black text-3xl sm:text-5xl">{heading}</h1>
             </div>
-            <div className="h-4/5  bg-linear-to-t from-[#F66624]/90 to-[#D84B3A]/90  rounded-b-2xl mx-3 md:mx-10 p-5 mb-6">
+            <div className="h-4/5 bg-linear-to-t from-[#F66624]/90 to-[#D84B3A]/90  rounded-b-2xl mx-3 md:mx-10 p-5 mb-6">
               <p className="text-lg md:text-2xl opacity-100">{description}</p>
             </div>
           </div>
