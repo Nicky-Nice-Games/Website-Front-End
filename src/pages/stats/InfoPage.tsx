@@ -70,7 +70,7 @@ const InfoPage = ({
               {/* Left side/Buttons */}
               <div className="flex border-2 border-orange-500 bg-black p-1.5 md:p-2 justify-center md:justify-start items-center space-x-2.5 md:space-x-3 rounded-md">
                 <button
-                  className="font-bold text-orange-400 hover:bg-gray-800 hover:text-orange-300 hover:cursor-pointer border-2 border-orange-500 rounded-md py-1.5 px-3.5 text-sm md:text-base transition-colors"
+                  className="font-bold text-orange-400 hover:bg-gray-800 hover:text-orange-300 hover:cursor-pointer border-2 border-orange-500 rounded-md py-1.5 px-3.5 text-sm md:text-base transition-colors underline"
                   onClick={() => setActiveTab("info")}
                 >
                   Info

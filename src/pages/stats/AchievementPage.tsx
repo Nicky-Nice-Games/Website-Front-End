@@ -75,23 +75,28 @@ export const AchievementsPage = ({
   return (
     <div className="bg-[url(/ggk/images/items-background.png)] min-h-screen text-white p-4 md:p-8">
       {/* Main container - matches InfoPage width */}
-      <div className="w-full max-w-[1800px] mx-auto">
+      <div className="w-full max-w-[1800px] mx-auto pr-8 pl-8">
         <Card className="bg-black bg-opacity-90 border-2 border-orange-500 w-full mx-auto rounded-lg shadow-lg shadow-orange-500/50">
+          <div className="bg-black m-0 p-0">Achievements</div>
+
           {/* Header/nav bar - matches InfoPage */}
-          <Card className="h-auto w-full mx-auto rounded-t-lg bg-gradient-to-r from-black to-gray-800 border-b-2 border-orange-500">
+          <Card className="h-auto w-full mx-auto rounded-t-lg bg-gradient-to-br from-[#121212] via-[#2b2b2b] to-[#F76902]/70 border-b-2 border-orange-500">
             <CardContent className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-4 h-full px-2 md:px-4 py-2">
               {/* Left side/Buttons */}
-              <div className="flex border-2 border-orange-500 bg-black p-1 md:p-2 justify-center md:justify-start items-center space-x-2 rounded-md">
+              <div className="flex border-2 border-orange-500 bg-black p-1.5 md:p-2 justify-center md:justify-start items-center space-x-2.5 md:space-x-3 rounded-md">
                 <button
-                  className="text-orange-400 hover:bg-gray-800 hover:text-orange-300 hover:cursor-pointer border-2 border-orange-500 rounded-md py-1 px-3 text-sm md:text-base transition-colors"
+                  className="font-bold text-orange-400 hover:bg-gray-800 hover:text-orange-300 hover:cursor-pointer border-2 border-orange-500 rounded-md py-1.5 px-3.5 text-sm md:text-base transition-colors"
                   onClick={() => setActiveTab("info")}
                 >
                   Info
                 </button>
 
-                <span className="hidden md:inline text-orange-500">|</span>
+                <span className="hidden md:inline text-orange-500 text-lg">
+                  |
+                </span>
+
                 <button
-                  className="font-bold text-orange-400 hover:bg-gray-800 hover:text-orange-300 border-2 border-orange-500 rounded-md py-1 px-3 text-sm md:text-base transition-colors underline"
+                  className="text-orange-400 hover:cursor-pointer hover:bg-gray-800 hover:text-orange-300 border-2 border-orange-500 rounded-md py-1.5 px-3.5 text-sm md:text-base transition-colors underline"
                   onClick={() => setActiveTab("achievements")}
                 >
                   Achievements
@@ -99,16 +104,18 @@ export const AchievementsPage = ({
               </div>
 
               {/* Right side/Profile */}
-              <div className="flex justify-center md:justify-end items-center space-x-4">
-                <h2 className="text-orange-400 text-sm md:text-base font-medium">
-                  {account.username}
-                </h2>
-                <Pfp
-                  account={account}
-                  setAccount={setAccount}
-                  showEdit={true}
-                  className="relative z-50 border-2 border-orange-500"
-                />
+              <div className="w-full">
+                <div className="flex justify-center md:justify-end items-center space-x-4">
+                  <h2 className="text-orange-400 md:text-xl font-medium pt-6">
+                    {account.username}
+                  </h2>
+                  <Pfp
+                    account={account}
+                    setAccount={setAccount}
+                    showEdit={true}
+                    className="relative z-50 "
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -122,7 +129,7 @@ export const AchievementsPage = ({
               return (
                 <div
                   key={section.name}
-                  className="p-4 md:p-6 mb-6 md:mb-8 border-2 border-orange-500 rounded-md bg-gradient-to-b from-gray-800 to-black"
+                  className="p-4 md:p-6 mb-6 md:mb-8 border-2 border-orange-500 rounded-md bg-gradient-to-b from-[#121212] via-[#2b2b2b] to-[#F76902]/70"
                 >
                   <div className="mb-4 md:mb-6">
                     <h2 className="text-lg md:text-xl font-semibold text-orange-400">
