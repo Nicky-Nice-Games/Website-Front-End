@@ -118,15 +118,11 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
           <p className="m-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu
-            nisl eu libero sodales facilisis eu vitae risus. Morbi id accumsan
-            sapien. Donec eget feugiat libero, at volutpat nunc. Praesent a
-            velit felis. Nulla ultricies rhoncus risus, vitae interdum lacus
-            viverra eget. Fusce eget mauris nibh. Maecenas eu ex iaculis, ornare
-            metus vitae, congue ante. Etiam hendrerit velit at nunc lobortis
-            congue. Sed et felis posuere mauris vulputate euismod eu a turpis.
-            Duis convallis tempus risus sed convallis. Proin efficitur
-            vestibulum nibh ac mollis. Nam scelerisque tellus a dolor facilisis.
+            Our Game is an arcade-style Kart Racer game that IGME students will be able to play in between their classes. 
+            This game will be iconic; that is to say students will be able to identify with the sort of vibe our game gives off. 
+            It will be reminiscent of R.I.T. themes, but will put a unique gamified twist on them to really capture the chaos and 
+            excitement of a Kart Racing game. This project, if successful, will lay the groundwork for future co-ops to be done 
+            in this same style.
           </p>
           <img
             className="ml-4"
@@ -178,7 +174,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
           >
             <InfiniteMovingCards
-              items={bannerImages2}
+              items={bannerImages1}
               direction="left"
               speed="verySlow"
             />
