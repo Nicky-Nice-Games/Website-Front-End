@@ -21,7 +21,7 @@ const LeaderboardPage = () => {
         <div className="bg-gradient-to-b from-[#FFF7] via-white to-[#FFF7] from-1% via-50% to-99% min-h-[80vh]">
           <div className=" pb-4">
             <img
-              src=" images/leaderboard-header.png"
+              src="images/leaderboard-header.png"
               className="flex justify-self-center w-[100%] md:w-[45%] lg:w-[35%] pt-8 mb-[1rem]"
             ></img>
             <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
@@ -48,7 +48,7 @@ const LeaderboardPage = () => {
         <ArrowButton
           caption="Back"
           clickAction={() => setMapId(0)}
-          className="absolute left-[11%] top-34 md:top-25"
+          className="absolute left-[11%] top-34 md:top-25 px-4 sm:px-7"
           direction="left"
         />
         <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
@@ -109,6 +109,7 @@ const LeaderboardTable = ({ mapId }: { mapId: number }) => {
       data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);
       data.map((item: any) => {
         item.index = data.indexOf(item) + 1; //Set index for display purposes
+        item.score = Math.floor(item.score);
       });
       setLeaderboardData(data);
     });

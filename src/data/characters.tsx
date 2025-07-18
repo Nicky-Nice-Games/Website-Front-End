@@ -1,9 +1,11 @@
+import type { ReactElement } from "react";
+
 export interface Character {
   imgUrl: string;
   conceptImgUrl: string;
   name: string;
   occupation?: string;
-  description: string;
+  description: ReactElement;
   devDescription: string;
   songName: string;
   songLink: string;
@@ -15,10 +17,15 @@ export const characters: Character[] = [
     imgUrl: "images/characters/gizmo.jpeg",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Gizmo",
-    description: `Nickname: Giz
-    Pronouns: any/all
-    Likes: Doohickeys, Creativity, Being helpful
-    Dislikes: Scaring people`,
+    description: (
+      <div>
+        <b>Nickname:</b> Giz <br />
+        <b>Pronouns:</b> Any/All <br />
+        <b>Likes:</b> Doohickeys, Creativity, Being helpful
+        <br />
+        <b>Dislikes:</b> Scaring people
+      </div>
+    ),
     devDescription:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
     songName: "Lofi Hip Hop Beats To Relax/Study To",
@@ -29,11 +36,16 @@ export const characters: Character[] = [
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Morgan",
     occupation: "Skater Freshman",
-    description: `Pronouns: She/They
-      Year: Freshmen
-      Major: Photography
-      Likes: Skating, Thrifting Clothes, Going Fast, Finding Spots
-      Dislikes: Waking Up For Class`,
+    description: (
+      <div>
+        <b>Pronouns:</b> She/They <br />
+        <b>Year:</b> Freshmen <br />
+        <b>Major:</b> Photography <br />
+        <b>Likes:</b> Skating, Thrifting Clothes, Going Fast, Finding Spots
+        <br />
+        <b>Dislikes:</b> Waking Up For Class
+      </div>
+    ),
     devDescription: "blah blah blah...",
     songName: "Skater Boi - Avril Lavigne",
     songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
@@ -43,11 +55,16 @@ export const characters: Character[] = [
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Reese",
     occupation: "Dining Sophomore",
-    description: `Pronouns: He/Him
-      Year: Sophomore
-      Major: Packaging Science
-      Likes: Free Stuff, Creating Playlists For Events, Anime, Energy Drinks
-      Dislikes: Working 3 Jobs, Sleep`,
+    description: (
+      <div>
+        <b>Pronouns:</b> He/Him <br />
+        <b>Year:</b> Sophomore <br />
+        <b>Major:</b> Packaging Science <br />
+        <b>Likes:</b> Free Stuff, Creating Playlists For Events, Anime, Energy
+        Drinks <br />
+        <b>Dislikes:</b> Working 3 Jobs, Sleep <br />
+      </div>
+    ),
     devDescription: "blah blah blah...",
     songName: "Feel Good Inc. - Gorillaz",
     songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
@@ -57,12 +74,16 @@ export const characters: Character[] = [
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Emma",
     occupation: "OL Junior",
-    description: `Pronouns: She/Her
-      Year: Junior
-      Job: Orientation Leader
-      Major: Game Design and Development
-      Likes: Pins, Walking, Early Morning Walks, Bucket Hats
-      Dislikes: Loud Music, Sleeping In`,
+    description: (
+      <div>
+        <b>Pronouns:</b> She/Her <br />
+        <b>Year:</b> Junior <br />
+        <b>Job:</b> Orientation Leader <br />
+        <b>Major:</b> Game Design and Development <br />
+        <b>Likes:</b> Pins, Walking, Early Morning Walks, Bucket Hats <br />
+        <b>Dislikes:</b> Loud Music, Sleeping In
+      </div>
+    ),
     devDescription: "blah blah blah...",
     songName: "Turbo Hustle - DJ Maestro",
     songLink:
@@ -73,10 +94,15 @@ export const characters: Character[] = [
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Kai",
     occupation: "Hockey Senior",
-    description: `Pronouns: They/Them
-      Major: Business
-      Likes: Hockey, Bandanas, Going On Adventures, Being Team Captain
-      Dislikes: Sitting around, Losing a game`,
+    description: (
+      <div>
+        <b>Pronouns:</b> They/Them <br />
+        <b>Major:</b> Business <br />
+        <b>Likes:</b> Hockey, Bandanas, Going On Adventures, Being Team Captain
+        <br />
+        <b>Dislikes:</b> Sitting around, Losing a game
+      </div>
+    ),
     devDescription: "blah blah blah...",
     songName: `Eye of the Tiger - Survivor`,
     songLink:
@@ -86,11 +112,15 @@ export const characters: Character[] = [
     imgUrl: "images/characters/spare-jamster.png",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Jamster",
-    description: `Pronouns: They/Them
-      Year: Unknown
-      Major: All
-      Likes: Games, Jams, GameJams
-      Dislikes: Not Getting Snacks`,
+    description: (
+      <div>
+        <b>Pronouns:</b> They/Them <br />
+        <b>Year:</b> Unknown <br />
+        <b>Major:</b> All <br />
+        <b>Likes:</b> Games, Jams, GameJams <br />
+        <b>Dislikes:</b> Not Getting Snacks
+      </div>
+    ),
     devDescription: "JAMMMMSTER",
     songName: "Hamster Dance -  Hampton and the Hamsters",
     songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",

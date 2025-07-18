@@ -358,7 +358,7 @@ const Navbar = ({
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">
         <NavigationMenuLink
-          className={`max-w-12 h-12 md:ml-4 bg-[url(images/logo/gizmo-icon.svg)] hover:bg-[url(images/logo/gizmo-icon-hover.svg)]`}
+          className={`max-w-12 h-12 ml-1 md:ml-4 bg-[url(images/logo/gizmo-icon.svg)] hover:bg-[url(images/logo/gizmo-icon-hover.svg)]`}
         >
           <button
             className="cursor-pointer"

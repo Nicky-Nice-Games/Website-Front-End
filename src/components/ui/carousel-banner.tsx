@@ -1,5 +1,5 @@
 "use client";
- 
+
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
@@ -9,9 +9,7 @@ export const InfiniteMovingCards = ({
   speed = "fast",
   className,
 }: {
-  items: {
-    imgSrc: string;
-  }[];
+  items: string[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow" | "verySlow";
   pauseOnHover?: boolean;
@@ -27,14 +25,14 @@ export const InfiniteMovingCards = ({
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
- 
+
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true);
         if (scrollerRef.current) {
           scrollerRef.current.appendChild(duplicatedItem);
         }
       });
- 
+
       getDirection();
       getSpeed();
       setStart(true);
@@ -45,12 +43,12 @@ export const InfiniteMovingCards = ({
       if (direction === "left") {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "forwards",
+          "forwards"
         );
       } else {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "reverse",
+          "reverse"
         );
       }
     }
@@ -71,22 +69,18 @@ export const InfiniteMovingCards = ({
   return (
     <div
       ref={containerRef}
-      className={cn(
-        "scroller relative z-20 h-[100%] max-w-[100%] ",
-        className,
-      )}
+      className={cn("scroller relative z-20 h-[100%] max-w-[100%] ", className)}
     >
       <ul
         ref={scrollerRef}
         className={cn(
           "flex h-[100%] w-max min-w-full shrink-0 flex-nowrap gap-0 py-0",
-          start && "animate-scroll",
+          start && "animate-scroll"
         )}
       >
         {items.map((item, idx) => (
-          <img key={item.imgSrc || idx} src={item.imgSrc} className="h-[100%]" />
+          <img key={item || idx} src={item} className="h-[100%]" />
         ))}
-
       </ul>
     </div>
   );

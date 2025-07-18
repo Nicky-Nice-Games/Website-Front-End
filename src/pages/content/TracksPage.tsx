@@ -49,14 +49,18 @@ const TracksPage = () => {
       {/*This is the header and description of each item*/}
       <ContentNavigator currentPage="tracks" />
       <div className="flex flex-col-reverse md:flex-row md:w-[98%] m-auto">
-        <div className="text-center md:w-3/5 bg-linear-to-b from-[#F66624] to-[#D84B3A] mt-3 md:mt-0 md:bg-[url(images/rectangle-bg.png)] bg-size-[110%_140%]">
-          <div className="text-white">
-            <h1 className="mt-5 md:m-20 md:mb-10 md:max-w-[50%] lg:max-w-[60%] font-black text-3xl md:text-5xl">
-              {heading}
-            </h1>
-            <p className="text-lg md:skew-x-[8deg] xl:skew-x-[24deg] slanted-text m-5 md:ml-[22%] 2xl:ml-[19%] md:mr-[22%] md:mb-18">
-              {description}
-            </p>
+        <div className="text-center md:w-3/5 mt-3 md:mt-11 relative md:right-5">
+          <div className="text-white h-full">
+            <div
+              className="flex flex-col justify-center
+              md:rounded-r-xl md:min-h-1/5 py-5 lg:py-0
+            bg-linear-to-b from-[#F66624] to-[#D84B3A]"
+            >
+              <h1 className="font-black text-3xl sm:text-5xl">{heading}</h1>
+            </div>
+            <div className="h-4/5 bg-orange-700 rounded-b-2xl mx-3 md:mx-10 p-5 mb-4">
+              <p className="text-lg md:text-2xl">{description}</p>
+            </div>
           </div>
         </div>
         <div className="md:w-2/5">
