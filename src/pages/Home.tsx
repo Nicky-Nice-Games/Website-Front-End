@@ -145,7 +145,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div
           id="lore"
-          className="px-8 text-center pt-[10%] bg-fixed bg-repeat pb-24 md:pb-32 bg-[url('images/white-checker.png')]"
+          className="px-8 text-center pt-[8%] bg-fixed bg-repeat pb-[10%] bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
           <p className="m-4">

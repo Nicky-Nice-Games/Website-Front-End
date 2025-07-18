@@ -31,10 +31,19 @@ const PreviewLeaderboard = ({ data }: { data: any }) => {
                     w-3/5 lg:w-[37%] h-125 
                     flex flex-col items-center m-8 z-10 "
       >
-        <tr className="w-full flex flex-row justify-between text-white">
-          <th className="bebas text-[4vw] w-9/20 md:text-[3vw]">User</th>
-          <th className="bebas text-[4vw] md:text-[3vw]">Race Time</th>
-          <th className="bebas text-[4vw] md:text-[3vw]">Score</th>
+        <tr className="w-full flex flex-row justify-between text-gray-200">
+          <th className="bebas text-[4vw] md:text-[3vw] lg:text-[2vw] w-1/4">
+            Placing
+          </th>
+          <th className="bebas text-[4vw] md:text-[3vw] lg:text-[2vw]">
+            Username
+          </th>
+          <th className="bebas text-[4vw] md:text-[3vw] lg:text-[2vw]">
+            Race Time
+          </th>
+          <th className="bebas text-[4vw] md:text-[3vw] lg:text-[2vw]">
+            Score
+          </th>
         </tr>
         {data.map((player: any, index: number) => {
           return (
