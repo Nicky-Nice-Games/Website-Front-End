@@ -40,7 +40,7 @@ const TracksPage = () => {
   //information of heading and track carasoul
   return (
     <div
-      className="min-h-[80vh] bg-size-[110%] bg-blend-multiply"
+      className="min-h-[84vh] bg-size-[110%] bg-blend-multiply"
       style={{
         backgroundImage:
           "linear-gradient(rgb(101, 216, 255), rgb(77, 137, 215)), url('images/items-background-darkoutline.png')",
@@ -48,8 +48,8 @@ const TracksPage = () => {
     >
       {/*This is the header and description of each item*/}
       <ContentNavigator currentPage="tracks" />
-      <div className="flex flex-col-reverse md:flex-row md:w-[98%] m-auto">
-        <div className="text-center md:w-3/5 mt-3 md:mt-11 relative md:right-5">
+      <div className="flex flex-col-reverse md:flex-row md:w-[98%] m-auto md:py-3">
+        <div className="text-center md:w-3/5 relative md:right-5">
           <div className="text-white h-full">
             <div
               className="flex flex-col justify-center
@@ -58,16 +58,16 @@ const TracksPage = () => {
             >
               <h1 className="font-black text-3xl sm:text-5xl">{heading}</h1>
             </div>
-            <div className="h-4/5  bg-linear-to-t from-[#F66624]/90 to-[#D84B3A]/90  rounded-b-2xl mx-3 md:mx-10 p-5 mb-4">
+            <div className="h-4/5 bg-linear-to-t from-[#F66624]/90 to-[#D84B3A]/90  rounded-b-2xl mx-3 md:mx-10 p-5 mb-6">
               <p className="text-lg md:text-2xl opacity-100">{description}</p>
             </div>
           </div>
         </div>
         <div className="md:w-2/5">
-        <img
-        src=" images/tracks-header.png"
-        className="flex justify-self-center w-[80%] md:w-[60%] "
-      ></img>
+          <img
+            src=" images/tracks-header.png"
+            className="flex justify-self-center w-[80%] md:w-[60%] "
+          ></img>
           <Carousel
             setApi={setApi}
             className="text-center rounded-3xl w-full m-auto"
