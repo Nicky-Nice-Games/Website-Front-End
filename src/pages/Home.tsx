@@ -2,9 +2,10 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
-import { HomeCarousel } from "@/components/home-carousel";
+import { HomeCarousel } from "@/components/home/home-carousel";
 import { fetchData, formatPlacing, formatTime } from "@/utils";
 import { pfpList } from "@/data/pfps";
+import PreviewLeaderboard from "@/components/home/preview-leaderboard";
 
 interface HomePageParams {
   setCurrentPage: Function;
@@ -14,15 +15,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const [previewLeaderboardData, setPreviewData] = React.useState([]);
 
   const navigate = useNavigate();
-
-  type ScoreProps = {
-    place: string;
-    imgPath: string;
-    name: string;
-    time: string;
-    score: string;
-    color: string;
-  };
 
   // Takes the placement number and turns it into the appropriate color.
   const getPlacementColor = (index: number): string => {
@@ -48,113 +40,51 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
       "json",
       (data: any) => {
         data = data.sort((a: any, b: any) => a.raceTime - b.raceTime);
+        for (let p of data) {
+          p.score = Math.floor(p.score);
+        }
         setPreviewData(data.slice(0, 4));
       }
     );
   }, []);
 
-  function Score({ place, imgPath, name, time, score, color }: ScoreProps) {
-    return (
-      <div className="h-1/7 w-[100%] m-[1rem] flex gap-[2vw] md:gap-[4vw] items-center justify-start text-white">
-        <h3 className={`graffiti text-[40px] md:text-[60px] ${color} w-13`}>
-          {place}
-        </h3>
-        <img
-          src={imgPath}
-          alt={`Photo of ${name}`}
-          className="hidden lg:block w-[60px] outline-[5px] outline-[#38bdf8] h-[60px] rounded-full"
-        />
-        <p className="ml-auto md:m-2 bebas text-[30px] md:text-3xl xl:text-4xl">
-          {name}
-        </p>
-        <div className="ml-0 xl:ml-auto flex-wrap md:gap-4 gap-1">
-          <p className="m-0 bebas text-[20px]">time: {time}</p>
-          <p className="m-0 bebas text-[20px]">score: {score}</p>
-        </div>
-      </div>
-    );
-  }
-
   const bannerImages1 = [
-    {
-      imgSrc: "images/in-game/one.png",
-    },
-    {
-      imgSrc: "images/in-game/ten.png",
-    },
-    {
-      imgSrc: "images/in-game/three.png",
-    },
-    {
-      imgSrc: "images/in-game/nine.png",
-    },
-    {
-      imgSrc: "images/in-game/five.png",
-    },
-    {
-      imgSrc: "images/in-game/eight.png",
-    },
-    {
-      imgSrc: "images/in-game/seven.png",
-    },
-    {
-      imgSrc: "images/in-game/six.png",
-    },
-    {
-      imgSrc: "images/in-game/nine.png",
-    },
-    {
-      imgSrc: "images/in-game/two.png",
-    },
+    "images/in-game/one.png",
+    "images/in-game/ten.png",
+    "images/in-game/three.png",
+    "images/in-game/nine.png",
+    "images/in-game/five.png",
+    "images/in-game/eight.png",
+    "images/in-game/seven.png",
+    "images/in-game/six.png",
+    "images/in-game/nine.png",
+    "images/in-game/two.png",
   ];
 
   const bannerImages2 = [
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
-    {
-      imgSrc: "images/placeholder/placeholder.PNG",
-    },
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
+    "images/placeholder/placeholder.PNG",
   ];
 
   return (
     <>
-      <div className="relative h-[90vh] w-[100%] text-white pb-[2rem] pt-[0rem] pr-[0rem] pb-[4rem] bg-black">
+      <div className="relative h-[103vh] md:h-[90vh] w-full text-white pb-8 pb-16 bg-black">
         <div
           id="header-text"
-          className="md:h-[90vh] relative md:absolute w-[100%] 
-                    md:w-[50%] flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
+          className="md:h-9/10 relative md:absolute w-full 
+                    md:w-1/2 flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
         >
-          <img
-            className="w-[200px] md:w-[80%]"
-            src="images/Game-Logo.png"
-          ></img>
-          <h3 className="text-xl md:text-4xl text-[#f3f4f6] mt-[1rem] w-[100%]">
-            Your favorite no-credit courses
+          <img className="w-120 md:w-4/5" src="images/Game-Logo.png"></img>
+          <h3 className="text-xl md:text-4xl poppins text-[#f3f4f6] mt-4 w-full">
+            Your Favorite No-Credit Courses!
           </h3>
         </div>
         <ArrowButton
@@ -164,14 +94,14 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             navigate("/news");
             setCurrentPage("news");
           }}
-          className="absolute bottom-[0rem] md:bottom-[3rem] md:right-[3rem] right-[1rem] z-10 px-10 py-3"
+          className="absolute bottom-0 md:bottom-12 md:right-12 right-4 z-10 px-10 py-3"
         />
         <HomeCarousel></HomeCarousel>
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
         <div className="bg-black">
-          <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
+          <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
               direction="right"
@@ -182,8 +112,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
 
         <div
           id="introdcution"
-          className="pt-[8rem] w-full pb-[4rem] pl-[2rem] pr-[2rem] w-[100%] 
-                    bg-repeat bg-fixed  bg-[url('images/black-checker.png')]
+          className="pt-8 md:pt-32 w-full pb-16 pl-8 pr-8 w-full 
+                    bg-repeat bg-fixed bg-[url('images/black-checker.png')]
                     text-white"
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
@@ -204,8 +134,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             alt="Photo of arcade machines"
           />
         </div>
-        <div className="mb-[2rem] bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
-          <div className="overflow-hidden rotate-6 w-[120%] h-[300px] m-[0rem] origin-top-left flex">
+        <div className="mb-8 bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
+          <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
               items={bannerImages1}
               direction="right"
@@ -215,7 +145,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div
           id="lore"
-          className="pl-[2rem] pr-[2rem] text-center p-[10%] bg-fixed bg-repeat pb-[6rem] md:pb-[8rem] bg-[url('images/white-checker.png')]"
+          className="px-8 text-center pt-[8%] bg-fixed bg-repeat pb-[10%] bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
           <p className="m-4">
@@ -244,7 +174,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
           <div
-            className="overflow-hidden -rotate-6 w-[120%] h-[300px] m-0 origin-bottom-left flex
+            className="overflow-hidden -rotate-6 w-[120%] h-75 origin-bottom-left flex
           bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
           >
             <InfiniteMovingCards
@@ -254,34 +184,12 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             />
           </div>
         </div>
-        <div className="pt-[2rem] w-[100%] relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
+        <div className="pt-8 w-full relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"
           >
-            <img
-              src="images/arcade-machine.png"
-              className="top-0 z-0 w-[60%] h-[900px] max-[700px]:w-[100%]"
-            ></img>
-            <div
-              id="scoreboard"
-              className="absolute top-[27%] 
-                    w-[37%] max-[700px]:w-[60%] h-[500px] 
-                    flex flex-col items-center m-[2rem] z-10"
-            >
-              {previewLeaderboardData.map((player: any, index: number) => {
-                return (
-                  <Score
-                    place={formatPlacing(index + 1)}
-                    imgPath={pfpList[player.pfp]}
-                    name={player.username}
-                    time={formatTime(player.raceTime)}
-                    score={player.score}
-                    color={getPlacementColor(index)}
-                  />
-                );
-              })}
-            </div>
+            <PreviewLeaderboard data={previewLeaderboardData} />
             <div
               id="link-container"
               className="bg-black/80 absolute z-3 bottom-0 w-full p-4 text-white text-center"

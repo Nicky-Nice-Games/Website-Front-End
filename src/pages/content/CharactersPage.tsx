@@ -120,19 +120,19 @@ const CharactersPage = () => {
                     className="lg:max-w-240 bg-[#0000] border-none shadow-none"
                   >
                     <div
-                      className="absolute -top-100 left-0 sm:left-25 
-                    lg:-top-60 lg:left-0 w-70 lg:w-100 z-10"
+                      className="absolute -top-85 left-1/2 transform -translate-x-1/2 lg:-translate-x-0
+                    lg:-top-60 lg:left-0 min-w-60 lg:w-100 z-10"
                     >
                       <img
                         src={character.imgUrl}
                         alt={character.name}
-                        className="lg:max-h-180"
+                        className="max-h-90 lg:max-h-180"
                       />
                     </div>
                     <div className="absolute lg:-top-10 lg:right-5 w-full lg:w-4/5 flex bg-white justify-end rounded-lg drop-shadow-xl/50 overflow-hidden min-w-1/4 max-w-4xl sm:h-65git ">
                       {/* right side: character name and description */}
-                      <DialogDescription className="p-4 w-full lg:min-h-70 flex flex-col justify-top text-left">
-                        <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto">
+                      <DialogDescription className="p-4 w-full lg:min-h-70 text-left">
+                        <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto h-full">
                           <div className="flex flex-row justify-between mb-2">
                             <DialogTitle className="text-black font-bold text-3xl justify-self-center lg:justify-self-start">
                               {character.name}
@@ -141,15 +141,17 @@ const CharactersPage = () => {
                               <CloseIcon />
                             </DialogClose>
                           </div>
-                          <p className="text-gray-600 text-lg whitespace-pre-line">
-                            {character.description} <br />
-                            Favorite Song:{" "}
-                            <a
-                              className="text-[#d97706]"
-                              href={character.songLink}
-                            >
-                              {character.songName}
-                            </a>
+                          <p className="text-gray-600 text-lg whitespace-pre-line h-[85%] flex flex-col justify-center">
+                            {character.description}
+                            <div className="flex flex-row">
+                              <b>Favorite Song:</b>&nbsp;
+                              <a
+                                className="text-[#d97706]"
+                                href={character.songLink}
+                              >
+                                {character.songName}
+                              </a>
+                            </div>
                           </p>
                         </div>
                       </DialogDescription>

@@ -24,7 +24,7 @@ const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-7 w-7 text-black bg-white rounded-full hover:cursor-pointer hover:scale-125 transition duration-200 " // Added hover effects
+      className="h-11 w-11 md:h-7 md:w-7 text-black bg-white rounded-full hover:cursor-pointer hover:scale-125 transition duration-200 " // Added hover effects
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />

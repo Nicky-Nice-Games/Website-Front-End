@@ -51,7 +51,7 @@ const ProcessPage = () => {
               <ArrowButton
                 caption="Meet the team!"
                 clickAction={() => navigate("/aboutUs")}
-                className="absolute right-5 md:right-8 font-semibold"
+                className="absolute right-5 md:right-8 font-semibold px-6"
               />
             </div>
           </div>
