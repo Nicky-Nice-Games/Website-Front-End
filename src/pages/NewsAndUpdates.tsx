@@ -76,7 +76,8 @@ const NewsAndUpdatesPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <div className="min-h-screen bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference p-6">
+    <div className="min-h-screen bg-[url('images/items-background.png')] 
+    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6">
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (
@@ -145,7 +146,7 @@ const NewsAndUpdatesPage = () => {
                     <img // Desktop image
                       src={active.image}
                       alt={active.title}
-                      className="w-full h-full object-top rounded-xl"
+                      className="w-full h-full object-top"
                     />
                   </motion.div>
 
@@ -184,14 +185,14 @@ const NewsAndUpdatesPage = () => {
         layoutId={`item-${mostRecentUpdate.title}-${id}`}
         key={mostRecentUpdate.id}
         onClick={() => setActive(mostRecentUpdate)}
-        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer hover:scale-105 m-4"
+        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer m-4"
       >
         <img
           src={mostRecentUpdate.image}
           alt={mostRecentUpdate.title}
-          className="w-full h-96 object-cover"
+          className="w-full h-96 object-cover transition-transform duration-300 hover:scale-120"
         />
-        <div className="p-4">
+        <div className="p-4 bg-white relative z-2">
           <p className="text-xs text-[#F76902] font-semibold mb-1">
             {mostRecentUpdate.date}
           </p>
@@ -224,16 +225,17 @@ const NewsAndUpdatesPage = () => {
               className={`${
                 isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
               } bg-white text-black rounded-xl shadow overflow-hidden 
-        cursor-pointer hover:scale-105 m-4`}
+              cursor-pointer m-4`}
             >
               {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full ${isFullWidth ? "h-96" : "h-72"} `}
+                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${isFullWidth ? "h-96" : "h-72"
+                  } `}
               />
               {/* Text content of the update */}
-              <div className="p-4">
+              <div className="p-4 relative bg-white z-2">
                 {/* Date */}
                 <p className="text-xs text-[#F76902] font-semibold mb-1">
                   {update.date}
@@ -253,15 +255,15 @@ const NewsAndUpdatesPage = () => {
           <button
             onClick={prevPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
+            className="cursor-pointer disabled:cursor-auto px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
           >
             Previous
           </button>
-          <span className="text-white">{`Page ${currentPage} of ${totalPages}`}</span>
+          <div className="text-white px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</div>
           <button
             onClick={nextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
+            className="cursor-pointer disabled:cursor-auto px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50 hover:bg-gray-600"
           >
             Next
           </button>

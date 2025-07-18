@@ -14,13 +14,12 @@ const ItemsPage = () => {
           backgroundImage:
             "linear-gradient(rgb(255, 233, 0), rgb(255, 193, 0)), url('images/items-background-darkoutline.png')",
         }}
-      >
-        <h1
-          className="w-full md:w-120 text-white text-5xl text-center poppins relative top-3 md:rounded-r-lg py-5 md:pl-40 md:pr-3
-        bg-gradient-to-b from-[#F66624] to-[#D84B3A]"
-        >
-          Items Page
-        </h1>
+      >      
+      <img
+        src=" images/items-header.png"
+        className="flex justify-self-left w-[30%] md:w-[30%]"
+      ></img>
+       
 
         <div className="flex flex-col lg:flex-row w-full m-auto items-center xl:items-start justify-center">
           <BoostCard/>
