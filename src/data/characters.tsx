@@ -14,16 +14,16 @@ export interface Character {
 // sample list of characters to display
 export const characters: Character[] = [
   {
-    imgUrl: "images/characters/gizmo.jpeg",
+    imgUrl: "images/characters/gizmo.png",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Gizmo",
     description: (
       <div>
-        <b>Nickname:</b> Giz <br />
         <b>Pronouns:</b> Any/All <br />
+        <b>Height:</b> Short <br />
         <b>Likes:</b> Doohickeys, Creativity, Being helpful
         <br />
-        <b>Dislikes:</b> Scaring people
+        <b>Dislikes:</b> Bugs, Bugs
       </div>
     ),
     devDescription:
@@ -39,11 +39,12 @@ export const characters: Character[] = [
     description: (
       <div>
         <b>Pronouns:</b> She/They <br />
+        <b>Height:</b> Average <br />
         <b>Year:</b> Freshmen <br />
         <b>Major:</b> Photography <br />
-        <b>Likes:</b> Skating, Thrifting Clothes, Going Fast, Finding Spots
+        <b>Likes:</b> Skating, Thrifting Clothes, Going Fast
         <br />
-        <b>Dislikes:</b> Waking Up For Class
+        <b>Dislikes:</b> 8AM classes, Wiping out
       </div>
     ),
     devDescription: "blah blah blah...",
@@ -51,18 +52,18 @@ export const characters: Character[] = [
     songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
   },
   {
-    imgUrl: "images/characters/SophDining.png",
+    imgUrl: "images/characters/reese.png",
     conceptImgUrl: "images/placeholder/placeholder.PNG",
     name: "Reese",
     occupation: "Dining Sophomore",
     description: (
       <div>
         <b>Pronouns:</b> He/Him <br />
+        <b>Height:</b> Average <br />
         <b>Year:</b> Sophomore <br />
         <b>Major:</b> Packaging Science <br />
-        <b>Likes:</b> Free Stuff, Creating Playlists For Events, Anime, Energy
-        Drinks <br />
-        <b>Dislikes:</b> Working 3 Jobs, Sleep <br />
+        <b>Likes:</b> Free Stuff, Making Mixtapes, Anime, Energy Drinks <br />
+        <b>Dislikes:</b> Angry customers, Waking up<br />
       </div>
     ),
     devDescription: "blah blah blah...",
@@ -80,7 +81,7 @@ export const characters: Character[] = [
         <b>Year:</b> Junior <br />
         <b>Job:</b> Orientation Leader <br />
         <b>Major:</b> Game Design and Development <br />
-        <b>Likes:</b> Pins, Walking, Early Morning Walks, Bucket Hats <br />
+        <b>Likes:</b> Pins, Early Morning Walks, Bucket Hats <br />
         <b>Dislikes:</b> Loud Music, Sleeping In
       </div>
     ),
@@ -98,9 +99,9 @@ export const characters: Character[] = [
       <div>
         <b>Pronouns:</b> They/Them <br />
         <b>Major:</b> Business <br />
-        <b>Likes:</b> Hockey, Bandanas, Going On Adventures, Being Team Captain
+        <b>Likes:</b> Playing hockey, Bandanas, Going on adventures
         <br />
-        <b>Dislikes:</b> Sitting around, Losing a game
+        <b>Dislikes:</b> Boredom, Losing a contest
       </div>
     ),
     devDescription: "blah blah blah...",
@@ -115,10 +116,11 @@ export const characters: Character[] = [
     description: (
       <div>
         <b>Pronouns:</b> They/Them <br />
+        <b>Height:</b> Short <br />
         <b>Year:</b> Unknown <br />
         <b>Major:</b> All <br />
         <b>Likes:</b> Games, Jams, GameJams <br />
-        <b>Dislikes:</b> Not Getting Snacks
+        <b>Dislikes:</b> Sitting still, Being hungry
       </div>
     ),
     devDescription: "JAMMMMSTER",
