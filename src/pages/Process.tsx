@@ -21,7 +21,7 @@ const ProcessPage = () => {
       <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-[#BBB] bg-fixed bg-repeat bg-blend-difference *:text-white">
         {/* About Project Section */}
         <div>
-          <h1 className="text-[60px] painterz pt-4 mx-0 mb-[2rem]">
+          <h1 className="text-[40px] poppins pt-4 mx-0 mb-4">
             {" "}
             About the Project
           </h1>
@@ -59,7 +59,7 @@ const ProcessPage = () => {
 
         {/* Designing Game Section */}
         <div>
-          <h1 className="text-[60px] painterz m-4 mx-0 mb-[2rem]">
+          <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
             Designing the Game
           </h1>
           <div className="flex md:flex-row flex-col items-stretch">
@@ -112,7 +112,7 @@ const ProcessPage = () => {
 
         {/* Character Dev Info Section */}
         <div>
-          <h1 className="text-[60px] mx-0 m-4 mt-[2rem] painterz mb-[2rem]">
+          <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
             Designing our characters
           </h1>
           <p>
@@ -169,7 +169,7 @@ const ProcessPage = () => {
         </div>
 
         {/* Track Dev Info Section */}
-        <h1 className="text-[60px] m-4 mx-0 mt-[2rem] painterz mb-[2rem]">
+        <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
           Building our Tracks
         </h1>
         <div className="flex flex-row flex-wrap w-full justify-center">
