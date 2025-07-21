@@ -96,7 +96,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           }}
           className="absolute bottom-0 md:bottom-12 md:right-12 right-4 z-10 px-10 py-3"
         />
-        <HomeCarousel></HomeCarousel>
+        <HomeCarousel />
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
@@ -118,11 +118,14 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
           <p className="m-4">
-            Our Game is an arcade-style Kart Racer game that IGME students will be able to play in between their classes. 
-            This game will be iconic; that is to say students will be able to identify with the sort of vibe our game gives off. 
-            It will be reminiscent of R.I.T. themes, but will put a unique gamified twist on them to really capture the chaos and 
-            excitement of a Kart Racing game. This project, if successful, will lay the groundwork for future co-ops to be done 
-            in this same style.
+            Gizmo Go-Kartz is an arcade-style Kart Racer for IGM students to
+            play at any time between classes. It has a retro cartoony style
+            that's meant to be easily recognizable to students. While having
+            RIT-themed inspirations, Gizmo Go-Kartz puts a chaotic twist to them
+            and captures the excitement of many Kart Racers. It is a
+            passion-fueled project with the goal of serving as a proof of
+            concept for many future Co-ops to be created with the same IP and
+            style.
           </p>
           <img
             className="ml-4"
@@ -168,8 +171,10 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
           </p>
         </div>
-        <div className=" relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
-            bg-blend-difference bg-size-[90%] md:bg-size-[80%]">
+        <div
+          className=" relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
+        >
           <div
             className="overflow-hidden -rotate-6 w-[120%] h-75 origin-bottom-left flex
             relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
@@ -182,8 +187,10 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             />
           </div>
         </div>
-        <div className="pt-8 w-full relative relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
-            bg-blend-difference bg-size-[90%] md:bg-size-[80%]">
+        <div
+          className="pt-8 w-full relative relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
+        >
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"

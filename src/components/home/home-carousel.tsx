@@ -43,7 +43,7 @@ export const HomeCarousel = () => {
     </div>,
     <div key="2">
       <NewsUpdateSlide
-        image="images/characters/HkySr.png"
+        image="images/characters/kai.png"
         header="#1 News"
         description="This is the most recent News/Update"
       ></NewsUpdateSlide>
