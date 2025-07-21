@@ -172,29 +172,29 @@ const ProcessPage = () => {
         <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
           Building our Tracks
         </h1>
-        <div className="flex flex-row flex-wrap w-full justify-center">
-          <Tabs defaultValue="0">
-            <TabsList className="">
-              {tracks.map((t) => {
-                return (
-                  <TabsTrigger value={tracks.indexOf(t).toString()}>
-                    {t.name}
-                  </TabsTrigger>
-                );
-              })}
-            </TabsList>
+        <Tabs defaultValue="0" className="w-[90vw]">
+          <TabsList className="flex flex-wrap h-full pl-0">
             {tracks.map((t) => {
               return (
-                <TabsContent
-                  value={tracks.indexOf(t).toString()}
-                  className="text-white"
-                >
-                  {t.devDescription}
-                </TabsContent>
+                <TabsTrigger value={tracks.indexOf(t).toString()}>
+                  {t.name}
+                </TabsTrigger>
               );
             })}
-          </Tabs>
-        </div>
+          </TabsList>
+          {tracks.map((t) => {
+            return (
+              <TabsContent
+                value={tracks.indexOf(t).toString()}
+                className="text-white"
+              >
+                <div className="bg-linear-to-b from-[#F66624] to-[#D84B3A] p-5 h-[30vh] rounded-e-2xl rounded-b-2xl mb-3">
+                  {t.devDescription}
+                </div>
+              </TabsContent>
+            );
+          })}
+        </Tabs>
       </main>
     </>
   );
