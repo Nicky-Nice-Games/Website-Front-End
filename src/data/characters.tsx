@@ -27,7 +27,7 @@ export const characters: Character[] = [
       </div>
     ),
     devDescription:
-      "As the mascot of the game, Gizmo's design is based on the first IGM logo from 2011 to 2018, using the \"M\" as his head. Gizmo's toy and ghost designs were separately created, originally being planned as separate characters, but being merged into two forms of one character later in development. The wooden toy form is inspired by other blocky wooden string dolls, which had similar shape language to the original ghost form.",
+      "As the mascot of the game, Gizmo's design is based on the first IGM logo from roughly 2011 to 2018, using the \"M\" as his head. Gizmo's toy and ghost designs were created as separate concepts, but both would be utilized in the final design of the character. The wooden toy form is inspired by other blocky wooden string dolls, which had similar shape language to the original ghost form.",
     songName: "Lofi Hip Hop Beats To Relax/Study To",
     songLink: "https://www.youtube.com/watch?v=CFGLoQIhmow",
   },
@@ -48,7 +48,7 @@ export const characters: Character[] = [
       </div>
     ),
     devDescription:
-      "Morgan is designed after Leading Content Developer Yazmin Miller, as she appeared in her first year, with a casual personality and interests in ice skating and baggy clothes. She's designed around fast-travel, representing the RIT students that travels around campus using alternative transportation, and incorporating influence from the RIT Skate Club. This fast-travel motif is also reflected by the beanie she wears.",
+      "Morgan is designed after the Lead Content Developer as she appeared in her first year, with a casual personality and interests in ice skating and baggy clothes. She's designed around fast-travel, representing the RIT students that travels around campus using alternative transportation, and incorporating influence from the RIT Skate Club. This fast-travel motif is also reflected by the beanie she wears.",
     songName: "Skater Boi - Avril Lavigne",
     songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
   },
@@ -89,7 +89,7 @@ export const characters: Character[] = [
       </div>
     ),
     devDescription:
-      "Emma is inspired by a real RIT Orientation Leader found in research. Her design uses circular shape language to invoke a feeling of cheer, friendliness, and a warm welcome. Her outfit primarily uses RIT's colors to emphasize her pride in the institution.",
+      "Emma is inspired by an image of a real RIT Orientation Leader found in research. Her design uses circular shape language to invoke a feeling of cheer, friendliness, and a warm welcome. Her outfit primarily uses RIT's colors to emphasize her pride in the institution.",
     songName: "Turbo Hustle - DJ Maestro",
     songLink:
       "https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1",
@@ -109,7 +109,7 @@ export const characters: Character[] = [
       </div>
     ),
     devDescription:
-      "Kai is designed and named after several high-school friends of Content Developer Joshua Ward. They were originally designed with a wide triangle-like design, but it was shrunk to fit the other characters later on. Kai's outfit matches their occupation as a hockey player, being based on RIT hockey jerseys with a legally distinct tiger logo on the front.",
+      "Kai is designed and named after a high-school friend of the Assistant Content Team Lead. They were originally designed with a wide triangle-like design, but it was shrunk to fit the other characters later on. Kai's outfit matches their occupation as a hockey player, being based on RIT hockey jerseys with a legally distinct tiger logo on the front.",
     songName: `Eye of the Tiger - Survivor`,
     songLink:
       "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1",
@@ -129,7 +129,7 @@ export const characters: Character[] = [
       </div>
     ),
     devDescription:
-      "Jamster is the mascot of the RIT Game Developers Club, designed by an alum who is a former member of the club. The in-game iteration of the character has some slight design and color modifications, but remains close to the original guidelines of RGDC, keeping the magenta, cyan and beige of the original character.",
+      "Jamster is the mascot of the RIT Game Developers Club (RGDC), designed by an alum who is a former E-board member of the club. Due to their representation as a mascot for RIT's Game Development majors, they were approved and added to the roster as a guest character with slight design modifications.",
     songName: "Hamster Dance -  Hampton and the Hamsters",
     songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
   },
