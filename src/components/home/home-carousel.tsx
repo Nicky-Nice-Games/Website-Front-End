@@ -6,6 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { updates, type Update } from "@/data/updates";
 
 export const HomeCarousel = () => {
   const plugin = React.useRef(
@@ -32,7 +33,24 @@ export const HomeCarousel = () => {
     );
   }
 
-  const slides = [
+  // Initialize slides list (slides 2-4 are most recent updates)
+  const last3Updates = updates
+    .slice(updates.length - 3, updates.length)
+    .reverse();
+  const slides: any[] = last3Updates.map((update: Update, index: number) => {
+    return (
+      <div key={(index + 2).toString()}>
+        <NewsUpdateSlide
+          image={update.image}
+          header={update.title}
+          description={update.subtitle}
+        />
+      </div>
+    );
+  });
+
+  // Unshift first slide to the beginning
+  slides.unshift(
     <div key="1" className="flex flex-row justify-end">
       <div className="md:w-1/2 md:h-[100%] h-[50vh]">
         <img
@@ -40,29 +58,8 @@ export const HomeCarousel = () => {
           className="h-[100%] object-cover"
         ></img>
       </div>
-    </div>,
-    <div key="2">
-      <NewsUpdateSlide
-        image="images/characters/kai.png"
-        header="#1 News"
-        description="This is the most recent News/Update"
-      ></NewsUpdateSlide>
-    </div>,
-    <div key="3">
-      <NewsUpdateSlide
-        image="images/tracks/dorm-derby.png"
-        header="#2 News"
-        description="This is the second most recent News/Update"
-      ></NewsUpdateSlide>
-    </div>,
-    <div key="4">
-      <NewsUpdateSlide
-        image="images/placeholder/pfp-placeholder.png"
-        header="#3 News"
-        description="This is the third most recent News/Update"
-      ></NewsUpdateSlide>
-    </div>,
-  ];
+    </div>
+  );
 
   return (
     <>
