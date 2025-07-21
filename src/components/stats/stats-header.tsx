@@ -55,7 +55,7 @@ export const StatsHeader = ({
                 account={account}
                 setAccount={setAccount}
                 showEdit={true}
-                className="relative z-50"
+                className="relative z-0"
               />
             </div>
           </div>

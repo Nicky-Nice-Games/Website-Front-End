@@ -83,16 +83,16 @@ export const AchievementsPage = ({
           className="w-full mx-auto rounded-lg border-2 border-orange-500 shadow-lg shadow-orange-500/50"
           initial={{
             background:
-              "linear-gradient(45deg, #121212 0%, #2b2b2b 50%, #F76902 100%)",
+              "linear-gradient(45deg, #121212 0%, #2b2b2b 50%, #c45102 100%)", // Changed #F76902 to #c45102 (darker orange)
             backgroundSize: "200% 200%",
           }}
           animate={{
             background: [
-              "linear-gradient(45deg, #121212 0%, #2b2b2b 50%, #F76902 100%)",
-              "linear-gradient(135deg, #121212 0%, #2b2b2b 50%, #F76902 100%)",
-              "linear-gradient(225deg, #121212 0%, #2b2b2b 50%, #F76902 100%)",
-              "linear-gradient(315deg, #121212 0%, #2b2b2b 50%, #F76902 100%)",
-              "linear-gradient(45deg, #121212 0%, #2b2b2b 50%, #F76902 100%)",
+              "linear-gradient(45deg, #121212 0%, #2b2b2b 50%, #c45102 100%)", // Darker orange
+              "linear-gradient(135deg, #121212 0%, #2b2b2b 50%, #c45102 100%)", // Darker orange
+              "linear-gradient(225deg, #121212 0%, #2b2b2b 50%, #c45102 100%)", // Darker orange
+              "linear-gradient(315deg, #121212 0%, #2b2b2b 50%, #c45102 100%)", // Darker orange
+              "linear-gradient(45deg, #121212 0%, #2b2b2b 50%, #c45102 100%)", // Darker orange
             ],
             backgroundPosition: [
               "0% 0%",
@@ -108,7 +108,7 @@ export const AchievementsPage = ({
             repeat: Infinity,
           }}
         >
-          <div className="inline-flex m-0 p-6 rounded-t-lg text-white place-items-center text-3xl gap-4 ">
+          <div className="inline-flex m-0 pl-10 rounded-t-lg text-white place-items-center text-3xl gap-4 ">
             <span>
               <svg
                 width="32"
@@ -125,7 +125,7 @@ export const AchievementsPage = ({
                 ></path>
               </svg>
             </span>
-            <span> Achievements</span>
+            <span className="font-semibold"> Achievements</span>
           </div>
 
           {/* Header/nav bar - matches InfoPage */}
@@ -145,7 +145,7 @@ export const AchievementsPage = ({
                 </span>
 
                 <button
-                  className="text-orange-400 hover:cursor-pointer hover:bg-gray-800 hover:text-orange-300 border-2 border-orange-500 rounded-md py-1.5 px-3.5 text-sm md:text-base transition-colors underline"
+                  className="font-bold text-orange-400 hover:bg-gray-800 hover:text-orange-300 hover:cursor-pointer border-2 border-orange-500 rounded-md py-1.5 px-3.5 text-sm md:text-base transition-colors underline"
                   onClick={() => setActiveTab("achievements")}
                 >
                   Achievements
