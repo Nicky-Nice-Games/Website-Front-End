@@ -9,7 +9,7 @@ import {
 
 export const HomeCarousel = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
+    Autoplay({ delay: 6000, stopOnInteraction: false })
   );
 
   type NewsUpdateProps = {

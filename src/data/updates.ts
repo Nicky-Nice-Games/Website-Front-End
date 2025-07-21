@@ -11,7 +11,7 @@ interface Update {
 const updates: Update[] = [
   {
     id: 1,
-    title: "Week 1",
+    title: "Weekly Dev Blog ",
     date: "5/25/2025",
     subtitle: "Start of production",
     image: "images/dev-blogs/week1.png",
@@ -19,15 +19,15 @@ const updates: Update[] = [
   },
   {
     id: 2,
-    title: "Week 2",
+    title: "Weekly Dev Blog  ",
     date: "6/1/2025",
     subtitle: "We have characters now!",
-    image: "images/dev-blogs/week2.jpg",
+    image: "images/dev-blogs/week2.png",
     contentLink: "data/dev-blogs/week2.pdf",
   },
   {
     id: 3,
-    title: "Week 3",
+    title: "Weekly Dev Blog   ",
     date: "6/9/2025",
     subtitle: "We've come up with a new branding for our game",
     image: "images/dev-blogs/week3.png",
@@ -35,15 +35,15 @@ const updates: Update[] = [
   },
   {
     id: 4,
-    title: "Week 4",
+    title: "Weekly Dev Blog    ",
     date: "6/16/2025",
     subtitle: "A new mascot has been chosen",
-    image: "images/dev-blogs/week4.jpg",
+    image: "images/dev-blogs/week4.png",
     contentLink: "data/dev-blogs/week4.pdf",
   },
   {
     id: 5,
-    title: "Week 5",
+    title: "Weekly Dev Blog     ",
     date: "6/23/2025",
     subtitle: "Our first build of the game",
     image: "images/dev-blogs/week5.png",

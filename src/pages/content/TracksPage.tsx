@@ -40,7 +40,7 @@ const TracksPage = () => {
   //information of heading and track carasoul
   return (
     <div
-      className="min-h-[84vh] bg-size-[110%] bg-blend-multiply"
+      className="min-h-[84vh] bg-size-[110%] bg-blend-multiply bg-size-[90%] md:bg-size-[80%]"
       style={{
         backgroundImage:
           "linear-gradient(rgb(101, 216, 255), rgb(77, 137, 215)), url('images/items-background-darkoutline.png')",

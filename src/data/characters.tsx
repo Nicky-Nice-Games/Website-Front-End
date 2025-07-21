@@ -7,15 +7,13 @@ export interface Character {
   occupation?: string;
   description: ReactElement;
   devDescription: string;
-  songName: string;
-  songLink: string;
 }
 
 // sample list of characters to display
 export const characters: Character[] = [
   {
     imgUrl: "images/characters/gizmo.png",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    conceptImgUrl: "images/dev-blogs/week4.jpg",
     name: "Gizmo",
     description: (
       <div>
@@ -23,17 +21,18 @@ export const characters: Character[] = [
         <b>Height:</b> Short <br />
         <b>Likes:</b> Doohickeys, Creativity, Being helpful
         <br />
-        <b>Dislikes:</b> Bugs, Bugs
+        <b>Dislikes:</b> Bugs, Bugs<br />
+        <b>Favorite Song: </b> 
+        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=CFGLoQIhmow">
+         Lofi Hip Hop Beats To Relax/Study To</a>
       </div>
     ),
     devDescription:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-    songName: "Lofi Hip Hop Beats To Relax/Study To",
-    songLink: "https://www.youtube.com/watch?v=CFGLoQIhmow",
+      "As the mascot of the game, Gizmo's design is based on the first IGM logo from 2011 to 2018, using the \"M\" as his head. Gizmo's toy and ghost designs were separately created, originally being planned as separate characters, but being merged into two forms of one character later in development. The wooden toy form is inspired by other blocky wooden string dolls, which had similar shape language to the original ghost form."
   },
   {
     imgUrl: "images/characters/FrshSkater.PNG",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    conceptImgUrl: "images/characters/dev-morgan.PNG",
     name: "Morgan",
     occupation: "Skater Freshman",
     description: (
@@ -44,16 +43,18 @@ export const characters: Character[] = [
         <b>Major:</b> Photography <br />
         <b>Likes:</b> Skating, Thrifting Clothes, Going Fast
         <br />
-        <b>Dislikes:</b> 8AM classes, Wiping out
+        <b>Dislikes:</b> 8AM classes, Wiping out<br />
+        <b>Favorite Song: </b>
+        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=TIy3n2b7V9k">
+         Skater Boi - Avril Lavigne</a>
       </div>
     ),
-    devDescription: "blah blah blah...",
-    songName: "Skater Boi - Avril Lavigne",
-    songLink: "https://www.youtube.com/watch?v=TIy3n2b7V9k",
+    devDescription:
+      "Morgan is designed after Leading Content Developer Yazmin Miller, as she appeared in her first year, with a casual personality and interests in ice skating and baggy clothes. She's designed around fast-travel, representing the RIT students that travels around campus using alternative transportation, and incorporating influence from the RIT Skate Club. This fast-travel motif is also reflected by the beanie she wears."
   },
   {
     imgUrl: "images/characters/reese.png",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    conceptImgUrl: "images/characters/dev-reese.png",
     name: "Reese",
     occupation: "Dining Sophomore",
     description: (
@@ -64,15 +65,17 @@ export const characters: Character[] = [
         <b>Major:</b> Packaging Science <br />
         <b>Likes:</b> Free Stuff, Making Mixtapes, Anime, Energy Drinks <br />
         <b>Dislikes:</b> Angry customers, Waking up<br />
+        <b>Favorite Song: </b>
+         <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=HyHNuVaZJ-k">
+         Feel Good Inc. - Gorillaz</a>
       </div>
     ),
-    devDescription: "blah blah blah...",
-    songName: "Feel Good Inc. - Gorillaz",
-    songLink: "https://www.youtube.com/watch?v=HyHNuVaZJ-k",
+    devDescription:
+      "Reese is the only character in the roster without visible eyes, inspiring his mellow personality and cheesy grin. His occupation as a dining worker was added later in development, which also inspired his name, a food pun that references Reese's™."
   },
   {
-    imgUrl: "images/characters/OLjr.png",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    imgUrl: "images/characters/emma.png",
+    conceptImgUrl: "images/characters/dev-emma.png",
     name: "Emma",
     occupation: "OL Junior",
     description: (
@@ -82,36 +85,37 @@ export const characters: Character[] = [
         <b>Job:</b> Orientation Leader <br />
         <b>Major:</b> Game Design and Development <br />
         <b>Likes:</b> Pins, Early Morning Walks, Bucket Hats <br />
-        <b>Dislikes:</b> Loud Music, Sleeping In
+        <b>Dislikes:</b> Loud Music, Sleeping In <br />
+        <b>Favorite Song: </b>
+        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1">
+        Turbo Hustle - DJ Maestro</a>
       </div>
     ),
-    devDescription: "blah blah blah...",
-    songName: "Turbo Hustle - DJ Maestro",
-    songLink:
-      "https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1",
+    devDescription:
+      "Emma is inspired by a real RIT Orientation Leader found in research. Her design uses circular shape language to invoke a feeling of cheer, friendliness, and a warm welcome. Her outfit primarily uses RIT's colors to emphasize her pride in the institution."
   },
   {
-    imgUrl: "images/characters/HkySr.png",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    imgUrl: "images/characters/kai.png",
+    conceptImgUrl: "images/characters/dev-kai.PNG",
     name: "Kai",
     occupation: "Hockey Senior",
     description: (
       <div>
-        <b>Pronouns:</b> They/Them <br />
-        <b>Major:</b> Business <br />
-        <b>Likes:</b> Playing hockey, Bandanas, Going on adventures
-        <br />
-        <b>Dislikes:</b> Boredom, Losing a contest
+        <b>Pronouns:</b> They/Them<br />
+        <b>Major:</b> Business<br />
+        <b>Likes:</b> Playing hockey, Bandanas, Going on adventures<br />
+        <b>Dislikes:</b> Boredom, Losing a contest<br/>
+        <b>Favorite Song: </b>
+        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1">
+        Eye of the Tiger - Survivor</a>
       </div>
     ),
-    devDescription: "blah blah blah...",
-    songName: `Eye of the Tiger - Survivor`,
-    songLink:
-      "https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1",
+    devDescription:
+      "Kai is designed and named after several high-school friends of Content Developer Joshua Ward. They were originally designed with a wide triangle-like design, but it was shrunk to fit the other characters later on. Kai's outfit matches their occupation as a hockey player, being based on RIT hockey jerseys with a legally distinct tiger logo on the front."
   },
   {
     imgUrl: "images/characters/spare-jamster.png",
-    conceptImgUrl: "images/placeholder/placeholder.PNG",
+    conceptImgUrl: "images/characters/dev-jamster.png",
     name: "Jamster",
     description: (
       <div>
@@ -120,11 +124,13 @@ export const characters: Character[] = [
         <b>Year:</b> Unknown <br />
         <b>Major:</b> All <br />
         <b>Likes:</b> Games, Jams, GameJams <br />
-        <b>Dislikes:</b> Sitting still, Being hungry
+        <b>Dislikes:</b> Sitting still, Being hungry<br />
+        <b>Favorite Song: </b>
+<a className="text-[#d97706]" href="https://www.youtube.com/watch?v=p3G5IXn0K7A">
+        Hamster Dance -  Hampton and the Hamsters</a>
       </div>
     ),
-    devDescription: "JAMMMMSTER",
-    songName: "Hamster Dance -  Hampton and the Hamsters",
-    songLink: "https://www.youtube.com/watch?v=p3G5IXn0K7A",
+    devDescription:
+      "Jamster is the mascot of the RIT Game Developers Club, designed by an alum who is a former member of the club. The in-game iteration of the character has some slight design and color modifications, but remains close to the original guidelines of RGDC, keeping the magenta, cyan and beige of the original character."
   },
 ];
