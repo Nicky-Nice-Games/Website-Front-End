@@ -74,7 +74,7 @@ export const characters: Character[] = [
       "Reese is the only character in the roster without visible eyes, inspiring his mellow personality and cheesy grin. His occupation as a dining worker was added later in development, which also inspired his name, a food pun that references Reese's™."
   },
   {
-    imgUrl: "images/characters/OLjr.png",
+    imgUrl: "images/characters/emma.png",
     conceptImgUrl: "images/characters/dev-emma.png",
     name: "Emma",
     occupation: "OL Junior",
@@ -95,7 +95,7 @@ export const characters: Character[] = [
       "Emma is inspired by a real RIT Orientation Leader found in research. Her design uses circular shape language to invoke a feeling of cheer, friendliness, and a warm welcome. Her outfit primarily uses RIT's colors to emphasize her pride in the institution."
   },
   {
-    imgUrl: "images/characters/HkySr.png",
+    imgUrl: "images/characters/kai.png",
     conceptImgUrl: "images/characters/dev-kai.PNG",
     name: "Kai",
     occupation: "Hockey Senior",

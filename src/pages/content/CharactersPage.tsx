@@ -98,7 +98,7 @@ const CharactersPage = () => {
                   {/* Clickable carousel picture*/}
                   <DialogTrigger className="cursor-pointer hover:scale-105 w-full">
                     <div
-                      className={`h-35 w-35 lg:h-55 lg:w-55 xl:h-75 xl:w-75 ${
+                      className={`h-35 w-35 lg:h-55 lg:w-55 xl:h-95 xl:w-75 ${
                         index === center - 1 ? "scale-150" : ""
                       } m-auto`}
                     >
@@ -106,7 +106,6 @@ const CharactersPage = () => {
                         src={character.imgUrl}
                         alt={character.name}
                         className={`
-                            rounded-md
                             object-cover
                             m-auto
                             h-full
