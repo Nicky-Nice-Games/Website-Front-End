@@ -51,7 +51,7 @@ const ProcessPage = () => {
               <ArrowButton
                 caption="Meet the team!"
                 clickAction={() => navigate("/aboutUs")}
-                className="absolute right-5 md:right-8 font-semibold px-6"
+                className="absolute right-5 md:right-8 font-semibold px-6 mt-[1rem] px-10 py-3"
               />
             </div>
           </div>
@@ -59,7 +59,7 @@ const ProcessPage = () => {
 
         {/* Designing Game Section */}
         <div>
-          <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
+          <h1 className="text-[40px] poppins mt-[4rem] m-4 mx-0 mb-4">
             Designing the Game
           </h1>
           <div className="flex md:flex-row flex-col items-stretch">
