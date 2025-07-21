@@ -143,15 +143,7 @@ const CharactersPage = () => {
                           </div>
                           <p className="text-gray-600 text-lg whitespace-pre-line h-[85%] flex flex-col justify-center">
                             {character.description}
-                            <div className="flex flex-row">
-                              <b>Favorite Song:</b>&nbsp;
-                              <a
-                                className="text-[#d97706]"
-                                href={character.songLink}
-                              >
-                                {character.songName}
-                              </a>
-                            </div>
+
                           </p>
                         </div>
                       </DialogDescription>
