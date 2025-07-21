@@ -168,10 +168,12 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
           </p>
         </div>
-        <div className=" relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
+        <div className=" relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]">
           <div
             className="overflow-hidden -rotate-6 w-[120%] h-75 origin-bottom-left flex
-          bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/black-checker.png')]"
+            relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
           >
             <InfiniteMovingCards
               items={bannerImages1}
@@ -180,7 +182,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             />
           </div>
         </div>
-        <div className="pt-8 w-full relative bg-center bg-fixed bg-no-repeat 2xl:bg-cover bg-[url('images/items-background.png')] bg-[#BBB] bg-blend-difference">
+        <div className="pt-8 w-full relative relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]">
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"
