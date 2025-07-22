@@ -53,7 +53,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
                     md:w-1/2 flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
         >
           <img className="w-120 md:w-4/5" src="images/Game-Logo.png"></img>
-          <h3 className="text-body text-[#f3f4f6] mt-4 w-full">
+          <h3 className="text-header2 text-[#f3f4f6] mt-4 w-full">
             Your Favorite No-Credit Courses!
           </h3>
         </div>

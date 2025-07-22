@@ -119,118 +119,71 @@
 }
 
 @font-face {
-  font-family: 'Bebas Neue';
-  src: url('font/BebasNeue-Regular.ttf') format('truetype');
+  font-family: "Bebas Neue";
+  src: url("font/BebasNeue-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
 @font-face {
-  font-family: 'Graffiti Youth';
-  src: url('font/GraffitiYouth-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-display: swap; /* Optional: improves loading behavior */
-}
-
-@font-face {
-  font-family: 'Painterz';
-  src: url('font/Painterz.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap; /* Optional: improves loading behavior */
-}
-
-@font-face {
-  font-family: 'Aileron-Slight-Slant';
-  src: url('font/Aileron-Slight-Slant.otf') format('opentype');
-  font-weight: normal;
-  font-display: swap; /* Optional: improves loading behavior */
-}
-
-@font-face {
-  font-family: 'Aileron-Heavy-Slant';
-  src: url('font/Aileron-Heavy-Slant.otf') format('opentype');
+  font-family: "Painterz";
+  src: url("font/Painterz.ttf") format("truetype");
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url('font/Poppins-SemiBold.ttf') format('opentype');
+  src: url("font/Poppins-SemiBold.ttf") format("opentype");
   font-weight: bold;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url('font/Poppins-Regular.ttf') format('opentype');
+  src: url("font/Poppins-Regular.ttf") format("opentype");
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
 
-.poppins
-{
+.poppins {
   font-family: "Poppins", sans-serif;
 }
 
 .bebas {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 }
 
 .graffiti {
-  font-family: 'Graffiti Youth', serif;
+  font-family: "Graffiti Youth", serif;
   letter-spacing: 1px;
 }
 
 .painterz {
-  font-family: 'Painterz', sans-serif;
+  font-family: "Painterz", sans-serif;
 }
-
-@media screen and (min-width: 768px) {
-  .slanted-text {
-  font-family: 'Aileron-Slight-Slant', sans-serif;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .slanted-text {
-  font-family: 'Aileron-Heavy-Slant', sans-serif;
-  }
-}
-
 
 .passive-outline {
-  text-shadow:
-    -1px -1px 0 #e7ee33,
-     0   -1px 0 #e7ee33,
-     1px -1px 0 #e7ee33,
-     1px  0   0 #e7ee33,
-     1px  1px 0 #e7ee33,
-     0    1px 0 #e7ee33,
-    -1px  1px 0 #e7ee33,
-    -1px  0   0 #e7ee33;
+  text-shadow: -1px -1px 0 #e7ee33, 0 -1px 0 #e7ee33, 1px -1px 0 #e7ee33,
+    1px 0 0 #e7ee33, 1px 1px 0 #e7ee33, 0 1px 0 #e7ee33, -1px 1px 0 #e7ee33,
+    -1px 0 0 #e7ee33;
 }
 
 .passive-outline:hover {
- color:#5C6000
+  color: #5c6000;
 }
 
 .active-outline {
   color: #e7ee33;
-  text-shadow:
-    -1px -1px 0 #000,
-     0   -1px 0 #000,
-     1px -1px 0 #000,
-     1px  0   0 #000,
-     1px  1px 0 #000,
-     0    1px 0 #000,
-    -1px  1px 0 #000,
-    -1px  0   0 #000;
+  text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
+    1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000;
 }
 
 @theme inline {
-  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
- 
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
   @keyframes scroll {
     to {
       transform: translate(calc(-50% - 0.5rem));
@@ -258,7 +211,8 @@
   }
 }
 
-#score, #raceTime {
+#score,
+#raceTime {
   text-align: right;
 }
 
@@ -279,25 +233,31 @@
   animation: gradient-move 15s ease infinite;
 }
 
-.text-button{
+.text-button {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
 
-.text-header2{
+.text-header2 {
   font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: bold;
 }
 
-.text-header3{
+.text-header3 {
   font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: bold;
 }
 
-.text-body{
+.text-body {
   font-family: "Poppins";
   font-size: 16px;
   font-weight: normal;
+}
+
+@media screen and (min-width: 1000px) {
+  .text-body {
+    font-size: 18px;
+  }
 }
