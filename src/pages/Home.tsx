@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
 import { HomeCarousel } from "@/components/home/home-carousel";
-import { fetchData, formatPlacing, formatTime } from "@/utils";
-import { pfpList } from "@/data/pfps";
+import { fetchData } from "@/utils";
+//import { pfpList } from "@/data/pfps";
 import PreviewLeaderboard from "@/components/home/preview-leaderboard";
 
 interface HomePageParams {
@@ -31,6 +31,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         return "text-white";
     }
   };
+  getPlacementColor;
 
   React.useEffect(() => {
     fetchData(
@@ -61,18 +62,19 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     "images/in-game/two.png",
   ];
 
-  const bannerImages2 = [
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-  ];
+  // const bannerImages2 = [
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  //   "images/placeholder/placeholder.PNG",
+  // ];
+
 
   return (
     <>
