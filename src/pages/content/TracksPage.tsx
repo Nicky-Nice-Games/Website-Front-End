@@ -56,7 +56,7 @@ const TracksPage = () => {
               md:rounded-r-xl md:min-h-1/5 py-5 lg:py-0
               bg-linear-to-b from-[#F66624] to-[#D84B3A]"
             >
-              <h1 className="font-black text-3xl sm:text-5xl">{heading}</h1>
+              <h2 className="text-header2">{heading}</h2>
             </div>
             <div className="h-4/5 bg-linear-to-t from-[#F66624]/90 to-[#D84B3A]/90  rounded-b-2xl mx-3 md:mx-10 p-5 mb-6">
               <p className="text-lg md:text-2xl opacity-100">{description}</p>

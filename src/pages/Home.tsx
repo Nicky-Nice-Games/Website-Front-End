@@ -83,7 +83,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
                     md:w-1/2 flex flex-col text-center items-center p-4 z-3 bg-gradient-to-r from-black to-[#0000]"
         >
           <img className="w-120 md:w-4/5" src="images/Game-Logo.png"></img>
-          <h3 className="text-xl md:text-4xl poppins text-[#f3f4f6] mt-4 w-full">
+          <h3 className="text-body text-[#f3f4f6] mt-4 w-full">
             Your Favorite No-Credit Courses!
           </h3>
         </div>
@@ -94,7 +94,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             navigate("/news");
             setCurrentPage("news");
           }}
-          className="absolute bottom-0 md:bottom-12 md:right-12 right-4 z-10 px-10 py-3"
+          className="absolute bottom-0 md:bottom-12 md:right-6 right-4 z-10 px-10 py-3"
         />
         <HomeCarousel></HomeCarousel>
       </div>
@@ -116,8 +116,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
                     bg-repeat bg-fixed bg-[url('images/black-checker.png')]
                     text-white"
         >
-          <h2 className="text-[26px] m-4">Game Overview</h2>
-          <p className="m-4">
+          <h2 className="text-header2 m-4">Game Overview</h2>
+          <p className="text-body m-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu
             nisl eu libero sodales facilisis eu vitae risus. Morbi id accumsan
             sapien. Donec eget feugiat libero, at volutpat nunc. Praesent a
@@ -147,8 +147,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           id="lore"
           className="px-8 text-center pt-[8%] bg-fixed bg-repeat pb-[10%] bg-[url('images/white-checker.png')]"
         >
-          <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
-          <p className="m-4">
+          <h2 className="text-header2 m-4">The Lore</h2>
+          <p className="text-body m-4">
             Lorem ipsum dolor sit amet consectetur. Congue sem auctor
             pellentesque adipiscing in vel elit dapibus id. Lacus mi euismod
             tristique in facilisis. Vehicula porttitor iaculis risus tincidunt

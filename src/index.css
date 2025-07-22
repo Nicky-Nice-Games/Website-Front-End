@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -158,6 +157,13 @@
 @font-face {
   font-family: "Poppins";
   src: url('font/Poppins-SemiBold.ttf') format('opentype');
+  font-weight: bold;
+  font-display: swap; /* Optional: improves loading behavior */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url('font/Poppins-Regular.ttf') format('opentype');
   font-weight: normal;
   font-display: swap; /* Optional: improves loading behavior */
 }
@@ -254,4 +260,22 @@
 
 #score, #raceTime {
   text-align: right;
+}
+
+.text-button{
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text-header2{
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.text-body{
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: normal;
 }
