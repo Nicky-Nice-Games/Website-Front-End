@@ -42,7 +42,7 @@ const LeaderboardPage = () => {
   // Renders when a map has been chosen
   return (
     <div
-      className={`${mapImage} pt-10 bg-gray-400 bg-cover bg-center bg-blend-soft-light`}
+      className={`${mapImage} pt-10 bg-gray-400 bg-cover bg-center bg-blend-soft-light min-h-[80vh]`}
     >
       <div className="text-center max-w-8/10 m-auto bg-[#FFF4] rounded-lg">
         <ArrowButton
