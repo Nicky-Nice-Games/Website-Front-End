@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
 import { HomeCarousel } from "@/components/home/home-carousel";
-import { fetchData, formatPlacing, formatTime } from "@/utils";
-import { pfpList } from "@/data/pfps";
+import { fetchData } from "@/utils";
 import PreviewLeaderboard from "@/components/home/preview-leaderboard";
 
 interface HomePageParams {
@@ -15,22 +14,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const [previewLeaderboardData, setPreviewData] = React.useState([]);
 
   const navigate = useNavigate();
-
-  // Takes the placement number and turns it into the appropriate color.
-  const getPlacementColor = (index: number): string => {
-    switch (index) {
-      case 0:
-        return "text-[#facc15]";
-      case 1:
-        return "text-[#cbd5e1]";
-      case 2:
-        return "text-[#fdba74]";
-      case 3:
-        return "text-[#f59e0b]";
-      default:
-        return "text-white";
-    }
-  };
 
   React.useEffect(() => {
     fetchData(
@@ -59,19 +42,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     "images/in-game/six.png",
     "images/in-game/nine.png",
     "images/in-game/two.png",
-  ];
-
-  const bannerImages2 = [
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
   ];
 
   return (
