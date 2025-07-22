@@ -16,23 +16,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
 
   const navigate = useNavigate();
 
-  // Takes the placement number and turns it into the appropriate color.
-  const getPlacementColor = (index: number): string => {
-    switch (index) {
-      case 0:
-        return "text-[#facc15]";
-      case 1:
-        return "text-[#cbd5e1]";
-      case 2:
-        return "text-[#fdba74]";
-      case 3:
-        return "text-[#f59e0b]";
-      default:
-        return "text-white";
-    }
-  };
-  getPlacementColor;
-
   React.useEffect(() => {
     fetchData(
       "GET",

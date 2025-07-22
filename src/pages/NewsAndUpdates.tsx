@@ -76,8 +76,10 @@ const NewsAndUpdatesPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <div className="min-h-screen bg-[url('images/items-background.png')] 
-    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6">
+    <div
+      className="min-h-screen bg-[url('images/items-background.png')] 
+    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6"
+    >
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (
@@ -141,7 +143,7 @@ const NewsAndUpdatesPage = () => {
                 <>
                   <motion.div
                     layoutId={`image-${active.title}-${id}`}
-                    className="min-w-3/10 xl:min-w-1/2 md:h-auto"
+                    className="min-w-2/5 md:h-auto"
                   >
                     <img // Desktop image
                       src={active.image}
@@ -231,8 +233,9 @@ const NewsAndUpdatesPage = () => {
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${isFullWidth ? "h-96" : "h-72"
-                  } `}
+                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${
+                  isFullWidth ? "h-96" : "h-72"
+                } `}
               />
               {/* Text content of the update */}
               <div className="p-4 relative bg-white z-2">

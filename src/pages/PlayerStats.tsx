@@ -34,7 +34,6 @@ import AchievementsPage from "./stats/AchievementPage";
 //   { name: "Track 3" },
 //   { name: "Track 4" },
 // ];
-
 const PlayerStatsPage = ({
   account,
   setAccount,

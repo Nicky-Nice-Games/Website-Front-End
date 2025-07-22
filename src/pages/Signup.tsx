@@ -43,6 +43,10 @@ const signup = (successCallback: Function, failedCallback: Function) => {
             `https://maventest-a9cc74b8d5cf.herokuapp.com/webservice/playerinfo/create`,
             "json",
             (info: any) => {
+              if (info.error) {
+                failedCallback(email, username, password, password2);
+                return false;
+              }
               localStorage.setItem("pid", info.pid);
               localStorage.setItem("username", info.username);
               localStorage.setItem("pfp", info.pfp);
@@ -52,11 +56,12 @@ const signup = (successCallback: Function, failedCallback: Function) => {
                 pfp: info.pfp,
               });
             },
-            {
+            JSON.stringify({
               email: email.value,
               username: username.value,
               password: password.value,
-            },
+              pfp: 0,
+            }),
             () => {
               failedCallback(username, password);
               return false;
