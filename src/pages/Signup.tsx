@@ -111,12 +111,9 @@ const SignupPage = ({ setAccount }: SignupParams) => {
           <Trophy className="size-8" />
         </div>
         <div className="flex w-full max-w-sm flex-col gap-6">
-          <a
-            href="#"
-            className="flex items-center gap-2 self-center font-medium"
-          >
-            <h1 className="text-white text-4xl">Name TBD</h1>
-          </a>
+          <h1 className="text-white poppins font-bold text-center text-4xl">
+            Gizmo Go-Kartz
+          </h1>
           <SignupForm
             onSubmit={(e) => {
               e.preventDefault();
