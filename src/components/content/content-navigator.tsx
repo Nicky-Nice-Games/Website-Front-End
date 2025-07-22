@@ -31,7 +31,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${characterButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`hover:cursor-pointer p-2 m-1 font-bold ${characterButtonColor} poppins tracking-wide rounded-sm text-lg`}
               onClick={() => {
                 const navigateRoute: string =
                   props.currentPage === "characters"
@@ -45,7 +45,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${itemButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`hover:cursor-pointer p-2 m-1 font-bold ${itemButtonColor} poppins tracking-wide rounded-sm text-lg`}
               onClick={() => {
                 const navigateRoute: string =
                   props.currentPage === "items" ? "/content" : "/items";
@@ -57,7 +57,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${trackButtonColor} tracking-wide poppins rounded-sm text-lg`}
+              className={`hover:cursor-pointer p-2 m-1 font-bold ${trackButtonColor} tracking-wide poppins rounded-sm text-lg`}
               onClick={() => {
                 const navigateRoute: string =
                   props.currentPage === "tracks" ? "/content" : "/tracks";

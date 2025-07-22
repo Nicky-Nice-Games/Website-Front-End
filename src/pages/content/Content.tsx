@@ -7,11 +7,11 @@ const ContentPage = () => {
       <div className="flex flex-col-reverse md:grid md:grid-cols-2 bg-zinc-950">
         <div>
           <img src="images/gizmo-header.png" alt="Header For Gizmo The Ghost" className="max-w-xl"/>
-          <p className="m-3 p-8 text-blue-100 bg-gradient-to-b from-[#0d0032] to-[#180059] rounded-xl text-lg">
+          <p className="m-3 p-8 text-blue-100 bg-gradient-to-b from-[#0d0032] to-[#180059] rounded-xl text-body">
             A curious ghost that lingers in the IGM Open Lab
-Carved a life-size wooden doll to possess as a physical body
-Timid but optimistic; believes in a good future for games
-Has a box of trinkets and knickknacks to share
+            Carved a life-size wooden doll to possess as a physical body
+            Timid but optimistic; believes in a good future for games
+            Has a box of trinkets and knickknacks to share
           </p>
         </div>
         <img

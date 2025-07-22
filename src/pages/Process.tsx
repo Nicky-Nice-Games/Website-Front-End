@@ -21,12 +21,12 @@ const ProcessPage = () => {
       <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-[#BBB] bg-fixed bg-repeat bg-blend-difference *:text-white">
         {/* About Project Section */}
         <div>
-          <h1 className="text-[40px] poppins pt-4 mx-0 mb-4">
+          <h1 className="text-header2 pt-4 mx-0 mb-4">
             {" "}
             About the Project
           </h1>
           <div className="flex md:flex-row flex-col items-stretch">
-            <p>
+            <p className="text-body">
               Gizmo Go-Kartz was constructed by a team of almost 50 RIT students
               of varying grade levels, all of which are split into 8 sub-teams
               by their specialty. The project and most of its students work in
@@ -52,16 +52,16 @@ const ProcessPage = () => {
 
         {/* Designing Game Section */}
         <div>
-          <h1 className="text-[40px] poppins mt-[4rem] m-4 mx-0 mb-4">
+          <h1 className="text-header2 mt-[4rem] m-4 mx-0 mb-4">
             Designing the Game
           </h1>
-          <div className="flex md:flex-row flex-col items-stretch">
+          <div className="pb-[1rem] flex md:flex-row flex-col items-stretch">
             <img
               src={photo}
               alt="Picture of RIT"
               className="md:mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-full md:w-1/4 max-h-[300px]"
             />
-            <p className="">
+            <p className="text-body">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
               donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu.
               Dui elementum neque lacus cursus lacus sem convallis enim.
@@ -79,7 +79,7 @@ const ProcessPage = () => {
             </p>
           </div>
           <div className="flex md:flex-row flex-col items-stretch">
-            <p className="mr-8">
+            <p className="text-body mr-8">
               Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
               donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu.
               Dui elementum neque lacus cursus lacus sem convallis enim.
@@ -105,10 +105,10 @@ const ProcessPage = () => {
 
         {/* Character Dev Info Section */}
         <div>
-          <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
+          <h1 className="text-header2 m-4 mx-0 mb-4">
             Designing our characters
           </h1>
-          <p>
+          <p className="text-body">
             The character roster of Gizmo Go-Kartz is designed to be both
             approachable and scalable. Characters are build using a standardized
             body base reminiscent of Nintendo's Miis, with heads and faces being
@@ -127,7 +127,7 @@ const ProcessPage = () => {
                 <Dialog>
                   <DialogTrigger className="relative w-full sm:w-1/2 lg:w-1/3 m-auto">
                     <div className="absolute w-[84.5%] h-[84.5%] m-2 md:m-10 bg-[#0007] opacity-0 hover:opacity-100 rounded-lg">
-                      <h3 className="text-white text-2xl absolute top-[50%] text-center w-full">
+                      <h3 className="text-white text-button absolute top-[50%] text-center w-full">
                         Learn about <br /> {c.name}'s development
                       </h3>
                     </div>
@@ -139,7 +139,7 @@ const ProcessPage = () => {
                   </DialogTrigger>
                   <DialogContent className="lg:max-w-[60%]">
                     <DialogHeader className="text-left">
-                      <DialogTitle className="text-4xl painterz mb-4">
+                      <DialogTitle className="text-header3 mb-4">
                         {c.name}
                         {c.occupation ? ` - ${c.occupation}` : ""}
                       </DialogTitle>
@@ -150,7 +150,7 @@ const ProcessPage = () => {
                         alt={`${c.name} concept`}
                         className="mb-2 max-h-100"
                       />
-                      <DialogDescription className="text-lg">
+                      <DialogDescription className="text-body text-black">
                         {c.devDescription}
                       </DialogDescription>
                     </div>
@@ -162,7 +162,7 @@ const ProcessPage = () => {
         </div>
 
         {/* Track Dev Info Section */}
-        <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
+        <h1 className="text-header2 m-4 mx-0 mb-4">
           Building our Tracks
         </h1>
         <Tabs defaultValue="0" className="w-[90vw]">

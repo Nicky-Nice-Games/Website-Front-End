@@ -133,14 +133,14 @@ const CharactersPage = () => {
                       <DialogDescription className="p-4 w-full lg:min-h-70 text-left">
                         <div className="text-center lg:text-left lg:w-7/10 lg:ml-auto h-full">
                           <div className="flex flex-row justify-between mb-2">
-                            <DialogTitle className="text-black font-bold text-3xl justify-self-center lg:justify-self-start">
+                            <DialogTitle className="text-header3 font-bold justify-self-center lg:justify-self-start">
                               {character.name}
                             </DialogTitle>
                             <DialogClose>
                               <CloseIcon />
                             </DialogClose>
                           </div>
-                          <p className="text-gray-600 text-lg whitespace-pre-line h-[85%] flex flex-col justify-center">
+                          <p className="text-gray-600 text-body h-[85%] flex flex-col justify-center">
                             {character.description}
 
                           </p>

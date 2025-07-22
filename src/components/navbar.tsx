@@ -61,7 +61,7 @@ const Navbar = ({
   // Profile dropdown with link to player stats page and logout button
   // Only appears if logged in
   const profileDropdown = (
-    <NavigationMenuItem className="list-none md:mr-4">
+    <NavigationMenuItem className="text-body list-none md:mr-4">
       <NavigationMenuTrigger
         className={`${navbarButton} bg-inherit ${
           currentPage === "stats" ? "active-outline" : "passive-outline"
