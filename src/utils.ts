@@ -47,7 +47,11 @@ const fetchData = (
   failedCallback?: Function
 ) => {
   const fetchRequest = async (): Promise<any> => {
-    const requestParams = { method, body: requestBody };
+    const requestParams = {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: requestBody,
+    };
     const response: Response = await fetch(url, requestParams);
     const playerData =
       returnType === "json" ? await response.json() : await response.text();

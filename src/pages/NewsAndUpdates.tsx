@@ -76,8 +76,10 @@ const NewsAndUpdatesPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <div className="min-h-screen bg-[url('images/items-background.png')] 
-    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6">
+    <div
+      className="min-h-screen bg-[url('images/items-background.png')] 
+    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6"
+    >
       <h1 className="text-white text-header2">News and Updates</h1>
       {/* overlay behind pop up when active */}
       <AnimatePresence>
@@ -142,7 +144,7 @@ const NewsAndUpdatesPage = () => {
                 <>
                   <motion.div
                     layoutId={`image-${active.title}-${id}`}
-                    className="min-w-3/10 xl:min-w-1/2 md:h-auto"
+                    className="min-w-2/5 md:h-auto"
                   >
                     <img // Desktop image
                       src={active.image}
@@ -197,7 +199,9 @@ const NewsAndUpdatesPage = () => {
           <p className="text-[15px] poppins font-bold text-[#F76902] mb-1">
             {mostRecentUpdate.date}
           </p>
-          <h2 className="text-[24px] poppins font-bold">{mostRecentUpdate.title}</h2>
+          <h2 className="text-[24px] poppins font-bold">
+            {mostRecentUpdate.title}
+          </h2>
           <p className="text-body mt-1">{mostRecentUpdate.subtitle}</p>
         </div>
       </motion.div>
@@ -232,8 +236,9 @@ const NewsAndUpdatesPage = () => {
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${isFullWidth ? "h-96" : "h-72"
-                  } `}
+                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${
+                  isFullWidth ? "h-96" : "h-72"
+                } `}
               />
               {/* Text content of the update */}
               <div className="p-4 relative bg-white z-2">
@@ -242,7 +247,9 @@ const NewsAndUpdatesPage = () => {
                   {update.date}
                 </p>
                 {/* Title */}
-                <h2 className="text-[24px] poppins font-bold">{update.title}</h2>
+                <h2 className="text-[24px] poppins font-bold">
+                  {update.title}
+                </h2>
                 {/* Subtitle */}
                 <p className="text-body mt-1">{update.subtitle}</p>
               </div>

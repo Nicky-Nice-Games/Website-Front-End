@@ -4,17 +4,14 @@ export const Footer = () => {
       <footer className="bg-repeat bg-size-[50%] text-white py-6 bg-[url('images/black-checker.png')]">
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
           <div>
-            <img
-              src="images/Game-Logo.png"
-              className="w-40 h-32"
-            ></img>
+            <img src="images/Game-Logo.png" className="w-40 h-32"></img>
           </div>
 
           {/* Instagram Icon*/}
           <div className="flex flex-col items-center">
             <div className="flex space-x-4 mb-2">
               {/* Instagram Icon */}
-              <a href="https://www.instagram.com/gizmogokartz/">
+              <a href="https://www.instagram.com/gizmogokartz/" target="_blank">
                 <div className="flex flex-col items-center">
                   <div className="flex space-x-4 mb-2">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center transform transition-transform duration-200 hover:-translate-y-1 text-white group">
@@ -34,7 +31,8 @@ export const Footer = () => {
                             x2="100%"
                             y2="100%"
                           >
-                            <stop offset="10%" stopColor="#405DE6" /> {/* Blue */}
+                            <stop offset="10%" stopColor="#405DE6" />{" "}
+                            {/* Blue */}
                             <stop offset="10%" stopColor="#5851DB" />{" "}
                             {/* Purple transition */}
                             <stop offset="20%" stopColor="#833AB4" />{" "}
@@ -61,8 +59,7 @@ export const Footer = () => {
                 </div>
               </a>
               {/* Twitter Icon*/}
-              <a href="https://www.x.com/gizmogokartz/">
-
+              <a href="https://www.x.com/gizmogokartz/" target="_blank">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
   hover:-translate-y-1 text-white group" // Added 'group' class here
@@ -76,7 +73,8 @@ export const Footer = () => {
                     className="group-hover:text-sky-500" // Added group-hover class
                   >
                     <path
-                      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"                      fill-rule="evenodd"
+                      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                      fill-rule="evenodd"
                       clip-rule="evenodd"
                     ></path>
                   </svg>
