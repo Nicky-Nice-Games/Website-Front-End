@@ -78,7 +78,7 @@ const Navbar = ({
         <img
           src={
             account
-              ? pfpList[account.pfp]
+              ? pfpList[account.pfp].src
               : "images/placeholder/pfp-placeholder.png"
           }
           className="max-w-7 md:m-1 rounded-full"
