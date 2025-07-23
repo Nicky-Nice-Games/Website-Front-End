@@ -1,5 +1,4 @@
 import { SignupForm } from "@/components/signup-form";
-import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
 import { useNavigate } from "react-router-dom";
 import { fetchData } from "@/utils";
@@ -112,8 +111,8 @@ const SignupPage = ({ setAccount }: SignupParams) => {
   return (
     <>
       <div className="bg-[url('images/items-background.png')] bg-[#BBB] bg-fixed bg-size-[130%] bg-blend-difference flex min-h-[98vh] flex-col items-center justify-center gap-6 p-6 md:p-10">
-        <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
-          <Trophy className="size-8" />
+        <div className="text-white flex size-16 items-center justify-center rounded-full">
+          <img src="images/logo/gizmo-icon-hover.svg" alt="Gizmo Icon" />
         </div>
         <div className="flex w-full max-w-sm flex-col gap-6">
           <h1 className="text-white poppins font-bold text-center text-4xl">

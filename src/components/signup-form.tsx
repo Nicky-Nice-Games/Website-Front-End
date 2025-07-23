@@ -50,7 +50,12 @@ export function SignupForm({
                       className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902]"
                     ></a>
                   </div>
-                  <Input id="password" type="password" required />
+                  <Input
+                    id="password"
+                    type="password"
+                    className="text-white"
+                    required
+                  />
                 </div>
                 <div className="grid gap-3">
                   <div className="flex items-center text-[#D0D3D4]">
@@ -60,7 +65,12 @@ export function SignupForm({
                       className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902]"
                     ></a>
                   </div>
-                  <Input id="retype-password" type="password" required />
+                  <Input
+                    id="retype-password"
+                    type="password"
+                    className="text-white"
+                    required
+                  />
                 </div>
                 <Button
                   type="submit"
