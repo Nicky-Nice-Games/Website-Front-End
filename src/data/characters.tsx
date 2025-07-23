@@ -19,8 +19,9 @@ export const characters: Character[] = [
       <div>
         <b>Pronouns:</b> Any/All <br />
         <b>Height:</b> Short <br />
-        <b>Likes:</b> Doohickeys, Creativity, Being helpful
-        <br />
+        <b>Year:</b> N/A <br />
+        <b>Major:</b> N/A <br />
+        <b>Likes:</b> Doohickeys, Creativity, Being helpful<br />
         <b>Dislikes:</b> Bugs, Bugs<br />
         <b>Favorite Song: </b> 
         <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=CFGLoQIhmow">
@@ -39,14 +40,12 @@ export const characters: Character[] = [
       <div>
         <b>Pronouns:</b> She/They <br />
         <b>Height:</b> Average <br />
-        <b>Year:</b> Freshmen <br />
+        <b>Year:</b> 1st<br />
         <b>Major:</b> Photography <br />
-        <b>Likes:</b> Skating, Thrifting Clothes, Going Fast
-        <br />
+        <b>Likes:</b> Skating, Thrifting Clothes, Going Fast<br />
         <b>Dislikes:</b> 8AM classes, Wiping out<br />
         <b>Favorite Song: </b>
-        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=TIy3n2b7V9k">
-         Skater Boi - Avril Lavigne</a>
+        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=TIy3n2b7V9k">Skater Boi - Avril Lavigne</a>
       </div>
     ),
     devDescription:
@@ -61,7 +60,7 @@ export const characters: Character[] = [
       <div>
         <b>Pronouns:</b> He/Him <br />
         <b>Height:</b> Average <br />
-        <b>Year:</b> Sophomore <br />
+        <b>Year:</b> 2nd<br />
         <b>Major:</b> Packaging Science <br />
         <b>Likes:</b> Free Stuff, Making Mixtapes, Anime, Energy Drinks <br />
         <b>Dislikes:</b> Angry customers, Waking up<br />
@@ -81,7 +80,8 @@ export const characters: Character[] = [
     description: (
       <div>
         <b>Pronouns:</b> She/Her <br />
-        <b>Year:</b> Junior <br />
+        <b>Height:</b> Average<br />
+        <b>Year:</b> 3rd<br />
         <b>Job:</b> Orientation Leader <br />
         <b>Major:</b> Game Design and Development <br />
         <b>Likes:</b> Pins, Early Morning Walks, Bucket Hats <br />
@@ -102,6 +102,8 @@ export const characters: Character[] = [
     description: (
       <div>
         <b>Pronouns:</b> They/Them<br />
+        <b>Height:</b> Tall <br />
+        <b>Year:</b> 4th<br />
         <b>Major:</b> Business<br />
         <b>Likes:</b> Playing hockey, Bandanas, Going on adventures<br />
         <b>Dislikes:</b> Boredom, Losing a contest<br/>
@@ -121,8 +123,8 @@ export const characters: Character[] = [
       <div>
         <b>Pronouns:</b> They/Them <br />
         <b>Height:</b> Short <br />
-        <b>Year:</b> Unknown <br />
-        <b>Major:</b> All <br />
+        <b>Year:</b> N/A<br />
+        <b>Major:</b> N/A<br />
         <b>Likes:</b> Games, Jams, GameJams <br />
         <b>Dislikes:</b> Sitting still, Being hungry<br />
         <b>Favorite Song: </b>
