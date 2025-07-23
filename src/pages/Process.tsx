@@ -100,38 +100,39 @@ const ProcessPage = () => {
               className="md:mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-full md:w-1/4 max-h-[300px]"
             />
             <p className="">
-              Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
-              donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu.
-              Dui elementum neque lacus cursus lacus sem convallis enim.
-              Ullamcorper dolor ultricies in mauris orci malesuada. Cursus
-              commodo urna interdum eget pharetra. Nulla enim sit varius tempus
-              tincidunt in in morbi malesuada. Nunc nunc volutpat sit quis
-              ullamcorper eget turpis porta. Maecenas eget suspendisse sagittis
-              volutpat non sed lorem. Vulputate at faucibus leo rhoncus. Ac ut
-              adipiscing commodo elementum quis adipiscing scelerisque sed
-              nulla. Malesuada nunc nec malesuada pretium vulputate faucibus leo
-              pellentesque. Curabitur commodo nibh egestas pretium adipiscing
-              rhoncus. Fermentum adipiscing fusce id scelerisque pellentesque
-              ipsum. Mattis sodales iaculis faucibus nam est quam. Vitae morbi
-              tempus lectus elit odio. Justo varius nisi.
+              Our Game Systems Programming (GSP) team is the backbone of our
+              game's functionality. Given the scope of their work, they follow
+              several practices to stay organized and efficient. To keep the
+              GitHub repo clean and avoid merge conflicts, GSP uses feature
+              branches and forks for development. All code pushed to main goes
+              through a pull request and approval process, ensuring no broken
+              code makes it into the daily builds. Daily builds of the game are
+              created to quickly catch and resolve functionality issues, and to
+              ensure there's always an updated version ready for playtesting.
+              The team regularly peer programs, which helps with idea
+              brainstorming, faster debugging, and overall productivity. As GSP
+              remote lead Logan Larrondo said, “Peer programming helps
+              brainstorm ideas, debug faster, and is often more efficient than
+              working alone.” To stay on track, the team fills out daily Google
+              Forms, logging progress and helping with planning. When major bugs
+              appear, GSP tackles them together, through research, code reviews,
+              or simply joining a call to talk things out.
             </p>
           </div>
           <div className="flex md:flex-row flex-col items-stretch">
             <p className="mr-8">
-              Lorem ipsum dolor sit amet consectetur. Eget pharetra accumsan
-              donec euismod viverra aliquam. Nibh rhoncus velit volutpat arcu.
-              Dui elementum neque lacus cursus lacus sem convallis enim.
-              Ullamcorper dolor ultricies in mauris orci malesuada. Cursus
-              commodo urna interdum eget pharetra. Nulla enim sit varius tempus
-              tincidunt in in morbi malesuada. Nunc nunc volutpat sit quis
-              ullamcorper eget turpis porta. Maecenas eget suspendisse sagittis
-              volutpat non sed lorem. Vulputate at faucibus leo rhoncus. Ac ut
-              adipiscing commodo elementum quis adipiscing scelerisque sed
-              nulla. Malesuada nunc nec malesuada pretium vulputate faucibus leo
-              pellentesque. Curabitur commodo nibh egestas pretium adipiscing
-              rhoncus. Fermentum adipiscing fusce id scelerisque pellentesque
-              ipsum. Mattis sodales iaculis faucibus nam est quam. Vitae morbi
-              tempus lectus elit odio. Justo varius nisi.
+              The look of Gizmo Go‑Kartz feels fun and nostalgic, echoing early
+              3D kart racers like Mario Kart 64. We use a simple, low‑poly art
+              style and a bold, RIT‑inspired color scheme, like warm reds,
+              oranges, and yellows that really popped against cooler tones you
+              see in other kart games. Our tracks take you to playful, cartoon
+              versions of RIT landmarks like the SHED and Global Village, and
+              racers are based on familiar IGM student characters—skaters,
+              dining workers, orientation leaders, and so on. The UI emulates
+              old‑school racing games, keeping everything clear and focused on
+              your racer. Altogether, the design is meant to capture the unique,
+              caffeine‑fuelled energy of IGM life in a fresh, polished
+              experience.
             </p>
             <img
               src={photo}
@@ -147,7 +148,7 @@ const ProcessPage = () => {
             Designing our characters
           </h1>
           <p>
-            The character roster of Gizmo Go-Kartz is designed to be both
+            The roster of Gizmo Go-Kartz characters is designed to be both
             approachable and scalable. Characters are build using a standardized
             body base reminiscent of Nintendo's Miis, with heads and faces being
             easy to customize. This allows ease of character production for a
