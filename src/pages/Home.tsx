@@ -81,8 +81,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
 
         <div
-          id="introdcution"
-          className="pt-8 md:pt-32 w-full pb-16 pl-8 pr-8 w-full 
+          id="introduction"
+          className="pt-20 md:pt-48 w-full pb-16 pl-8 pr-8 w-full 
                     bg-repeat bg-fixed bg-[url('images/black-checker.png')]
                     text-white"
         >
@@ -114,7 +114,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div
           id="lore"
-          className="px-8 text-center pt-[8%] bg-fixed bg-repeat pb-[10%] bg-[url('images/white-checker.png')]"
+          className="px-8 text-center pt-[11%] bg-fixed bg-repeat pb-30 md:pb-50 xl:pb-60 bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-[26px] m-4 font-semibold">The Lore</h2>
           <p className="m-4">
