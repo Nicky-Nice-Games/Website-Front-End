@@ -43,11 +43,11 @@ function App() {
 
       // Set account to dummy data for testing purposes.
       // COMMENT THIS OUT BEFORE YOU BUILD.
-      setAccount({
-        pid: "string",
-        username: "string",
-        pfp: 0,
-      });
+      // setAccount({
+      //   pid: "string",
+      //   username: "string",
+      //   pfp: 0,
+      // });
       return;
     }
     const storedAccount: AccountSchema = {
