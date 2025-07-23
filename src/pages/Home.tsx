@@ -31,7 +31,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     );
   }, []);
 
-  const bannerImages1 = [
+  const bannerImages = [
     "images/in-game/one.png",
     "images/in-game/ten.png",
     "images/in-game/three.png",
@@ -73,7 +73,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div className="bg-black">
           <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="right"
               speed="verySlow"
             ></InfiniteMovingCards>
@@ -106,7 +106,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div className="mb-8 bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="right"
               speed="verySlow"
             ></InfiniteMovingCards>
@@ -151,7 +151,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
           >
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="left"
               speed="verySlow"
             />
