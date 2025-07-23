@@ -22,7 +22,7 @@ import NoPage from "./pages/NoPage";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
-
+import AuthenticationPage from "./pages/Authentication";
 export interface AccountSchema {
   pid: string;
   username: string;
