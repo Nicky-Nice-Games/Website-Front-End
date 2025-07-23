@@ -1,16 +1,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { characters } from "@/data/characters";
 import { tracks } from "@/data/tracks";
 import {
-  Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import ArrowButton from "@/components/ui/arrow-button";
 import { useNavigate } from "react-router-dom";
+import CharacterCarousel from "@/components/character-carousel";
 
 const ProcessPage = () => {
   const photo: string = "images/placeholder/placeholder.PNG";
@@ -160,23 +157,12 @@ const ProcessPage = () => {
             their mascots. As a result, most of the characters are original
             students, and only 2 are mascots with approval.
           </p>
-          <div className="mt-2 flex flex-row flex-wrap w-[85%] m-auto justify-center">
-            {characters.map((c) => {
-              return (
-                <Dialog>
-                  <DialogTrigger className="relative w-full sm:w-1/2 lg:w-1/3 m-auto">
-                    <div className="absolute w-[84.5%] h-[84.5%] m-2 md:m-10 bg-[#0007] opacity-0 hover:opacity-100 rounded-lg">
-                      <h3 className="text-white text-2xl absolute top-[50%] text-center w-full">
-                        Learn about <br /> {c.name}'s development
-                      </h3>
-                    </div>
-                    <img
-                      src={c.imgUrl}
-                      alt={c.name}
-                      className="w-full p-2 md:p-10 rounded-[10%]"
-                    />
-                  </DialogTrigger>
-                  <DialogContent className="lg:max-w-[60%]">
+          <div className="text-black">
+            <CharacterCarousel
+              contentClass="lg:max-w-[60%]"
+              mappedContent={(c) => {
+                return (
+                  <>
                     <DialogHeader className="text-left">
                       <DialogTitle className="text-4xl painterz mb-4">
                         {c.name}
@@ -193,10 +179,10 @@ const ProcessPage = () => {
                         {c.devDescription}
                       </DialogDescription>
                     </div>
-                  </DialogContent>
-                </Dialog>
-              );
-            })}
+                  </>
+                );
+              }}
+            />
           </div>
         </div>
 
