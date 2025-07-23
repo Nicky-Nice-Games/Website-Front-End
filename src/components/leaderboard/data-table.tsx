@@ -37,7 +37,7 @@ export function DataTable<TData, TValue>({
   const endOfTableImage = (
     <img
       src="images/placeholder/placeholder.PNG"
-      className="min-w-full object-fill max-h-[29vh]"
+      className="min-w-full object-fill max-h-[29vh] opacity-0"
     />
   );
 

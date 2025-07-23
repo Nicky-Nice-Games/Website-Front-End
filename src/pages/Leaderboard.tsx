@@ -42,7 +42,7 @@ const LeaderboardPage = () => {
   // Renders when a map has been chosen
   return (
     <div
-      className={`${mapImage} pt-10 bg-gray-400 bg-cover bg-center bg-blend-soft-light`}
+      className={`${mapImage} pt-10 bg-gray-400 bg-cover bg-center bg-blend-soft-light min-h-[80vh]`}
     >
       <div className="text-center max-w-8/10 m-auto bg-[#FFF4] rounded-lg">
         <ArrowButton
@@ -80,7 +80,7 @@ const MapSelect = ({
               onClick={() => {
                 setMapId(tracks.indexOf(t) + 1); // Add to the index, as the map id starts with 1 in backend
                 setMapName(t.name);
-                setMapImage(`bg-[url(images/tracks/campus-circuit.png)]`); // Tailwind property for the leaderboard background
+                setMapImage(t.background); // Tailwind property for the leaderboard background
               }}
               className="cursor-pointer drop-shadow-xl/50 w-[80%] md:w-[350px]"
             >

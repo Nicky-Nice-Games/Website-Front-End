@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import InfiniteMovingCards from "@/components/ui/carousel-banner";
 import ArrowButton from "@/components/ui/arrow-button";
 import { HomeCarousel } from "@/components/home/home-carousel";
-import { fetchData, formatPlacing, formatTime } from "@/utils";
-import { pfpList } from "@/data/pfps";
+import { fetchData } from "@/utils";
 import PreviewLeaderboard from "@/components/home/preview-leaderboard";
 
 interface HomePageParams {
@@ -15,22 +14,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
   const [previewLeaderboardData, setPreviewData] = React.useState([]);
 
   const navigate = useNavigate();
-
-  // Takes the placement number and turns it into the appropriate color.
-  const getPlacementColor = (index: number): string => {
-    switch (index) {
-      case 0:
-        return "text-[#facc15]";
-      case 1:
-        return "text-[#cbd5e1]";
-      case 2:
-        return "text-[#fdba74]";
-      case 3:
-        return "text-[#f59e0b]";
-      default:
-        return "text-white";
-    }
-  };
 
   React.useEffect(() => {
     fetchData(
@@ -48,7 +31,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     );
   }, []);
 
-  const bannerImages1 = [
+  const bannerImages = [
     "images/in-game/one.png",
     "images/in-game/ten.png",
     "images/in-game/three.png",
@@ -59,19 +42,6 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     "images/in-game/six.png",
     "images/in-game/nine.png",
     "images/in-game/two.png",
-  ];
-
-  const bannerImages2 = [
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
-    "images/placeholder/placeholder.PNG",
   ];
 
   return (
@@ -96,14 +66,14 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
           }}
           className="absolute bottom-0 md:bottom-12 md:right-12 right-4 z-10 px-10 py-3"
         />
-        <HomeCarousel></HomeCarousel>
+        <HomeCarousel />
       </div>
 
       <main className="overflow-hidden bg-[url('images/white-checker.png')] bg-fixed">
         <div className="bg-black">
           <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="right"
               speed="verySlow"
             ></InfiniteMovingCards>
@@ -118,15 +88,14 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         >
           <h2 className="text-[26px] m-4">Game Overview</h2>
           <p className="m-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu
-            nisl eu libero sodales facilisis eu vitae risus. Morbi id accumsan
-            sapien. Donec eget feugiat libero, at volutpat nunc. Praesent a
-            velit felis. Nulla ultricies rhoncus risus, vitae interdum lacus
-            viverra eget. Fusce eget mauris nibh. Maecenas eu ex iaculis, ornare
-            metus vitae, congue ante. Etiam hendrerit velit at nunc lobortis
-            congue. Sed et felis posuere mauris vulputate euismod eu a turpis.
-            Duis convallis tempus risus sed convallis. Proin efficitur
-            vestibulum nibh ac mollis. Nam scelerisque tellus a dolor facilisis.
+            Gizmo Go-Kartz is an arcade-style Kart Racer for IGM students to
+            play at any time between classes. It has a retro cartoony style
+            that's meant to be easily recognizable to students. While having
+            RIT-themed inspirations, Gizmo Go-Kartz puts a chaotic twist to them
+            and captures the excitement of many Kart Racers. It is a
+            passion-fueled project with the goal of serving as a proof of
+            concept for many future Co-ops to be created with the same IP and
+            style.
           </p>
           <img
             className="ml-4"
@@ -137,7 +106,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div className="mb-8 bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="right"
               speed="verySlow"
             ></InfiniteMovingCards>
@@ -172,22 +141,26 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             eleifend facilisi et consectetur risus eros nisl lacus. Ut ac ac.
           </p>
         </div>
-        <div className=" relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
-            bg-blend-difference bg-size-[90%] md:bg-size-[80%]">
+        <div
+          className=" relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
+        >
           <div
             className="overflow-hidden -rotate-6 w-[120%] h-75 origin-bottom-left flex
             relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
             bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
           >
             <InfiniteMovingCards
-              items={bannerImages2}
+              items={bannerImages}
               direction="left"
               speed="verySlow"
             />
           </div>
         </div>
-        <div className="pt-8 w-full relative relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
-            bg-blend-difference bg-size-[90%] md:bg-size-[80%]">
+        <div
+          className="pt-8 w-full relative relative bg-[#BBB] bg-[url('images/items-background.png')] bg-fixed bg-cover bg-repeat 
+            bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
+        >
           <div
             id="topscores"
             className="relative flex flex-col justify-center items-center"

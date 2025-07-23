@@ -73,7 +73,7 @@ export function SignupForm({
                 Already have an account?{" "}
                 <button
                   onClick={() => navigate("/login")}
-                  className="underline underline-offset-4 text-[#F76902]"
+                  className="underline underline-offset-4 cursor-pointer text-[#F76902]"
                 >
                   Login
                 </button>
