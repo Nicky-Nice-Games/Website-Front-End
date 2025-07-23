@@ -1,5 +1,4 @@
 import { LoginForm } from "@/components/login-form";
-import { Trophy } from "lucide-react";
 import type { AccountSchema } from "@/App";
 import { useNavigate } from "react-router-dom";
 import { fetchData } from "@/utils";
@@ -48,8 +47,8 @@ const LoginPage = ({ setAccount }: LoginParams) => {
             "linear-gradient(#FFA962, #F76902), url('images/items-background-darkoutline.png')",
         }}
       >
-        <div className="bg-[#F76902] text-white flex size-12 items-center justify-center rounded-full">
-          <Trophy className="size-8" />
+        <div className="text-white flex size-16 items-center justify-center rounded-full">
+          <img src="images/logo/gizmo-icon.svg" alt="Gizmo Icon" />
         </div>
         <div className="flex w-full max-w-sm flex-col gap-6">
           <h1 className="poppins font-bold text-center text-white text-4xl">

@@ -37,14 +37,13 @@ export function LoginForm({
                 <div className="grid gap-3">
                   <div className="flex items-center text-[#D0D3D4]">
                     <Label htmlFor="password">Password</Label>
-                    <a
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline text-[#F76902]"
-                    >
-                      Forgot your password?
-                    </a>
                   </div>
-                  <Input id="password" type="password" required />
+                  <Input
+                    id="password"
+                    type="password"
+                    className="text-white"
+                    required
+                  />
                 </div>
                 <Button
                   type="submit"
