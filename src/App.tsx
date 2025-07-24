@@ -56,7 +56,7 @@ function App() {
       pfp: +storedPfpString, // + sign converts string to a number
     };
     setAccount(storedAccount);
-  [];
+  }, []);
 
   return (
     <Router basename="/ggk">
