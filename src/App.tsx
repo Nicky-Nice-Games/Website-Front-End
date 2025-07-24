@@ -72,12 +72,9 @@ function App() {
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route
             path="/login"
-            element={<LoginPage setAccount={setAccount} />}
+            element={<AuthenticationPage setAccount={setAccount} />}
           />
-          <Route
-            path="/signup"
-            element={<SignupPage setAccount={setAccount} />}
-          />
+
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/content" element={<ContentPage />} />

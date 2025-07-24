@@ -3,14 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useNavigate } from "react-router-dom";
+
+interface LoginFormProps extends React.ComponentProps<"div"> {
+  onSignupClick?: () => void;
+}
 
 export function LoginForm({
   className,
+  onSignupClick,
   ...props
-}: React.ComponentProps<"div">) {
-  const navigate = useNavigate();
-
+}: LoginFormProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="bg-[#1a1a1a]">
@@ -55,7 +57,7 @@ export function LoginForm({
               <div className="text-center text-sm text-[#D0D3D4]">
                 Don&apos;t have an account?{" "}
                 <button
-                  onClick={() => navigate("/signup")}
+                  onClick={onSignupClick}
                   className="underline underline-offset-4 cursor-pointer text-[#F76902]"
                 >
                   Sign up
