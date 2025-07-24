@@ -33,30 +33,30 @@ function App() {
   const [account, setAccount] = useState<AccountSchema | null>(null);
   const [currentPage, setCurrentPage] = useState("home");
 
-  useEffect(() => {
-    const storedPID: string | null = localStorage.getItem("pid");
-    const storedUsername: string | null = localStorage.getItem("username");
-    const storedPfpString: string | null = localStorage.getItem("pfp");
+  // useEffect(() => {
+  //   const storedPID: string | null = localStorage.getItem("pid");
+  //   const storedUsername: string | null = localStorage.getItem("username");
+  //   const storedPfpString: string | null = localStorage.getItem("pfp");
 
-    if (!storedPID || !storedUsername || !storedPfpString) {
-      setAccount(null);
+    // if (!storedPID || !storedUsername || !storedPfpString) {
+    //   setAccount(null);
 
-      // Set account to dummy data for testing purposes.
-      // COMMENT THIS OUT BEFORE YOU BUILD.
-      setAccount({
-        pid: "string",
-        username: "string",
-        pfp: 0,
-      });
-      return;
-    }
-    const storedAccount: AccountSchema = {
-      pid: storedPID,
-      username: storedUsername,
-      pfp: +storedPfpString, // + sign converts string to a number
-    };
-    setAccount(storedAccount);
-  }, []);
+    //   // Set account to dummy data for testing purposes.
+    //   // COMMENT THIS OUT BEFORE YOU BUILD.
+    //   setAccount({
+    //     pid: "string",
+    //     username: "string",
+    //     pfp: 0,
+    //   });
+    //   return;
+    // }
+    // const storedAccount: AccountSchema = {
+    //   pid: storedPID,
+    //   username: storedUsername,
+    //   pfp: +storedPfpString, // + sign converts string to a number
+    // };
+    // setAccount(storedAccount);
+  [];
 
   return (
     <Router basename="/ggk">

@@ -32,7 +32,7 @@ export const characters: Character[] = [
       "As the mascot of the game, Gizmo's design is based on the first IGM logo from roughly 2011 to 2018, using the \"M\" as his head. Gizmo's toy and ghost designs were created as separate concepts, but both would be utilized in the final design of the character. The wooden toy form is inspired by other blocky wooden string dolls, which had similar shape language to the original ghost form."
   },
   {
-    imgUrl: "images/characters/FrshSkater.PNG",
+    imgUrl: "images/characters/morgan.png",
     conceptImgUrl: "images/characters/dev-morgan.PNG",
     name: "Morgan",
     occupation: "Skater Freshman",
@@ -116,7 +116,7 @@ export const characters: Character[] = [
       "Kai is designed and named after a high-school friend of the Assistant Content Team Lead. They were originally designed with a wide triangle-like design, but it was shrunk to fit the other characters later on. Kai's outfit matches their occupation as a hockey player, being based on RIT hockey jerseys with a legally distinct tiger logo on the front."
   },
   {
-    imgUrl: "images/characters/spare-jamster.png",
+    imgUrl: "images/characters/jamster.png",
     conceptImgUrl: "images/characters/dev-jamster.png",
     name: "Jamster",
     description: (
