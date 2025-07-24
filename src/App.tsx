@@ -6,8 +6,6 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import LoginPage from "./pages/Login";
-import SignupPage from "./pages/Signup";
 import AboutUsPage from "./pages/AboutUs";
 import ProcessPage from "./pages/Process";
 import { ContentPage } from "./pages/content/Content";
