@@ -24,6 +24,10 @@ const CharactersPage = () => {
         className="flex justify-self-left w-[60%] md:w-[60%] mb-[2rem] mt-[1rem]"
       ></img>
 
+      <h1 className="text-center poppins text-xl">
+        Click a character to learn more about them!
+      </h1>
+
       {/*Header of characters page*/}
       <div className="px-8">
         {/* Character carousel */}

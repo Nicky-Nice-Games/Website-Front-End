@@ -5,7 +5,7 @@ export const Footer = () => {
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
           <div className="flex flex-row items-center">
             <img src="images/logo/gizmo-icon.svg" className="w-32 h-24"></img>
-            <div className="text-4xl font-bold">
+            <div className="text-4xl hidden sm:inline font-bold">
               Gizmo <br /> Go-Kartz
             </div>
           </div>
@@ -106,7 +106,7 @@ export const Footer = () => {
                 </svg>
               </div>
             </div>
-            <div className="text-4xl">Contact us!</div>
+            <div className="text-3xl sm:text-4xl">Contact us!</div>
           </div>
         </div>
       </footer>

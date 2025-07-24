@@ -8,7 +8,7 @@ import {
 
 import AboutUsPage from "./pages/AboutUs";
 import ProcessPage from "./pages/Process";
-import { ContentPage } from "./pages/content/Content";
+import { MascotPage } from "./pages/content/MascotPage";
 import { TracksPage } from "./pages/content/TracksPage";
 import { CharactersPage } from "./pages/content/CharactersPage";
 import { ItemsPage } from "./pages/content/ItemsPage";
@@ -75,7 +75,7 @@ function App() {
 
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/process" element={<ProcessPage />} />
-          <Route path="/content" element={<ContentPage />} />
+          <Route path="/mascot" element={<MascotPage />} />
           <Route
             path="/home"
             element={<HomePage setCurrentPage={setCurrentPage} />}
