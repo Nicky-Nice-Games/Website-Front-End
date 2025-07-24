@@ -189,7 +189,7 @@ const Navbar = ({
             }`}
             onClick={() => {
               scrollToTop();
-              navigate("/content");
+              navigate("/characters");
               setCurrentPage("content");
             }}
           >
@@ -197,6 +197,17 @@ const Navbar = ({
           </button>
         </NavigationMenuTrigger>
         <NavigationMenuContent className="absolute -left-2 *:hover:text-[#e7ee33]">
+          <NavigationMenuLink>
+            <button
+              onClick={() => {
+                scrollToTop();
+                navigate("./mascot");
+                setCurrentPage("content");
+              }}
+            >
+              Our Mascot
+            </button>
+          </NavigationMenuLink>
           <NavigationMenuLink>
             <button
               onClick={() => {

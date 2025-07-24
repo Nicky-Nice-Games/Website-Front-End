@@ -1,9 +1,9 @@
 import { ContentNavigator } from "@/components/content/content-navigator";
 
-const ContentPage = () => {
+const MascotPage = () => {
   return (
     <>
-      <ContentNavigator currentPage="content" />
+      <ContentNavigator currentPage="mascot" />
       <div className="flex flex-col-reverse md:grid md:grid-cols-2 bg-zinc-950">
         <div>
           <img
@@ -27,4 +27,4 @@ const ContentPage = () => {
   );
 };
 
-export { ContentPage };
+export { MascotPage };
