@@ -35,7 +35,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${mascotButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${mascotButtonColor} poppins tracking-wide rounded-sm text-sm md:text-lg`}
               onClick={() => {
                 navigate("/mascot");
               }}
@@ -45,7 +45,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${characterButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${characterButtonColor} poppins tracking-wide rounded-sm text-sm md:text-lg`}
               onClick={() => {
                 navigate("/characters");
               }}
@@ -55,7 +55,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${itemButtonColor} poppins tracking-wide rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${itemButtonColor} poppins tracking-wide rounded-sm text-sm md:text-lg`}
               onClick={() => {
                 navigate("/items");
               }}
@@ -65,7 +65,7 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <button
-              className={`p-2 m-1 font-bold ${trackButtonColor} tracking-wide poppins rounded-sm text-lg`}
+              className={`p-2 m-1 font-bold ${trackButtonColor} tracking-wide poppins rounded-sm text-sm md:text-lg`}
               onClick={() => {
                 navigate("/tracks");
               }}
