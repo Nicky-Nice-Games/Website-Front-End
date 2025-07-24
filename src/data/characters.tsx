@@ -13,7 +13,7 @@ export interface Character {
 export const characters: Character[] = [
   {
     imgUrl: "images/characters/gizmo.png",
-    conceptImgUrl: "images/dev-blogs/week4.jpg",
+    conceptImgUrl: "images/characters/dev-gizmo.png",
     name: "Gizmo",
     description: (
       <div>
@@ -63,14 +63,19 @@ export const characters: Character[] = [
         <b>Year:</b> 2nd<br />
         <b>Major:</b> Packaging Science <br />
         <b>Likes:</b> Free Stuff, Making Mixtapes, Anime, Energy Drinks <br />
-        <b>Dislikes:</b> Angry customers, Waking up<br />
+        <b>Dislikes:</b> Angry customers, Waking up
+        <br />
         <b>Favorite Song: </b>
-         <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=HyHNuVaZJ-k">
-         Feel Good Inc. - Gorillaz</a>
+        <a
+          className="text-[#d97706]"
+          href="https://www.youtube.com/watch?v=HyHNuVaZJ-k"
+        >
+          Feel Good Inc. - Gorillaz
+        </a>
       </div>
     ),
     devDescription:
-      "Reese is the only character in the roster without visible eyes, inspiring his mellow personality and cheesy grin. His occupation as a dining worker was added later in development, which also inspired his name, a food pun that references Reese's™."
+      "Reese is the only character in the roster without visible eyes, inspiring his mellow personality and cheesy grin. His occupation as a dining worker was added later in development, which also inspired his name, a food pun that references Reese's™.",
   },
   {
     imgUrl: "images/characters/emma.png",
@@ -87,8 +92,12 @@ export const characters: Character[] = [
         <b>Likes:</b> Pins, Early Morning Walks, Bucket Hats <br />
         <b>Dislikes:</b> Loud Music, Sleeping In <br />
         <b>Favorite Song: </b>
-        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1">
-        Turbo Hustle - DJ Maestro</a>
+        <a
+          className="text-[#d97706]"
+          href="https://www.youtube.com/watch?v=LGpaGI99Xl0&list=RDLGpaGI99Xl0&start_radio=1"
+        >
+          Turbo Hustle - DJ Maestro
+        </a>
       </div>
     ),
     devDescription:
@@ -108,8 +117,12 @@ export const characters: Character[] = [
         <b>Likes:</b> Playing hockey, Bandanas, Going on adventures<br />
         <b>Dislikes:</b> Boredom, Losing a contest<br/>
         <b>Favorite Song: </b>
-        <a className="text-[#d97706]" href="https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1">
-        Eye of the Tiger - Survivor</a>
+        <a
+          className="text-[#d97706]"
+          href="https://www.youtube.com/watch?v=btPJPFnesV4&list=RDbtPJPFnesV4&start_radio=1"
+        >
+          Eye of the Tiger - Survivor
+        </a>
       </div>
     ),
     devDescription:
@@ -126,10 +139,15 @@ export const characters: Character[] = [
         <b>Year:</b> N/A<br />
         <b>Major:</b> N/A<br />
         <b>Likes:</b> Games, Jams, GameJams <br />
-        <b>Dislikes:</b> Sitting still, Being hungry<br />
+        <b>Dislikes:</b> Sitting still, Being hungry
+        <br />
         <b>Favorite Song: </b>
-<a className="text-[#d97706]" href="https://www.youtube.com/watch?v=p3G5IXn0K7A">
-        Hamster Dance -  Hampton and the Hamsters</a>
+        <a
+          className="text-[#d97706]"
+          href="https://www.youtube.com/watch?v=p3G5IXn0K7A"
+        >
+          Hamster Dance - Hampton and the Hamsters
+        </a>
       </div>
     ),
     devDescription:
