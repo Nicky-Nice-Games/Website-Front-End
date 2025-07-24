@@ -315,7 +315,7 @@ const Navbar = ({
               className="cursor-pointer"
               onClick={() => {
                 scrollToTop();
-                navigate("./content");
+                navigate("./characters");
                 setCurrentPage("content");
               }}
             >
