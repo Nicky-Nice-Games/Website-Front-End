@@ -45,9 +45,9 @@ const NewsAndUpdatesPage = () => {
   const paginatedUpdates = isMobile
     ? restUpdates
     : restUpdates.slice(
-        (currentPage - 1) * itemsPerPage,
-        currentPage * itemsPerPage
-      );
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    );
   // Handlers
   const nextPage = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
@@ -99,11 +99,10 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-150 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
-                isMobile
+              className={`w-19/20 h-[90%] md:h-150 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${isMobile
                   ? "flex flex-col overflow-y-auto"
                   : "flex flex-col md:flex-row"
-              }`}
+                }`}
             >
               {isMobile ? (
                 // Mobile layout
@@ -183,25 +182,28 @@ const NewsAndUpdatesPage = () => {
         ) : null}
       </AnimatePresence>
       {/* Most recent update */}
-      <motion.div
-        layoutId={`item-${mostRecentUpdate.title}-${id}`}
-        key={mostRecentUpdate.id}
-        onClick={() => setActive(mostRecentUpdate)}
-        className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer m-4"
-      >
-        <img
-          src={mostRecentUpdate.image}
-          alt={mostRecentUpdate.title}
-          className="w-full h-96 object-cover transition-transform duration-300 hover:scale-120"
-        />
-        <div className="p-4 bg-white relative z-2">
-          <p className="text-xs text-[#F76902] font-semibold mb-1">
-            {mostRecentUpdate.date}
-          </p>
-          <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
-          <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
-        </div>
-      </motion.div>
+      <div className="flex justify-center">
+        <motion.div
+          layoutId={`item-${mostRecentUpdate.title}-${id}`}
+          key={mostRecentUpdate.id}
+          onClick={() => setActive(mostRecentUpdate)}
+          className="col-span-1 sm:col-span-2 lg:col-span-3 max-w-200 bg-white text-black rounded-xl shadow overflow-hidden cursor-pointer m-4"
+        >
+          <img
+            src={mostRecentUpdate.image}
+            alt={mostRecentUpdate.title}
+            className="w-full max-h-96 object-cover transition-transform duration-300 hover:scale-120"
+          />
+          <div className="p-4 bg-white relative z-2">
+            <p className="text-xs text-[#F76902] font-semibold mb-1">
+              {mostRecentUpdate.date}
+            </p>
+            <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
+            <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
+          </div>
+        </motion.div>
+      </div>
+
 
       {/* Grid container: 
             - 1 column on small screens,
@@ -224,18 +226,16 @@ const NewsAndUpdatesPage = () => {
               key={update.id} // Unique key for each item
               onClick={() => setActive(update)}
               // Full width for all images, but height depends on if it's full-width or not
-              className={`${
-                isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
-              } bg-white text-black rounded-xl shadow overflow-hidden 
+              className={`${isFullWidth ? "col-span-1 sm:col-span-2 lg:col-span-3" : ""
+                } bg-white text-black rounded-xl shadow overflow-hidden 
               cursor-pointer m-4`}
             >
               {/* Image */}
               <img
                 src={update.image}
                 alt={update.title}
-                className={`w-full w-full transition-transform duration-300 hover:scale-120 object-fill ${
-                  isFullWidth ? "h-96" : "h-72"
-                } `}
+                className={`w-full transition-transform duration-300 hover:scale-120 object-fill ${isFullWidth ? "h-96" : "h-72"
+                  } `}
               />
               {/* Text content of the update */}
               <div className="p-4 relative bg-white z-2">
