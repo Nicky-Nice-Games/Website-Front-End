@@ -1,5 +1,5 @@
 import { tracks } from "@/data/tracks";
-import { Dialog, DialogTrigger, DialogContent } from "./ui/dialog";
+import { Dialog, DialogTrigger } from "./ui/dialog";
 
 // Map Select element
 // Click action is either
