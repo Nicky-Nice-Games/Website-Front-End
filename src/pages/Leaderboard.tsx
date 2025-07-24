@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { columns } from "@/components/leaderboard/columns";
 import { DataTable } from "@/components/leaderboard/data-table";
-import { tracks } from "@/data/tracks";
+import { type Track } from "@/data/tracks";
 import ArrowButton from "@/components/ui/arrow-button";
 import { fetchData } from "@/utils";
+import MapSelect from "@/components/map-select";
 
 const LeaderboardPage = () => {
   const [mapId, setMapId] = useState(0);
@@ -30,9 +31,12 @@ const LeaderboardPage = () => {
           </div>
 
           <MapSelect
-            setMapId={setMapId}
-            setMapName={setMapName}
-            setMapImage={setMapImage}
+            isDialog={false}
+            clickActionOrDialogContent={(track: Track, index: number) => {
+              setMapId(index + 1);
+              setMapName(track.name);
+              setMapImage(track.background);
+            }}
           />
         </div>
       </div>
@@ -55,45 +59,6 @@ const LeaderboardPage = () => {
         <h2 className="text-xl mb-2 font-semibold">{mapName}</h2>
         <LeaderboardTable mapId={mapId} />
       </div>
-    </div>
-  );
-};
-
-const MapSelect = ({
-  setMapId,
-  setMapName,
-  setMapImage,
-}: {
-  setMapId: Function;
-  setMapName: Function;
-  setMapImage: Function;
-}) => {
-  return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center">
-      {tracks.map((t) => {
-        return (
-          <div className="2xl:mx-[2rem] md:mx-[8rem] mb-10">
-            <h1 className="w-fit text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] m-auto p-[5px] mb-2 px-3 py-1 rounded-lg g">
-              {t.name}
-            </h1>
-            <button
-              onClick={() => {
-                setMapId(tracks.indexOf(t) + 1); // Add to the index, as the map id starts with 1 in backend
-                setMapName(t.name);
-                setMapImage(t.background); // Tailwind property for the leaderboard background
-              }}
-              className="cursor-pointer drop-shadow-xl/50 w-[80%] md:w-[350px]"
-            >
-              <div className="rounded-xl overflow-hidden w-full">
-                <img
-                  src={t.imgUrl}
-                  className="w-full transition-transform duration-300 hover:scale-120 object-fill"
-                />
-              </div>
-            </button>
-          </div>
-        );
-      })}
     </div>
   );
 };
