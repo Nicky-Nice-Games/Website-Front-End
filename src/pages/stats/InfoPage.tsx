@@ -57,7 +57,7 @@ const InfoPage = ({
   ];
 
   return (
-    <div className="bg-[url(/ggk/images/items-background.png)] min-h-screen text-white p-4 md:p-8">
+    <div className="bg-[url(images/items-background.png)] min-h-screen text-white p-4 md:p-8">
       {/* Main container - wider */}
       <div className="w-full max-w-[1800px] mx-auto pr-8 pl-8">
         {/* Increased max width */}
