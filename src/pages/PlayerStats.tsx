@@ -6,34 +6,29 @@ import AchievementsPage from "./stats/AchievementPage";
 
 const mockRecentRaces = [
   {
-    mapRaced: 1, // assuming this is an index for the tracks array
+    mapRaced: 0, // assuming this is an index for the tracks array
     raceTime: 120000, // time in milliseconds (2 minutes in this case)
   },
   {
-    mapRaced: 2,
+    mapRaced: 1,
     raceTime: 125000, // 2 minutes 5 seconds
   },
   {
-    mapRaced: 3,
+    mapRaced: 2,
     raceTime: 118000, // 1 minute 58 seconds
   },
   {
-    mapRaced: 1,
+    mapRaced: 3,
     raceTime: 122500, // 2 minutes 2.5 seconds
   },
   {
-    mapRaced: 4,
+    mapRaced: 3,
     raceTime: 130000, // 2 minutes 10 seconds
   },
 ];
 
 // You'll also need the tracks data that's referenced in your component
-const tracks = [
-  { name: "Track 1" },
-  { name: "Track 2" },
-  { name: "Track 3" },
-  { name: "Track 4" },
-];
+
 const PlayerStatsPage = ({
   account,
   setAccount,
@@ -170,7 +165,7 @@ const PlayerStatsPage = ({
   return (
     <InfoPage
       playerData={playerData}
-      recentRaces={recentRaces}
+      recentRaces={mockRecentRaces}
       setActiveTab={setActiveTab}
       setAccount={setAccount}
       account={account}
