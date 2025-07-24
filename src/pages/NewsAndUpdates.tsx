@@ -23,7 +23,7 @@ const NewsAndUpdatesPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 770);
     };
 
     handleResize(); // Initial check
@@ -99,7 +99,7 @@ const NewsAndUpdatesPage = () => {
             <motion.div
               layoutId={`item-${active.title}-${id}`}
               ref={ref}
-              className={`w-19/20 h-[90%] md:h-150 md:max-h-[90%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
+              className={`w-19/20 h-[90%] md:h-150 md:max-h-[70%] bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden ${
                 isMobile
                   ? "flex flex-col overflow-y-auto"
                   : "flex flex-col md:flex-row"
