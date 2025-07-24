@@ -192,6 +192,17 @@
   }
 }
 
+.navbar-passive-outline {
+}
+
+.navabar-passive-outline:hover {
+ color:#e7ee33
+}
+
+.navbar-active-outline {
+  color: #e7ee33;
+}
+
 
 .passive-outline {
   text-shadow:

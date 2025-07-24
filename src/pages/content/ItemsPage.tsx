@@ -17,7 +17,7 @@ const ItemsPage = () => {
       >
         <img
           src=" images/items-header.png"
-          className="flex justify-self-left w-[30%] md:w-[30%]"
+          className="flex justify-self-center w-[40%] md:w-[40%] py-2"
         ></img>
 
         <h1 className="text-center poppins text-xl">
