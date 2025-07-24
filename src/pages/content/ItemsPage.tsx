@@ -14,15 +14,18 @@ const ItemsPage = () => {
           backgroundImage:
             "linear-gradient(rgb(255, 233, 0), rgb(255, 193, 0)), url('images/items-background-darkoutline.png')",
         }}
-      >      
-      <img
-        src=" images/items-header.png"
-        className="flex justify-self-left w-[30%] md:w-[30%]"
-      ></img>
-       
+      >
+        <img
+          src=" images/items-header.png"
+          className="flex justify-self-left w-[30%] md:w-[30%]"
+        ></img>
+
+        <h1 className="text-center poppins text-xl">
+          Click an item to view its effects and levels!
+        </h1>
 
         <div className="flex flex-col lg:flex-row w-full m-auto items-center xl:items-start justify-center">
-          <BoostCard/>
+          <BoostCard />
           <DefenseCard />
           <OffenseCard />
           <TrapCard />
