@@ -168,6 +168,12 @@
   font-display: swap; /* Optional: improves loading behavior */
 }
 
+@font-face {
+  font-family: "Next Bravo";
+  src: url('font/Next Bravo.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap; /* Optional: improves loading behavior */
+}
 .poppins
 {
   font-family: "Poppins", sans-serif;
@@ -186,6 +192,9 @@
   font-family: 'Painterz', sans-serif;
 }
 
+.bravo {
+  font-family: 'Next Bravo';
+}
 @media screen and (min-width: 768px) {
   .slanted-text {
   font-family: 'Aileron-Slight-Slant', sans-serif;
@@ -198,6 +207,17 @@
   }
 }
 
+.yellow-outline {
+  text-shadow:
+    -1px -1px 0 #e7ee33,
+     0   -1px 0 #e7ee33,
+     1px -1px 0 #e7ee33,
+     1px  0   0 #e7ee33,
+     1px  1px 0 #e7ee33,
+     0    1px 0 #e7ee33,
+    -1px  1px 0 #e7ee33,
+    -1px  0   0 #e7ee33;
+}
 
 .passive-outline {
   text-shadow:

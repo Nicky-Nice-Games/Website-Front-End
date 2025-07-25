@@ -5,6 +5,7 @@ import { CloseIcon } from "@/components/content/close-icon";
 import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import { type Update, updates } from "@/data/updates";
 import "@react-pdf-viewer/core/lib/styles/index.css";
+import HeaderBanner from "@/components/ui/header-banner";
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
@@ -77,8 +78,8 @@ const NewsAndUpdatesPage = () => {
 
   return (
     <div className="min-h-screen bg-[url('images/items-background.png')] 
-    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6">
-      <h1 className="text-white text-header2">News and Updates</h1>
+    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference pt-[1rem]">
+      <HeaderBanner text="News and Updates"></HeaderBanner>
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (

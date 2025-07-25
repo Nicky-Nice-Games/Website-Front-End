@@ -19,6 +19,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import HeaderBanner from "@/components/ui/header-banner";
 
 const CharactersPage = () => {
   // track which character is currently expanded or false/null if none
@@ -80,15 +81,11 @@ const CharactersPage = () => {
       }}
     >
       <ContentNavigator currentPage={"characters"} />
-
-      <img
-        src=" images/characters-banner.png"
-        className="flex justify-self-left w-[60%] md:w-[60%] mb-[2rem] mt-[1rem]"
-      ></img>
-
       {/*Header of characters page*/}
-      <div className="px-8">
+      <div className="pt-[1rem]">
         {/* Character carousel */}
+        <HeaderBanner text="Meet the Characters!"></HeaderBanner>
+
         <Carousel setApi={setApi} className="flex flex-row w-full items-center">
           <CarouselPrevious className="w-8" />
           <CarouselContent className="m-auto py-15 xl:py-22 flex flex-row content-center items-center justify-between drop-shadow-xl/50">

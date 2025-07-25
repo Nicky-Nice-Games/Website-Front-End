@@ -12,12 +12,12 @@ export const Footer = () => {
 
           {/* Instagram Icon*/}
           <div className="flex flex-col items-center">
-            <div className="flex space-x-4 mb-2">
+            <div className="flex space-x-2 md:space-x-4 mb-2">
               {/* Instagram Icon */}
               <a href="https://www.instagram.com/gizmogokartz/">
                 <div className="flex flex-col items-center">
-                  <div className="flex space-x-4 mb-2">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center transform transition-transform duration-200 hover:-translate-y-1 text-white group">
+                  <div className="flex space-x-2 md:space-x-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transform transition-transform duration-200 hover:-translate-y-1 text-white group">
                       <svg
                         width="40"
                         height="40"
@@ -64,7 +64,7 @@ export const Footer = () => {
               <a href="https://www.x.com/gizmogokartz/">
 
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
   hover:-translate-y-1 text-white group" // Added 'group' class here
                 >
                   <svg
@@ -85,7 +85,7 @@ export const Footer = () => {
 
               {/* Email Icon*/}
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
                 hover:-translate-y-1 text-white hover:text-red-500"
               >
                 <svg
@@ -105,7 +105,7 @@ export const Footer = () => {
                 </svg>
               </div>
             </div>
-            <div className="text-4xl">Contact us!</div>
+            <div className="text-3xl md:text-4xl">Contact us!</div>
           </div>
         </div>
       </footer>
