@@ -11,20 +11,20 @@ const CharactersPage = () => {
   return (
     <main
       className="min-h-[80vh] bg-fixed bg-size-[90%] md:bg-size-[80%]
-     bg-blend-multiply"
+     bg-[#BBB] bg-blend-difference"
       style={{
         backgroundImage:
-          "linear-gradient(rgb(60, 193, 87), rgb(57, 172, 153)), url('images/items-background-darkoutline.png')",
+          "url('images/items-background.png')",
       }}
     >
       <ContentNavigator currentPage={"characters"} />
 
       <img
         src=" images/characters-banner.png"
-        className="flex justify-self-center w-[50%] md:w-[50%] mb-[2rem] mt-[1rem]"
+        className="flex justify-self-center w-[40%] md:w-[40%] mb-[5px] mt-[5px]"
       ></img>
 
-      <h1 className="text-center poppins text-xl">
+      <h1 className="text-center poppins text-md text-[#fffbee]">
         Click a character to learn more about them!
       </h1>
 

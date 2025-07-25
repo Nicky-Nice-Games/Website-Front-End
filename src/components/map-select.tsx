@@ -24,7 +24,7 @@ const MapSelect = ({
                   <div className="rounded-xl overflow-hidden w-full">
                     <img
                       src={track.imgUrl}
-                      className="w-full transition-transform duration-300 hover:scale-120 object-fill"
+                      className="w-full transition-transform duration-300 hover:scale-120 object-fill cursor-pointer"
                     />
                   </div>
                 </DialogTrigger>

@@ -15,7 +15,7 @@ const TracksPage = () => {
       className="min-h-[84vh] bg-size-[110%] bg-blend-multiply bg-size-[90%] md:bg-size-[80%]"
       style={{
         backgroundImage:
-          "linear-gradient(rgb(101, 216, 255), rgb(77, 137, 215)), url('images/items-background-darkoutline.png')",
+          "linear-gradient(rgba(232, 232, 232, 1), rgba(205, 205, 205, 1)), url('images/items-background-darkoutline.png')",
       }}
     >
       {/*This is the header and description of each item*/}

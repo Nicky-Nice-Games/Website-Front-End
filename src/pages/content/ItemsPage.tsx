@@ -12,7 +12,7 @@ const ItemsPage = () => {
         className="min-h-[73vh] bg-size-[110%] bg-blend-multiply w-[100%] bg-size-[90%] md:bg-size-[80%]"
         style={{
           backgroundImage:
-            "linear-gradient(rgb(255, 233, 0), rgb(255, 193, 0)), url('images/items-background-darkoutline.png')",
+            "linear-gradient(rgba(160, 160, 160, 1), rgba(104, 104, 104, 1)), url('images/items-background-darkoutline.png')",
         }}
       >
         <img
@@ -20,7 +20,7 @@ const ItemsPage = () => {
           className="flex justify-self-center w-[40%] md:w-[40%] py-2"
         ></img>
 
-        <h1 className="text-center poppins text-xl">
+        <h1 className="text-center text-[#fffbee] poppins text-xl">
           Click an item to view its effects and levels!
         </h1>
 
