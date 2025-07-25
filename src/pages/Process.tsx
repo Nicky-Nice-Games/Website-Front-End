@@ -93,7 +93,7 @@ const ProcessPage = () => {
               alt="Picture of RIT"
               className="md:mr-[2rem] mb-[2rem] md:mt-0 self-center md:self-end md:w-[400px] w-full md:w-1/4 max-h-[300px]"
             />
-            <p className="">
+            <p className="text-body">
               Our Game Systems Programming (GSP) team is the backbone of our
               game's functionality. Given the scope of their work, they follow
               several practices to stay organized and efficient. To keep the
@@ -114,7 +114,7 @@ const ProcessPage = () => {
             </p>
           </div>
           <div className="flex md:flex-row flex-col items-stretch">
-            <p className="mr-8">
+            <p className="mr-8 text-body">
               The look of Gizmo Go‑Kartz feels fun and nostalgic, echoing early
               3D kart racers like Mario Kart 64. We use a simple, low‑poly art
               style and a bold, RIT‑inspired color scheme, like warm reds,
@@ -141,7 +141,7 @@ const ProcessPage = () => {
           <h1 className="text-header2 m-4 mx-0 mb-4">
             Designing our characters
           </h1>
-          <p>
+          <p className="text-body">
             The roster of Gizmo Go-Kartz characters is designed to be both
             approachable and scalable. Characters are build using a standardized
             body base reminiscent of Nintendo's Miis, with heads and faces being
@@ -187,7 +187,7 @@ const ProcessPage = () => {
         <h1 className="text-[40px] poppins m-4 mx-0 mb-4">
           Building our Tracks
         </h1>
-        <p className="mb-8">
+        <p className="mb-8 text-body">
           The tracks of Gizmo Go-Kartz are largely based on real RIT locations
           with original twists. With an initial plan of 4 tracks per cup and
           some difficulty guidelines from the creative director, research into
@@ -228,7 +228,7 @@ const ProcessPage = () => {
                   <h1 className="text-3xl font-bold poppins mb-3">
                     Quarter-Mile
                   </h1>
-                  <p>
+                  <p className="text-body">
                     A track based on RIT's Quarter Mile, a long pathway
                     connecting the dorm buildings to the academic buildings, was
                     developed and tested several times, but eventually cut from
@@ -248,7 +248,7 @@ const ProcessPage = () => {
                   <h1 className="text-3xl font-bold poppins mb-3">
                     Global Village
                   </h1>
-                  <p>
+                  <p className="text-body">
                     A track based on RIT's Global Village was drafted early into
                     development, going through several proposed layouts that
                     emphasized several branching pathways. However, there was no
@@ -266,7 +266,7 @@ const ProcessPage = () => {
                 <h1 className="text-3xl font-bold poppins mb-3">
                   Other Cut Track Concepts
                 </h1>
-                <ul className="list-disc ml-5 *:mb-2">
+                <ul className="list-disc ml-5 *:mb-2 text-body">
                   <li>
                     <b>The SHED:</b> An early drafted track based on the Student
                     Hall for Exploration and Development (SHED). The track was
