@@ -21,10 +21,7 @@ const ProcessPage = () => {
       <main className="mt-0 px-6 md:px-12 relative bg-[url(images/items-background.png)] bg-[#BBB] bg-fixed bg-repeat bg-blend-difference *:text-white">
         {/* About Project Section */}
         <div>
-          <h1 className="text-header2 pt-4 mx-0 mb-4">
-            {" "}
-            About the Project
-          </h1>
+          <h1 className="text-header2 pt-4 mx-0 mb-4"> About the Project</h1>
           <div className="flex md:flex-row flex-col items-stretch">
             <p className="text-body">
               Gizmo Go-Kartz was constructed by a team of almost 50 RIT students
@@ -127,7 +124,7 @@ const ProcessPage = () => {
                 <Dialog>
                   <DialogTrigger className="relative w-full sm:w-1/2 lg:w-1/3 m-auto">
                     <div className="absolute w-[84.5%] h-[84.5%] m-2 md:m-10 bg-[#0007] opacity-0 hover:opacity-100 rounded-lg">
-                      <h3 className="text-white text-button absolute top-[50%] text-center w-full">
+                      <h3 className="text-white text-2xl poppins absolute top-[50%] text-center w-full">
                         Learn about <br /> {c.name}'s development
                       </h3>
                     </div>
@@ -162,9 +159,7 @@ const ProcessPage = () => {
         </div>
 
         {/* Track Dev Info Section */}
-        <h1 className="text-header2 m-4 mx-0 mb-4">
-          Building our Tracks
-        </h1>
+        <h1 className="text-header2 m-4 mx-0 mb-4">Building our Tracks</h1>
         <Tabs defaultValue="0" className="w-[90vw]">
           <TabsList className="flex flex-wrap h-full pl-0">
             {tracks.map((t) => {
