@@ -4,10 +4,9 @@ import { fetchData } from "@/utils";
 import { useState } from "react";
 import { SignupForm } from "@/components/signup-form";
 import { LoginForm } from "@/components/login-form";
-
 const AuthPage = ({ setAccount }: { setAccount: Function }) => {
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState("login");
+  const [isLogin, setIsLogin] = useState(true);
 
   // Login function
   const login = (successCallback: Function, failedCallback: Function) => {
@@ -165,10 +164,6 @@ const AuthPage = ({ setAccount }: { setAccount: Function }) => {
       }
     }
   };
-
-  return (
-    
-  )
 
   return (
     <>
