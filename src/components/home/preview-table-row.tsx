@@ -19,7 +19,7 @@ const PreviewTableRow = ({
     <tr className="w-full flex flex-row justify-between items-center text-gray-300 my-1 md:my-4 2xl:my-3">
       <td className="w-[3/5] flex flex-row justify-between items-center">
         <h3
-          className={`graffiti text-[7vw] md:text-6xl ${color} min-w-[15vw] md:min-w-25`}
+          className={`painterz text-[7vw] md:text-6xl ${color} min-w-[15vw] md:min-w-25`}
         >
           {place}
         </h3>

@@ -25,7 +25,7 @@ const LeaderboardPage = () => {
               src=" images/leaderboard-header.png"
               className="flex justify-self-center w-[100%] md:w-[45%] 2xl:w-[35%] pt-8 mb-[1rem]"
             ></img>
-            <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
+            <h2 className="text-body pb-[2rem]">
               Click a map to view its leaderboard!
             </h2>
           </div>
@@ -55,8 +55,7 @@ const LeaderboardPage = () => {
           className="absolute left-[11%] top-34 md:top-25 px-4 sm:px-7"
           direction="left"
         />
-        <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
-        <h2 className="text-xl mb-2 font-semibold">{mapName}</h2>
+        <h2 className="mb-2 text-header2">{mapName}</h2>
         <LeaderboardTable mapId={mapId} />
       </div>
     </div>
@@ -80,7 +79,7 @@ const LeaderboardTable = ({ mapId }: { mapId: number }) => {
     });
   }, []);
 
-  if (leaderboardData.length == 0) return <p>No data found!</p>;
+  if (leaderboardData.length == 0) return <p className="text-body">No data found!</p>;
 
   return <DataTable columns={columns} data={leaderboardData} />;
 };

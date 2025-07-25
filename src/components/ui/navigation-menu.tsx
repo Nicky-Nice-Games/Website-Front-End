@@ -35,9 +35,9 @@ function NavigationMenuList({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.List>) {
   return (
     <NavigationMenuPrimitive.List
-      data-slot="navigation-menu-list"
+      data-slot=" navigation-menu-list"
       className={cn(
-        "group flex flex-1 list-none items-center justify-center gap-1",
+        "bebas group flex flex-1 list-none items-center justify-center gap-1",
         className
       )}
       {...props}
@@ -52,7 +52,7 @@ function NavigationMenuItem({
   return (
     <NavigationMenuPrimitive.Item
       data-slot="navigation-menu-item"
-      className={cn("relative", className)}
+      className={cn("relative bebas", className)}
       {...props}
     />
   )
@@ -70,7 +70,7 @@ function NavigationMenuTrigger({
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
-      className={cn(navigationMenuTriggerStyle(), "group", className)}
+      className={cn(navigationMenuTriggerStyle(), "group bebas", className)}
       {...props}
     >
       {children}{" "}
