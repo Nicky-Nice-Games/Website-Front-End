@@ -6,15 +6,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"; // Import card components for layout
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import { motion } from 'framer-motion'; // Import motion for simple animations
+import { Link } from "react-router-dom"; // Import Link for navigation
+import { motion } from "framer-motion"; // Import motion for simple animations
 
 const NoPage: React.FC = () => {
   return (
-        // Full-screen container with a gradient background
+    // Full-screen container with a gradient background
     <div className="relative min-h-screen bg-gradient-to-br from-black via-[#F76902] to-[#1a1a1a] flex flex-col overflow-hidden particles-container">
-
-              {/* Centering wrapper for the card */}
+      {/* Centering wrapper for the card */}
       <div className="flex-grow flex items-center justify-center px-4">
         {/* Fade-in animation for the whole card */}
         <motion.div
@@ -22,39 +21,38 @@ const NoPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-
           {/* Semi-transparent black card */}
           <Card className="max-w-lg w-full border border-gray-700 p-8 backdrop-blur-sm bg-[#000000]/50 ">
             <CardHeader className="text-center space-y-3">
               {/* Small animation around the 404 text */}
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.05, 1],
-                  opacity: [1, 0.8, 1]
+                  opacity: [1, 0.8, 1],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
                 }}
               >
-
-                 {/* 404 text */}
-                <CardTitle className="text-6xl font-extrabold text-white tracking-tighter">
+                {/* 404 text */}
+                <CardTitle className="text-header3 text-6xl font-extrabold text-white tracking-tighter">
                   404
                 </CardTitle>
               </motion.div>
 
               {/* Page not found text */}
-              <CardDescription className="text-white text-xl font-medium">
+              <CardDescription className="text-header2 text-white text-xl">
                 Page Not Found
               </CardDescription>
             </CardHeader>
-            
-            <CardContent className="mt-6 text-center text-white font-bold leading-relaxed">
+
+            <CardContent className="mt-6 text-center text-white leading-relaxed">
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
+                className="text-body font-bold"
               >
                 You've wandered too far from the race track.
               </motion.p>
@@ -62,22 +60,22 @@ const NoPage: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="mt-2 text-sm text-white font-bold"
+                className="mt-2 text-sm text-body font-bold"
               >
                 (Error code: 404 - Resource not found)
               </motion.p>
             </CardContent>
-            
-              {/* Footer with a return link */}
-             <CardFooter className="mt-8 flex justify-center">
-              {/* Hover and tap animation for the button */}              
+
+            {/* Footer with a return link */}
+            <CardFooter className="mt-8 flex justify-center">
+              {/* Hover and tap animation for the button */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
                   to="/" // Link back to home
-                  className="inline-flex items-center px-6 py-3 border-2 border-cyan-800 text-white rounded-lg font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300 group"
+                  className="text-button inline-flex items-center px-6 py-3 border-2 border-cyan-800 text-white rounded-lg hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300 group"
                 >
                   <motion.span
                     animate={{
@@ -98,8 +96,8 @@ const NoPage: React.FC = () => {
           </Card>
         </motion.div>
       </div>
-      
-     {/* CSS keyframes needed for floating animations */}
+
+      {/* CSS keyframes needed for floating animations */}
       <style>
         {`
           @keyframes float {
