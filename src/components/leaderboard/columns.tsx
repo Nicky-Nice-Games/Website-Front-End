@@ -37,7 +37,7 @@ export const columns: ColumnDef<Racer>[] = [
           {isMobileDevice ? (
             ""
           ) : (
-            <img src={pfpList[pfp]} className="max-w-9 rounded-full" />
+            <img src={pfpList[pfp].src} className="max-w-9 rounded-full" />
           )}
         </div>
       );

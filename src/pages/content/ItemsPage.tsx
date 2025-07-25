@@ -19,7 +19,7 @@ const ItemsPage = () => {
       <HeaderBanner text="Items"></HeaderBanner>
        
         <div className="flex flex-col lg:flex-row w-full m-auto items-center xl:items-start justify-center">
-          <BoostCard/>
+          <BoostCard />
           <DefenseCard />
           <OffenseCard />
           <TrapCard />

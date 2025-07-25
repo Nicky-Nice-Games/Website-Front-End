@@ -31,7 +31,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
     );
   }, []);
 
-  const bannerImages1 = [
+  const bannerImages = [
     "images/in-game/one.png",
     "images/in-game/ten.png",
     "images/in-game/three.png",
@@ -73,7 +73,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div className="bg-black">
           <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="right"
               speed="verySlow"
             ></InfiniteMovingCards>
@@ -81,8 +81,8 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
 
         <div
-          id="introdcution"
-          className="pt-8 md:pt-32 w-full pb-16 pl-8 pr-8 w-full 
+          id="introduction"
+          className="pt-20 md:pt-48 w-full pb-16 pl-8 pr-8 w-full 
                     bg-repeat bg-fixed bg-[url('images/black-checker.png')]
                     text-white"
         >
@@ -106,7 +106,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         <div className="mb-8 bg-fixed bg-repeat bg-[url('images/black-checker.png')]">
           <div className="overflow-hidden rotate-6 w-[120%] h-75 origin-top-left flex">
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="right"
               speed="verySlow"
             ></InfiniteMovingCards>
@@ -114,7 +114,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
         </div>
         <div
           id="lore"
-          className="px-8 text-center pt-[8%] bg-fixed bg-repeat pb-[10%] bg-[url('images/white-checker.png')]"
+          className="px-8 text-center pt-[11%] bg-fixed bg-repeat pb-30 md:pb-50 xl:pb-60 bg-[url('images/white-checker.png')]"
         >
           <h2 className="text-header2 m-4">The Lore</h2>
           <p className="text-body m-4">
@@ -151,7 +151,7 @@ const HomePage = ({ setCurrentPage }: HomePageParams) => {
             bg-blend-difference bg-size-[90%] md:bg-size-[80%]"
           >
             <InfiniteMovingCards
-              items={bannerImages1}
+              items={bannerImages}
               direction="left"
               speed="verySlow"
             />

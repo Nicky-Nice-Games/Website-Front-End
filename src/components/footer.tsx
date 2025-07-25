@@ -3,8 +3,11 @@ export const Footer = () => {
     <>
       <footer className="bg-repeat bg-size-[50%] text-white py-6 bg-[url('images/black-checker.png')]">
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
-          <div>
-            <img src="images/Game-Logo.png" className="w-40 h-32"></img>
+          <div className="flex flex-row items-center">
+            <img src="images/logo/gizmo-icon.svg" className="w-32 h-24"></img>
+            <div className="text-4xl hidden sm:inline font-bold">
+              Gizmo <br /> Go-Kartz
+            </div>
           </div>
 
           {/* Instagram Icon*/}
@@ -103,7 +106,7 @@ export const Footer = () => {
                 </svg>
               </div>
             </div>
-            <div className="text-3xl md:text-4xl">Contact us!</div>
+            <div className="text-3xl sm:text-4xl">Contact us!</div>
           </div>
         </div>
       </footer>
