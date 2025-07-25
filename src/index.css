@@ -186,7 +186,20 @@
   }
 }
 
-.yellow-outline {
+.navbar-passive-outline {
+  color:#fffbee
+}
+
+.navabar-passive-outline:hover {
+ color:#e7ee33
+}
+
+.navbar-active-outline {
+  color: #e7ee33;
+}
+
+
+.passive-outline {
   text-shadow:
     -1px -1px 0 #e7ee33,
      0   -1px 0 #e7ee33,

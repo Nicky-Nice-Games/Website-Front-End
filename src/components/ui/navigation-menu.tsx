@@ -1,9 +1,9 @@
-import * as React from "react"
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
-import { cva } from "class-variance-authority"
-import { ChevronDownIcon } from "lucide-react"
+import * as React from "react";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { cva } from "class-variance-authority";
+import { ChevronDownIcon } from "lucide-react";
 
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/utils";
 
 function NavigationMenu({
   className,
@@ -11,7 +11,7 @@ function NavigationMenu({
   viewport = true,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
-  viewport?: boolean
+  viewport?: boolean;
 }) {
   return (
     <NavigationMenuPrimitive.Root
@@ -26,7 +26,7 @@ function NavigationMenu({
       {children}
       {viewport && <NavigationMenuViewport />}
     </NavigationMenuPrimitive.Root>
-  )
+  );
 }
 
 function NavigationMenuList({
@@ -37,12 +37,12 @@ function NavigationMenuList({
     <NavigationMenuPrimitive.List
       data-slot=" navigation-menu-list"
       className={cn(
-        "bebas group flex flex-1 list-none items-center justify-center gap-1",
+        "group flex flex-1 list-none items-center justify-center gap-1",
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function NavigationMenuItem({
@@ -52,15 +52,15 @@ function NavigationMenuItem({
   return (
     <NavigationMenuPrimitive.Item
       data-slot="navigation-menu-item"
-      className={cn("relative bebas", className)}
+      className={cn("relative", className)}
       {...props}
     />
-  )
+  );
 }
 
 const navigationMenuTriggerStyle = cva(
   "group inline-flex h-9 md:h-12 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:text-accent-foreground focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-accent-foreground focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
-)
+);
 
 function NavigationMenuTrigger({
   className,
@@ -70,24 +70,23 @@ function NavigationMenuTrigger({
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
-      className={cn(navigationMenuTriggerStyle(), "group bebas", className)}
+      className={cn(navigationMenuTriggerStyle(), "group", className)}
       {...props}
     >
       {children}{" "}
       <ChevronDownIcon
-        className=" absolute float-right top-[13px] md:top-[19px] right-[16px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
-        color="#E7EE33"
-        strokeWidth={9}
+        className="absolute float-right top-[13px] md:top-[19px] right-[16px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
+        color="#FFFBEE"
+        strokeWidth={3}
         aria-hidden="true"
       />
       <ChevronDownIcon
         className="relative float-right top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
-        
         strokeWidth={5}
         aria-hidden="true"
       />
     </NavigationMenuPrimitive.Trigger>
-  )
+  );
 }
 
 function NavigationMenuContent({
@@ -104,7 +103,7 @@ function NavigationMenuContent({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function NavigationMenuViewport({
@@ -126,7 +125,7 @@ function NavigationMenuViewport({
         {...props}
       />
     </div>
-  )
+  );
 }
 
 function NavigationMenuLink({
@@ -142,7 +141,7 @@ function NavigationMenuLink({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function NavigationMenuIndicator({
@@ -160,7 +159,7 @@ function NavigationMenuIndicator({
     >
       <div className="bg-border relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
     </NavigationMenuPrimitive.Indicator>
-  )
+  );
 }
 
 export {
@@ -173,4 +172,4 @@ export {
   NavigationMenuIndicator,
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
-}
+};

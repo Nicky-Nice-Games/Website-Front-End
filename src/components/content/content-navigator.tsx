@@ -14,20 +14,20 @@ const ContentNavigator = (props: ContentNavigatorProps) => {
 
   const mascotButtonColor =
     props.currentPage === "mascot"
-      ? "bg-[#F76902] text-white"
-      : "hover:text-[#F76902] text-white";
+      ? "bg-[#dc4d31] text-white"
+      : "hover:text-[#dc4d31] text-white";
   const characterButtonColor =
     props.currentPage === "characters"
-      ? "bg-[#F76902] text-white"
-      : "hover:text-[#F76902] text-white";
+      ? "bg-[#dc4d31] text-white"
+      : "hover:text-[#dc4d31] text-white";
   const itemButtonColor =
     props.currentPage === "items"
-      ? "bg-[#F76902] text-white"
-      : "hover:text-[#F76902] text-white";
+      ? "bg-[#dc4d31] text-white"
+      : "hover:text-[#dc4d31] text-white";
   const trackButtonColor =
     props.currentPage === "tracks"
-      ? "bg-[#F76902] text-white"
-      : "hover:text-[#F76902] text-white";
+      ? "bg-[#dc4d31] text-white"
+      : "hover:text-[#dc4d31] text-white";
 
   return (
     <>
