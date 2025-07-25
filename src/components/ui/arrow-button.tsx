@@ -16,7 +16,7 @@ const ArrowButton = ({
       onClick={() => {
         clickAction();
       }}
-      className={`cursor-pointer text-[18px] px-2 py-1 bg-[url(images/arrow.png)] bg-size-[100%_100%] transform transition duration-200 
+      className={`cursor-pointer text-button px-3 py-2 bg-[url(images/arrow.png)] bg-size-[100%_100%] transform transition duration-200 
     ${
       direction === "left"
         ? "rotate-180 hover:-translate-x-3"

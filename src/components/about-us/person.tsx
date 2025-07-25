@@ -19,10 +19,10 @@ function Person({ name, position, email, image }: PersonProps) {
         alt={`Photo of ${name}`}
         className="h-[160px] mb-[1rem] text-center flex justify-self-center"
       />
-      <p className="text-[16px] person-name font-bold">{name}</p>
-      <p className="text-[15px] person-position px-2">{position}</p>
+      <p className="text-[16px] poppins person-name font-bold">{name}</p>
+      <p className="text-[15px] poppins person-position px-2">{position}</p>
       <a
-        className="text-[15px] font-bold text-[#d97706]"
+        className="text-[15px] poppins font-bold text-[#d97706]"
         href={`mailto:${email}`}
       >
         {email}

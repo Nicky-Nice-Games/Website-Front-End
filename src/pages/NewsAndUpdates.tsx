@@ -5,6 +5,7 @@ import { CloseIcon } from "@/components/content/close-icon";
 import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import { type Update, updates } from "@/data/updates";
 import "@react-pdf-viewer/core/lib/styles/index.css";
+import HeaderBanner from "@/components/ui/header-banner";
 
 // Converts MM/DD/YYYY to YYYY-MM-DD for parsing
 const toISO = (dateStr: string) => {
@@ -76,10 +77,9 @@ const NewsAndUpdatesPage = () => {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <div
-      className="min-h-screen bg-[url('images/items-background.png')] 
-    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference p-6"
-    >
+    <div className="min-h-screen bg-[url('images/items-background.png')] 
+    bg-[#BBB] bg-size-[90%] md:bg-size-[80%] bg-repeat bg-fixed bg-cover bg-blend-difference pt-[1rem]">
+      <HeaderBanner text="News and Updates"></HeaderBanner>
       {/* overlay behind pop up when active */}
       <AnimatePresence>
         {active && typeof active === "object" && (
@@ -126,7 +126,7 @@ const NewsAndUpdatesPage = () => {
                     </button>
                     <motion.h3 // Mobile title
                       layoutId={`title-${active.title}-${id}`}
-                      className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
+                      className="text-header3 text-black mb-4"
                     >
                       {active.title}
                     </motion.h3>
@@ -164,7 +164,7 @@ const NewsAndUpdatesPage = () => {
 
                     <motion.h3 // Desktop title
                       layoutId={`title-${active.title}-${id}`}
-                      className="text-2xl font-semibold text-neutral-700 dark:text-neutral-200 mb-4"
+                      className="text-header3 text-black mb-4"
                     >
                       {active.title}
                     </motion.h3>
@@ -195,11 +195,13 @@ const NewsAndUpdatesPage = () => {
           className="w-full h-96 object-cover transition-transform duration-300 hover:scale-120"
         />
         <div className="p-4 bg-white relative z-2">
-          <p className="text-xs text-[#F76902] font-semibold mb-1">
+          <p className="text-[15px] poppins font-bold text-[#F76902] mb-1">
             {mostRecentUpdate.date}
           </p>
-          <h2 className="text-lg font-bold">{mostRecentUpdate.title}</h2>
-          <p className="text-sm mt-1">{mostRecentUpdate.subtitle}</p>
+          <h2 className="text-[24px] poppins font-bold">
+            {mostRecentUpdate.title}
+          </h2>
+          <p className="text-body mt-1">{mostRecentUpdate.subtitle}</p>
         </div>
       </motion.div>
 
@@ -240,13 +242,15 @@ const NewsAndUpdatesPage = () => {
               {/* Text content of the update */}
               <div className="p-4 relative bg-white z-2">
                 {/* Date */}
-                <p className="text-xs text-[#F76902] font-semibold mb-1">
+                <p className="text-[15px] poppins text-[#F76902] font-bold mb-1">
                   {update.date}
                 </p>
                 {/* Title */}
-                <h2 className="text-lg font-bold">{update.title}</h2>
+                <h2 className="text-[24px] poppins font-bold">
+                  {update.title}
+                </h2>
                 {/* Subtitle */}
-                <p className="text-sm mt-1">{update.subtitle}</p>
+                <p className="text-body mt-1">{update.subtitle}</p>
               </div>
             </motion.div>
           );
