@@ -78,7 +78,7 @@ const Navbar = ({
         <img
           src={
             account
-              ? pfpList[account.pfp]
+              ? pfpList[account.pfp].src
               : "images/placeholder/pfp-placeholder.png"
           }
           className="max-w-7 md:m-1 rounded-full"
@@ -189,7 +189,7 @@ const Navbar = ({
             }`}
             onClick={() => {
               scrollToTop();
-              navigate("/content");
+              navigate("/characters");
               setCurrentPage("content");
             }}
           >
@@ -197,6 +197,17 @@ const Navbar = ({
           </button>
         </NavigationMenuTrigger>
         <NavigationMenuContent className="absolute -left-2 *:hover:text-[#e7ee33]">
+          <NavigationMenuLink>
+            <button
+              onClick={() => {
+                scrollToTop();
+                navigate("./mascot");
+                setCurrentPage("content");
+              }}
+            >
+              Our Mascot
+            </button>
+          </NavigationMenuLink>
           <NavigationMenuLink>
             <button
               onClick={() => {
@@ -304,7 +315,7 @@ const Navbar = ({
               className="cursor-pointer"
               onClick={() => {
                 scrollToTop();
-                navigate("./content");
+                navigate("./characters");
                 setCurrentPage("content");
               }}
             >
@@ -353,7 +364,7 @@ const Navbar = ({
   return (
     <NavigationMenu
       viewport={false}
-      className="z-40 bebas tracking-wider h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
+      className="z-40 tracking-wider h-14 bg-size-[100%] **:font-black sticky top-0 flex flex-row w-full justify-between bg-[url(/ggk/images/navbar/background.png)] font-semibold **:text-base md:**:text-2xl z-30 shadow-xl/20"
     >
       {/*Left side: Logo button to go home*/}
       <div className="md:min-w-40">

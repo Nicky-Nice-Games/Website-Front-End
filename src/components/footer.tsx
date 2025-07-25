@@ -3,18 +3,21 @@ export const Footer = () => {
     <>
       <footer className="bg-repeat bg-size-[50%] text-white py-6 bg-[url('images/black-checker.png')]">
         <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
-          <div>
-            <img src="images/Game-Logo.png" className="w-40 h-32"></img>
+          <div className="flex flex-row items-center">
+            <img src="images/logo/gizmo-icon.svg" className="w-32 h-24"></img>
+            <div className="text-4xl hidden sm:inline font-bold">
+              Gizmo <br /> Go-Kartz
+            </div>
           </div>
 
           {/* Instagram Icon*/}
           <div className="flex flex-col items-center">
-            <div className="flex space-x-4 mb-2">
+            <div className="flex space-x-2 md:space-x-4 mb-2">
               {/* Instagram Icon */}
               <a href="https://www.instagram.com/gizmogokartz/" target="_blank">
                 <div className="flex flex-col items-center">
-                  <div className="flex space-x-4 mb-2">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center transform transition-transform duration-200 hover:-translate-y-1 text-white group">
+                  <div className="flex space-x-2 md:space-x-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transform transition-transform duration-200 hover:-translate-y-1 text-white group">
                       <svg
                         width="40"
                         height="40"
@@ -61,7 +64,7 @@ export const Footer = () => {
               {/* Twitter Icon*/}
               <a href="https://www.x.com/gizmogokartz/" target="_blank">
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
   hover:-translate-y-1 text-white group" // Added 'group' class here
                 >
                   <svg
@@ -83,7 +86,7 @@ export const Footer = () => {
 
               {/* Email Icon*/}
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-none transform transition-transform duration-200 
                 hover:-translate-y-1 text-white hover:text-red-500"
               >
                 <svg
@@ -103,7 +106,7 @@ export const Footer = () => {
                 </svg>
               </div>
             </div>
-            <div className="text-4xl">Contact us!</div>
+            <div className="text-3xl sm:text-4xl">Contact us!</div>
           </div>
         </div>
       </footer>

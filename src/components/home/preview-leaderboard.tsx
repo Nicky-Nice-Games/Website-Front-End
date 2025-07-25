@@ -49,7 +49,7 @@ const PreviewLeaderboard = ({ data }: { data: any }) => {
           return (
             <PreviewTableRow
               place={formatPlacing(index + 1)}
-              imgPath={pfpList[player.pfp]}
+              imgPath={pfpList[player.pfp].src}
               name={player.username}
               time={formatTime(player.raceTime)}
               score={player.score}

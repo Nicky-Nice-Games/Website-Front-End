@@ -6,11 +6,9 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import LoginPage from "./pages/Login";
-import SignupPage from "./pages/Signup";
 import AboutUsPage from "./pages/AboutUs";
 import ProcessPage from "./pages/Process";
-import { ContentPage } from "./pages/content/Content";
+import { MascotPage } from "./pages/content/MascotPage";
 import { TracksPage } from "./pages/content/TracksPage";
 import { CharactersPage } from "./pages/content/CharactersPage";
 import { ItemsPage } from "./pages/content/ItemsPage";
@@ -22,7 +20,7 @@ import NoPage from "./pages/NoPage";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
-
+import AuthenticationPage from "./pages/Authentication";
 export interface AccountSchema {
   pid: string;
   username: string;
@@ -72,15 +70,12 @@ function App() {
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route
             path="/login"
-            element={<LoginPage setAccount={setAccount} />}
+            element={<AuthenticationPage setAccount={setAccount} />}
           />
-          <Route
-            path="/signup"
-            element={<SignupPage setAccount={setAccount} />}
-          />
+
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/process" element={<ProcessPage />} />
-          <Route path="/content" element={<ContentPage />} />
+          <Route path="/mascot" element={<MascotPage />} />
           <Route
             path="/home"
             element={<HomePage setCurrentPage={setCurrentPage} />}

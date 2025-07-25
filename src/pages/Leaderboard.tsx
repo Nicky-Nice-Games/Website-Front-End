@@ -24,7 +24,7 @@ const LeaderboardPage = () => {
               src=" images/leaderboard-header.png"
               className="flex justify-self-center w-[100%] md:w-[45%] 2xl:w-[35%] pt-8 mb-[1rem]"
             ></img>
-            <h2 className="text-black text-[18px] pb-[2rem] font-semibold">
+            <h2 className="text-body pb-[2rem]">
               Click a map to view its leaderboard!
             </h2>
           </div>
@@ -51,8 +51,7 @@ const LeaderboardPage = () => {
           className="absolute left-[11%] top-34 md:top-25 px-4 sm:px-7"
           direction="left"
         />
-        <h1 className="bebas text-black italic mx-10 text-5xl">Leaderboard</h1>
-        <h2 className="text-xl mb-2 font-semibold">{mapName}</h2>
+        <h2 className="mb-2 text-header2">{mapName}</h2>
         <LeaderboardTable mapId={mapId} />
       </div>
     </div>
@@ -73,9 +72,9 @@ const MapSelect = ({
       {tracks.map((t) => {
         return (
           <div className="2xl:mx-[2rem] md:mx-[8rem] mb-10">
-            <h1 className="w-fit text-lg text-white font-semibold bg-gradient-to-r from-[#F66624] to-[#D84B3A] m-auto p-[5px] mb-2 px-3 py-1 rounded-lg g">
+            <h3 className="w-fit poppins font-bold text-[18px] text-white bg-gradient-to-r from-[#F66624] to-[#D84B3A] m-auto p-[5px] mb-2 px-3 py-1 rounded-lg g">
               {t.name}
-            </h1>
+            </h3>
             <button
               onClick={() => {
                 setMapId(tracks.indexOf(t) + 1); // Add to the index, as the map id starts with 1 in backend
@@ -115,7 +114,7 @@ const LeaderboardTable = ({ mapId }: { mapId: number }) => {
     });
   }, []);
 
-  if (leaderboardData.length == 0) return <p>No data found!</p>;
+  if (leaderboardData.length == 0) return <p className="text-body">No data found!</p>;
 
   return <DataTable columns={columns} data={leaderboardData} />;
 };
