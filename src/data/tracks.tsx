@@ -15,7 +15,8 @@ export const tracks: Track[] = [
     background: `bg-[url(images/tracks/campus-circuit.png)]`,
     name: "Campus Circuit",
     description:
-      "This Outer Loop is around RIT campus, you may have driven around here as if you drive on campus this loops is used very often, if you are ready to finally be able to ignore the stop signs and be ready to rev your engine and speed.",
+      `This Outer Loop is around RIT campus, you may have driven around here as if you drive on campus this loops is used very often,
+       if you are ready to finally be able to ignore the stop signs and be ready to rev your engine and speed.`,
     devDescription: (
       <div className="flex flex-col-reverse md:flex-row">
         <img
